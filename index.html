@@ -31,13 +31,13 @@ body {
 ">
 
     <!-- 背面 -->
-    <img src="back.jpg" id="back" style="
-      position:absolute;
-      width:100%;
-      backface-visibility:hidden;
-      animation: breathe 2.5s ease-in-out infinite;
-      filter: drop-shadow(0 0 10px rgba(255,255,200,0.25));
-    ">
+    <img src="back.jpg" draggable="false" style="
+  position:absolute;
+  width:100%;
+  backface-visibility:hidden;
+  animation: breathe 2.5s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px rgba(255,255,200,0.25));
+">
 
     <!-- 正面 -->
     <div id="front" style="
@@ -48,7 +48,7 @@ body {
   backface-visibility:hidden;
 ">
 
-  <img id="front-img" style="
+  <img id="front-img" draggable="false" style="
     width:100%;
     display:block;
     filter: drop-shadow(0 0 20px rgba(255,255,200,0.4));
@@ -87,6 +87,11 @@ body {
   0% { transform: scale(1); }
   50% { transform: scale(1.04); }
   100% { transform: scale(1); }
+}
+  img {
+  -webkit-user-drag: none;
+  user-select: none;
+  -webkit-touch-callout: none;
 }
 </style>
 
@@ -254,6 +259,10 @@ setTimeout(function() {
   document.getElementById("card-container").style.transform = "rotateY(180deg)";
 
 }, 1200);
+
+document.addEventListener("contextmenu", function(e) {
+  e.preventDefault();
+});
 </script>
 
 </body>
