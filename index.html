@@ -61,10 +61,15 @@ body {
   font-family: serif;
   text-shadow: 0 0 6px rgba(255,255,200,0.25);
 ">
-    <h2 id="title" style="
-  margin:10px 0 6px;
-  letter-spacing:2px;
-  font-size:18px;
+   <h2 id="title" style="
+  margin:12px 0 6px;
+  font-size:20px;
+  letter-spacing:3px;
+  color:#f8f1d4;
+  text-shadow:
+    0 0 6px rgba(255, 240, 180, 0.5),
+    0 0 12px rgba(255, 240, 180, 0.2);
+  animation: titleGlow 3s ease-in-out infinite;
 "></h2>
     <p id="meaning" style="
   font-size:16px;
@@ -84,19 +89,27 @@ body {
   </div>
 
 </div>
-
 <style>
 @keyframes breathe {
   0% { transform: scale(1); }
   50% { transform: scale(1.04); }
   100% { transform: scale(1); }
 }
-  img {
+
+/* 👇 把这个加在这里 */
+@keyframes titleGlow {
+  0% { text-shadow: 0 0 6px rgba(255,240,180,0.4); }
+  50% { text-shadow: 0 0 12px rgba(255,240,180,0.7); }
+  100% { text-shadow: 0 0 6px rgba(255,240,180,0.4); }
+}
+
+img {
   -webkit-user-drag: none;
   user-select: none;
   -webkit-touch-callout: none;
 }
 </style>
+
 
 <script>
 var cards = [
