@@ -5,14 +5,20 @@
 <title>Draw a Card</title>
 </head>
 
-<body style="
-background:#0B0F14;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
-margin:0;
-">
+<style>
+body {
+  background:#0B0F14;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  margin:0;
+  padding-top:40px;
+}
+</style>
+
+<body>
+
 
 <div style="perspective:1000px;">
 
@@ -49,13 +55,23 @@ margin:0;
   ">
 
   <div id="text" style="
-    padding:12px;
-    text-align:center;
-    color:#f5e6c8;
-    font-family: serif;
-  ">
-    <h2 id="title"></h2>
-    <p id="meaning"></p>
+  padding:14px 16px 18px;
+  text-align:center;
+  color:#f5e6c8;
+  font-family: serif;
+  text-shadow: 0 0 6px rgba(255,255,200,0.25);
+">
+    <h2 id="title" style="
+  margin:10px 0 6px;
+  letter-spacing:2px;
+  font-size:18px;
+"></h2>
+    <p id="meaning" style="
+  font-size:14px;
+  line-height:1.6;
+  max-width:260px;
+  margin:0 auto;
+"></p>
   </div>
 
 </div>
