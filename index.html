@@ -98,7 +98,107 @@ var cards = [
 "card36.jpg"
 ];
 
+var titles = {};
 
+titles["card1.jpg"] = "騎士";
+titles["card2.jpg"] = "四葉草";
+titles["card3.jpg"] = "船";
+titles["card4.jpg"] = "房屋";
+
+titles["card5-1.jpg"] = "世間之樹";
+titles["card5-2.jpg"] = "精神之樹";
+
+titles["card6.jpg"] = "雲";
+titles["card7.jpg"] = "蛇";
+titles["card8.jpg"] = "棺材";
+titles["card9.jpg"] = "花束";
+titles["card10.jpg"] = "鐮刀";
+titles["card11.jpg"] = "鞭子";
+titles["card12.jpg"] = "鳥";
+
+titles["card13-1.jpg"] = "i人小孩";
+titles["card13-2.jpg"] = "e人小孩";
+
+titles["card14.jpg"] = "狐狸";
+titles["card15.jpg"] = "熊";
+titles["card16.jpg"] = "星星";
+titles["card17.jpg"] = "鸛鳥";
+titles["card18.jpg"] = "狗";
+titles["card19.jpg"] = "塔";
+titles["card20.jpg"] = "花園";
+titles["card21.jpg"] = "山";
+titles["card22.jpg"] = "十字路口";
+titles["card23.jpg"] = "老鼠";
+
+titles["card24-1.jpg"] = "燃燒之心";
+titles["card24-2.jpg"] = "靈魂之心";
+titles["card24-3.jpg"] = "歲月之心";
+
+titles["card25.jpg"] = "戒指";
+titles["card26.jpg"] = "書本";
+titles["card27.jpg"] = "信件";
+titles["card28.jpg"] = "男人";
+titles["card29.jpg"] = "女人";
+titles["card30.jpg"] = "百合花";
+titles["card31.jpg"] = "太陽";
+titles["card32.jpg"] = "月亮";
+titles["card33.jpg"] = "鑰匙";
+titles["card34.jpg"] = "魚";
+titles["card35.jpg"] = "船錨";
+titles["card36.jpg"] = "十字架";
+
+  var meanings = {};
+
+meanings["card1.jpg"] = "兔子騎士帶著同伴與搭順風車的小烏龜準備出發！騎在鱷魚大哥的背上，目標很快抵達";
+meanings["card2.jpg"] = "街道的石磚縫裡，長了一株四葉草。搖曳著長裙的女士，拄著拐杖的紳士匆匆走過，似乎都沒有人為它投注目光————噓，那隻三花貓發現它了！";
+meanings["card3.jpg"] = "人們過去要搭船才能到達海外，现在多了飛機，未来可能还會有宇宙飛梭！再到更久遠的未来————嘿，說不定有一天我们打开門就能去到任何想去的地方了。你說是不是？";
+meanings["card4.jpg"] = "門關著，燈亮著。這裡是可以停留的地方。";
+
+meanings["card5-1.jpg"] = "你正扎根於現世之中。每一天都在讓你更穩固。";
+meanings["card5-2.jpg"] = "有些成長發生在看不見的地方。靈魂正在緩慢伸展。";
+
+meanings["card6.jpg"] = "雲遮住了視線，但光還在那裡。現在只是暫時看不清。";
+meanings["card7.jpg"] = "有些東西不是表面看起來的樣子。需要繞一點路才能理解。";
+meanings["card8.jpg"] = "某些事情正在結束。不是失去，而是轉變。";
+meanings["card9.jpg"] = "花被送到你面前。那是一份溫柔的回應。";
+meanings["card10.jpg"] = "事情來得很快。你可能需要立刻做決定。";
+meanings["card11.jpg"] = "有些情緒正在累積。也許需要釋放。";
+meanings["card12.jpg"] = "聲音很多，訊息交錯。注意真正重要的那一句。";
+
+meanings["card13-1.jpg"] = "i人小孩靜靜觀察著世界。感受比行動更早發生。";
+meanings["card13-2.jpg"] = "e人小孩向外伸出手。世界也回應了他。";
+
+meanings["card14.jpg"] = "有些事情需要精明一點。並不是所有人都如表面。";
+meanings["card15.jpg"] = "力量在你身邊。也許你比自己想的更穩。";
+meanings["card16.jpg"] = "星星亮著。方向其實一直都在。";
+meanings["card17.jpg"] = "有東西正在移動。變化已經開始。";
+meanings["card18.jpg"] = "有人站在你這邊。那是一種安靜的支持。";
+meanings["card19.jpg"] = "距離讓一切變得清楚。也可能讓人孤單。";
+meanings["card20.jpg"] = "人群之中，有某個位置是屬於你的。";
+meanings["card21.jpg"] = "前方有阻礙，但不是無法越過。";
+meanings["card22.jpg"] = "路分開了。選擇正在等你。";
+meanings["card23.jpg"] = "有些東西正在慢慢消耗。注意那些細小的流失。";
+
+meanings["card24-1.jpg"] = "這顆心在燃燒。愛與渴望都很真實。";
+meanings["card24-2.jpg"] = "這顆心像星空一樣安靜。它知道自己來自哪裡。";
+meanings["card24-3.jpg"] = "這顆心在生活裡跳動。日常之中，也有深意。";
+
+meanings["card25.jpg"] = "某種連結正在形成。可能是一段關係或一個承諾。";
+meanings["card26.jpg"] = "有些事情還沒有被打開。它在等待被看見。";
+meanings["card27.jpg"] = "訊息正在傳遞。留意那些被送來的內容。";
+meanings["card28.jpg"] = "一個行動中的人。主動權在這裡。";
+meanings["card29.jpg"] = "一個感受中的人。直覺在這裡。";
+meanings["card30.jpg"] = "成熟與溫柔同時存在。這是一種安定的狀態。";
+meanings["card31.jpg"] = "光照進來了。一切變得清晰。";
+meanings["card32.jpg"] = "情緒與直覺被放大。感受變得更敏感。";
+meanings["card33.jpg"] = "某個答案已經在手中。你可以打開它。";
+meanings["card34.jpg"] = "流動正在發生。資源與情緒都在移動。";
+meanings["card35.jpg"] = "有東西正在固定下來。那是一種長期的穩定。";
+meanings["card36.jpg"] = "某個重量正在顯現。這是一段需要面對的時刻。";
+
+
+
+  
 var random = Math.floor(Math.random() * cards.length);
 
 // 设置正面牌
