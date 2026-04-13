@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body style="background:#0B0F14; color:white; text-align:center;">
+
+<h2 style="margin-top:100px;">...</h2>
+
+<img id="card" width="300">
+
+<script>
+var cards = [
+"card1.jpg",
+"card2.jpg",
+"card3.jpg"
+];
+
+var random = Math.floor(Math.random() * cards.length);
+document.getElementById("card").src = cards[random];
+</script>
+
+</body>
+</html>
