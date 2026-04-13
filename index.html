@@ -333,16 +333,26 @@ document.getElementById("front").addEventListener("click", function() {
   var meaningEl = document.getElementById("meaning");
 
   if (showingMeaning) {
-    meaningEl.innerHTML = traditional[card] || "（尚未補充）";
-    meaningEl.style.opacity = "0.8";   // 
-  } else {
-    meaningEl.innerHTML = meanings[card];
-    meaningEl.style.opacity = "1";     // 
-  }
+  meaningEl.innerHTML = traditional[card] || "（尚未補充）";
 
-  showingMeaning = !showingMeaning;
+  meaningEl.style.opacity = "1";
 
-});
+  
+  meaningEl.style.color = "#ffe7a3";
+  meaningEl.style.textShadow = `
+    0 0 6px rgba(255,220,120,0.6),
+    0 0 14px rgba(255,200,80,0.4)
+  `;
+
+} else {
+  meaningEl.innerHTML = meanings[card];
+
+  meaningEl.style.opacity = "1";
+
+  
+  meaningEl.style.color = "#f5e9cc";
+  meaningEl.style.textShadow = "0 0 8px rgba(255,240,180,0.28)";
+}
 
 </script>
 
