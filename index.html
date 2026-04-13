@@ -8,8 +8,9 @@
 <body style="background:#0B0F14; color:#EAEAEA; text-align:center; font-family:serif;">
 
 <div style="margin-top:100px;">
-  <p style="opacity:0.6;">it appears</p>
-  <img id="card" width="300">
+
+<img id="card" width="300" src="back.jpg" 
+style="transform: rotateY(0deg); transition: transform 1s ease;">
 </div>
 
 <script>
@@ -57,7 +58,25 @@ var cards = [
 ];
 
 var random = Math.floor(Math.random() * cards.length);
-document.getElementById("card").src = cards[random];
+var img = document.getElementById("card");
+
+// 先等一下（让用户看到牌背）
+setTimeout(function() {
+
+  // 开始翻（转到侧面）
+  img.style.transform = "rotateY(90deg)";
+
+  setTimeout(function() {
+
+    // 换成随机牌
+    img.src = cards[random];
+
+    // 再翻回来（正面出现）
+    img.style.transform = "rotateY(0deg)";
+
+  }, 400);
+
+}, 500);
 </script>
 
 </body>
