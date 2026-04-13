@@ -1,19 +1,66 @@
 <!DOCTYPE html>
 <html>
-<body style="background:#0B0F14; color:white; text-align:center;">
+<head>
+<meta charset="UTF-8">
+<title>Draw a Card</title>
+</head>
 
-<h2 style="margin-top:100px;">...</h2>
+<body style="background:#0B0F14; color:#EAEAEA; text-align:center; font-family:serif;">
 
-<img id="card" width="300">
+<div style="margin-top:100px;">
+  <p style="opacity:0.6;">it appears</p>
+  <img id="card" width="300">
+</div>
 
 <script>
-var cards = [
+var cards = [];
 "card1.jpg",
 "card2.jpg",
-"card3.jpg"
-];
+"card3.jpg",
+"card4.jpg",
+"card5-1.jpg",
+"card5-2.jpg",
+"card6.jpg",
+"card7.jpg",
+"card8.jpg",
+"card9.jpg",
+"card10.jpg",
+"card11.jpg",
+"card12.jpg",
+"card13-1.jpg",
+"card13-2.jpg",
+"card14.jpg",
+"card15.jpg",
+"card16.jpg",
+"card17.jpg",
+"card18.jpg",
+"card19.jpg",
+"card20.jpg",
+"card21.jpg",
+"card22.jpg",
+"card23.jpg",
+"card24-1.jpg",
+"card24-2.jpg",
+"card24-3.jpg",
+"card25.jpg",
+"card26.jpg",
+"card27.jpg",
+"card28.jpg",
+"card29.jpg",
+"card30.jpg",
+"card31.jpg",
+"card32.jpg",
+"card33.jpg",
+"card34.jpg",
+"card35.jpg",
+"card36.jpg",
+
+for (var i = 1; i <= 40; i++) {
+  cards.push("card" + i + ".jpg");
+}
 
 var random = Math.floor(Math.random() * cards.length);
+
 document.getElementById("card").src = cards[random];
 </script>
 
