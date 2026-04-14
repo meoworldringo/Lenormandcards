@@ -12,6 +12,8 @@ body {
   flex-direction:column;   
   align-items:center;
   margin:0;
+  position: relative;   
+  z-index: 1;        
 }
 </style>
 
@@ -198,6 +200,32 @@ img {
   -webkit-user-drag: none;
   user-select: none;
   -webkit-touch-callout: none;
+}
+  /* 🌲 森林暗影 */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  background:
+    radial-gradient(circle at 15% 30%, rgba(120,160,120,0.12), transparent 40%),
+    radial-gradient(circle at 85% 70%, rgba(160,180,120,0.08), transparent 45%),
+    radial-gradient(circle at 50% 100%, rgba(80,120,90,0.06), transparent 50%);
+
+  filter: blur(30px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 🌲 边缘压暗 */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  background: radial-gradient(circle at center, transparent 60%, rgba(0,0,0,0.4));
+  pointer-events: none;
+  z-index: 0;
 }
 </style>
 
