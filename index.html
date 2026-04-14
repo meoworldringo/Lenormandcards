@@ -635,7 +635,15 @@ document.getElementById("meaning").innerHTML = meanings[card];
 
 }, 50);   
 
-   
+// 换内容
+    document.getElementById("front-img").src = currentCard;
+document.getElementById("title").innerText = titles[currentCard];
+document.getElementById("meaning").innerHTML = meanings[currentCard];
+
+    // 再翻开
+    document.getElementById("card-container").style.transform = "rotateY(180deg)";
+
+  }, 400);
 
 });
 </script>
