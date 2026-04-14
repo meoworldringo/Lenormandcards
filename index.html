@@ -171,7 +171,29 @@ body {
   </div>
 
 </div>
+<div style="margin-top:40px; margin-bottom:40px;">
 
+  <button id="drawBtn" style="
+    padding:12px 28px;
+    font-size:15px;
+    letter-spacing:2px;
+    color:#f3efd9;
+    background: rgba(20,30,20,0.6);
+    border:1px solid rgba(255,220,140,0.4);
+    border-radius:999px;
+    cursor:pointer;
+
+    text-shadow: 0 0 6px rgba(255,240,180,0.4);
+    box-shadow:
+      0 0 10px rgba(255,220,140,0.15),
+      inset 0 0 8px rgba(255,220,140,0.1);
+
+    transition: all 0.3s ease;
+  ">
+    再抽一张
+  </button>
+
+</div>
 </body>
 
 <style>
@@ -213,6 +235,17 @@ filter: blur(1px);
 .fireflies span:nth-child(14) { left:10%; top:35%; animation-delay: 2.8s; }
 .fireflies span:nth-child(15) { left:18%; top:20%; animation-delay: 4.2s; }
 
+#drawBtn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 18px rgba(255,220,140,0.35),
+    inset 0 0 12px rgba(255,220,140,0.2);
+}
+
+#drawBtn:active {
+  transform: scale(0.96);
+}
+  
 @keyframes float {
   0% {
     transform: translateY(0) scale(0.8);
@@ -519,7 +552,29 @@ for (let i = 0; i < 15; i++) {
   const f = document.createElement("span");
   fireflyContainer.appendChild(f);
 }
+// 🎴 再抽一张按钮
+document.getElementById("drawBtn").addEventListener("click", function() {
 
+  var newCard = cards[Math.floor(Math.random() * cards.length)];
+
+  showingMeaning = true;
+
+  // 翻回背面
+  document.getElementById("card-container").style.transform = "rotateY(0deg)";
+
+  setTimeout(function() {
+
+    // 换内容
+    document.getElementById("front-img").src = newCard;
+    document.getElementById("title").innerText = titles[newCard];
+    document.getElementById("meaning").innerHTML = meanings[newCard];
+
+    // 再翻开
+    document.getElementById("card-container").style.transform = "rotateY(180deg)";
+
+  }, 400);
+
+});
 </script>
 
 </body>
