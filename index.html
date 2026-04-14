@@ -22,99 +22,89 @@ body {
 <div style="
   display:flex;
   justify-content:center;
-  align-items:center;   
-  gap:40px;             
-  margin-top:40px;
+  align-items:center;
+  gap:40px;
+  min-height:100vh;
 ">
 
+  <!-- 卡牌 -->
   <div style="perspective:1000px;">
-    ...
+
+    <div id="card-container" style="
+      width:300px;
+      height:450px;
+      transform-style: preserve-3d;
+      transition: transform 1s ease;
+    ">
+
+      <!-- 背面 -->
+      <img id="back" src="back.jpg" draggable="false" style="
+        position:absolute;
+        width:100%;
+        backface-visibility:hidden;
+        animation: breathe 2.5s ease-in-out infinite;
+        filter: drop-shadow(0 0 10px rgba(255,255,200,0.25));
+      ">
+
+      <!-- 正面 -->
+      <div id="front" style="
+        position:absolute;
+        width:100%;
+        height:100%;
+        transform: rotateY(180deg);
+        backface-visibility:hidden;
+      ">
+
+        <img id="front-img" draggable="false" style="
+          width:100%;
+          height:100%;
+          object-fit: cover;
+          display:block;
+          filter: drop-shadow(0 0 20px rgba(255,255,200,0.4));
+        ">
+
+      </div>
+
+    </div>
+
   </div>
 
-
-  <div id="text">...</div>
-
-</div>
-
-
-
-  <div id="card-container" style="
-  width:300px;
-  height:450px;   
-  margin:auto;
-  transform-style: preserve-3d;
-  transition: transform 1s ease;
-">
-
-    <!-- 背面 -->
-    <img id="back" src="back.jpg" draggable="false" style="
-  position:absolute;
-  width:100%;
-  backface-visibility:hidden;
-  animation: breathe 2.5s ease-in-out infinite;
-  filter: drop-shadow(0 0 10px rgba(255,255,200,0.25));
-">
-
-    <!-- 正面 -->
-    <div id="front" style="
-  position:absolute;
-  width:100%;
-  height:100%;
-  transform: rotateY(180deg);
-  backface-visibility:hidden;
-">
-
-  <img id="front-img" draggable="false" style="
-    width:100%;
-    height:100%;
-    object-fit: cover;
-    display:block;
-    filter: drop-shadow(0 0 20px rgba(255,255,200,0.4));
+  <!-- 文字 -->
+  <div id="text" style="
+    max-width:420px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    text-align:center;   
+    color:#f5e6c8;
+    font-family: serif;
+    text-shadow: 0 0 6px rgba(255,255,200,0.25);
   ">
 
-</div>
+    <h2 id="title" style="
+      margin:0 0 12px;
+      font-size:20px;
+      letter-spacing:3px;
+      color:#f8f1d4;
+      text-shadow:
+        0 0 6px rgba(255, 240, 180, 0.5),
+        0 0 12px rgba(255, 240, 180, 0.2);
+      animation: titleGlow 3s ease-in-out infinite;
+    "></h2>
 
-  
+    <p id="meaning" style="
+      font-size:16.5px;
+      line-height:1.6;
+      color:#f5e9cc;
+      letter-spacing:0.5px;
+      text-shadow: 0 0 8px rgba(255,240,180,0.28);
+    "></p>
 
-</div>
   </div>
 
 </div>
 
- <div id="text" style="
-  text-align:left;
-  max-width:420px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  color:#f5e6c8;
-  font-family: serif;
-  text-shadow: 0 0 6px rgba(255,255,200,0.25);
-">
-
-  <h2 id="title" style="
-    margin:0 0 10px;
-    font-size:20px;
-    letter-spacing:3px;
-    color:#f8f1d4;
-    text-shadow:
-      0 0 6px rgba(255, 240, 180, 0.5),
-      0 0 12px rgba(255, 240, 180, 0.2);
-    animation: titleGlow 3s ease-in-out infinite;
-  "></h2>
-
-  <p id="meaning" style="
-    font-size:16.5px;
-    line-height:1.5;
-    width:100%;
-max-width:420px;
-line-height:1.6;
-    margin:12px auto 0;
-    color:#f5e9cc;   
-    letter-spacing:0.5px;
-    text-shadow: 0 0 8px rgba(255,240,180,0.28);
-    text-align:center;
-  "></p>
+</body>
 
 </div> 
 <style>
