@@ -209,6 +209,9 @@ filter: blur(1px);
 .fireflies span:nth-child(10) { left:40%; top:85%; animation-delay: 1.5s; }
 .fireflies span:nth-child(11) { left:75%; top:20%; animation-delay: 3.5s; }
 .fireflies span:nth-child(12) { left:55%; top:65%; animation-delay: 4.5s; }
+.fireflies span:nth-child(13) { left:6%;  top:55%; animation-delay: 1.2s; }
+.fireflies span:nth-child(14) { left:10%; top:35%; animation-delay: 2.8s; }
+.fireflies span:nth-child(15) { left:18%; top:20%; animation-delay: 4.2s; }
 
 @keyframes float {
   0% {
@@ -512,7 +515,7 @@ meaningEl.style.textShadow = "0 0 8px rgba(255,240,180,0.28)";
   // ✨ 生成萤火虫
 const fireflyContainer = document.querySelector(".fireflies");
 
-for (let i = 0; i < 12; i++) {
+for (let i = 0; i < 15; i++) {
   const f = document.createElement("span");
   fireflyContainer.appendChild(f);
 }
