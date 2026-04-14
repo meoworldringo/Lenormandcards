@@ -7,14 +7,17 @@
 
 <style>
 body {
-  background:#0B0F14;
+  background: url("forest.jpg") center/cover no-repeat fixed;
+  background-color:#0B0F14;
+
   display:flex;
   flex-direction:column;   
   align-items:center;
   margin:0;
   position: relative;   
-  z-index: 1;        
+  z-index: 1;          
 }
+  
 </style>
 
   <body>
@@ -196,30 +199,13 @@ body {
       0 0 14px rgba(255,200,80,0.4);
   }
 }
-
-/* 🌲🌲🌲 森林暗影（保证能看到版） */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-
-  background:
-    radial-gradient(circle at 10% 20%, rgba(120,160,120,0.25), transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(160,180,120,0.18), transparent 45%);
-
-  filter: blur(40px);
+  background: rgba(5,10,15,0.65);
   pointer-events: none;
-  z-index: -1; 
-}
-
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-
-  background: radial-gradient(circle at center, transparent 60%, rgba(0,0,0,0.5));
-  pointer-events: none;
-  z-index: -1; /* 
+  z-index: -1;
 }
 
 img {
