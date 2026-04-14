@@ -178,19 +178,24 @@ body {
     font-size:15px;
     letter-spacing:2px;
     color:#f3efd9;
-    background: rgba(20,30,20,0.6);
-    border:1px solid rgba(255,220,140,0.4);
-    border-radius:999px;
-    cursor:pointer;
+    background: linear-gradient(
+  to bottom,
+  #f6e7b2 0%,
+  #e4c46a 40%,
+  #cfa63a 100%
+);
 
-    text-shadow: 0 0 6px rgba(255,240,180,0.4);
-    box-shadow:
-      0 0 10px rgba(255,220,140,0.15),
-      inset 0 0 8px rgba(255,220,140,0.1);
+border: 1px solid rgba(255,230,150,0.6);
+
+box-shadow:
+  0 4px 12px rgba(0,0,0,0.4),
+  0 0 12px rgba(255,215,120,0.25),
+  inset 0 1px 2px rgba(255,255,255,0.4),
+  inset 0 -2px 6px rgba(120,90,20,0.5);
 
     transition: all 0.3s ease;
   ">
-    再抽一张
+    再抽一次
   </button>
 
 </div>
@@ -237,9 +242,19 @@ filter: blur(1px);
 
 #drawBtn:hover {
   transform: translateY(-2px);
+
+  background: linear-gradient(
+    to bottom,
+    #fff2c9 0%,
+    #f1d77a 40%,
+    #d4af37 100%
+  );
+
   box-shadow:
-    0 0 18px rgba(255,220,140,0.35),
-    inset 0 0 12px rgba(255,220,140,0.2);
+    0 6px 18px rgba(0,0,0,0.5),
+    0 0 20px rgba(255,220,140,0.5),
+    inset 0 1px 3px rgba(255,255,255,0.6),
+    inset 0 -3px 8px rgba(120,90,20,0.6);
 }
 
 #drawBtn:active {
@@ -552,7 +567,7 @@ for (let i = 0; i < 15; i++) {
   const f = document.createElement("span");
   fireflyContainer.appendChild(f);
 }
-// 🎴 再抽一张按钮
+// 🎴 再抽一次按鈕
 document.getElementById("drawBtn").addEventListener("click", function() {
 
   var newCard = cards[Math.floor(Math.random() * cards.length)];
