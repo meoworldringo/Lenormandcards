@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Draw a Card</title>
+</head>
+
+<style>
+body {
+  background: url("forest.jpg") center/cover no-repeat fixed;
+  background-color:#0B0F14;
+
+  display:flex;
+  flex-direction:column;   
+  align-items:center;
+  margin:0;
+  position: relative;   
+  z-index: 1;          
+}
+  
+</style>
+
+  <body>
+
+<div class="fireflies"></div>
+
+<div id="header" style="
+  text-align:center;
+  margin-top:18px;
+  margin-bottom:28px;
+  position:relative;
+  display:inline-block;
+  padding:10px 22px;
+">
+
+  <!-- 🌿 极细边框 -->
+  <div style="
+    position:absolute;
+    inset:0;
+    border:1px solid rgba(255,220,140,0.35);
+    box-shadow: 0 0 12px rgba(255,220,140,0.15);
+    border-radius:10px;
+    pointer-events:none;
+  "></div>
+
+  <!-- 🌿 上下装饰线 -->
+  <div style="
+    position:absolute;
+    top:0;
+    left:20%;
+    width:60%;
+    height:1px;
+    background:linear-gradient(to right, transparent, rgba(170,210,160,0.5), transparent);
+  "></div>
+
+  <div style="
+    position:absolute;
+    bottom:0;
+    left:20%;
+    width:60%;
+    height:1px;
+    background:linear-gradient(to right, transparent, rgba(170,210,160,0.5), transparent);
+  "></div>
+
+  <!-- 🌿 主标题（缩小！） -->
+  <div style="
+    font-size:24px;             
+    letter-spacing:3px;
+    color:#f3efd9;
+    font-family: serif;
+    text-shadow: 0 0 6px rgba(200,230,180,0.25);
+  ">
+    秘密のバザール・ルノルマン
+  </div>
+
+  <!-- 🌿 副标题 -->
+  <div style="
+    font-size:13px;
+    letter-spacing:1.5px;
+    margin-top:4px;
+    color:#cfc7a8;
+    opacity:0.8;
+  ">
+    Secret Bazaar Lenormand ・ ，秘密集市雷諾曼
+  </div>
+
+</div>
+
+<div style="
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:40px;
+  margin-top:10px;   
+">
+
+  <!-- 卡牌 -->
+  <div style="perspective:1000px;">
+
+    <div id="card-container" style="
+      width:300px;
+      height:450px;
+      transform-style: preserve-3d;
+      transition: transform 1s ease;
+    ">
+
+      <!-- 背面 -->
+      <img id="back" src="back.jpg" draggable="false" style="
+        position:absolute;
+        width:100%;
+        backface-visibility:hidden;
+        animation: breathe 2.5s ease-in-out infinite;
+        filter: drop-shadow(0 0 10px rgba(255,255,200,0.25));
+      ">
+
+      <!-- 正面 -->
+      <div id="front" style="
+        position:absolute;
+        width:100%;
+        height:100%;
+        transform: rotateY(180deg);
+        backface-visibility:hidden;
+      ">
+
+        <img id="front-img" draggable="false" style="
+          width:100%;
+          height:100%;
+          object-fit: cover;
+          display:block;
+          filter: drop-shadow(0 0 20px rgba(255,255,200,0.4));
+        ">
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- 文字 -->
+  <div id="text" style="
+  width:420px;             
+  flex-shrink:0;            
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  text-align:center;
+  color:#f5e6c8;
+  font-family: serif;
+  text-shadow: 0 0 6px rgba(255,255,200,0.25);
+">
+
+    <h2 id="title" style="
+      margin:0 0 12px;
+      font-size:24px;
+      letter-spacing:3px;
+      color:#f8f1d4;
+      text-shadow:
+        0 0 6px rgba(255, 240, 180, 0.5),
+        0 0 12px rgba(255, 240, 180, 0.2);
+      animation: titleGlow 3s ease-in-out infinite;
+    "></h2>
+
+    <p id="meaning" style="
+      font-size:17.5px;
+      line-height:1.6;
+      color:#f5e9cc;
+      letter-spacing:0.5px;
+      text-shadow: 0 0 8px rgba(255,240,180,0.28);
+    "></p>
+
+  </div>
+
+</div>
+<div style="margin-top:40px; margin-bottom:40px;">
+
+<button id="drawBtn" style="
+  padding:12px 26px;
+  font-size:15px;
+  letter-spacing:2px;
+
+  color:#f5e9cc;
+
+  background: transparent;
+  border:1px solid rgba(255,230,150,0.4);
+  border-radius:999px;
+
+  text-shadow: 0 0 6px rgba(255,220,120,0.2);
+
+  cursor:pointer;
+">
+もう一度引く
+</button>
+</div>
+</body>
+
+<style>
+
+  /* ✨✨✨ 萤火虫 ✨✨✨ */
+
+.fireflies {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.fireflies span {
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  background: radial-gradient(circle, rgba(255,220,120,0.9) 0%, rgba(255,220,120,0) 80%);
+filter: blur(1px);
+  border-radius: 50%;
+  animation: float 12s linear infinite;
+  opacity: 0;
+}
+
+/* 随机位置 + 时间差（关键） */
+.fireflies span:nth-child(1) { left:10%; top:80%; animation-delay: 0s; }
+.fireflies span:nth-child(2) { left:30%; top:60%; animation-delay: 2s; }
+.fireflies span:nth-child(3) { left:50%; top:90%; animation-delay: 4s; }
+.fireflies span:nth-child(4) { left:70%; top:70%; animation-delay: 1s; }
+.fireflies span:nth-child(5) { left:85%; top:85%; animation-delay: 3s; }
+.fireflies span:nth-child(6) { left:20%; top:40%; animation-delay: 5s; }
+.fireflies span:nth-child(7) { left:60%; top:30%; animation-delay: 6s; }
+.fireflies span:nth-child(8) { left:80%; top:50%; animation-delay: 7s; }
+.fireflies span:nth-child(9)  { left:15%; top:75%; animation-delay: 2.5s; }
+.fireflies span:nth-child(10) { left:40%; top:85%; animation-delay: 1.5s; }
+.fireflies span:nth-child(11) { left:75%; top:20%; animation-delay: 3.5s; }
+.fireflies span:nth-child(12) { left:55%; top:65%; animation-delay: 4.5s; }
+.fireflies span:nth-child(13) { left:6%;  top:55%; animation-delay: 1.2s; }
+.fireflies span:nth-child(14) { left:10%; top:35%; animation-delay: 2.8s; }
+.fireflies span:nth-child(15) { left:18%; top:20%; animation-delay: 4.2s; }
+
+#drawBtn:hover {
+  transform: translateY(-2px);
+
+  background: linear-gradient(
+    to bottom,
+    #e6c878 0%,
+    #caa94a 50%,
+    #a07c2a 100%
+  );
+
+  box-shadow:
+    0 6px 18px rgba(0,0,0,0.5),
+    0 0 16px rgba(255,210,120,0.4),
+    inset 0 1px 3px rgba(255,255,255,0.3),
+    inset 0 -3px 6px rgba(90,60,10,0.5);
+}
+
+#drawBtn:active {
+  transform: scale(0.96);
+}
+  
+  
+@keyframes float {
+  0% {
+    transform: translateY(0) scale(0.8);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-60px) scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-120px) scale(0.6);
+    opacity: 0;
+  }
+}
+@keyframes breathe {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+  100% { transform: scale(1); }
+}
+
+@keyframes titleGlow {
+  0% { text-shadow: 0 0 6px rgba(255,240,180,0.4); }
+  50% { text-shadow: 0 0 12px rgba(255,240,180,0.7); }
+  100% { text-shadow: 0 0 6px rgba(255,240,180,0.4); }
+}
+
+@keyframes goldFlash {
+  0% {
+    text-shadow: 0 0 2px rgba(255,220,120,0.2);
+  }
+  50% {
+    text-shadow: 
+      0 0 14px rgba(255,220,120,0.9),
+      0 0 30px rgba(255,200,80,0.6);
+  }
+  100% {
+    text-shadow: 
+      0 0 6px rgba(255,220,120,0.6),
+      0 0 14px rgba(255,200,80,0.4);
+  }
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(5,10,15,0.65);
+  pointer-events: none;
+  z-index: -1;
+}
+
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+
+</style>
+
+
+<script>
+var cards = [
+"card1.jpg",
+"card2.jpg",
+"card3.jpg",
+"card4.jpg",
+"card5-1.jpg",
+"card5-2.jpg",
+"card6.jpg",
+"card7.jpg",
+"card8.jpg",
+"card9.jpg",
+"card10.jpg",
+"card11.jpg",
+"card12.jpg",
+"card13-1.jpg",
+"card13-2.jpg",
+"card14.jpg",
+"card15.jpg",
+"card16.jpg",
+"card17.jpg",
+"card18.jpg",
+"card19.jpg",
+"card20.jpg",
+"card21.jpg",
+"card22.jpg",
+"card23.jpg",
+"card24-1.jpg",
+"card24-2.jpg",
+"card24-3.jpg",
+"card25.jpg",
+"card26.jpg",
+"card27.jpg",
+"card28.jpg",
+"card29.jpg",
+"card30.jpg",
+"card31.jpg",
+"card32.jpg",
+"card33.jpg",
+"card34.jpg",
+"card35.jpg",
+"card36.jpg"
+];
+
+  
+var showingMeaning = true;
+var traditional = {};
+  
+var titles = {};
+
+titles["card1.jpg"] = "騎士";
+titles["card2.jpg"] = "クローバー";
+titles["card3.jpg"] = "船";
+titles["card4.jpg"] = "家";
+
+titles["card5-1.jpg"] = "現世の樹";
+titles["card5-2.jpg"] = "精神の樹";
+
+titles["card6.jpg"] = "雲";
+titles["card7.jpg"] = "蛇";
+titles["card8.jpg"] = "棺";
+titles["card9.jpg"] = "花束";
+titles["card10.jpg"] = "鎌";
+titles["card11.jpg"] = "鞭";
+titles["card12.jpg"] = "鳥";
+
+titles["card13-1.jpg"] = "内守る子";
+titles["card13-2.jpg"] = "外駆ける子";
+
+titles["card14.jpg"] = "狐";
+titles["card15.jpg"] = "熊";
+titles["card16.jpg"] = "星";
+titles["card17.jpg"] = "コウノトリ";
+titles["card18.jpg"] = "犬";
+titles["card19.jpg"] = "塔";
+titles["card20.jpg"] = "庭園";
+titles["card21.jpg"] = "山";
+titles["card22.jpg"] = "分かれ道";
+titles["card23.jpg"] = "ネズミ";
+
+titles["card24-1.jpg"] = "燃ゆる心";
+titles["card24-2.jpg"] = "星宿る心";
+titles["card24-3.jpg"] = "時を刻む心";
+
+titles["card25.jpg"] = "指輪";
+titles["card26.jpg"] = "本";
+titles["card27.jpg"] = "手紙";
+titles["card28.jpg"] = "男性";
+titles["card29.jpg"] = "女性";
+titles["card30.jpg"] = "ユリ";
+titles["card31.jpg"] = "太陽";
+titles["card32.jpg"] = "月";
+titles["card33.jpg"] = "鍵";
+titles["card34.jpg"] = "魚";
+titles["card35.jpg"] = "錨";
+titles["card36.jpg"] = "十字架";
+
+  var meanings = {};
+
+meanings["card1.jpg"] = "ウサギの騎士は仲間たちと、<br>ヒッチハイクしてきた小さなカメを連れて出発！<br>沼でも陸でも――<br>ワニの兄さん、突撃だ！";
+traditional["card1.jpg"] = "キーワード：知らせ、行動、訪れ";
+
+meanings["card2.jpg"] = "石畳の隙間に、四つ葉のクローバーが生えている。<br>人々は気づかず通り過ぎる――でも、三毛猫は見つけたよ。";
+traditional["card2.jpg"] = "キーワード：幸運、チャンス、偶然";
+
+meanings["card3.jpg"] = "昔は船、今は飛行機、未来には宇宙船もあるかも！<br>そしてもっと先の未来――<br>ねえ、いつかドアを開けたら、<br>どこへでも行ける日が来るかもね。";
+traditional["card3.jpg"] = "キーワード：旅、移動、遠方";
+
+meanings["card4.jpg"] = "家は生きている。<br>灯りの呼吸とともに、今日は安心して家で過ごそう。";
+traditional["card4.jpg"] = "キーワード：家庭、安定、基盤";
+  
+meanings["card5-1.jpg"] = "あなたは現実の世界にしっかりと根を張っている。<br>形あるものは、着実に成長している。";
+traditional["card5-1.jpg"] = "キーワード：成長、つながり、生命力";
+
+meanings["card5-2.jpg"] = "あなたの魂は潜在意識の湖に枝を広げている。<br>目に見えない変化が静かに進んでいる。";
+traditional["card5-2.jpg"] = "キーワード：内面、精神性、潜在意識";
+
+meanings["card6.jpg"] = "雲が視界を遮るが、<br>その先には晴れが待っている。";
+traditional["card6.jpg"] = "キーワード：混乱、不安、曖昧";
+
+meanings["card7.jpg"] = "蛇の尾に続くケシの花を辿って進もう。<br>遠回りの先に、行き先が見えてくる。";
+traditional["card7.jpg"] = "キーワード：誘惑、複雑、曲折";
+
+meanings["card8.jpg"] = "終わりは、始まりでもある。";
+traditional["card8.jpg"] = "キーワード：終わり、変化、停止";
+
+meanings["card9.jpg"] = "花束の美しさは永遠ではない。<br>それでも、その瞬間にこう言いたい——<br>今夜は月が綺麗ですね。";
+traditional["card9.jpg"] = "キーワード：贈り物、喜び、好意";
+
+meanings["card10.jpg"] = "豊かな収穫の前に、<br>鎌で、断捨離。";
+traditional["card10.jpg"] = "キーワード：決断、収穫、突然";
+
+meanings["card11.jpg"] = "何度も引き裂かれて、<br>ようやく真実に辿り着く。";
+traditional["card11.jpg"] = "キーワード：衝突、繰り返し、圧力";
+
+meanings["card12.jpg"] = "カラス様たちがやってきた！<br>良い知らせか、悪い知らせか、<br>それともただのおしゃべりか。<br>でも、ちょっと騒がしいかも。";
+traditional["card12.jpg"] = "キーワード：知らせ、交流、短期";
+
+meanings["card13-1.jpg"] = "内守る子は星から来た子。<br>自分の領域で、静かに世界を観ている。";
+traditional["card13-1.jpg"] = "キーワード：新しい始まり、純粋、内向性";
+
+meanings["card13-2.jpg"] = "外駆ける子の世界は、鮮やかに輝く。<br>興味のままに、すべてを探求していく。";
+traditional["card13-2.jpg"] = "キーワード：新しい始まり、活力、外向性";
+
+meanings["card14.jpg"] = "狐が微笑む。<br>どの鍵が、この扉を開けるかな？";
+traditional["card14.jpg"] = "キーワード：策略、狡猾、欺き";
+
+meanings["card15.jpg"] = "静けさの奥で、力を蓄え、<br>一撃で仕留める。";
+traditional["card15.jpg"] = "キーワード：力、権威、守護";
+
+meanings["card16.jpg"] = "星はインスピレーションの種。";
+traditional["card16.jpg"] = "キーワード：ネットワーク、希望、ひらめき";
+
+meanings["card17.jpg"] = "変化が起きている。";
+traditional["card17.jpg"] = "キーワード：変化、転換、移動";
+
+meanings["card18.jpg"] = "私たちはずっと最高の仲間だよ。笑って :)";
+traditional["card18.jpg"] = "キーワード：忠誠、友情、信頼";
+
+meanings["card19.jpg"] = "孤高の塔に花を捧げ。<br>いつか扉が開く日を祈っている。";
+traditional["card19.jpg"] = "キーワード：孤立、制度、距離";
+
+meanings["card20.jpg"] = "華やかな宴の始まり！<br>みんなで楽しもう！";
+traditional["card20.jpg"] = "キーワード：社交、人々、公";
+
+meanings["card21.jpg"] = "蛍の火で須弥山を燃やすには、覚悟が必要。";
+traditional["card21.jpg"] = "キーワード：障害、困難、遅延";
+
+meanings["card22.jpg"] = "報告！頂上まで1km、前方15mに蛇あり。<br>道は分かれ、心は最も近い道へと導く。";
+traditional["card22.jpg"] = "キーワード：選択、分岐、決断";
+
+meanings["card23.jpg"] = "甘い不安と小さな損失が、<br>暗い隅でキーキーと鳴いている。";
+traditional["card23.jpg"] = "キーワード：損失、不安、消耗";
+
+meanings["card24-1.jpg"] = "燃ゆる心。命を燃やす情熱。";
+traditional["card24-1.jpg"] = "キーワード：愛、情熱、感情";
+
+meanings["card24-2.jpg"] = "夜空のように澄んだ心。<br>理解し合える者とだけ響き合う。";
+traditional["card24-2.jpg"] = "キーワード：つながり、共鳴、魂";
+
+meanings["card24-3.jpg"] = "日々の営みに、俳句と酒と花を添えて。<br>それが私の心。";
+traditional["card24-3.jpg"] = "キーワード：関係、日常、寄り添い";
+
+meanings["card25.jpg"] = "すべての約束に、<br>鳩の平和と、ローズマリーの誠実さを。";
+traditional["card25.jpg"] = "キーワード：約束、関係、循環";
+
+meanings["card26.jpg"] = "扉の向こうの夜をひとり歩く。<br>言葉にならない想いが、まだそこにある。<br><br>かくとだに　えやは伊吹の　さしも草<br>さしも知らじな　燃ゆる思ひを";
+traditional["card26.jpg"] = "キーワード：秘密、知識、隠されたもの";
+
+meanings["card27.jpg"] = "幾夜もコーヒーを重ねて、ついに答えが届く。<br>開けてごらん。どんな結果でも、クマちゃんがそばにいる。";
+traditional["card27.jpg"] = "キーワード：知らせ、書類、通知";
+
+meanings["card28.jpg"] = "昼と夜の境目は逢魔が時。<br>このカードを見て、誰を思い浮かべている？";
+traditional["card28.jpg"] = "キーワード：男性、本人、主体";
+
+meanings["card29.jpg"] = "昼と夜の境目は逢魔が時。<br>このカードを見て、誰を思い浮かべている？";
+traditional["card29.jpg"] = "キーワード：女性、本人、主体";
+
+meanings["card30.jpg"] = "雪のように白いユリは、気高く純粋。";
+traditional["card30.jpg"] = "キーワード：成熟、平穏、親密";
+
+meanings["card31.jpg"] = "太陽が生まれる。<br>光と喜びが、世界を巡っていく。";
+traditional["card31.jpg"] = "キーワード：成功、エネルギー、喜び";
+
+meanings["card32.jpg"] = "月が地に落ちた。<br>触れられる面と、消えていく面。<br>あなたはどちらを見る？";
+traditional["card32.jpg"] = "キーワード：感情、直感、揺らぎ";
+
+meanings["card33.jpg"] = "森で迷った赤ずきんに、<br>熊がそっと鍵を差し出してくる。";
+traditional["card33.jpg"] = "キーワード：機会、答え、開く";
+
+meanings["card34.jpg"] = "魚たちが三本の斧をくわえてやってきたよ！<br>落としたのは、金？銀？それとも鉄？鉄？";
+traditional["card34.jpg"] = "キーワード：富、流れ、資源";
+
+meanings["card35.jpg"] = "岸にたどり着いた。<br>何かが定まり、長く続く安定へ。";
+traditional["card35.jpg"] = "キーワード：安定、持続、安全";
+
+meanings["card36.jpg"] = "信念は日常の中に根付く。";
+traditional["card36.jpg"] = "キーワード：運命、重荷、信念";
+
+
+
+
+  
+var random = Math.floor(Math.random() * cards.length);
+var card = cards[random];
+
+// 设置正面牌
+document.getElementById("front-img").src = card;
+document.getElementById("title").innerText = titles[card];
+document.getElementById("meaning").innerHTML = meanings[card];
+
+// 延迟翻牌
+setTimeout(function() {
+
+  // 停止呼吸
+  document.getElementById("back").style.animation = "none";
+ 
+  // 翻牌
+  document.getElementById("card-container").style.transform = "rotateY(180deg)";
+
+}, 1200);
+
+document.addEventListener("contextmenu", function(e) {
+  e.preventDefault();
+});
+
+  
+document.getElementById("meaning").addEventListener("click", function() {
+
+  var meaningEl = document.getElementById("meaning");
+
+  if (showingMeaning) {
+    meaningEl.innerHTML = traditional[card] || "（尚未補充）";
+
+    meaningEl.style.opacity = "1";
+
+    meaningEl.style.color = "#ffe7a3";
+    meaningEl.style.textShadow = `
+      0 0 6px rgba(255,220,120,0.6),
+      0 0 14px rgba(255,200,80,0.4)
+    `;
+meaningEl.style.animation = "goldFlash 0.6s ease";
+    
+  } else {
+    meaningEl.innerHTML = meanings[card];
+
+    meaningEl.style.opacity = "1";
+
+    meaningEl.style.color = "#f5e9cc";
+meaningEl.style.textShadow = "0 0 8px rgba(255,240,180,0.28)";
+  }
+
+  showingMeaning = !showingMeaning;
+
+});
+
+  // ✨ 生成萤火虫
+const fireflyContainer = document.querySelector(".fireflies");
+
+for (let i = 0; i < 15; i++) {
+  const f = document.createElement("span");
+  fireflyContainer.appendChild(f);
+}
+// 🎴 再抽一次按鈕
+document.getElementById("drawBtn").addEventListener("click", function() {
+
+  var newCard = cards[Math.floor(Math.random() * cards.length)];
+  card = newCard;
+
+  showingMeaning = true;
+
+  // 翻回背面
+  const cardEl = document.getElementById("card-container");
+
+// ❗先关掉动画
+cardEl.style.transition = "none";
+cardEl.style.transform = "rotateY(0deg)";
+
+  setTimeout(function() {
+
+    setTimeout(function() {
+
+  // ❗恢复动画
+  cardEl.style.transition = "transform 1s ease";
+
+  // 换内容
+document.getElementById("front-img").src = card;
+document.getElementById("title").innerText = titles[card];
+document.getElementById("meaning").innerHTML = meanings[card];
+
+  // 再翻开
+  cardEl.style.transform = "rotateY(180deg)";
+
+}, 50);   
+
+// 换内容
+    document.getElementById("front-img").src = currentCard;
+document.getElementById("title").innerText = titles[currentCard];
+document.getElementById("meaning").innerHTML = meanings[currentCard];
+
+    // 再翻开
+    document.getElementById("card-container").style.transform = "rotateY(180deg)";
+
+  }, 400);
+
+});
+</script>
+
+</body>
+</html>
