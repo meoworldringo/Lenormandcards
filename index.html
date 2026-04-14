@@ -31,61 +31,55 @@ body {
   position:relative;
   display:inline-block;
   padding:40px 80px;
-
-  background: url('frame.png') no-repeat center/contain;
-
-  box-shadow: 0 0 20px rgba(255,220,120,0.15);
 ">
 
-  <!-- 🌿 极细边框 -->
-  <div style="
+  <!-- 🌿 框图片 -->
+  <img src="frame.png" style="
     position:absolute;
-    inset:0;
-    border:1px solid rgba(255,220,140,0.35);
-    box-shadow: 0 0 12px rgba(255,220,140,0.15);
-    border-radius:10px;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    width:130%;        /* ⭐ 可以调这个 */
+    max-width:none;
     pointer-events:none;
-  "></div>
-
-  <!-- 🌿 上下装饰线 -->
-  <div style="
-    position:absolute;
-    top:0;
-    left:20%;
-    width:60%;
-    height:1px;
-    background:linear-gradient(to right, transparent, rgba(170,210,160,0.5), transparent);
-  "></div>
-
-  <div style="
-    position:absolute;
-    bottom:0;
-    left:20%;
-    width:60%;
-    height:1px;
-    background:linear-gradient(to right, transparent, rgba(170,210,160,0.5), transparent);
-  "></div>
-
-  <!-- 🌿 主标题（缩小！） -->
-  <div style="
-    font-size:24px;             
-    letter-spacing:3px;
-    color:#f3efd9;
-    font-family: serif;
-    text-shadow: 0 0 6px rgba(200,230,180,0.25);
+    opacity:0.9;
   ">
-    秘密集市雷諾曼
-  </div>
 
-  <!-- 🌿 副标题 -->
-  <div style="
-    font-size:13px;
-    letter-spacing:1.5px;
-    margin-top:4px;
-    color:#cfc7a8;
-    opacity:0.8;
-  ">
-    Secret Bazaar Lenormand ・ 秘密のバザール・ルノルマン
+  <!-- 🌿 原本标题内容 -->
+  <div style="position:relative; z-index:1;">
+
+    <!-- 🌿 极细边框（你原本的可以留） -->
+    <div style="
+      position:absolute;
+      inset:0;
+      border:1px solid rgba(255,220,140,0.35);
+      box-shadow: 0 0 12px rgba(255,220,140,0.15);
+      border-radius:10px;
+      pointer-events:none;
+    "></div>
+
+    <!-- 🌿 标题 -->
+    <div style="
+      font-size:24px;
+      letter-spacing:3px;
+      color:#f3efd9;
+      font-family: serif;
+      text-shadow: 0 0 6px rgba(200,230,180,0.25);
+    ">
+      秘密集市雷諾曼
+    </div>
+
+    <!-- 🌿 副标题 -->
+    <div style="
+      font-size:13px;
+      letter-spacing:1.5px;
+      margin-top:4px;
+      color:#cfc7a8;
+      opacity:0.8;
+    ">
+      Secret Bazaar Lenormand ・ 秘密のバザール・ルノルマン
+    </div>
+
   </div>
 
 </div>
