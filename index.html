@@ -175,12 +175,12 @@ body {
   100% { transform: scale(1); }
 }
 
-
 @keyframes titleGlow {
   0% { text-shadow: 0 0 6px rgba(255,240,180,0.4); }
   50% { text-shadow: 0 0 12px rgba(255,240,180,0.7); }
   100% { text-shadow: 0 0 6px rgba(255,240,180,0.4); }
 }
+
 @keyframes goldFlash {
   0% {
     text-shadow: 0 0 2px rgba(255,220,120,0.2);
@@ -196,36 +196,36 @@ body {
       0 0 14px rgba(255,200,80,0.4);
   }
 }
-img {
-  -webkit-user-drag: none;
-  user-select: none;
-  -webkit-touch-callout: none;
-}
-  /* 🌲 森林暗影 */
+
+/* 🌲🌲🌲 森林暗影（保证能看到版） */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
 
   background:
-    radial-gradient(circle at 15% 30%, rgba(120,160,120,0.12), transparent 40%),
-    radial-gradient(circle at 85% 70%, rgba(160,180,120,0.08), transparent 45%),
-    radial-gradient(circle at 50% 100%, rgba(80,120,90,0.06), transparent 50%);
+    radial-gradient(circle at 10% 20%, rgba(120,160,120,0.25), transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(160,180,120,0.18), transparent 45%);
 
-  filter: blur(30px);
+  filter: blur(40px);
   pointer-events: none;
-  z-index: 0;
+  z-index: -1; 
 }
 
-/* 🌲 边缘压暗 */
 body::after {
   content: "";
   position: fixed;
   inset: 0;
 
-  background: radial-gradient(circle at center, transparent 60%, rgba(0,0,0,0.4));
+  background: radial-gradient(circle at center, transparent 60%, rgba(0,0,0,0.5));
   pointer-events: none;
-  z-index: 0;
+  z-index: -1; /* 
+}
+
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+  -webkit-touch-callout: none;
 }
 </style>
 
