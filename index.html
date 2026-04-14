@@ -512,7 +512,9 @@ traditional["card36.jpg"] = "關鍵詞：命運、負擔、信念";
 var random = Math.floor(Math.random() * cards.length);
 
 // 设置正面牌
-var currentCard = cards[random];
+document.getElementById("front-img").src = currentCard;
+document.getElementById("title").innerText = titles[currentCard];
+document.getElementById("meaning").innerHTML = meanings[currentCard];
 
 document.getElementById("front-img").src = card;
 document.getElementById("title").innerText = titles[card];
@@ -579,9 +581,28 @@ document.getElementById("drawBtn").addEventListener("click", function() {
   showingMeaning = true;
 
   // 翻回背面
-  document.getElementById("card-container").style.transform = "rotateY(0deg)";
+  const cardEl = document.getElementById("card-container");
+
+// ❗先关掉动画
+cardEl.style.transition = "none";
+cardEl.style.transform = "rotateY(0deg)";
 
   setTimeout(function() {
+
+    setTimeout(function() {
+
+  // ❗恢复动画
+  cardEl.style.transition = "transform 1s ease";
+
+  // 换内容
+  document.getElementById("front-img").src = newCard;
+  document.getElementById("title").innerText = titles[newCard];
+  document.getElementById("meaning").innerHTML = meanings[newCard];
+
+  // 再翻开
+  cardEl.style.transform = "rotateY(180deg)";
+
+}, 50);   
 
     // 换内容
     document.getElementById("front-img").src = newCard;
