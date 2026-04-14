@@ -30,49 +30,58 @@ body {
   margin-bottom:28px;
   position:relative;
   display:inline-block;
-  padding:40px 80px;
+  padding:10px 22px;
 ">
 
-  <!-- 🌿 框图片 -->
-  <img src="frame.png" style="
+  <!-- 🌿 极细边框 -->
+  <div style="
     position:absolute;
-    top:50%;
-    left:50%;
-    transform: translate(-50%, -50%) scaleY(0.5);
-    width:140%;       
-    max-width:none;
+    inset:0;
+    border:1px solid rgba(255,220,140,0.35);
+    box-shadow: 0 0 12px rgba(255,220,140,0.15);
+    border-radius:10px;
     pointer-events:none;
-    opacity:0.9;
-    filter: drop-shadow(0 0 12px rgba(255,220,120,0.5));
+  "></div>
+
+  <!-- 🌿 上下装饰线 -->
+  <div style="
+    position:absolute;
+    top:0;
+    left:20%;
+    width:60%;
+    height:1px;
+    background:linear-gradient(to right, transparent, rgba(170,210,160,0.5), transparent);
+  "></div>
+
+  <div style="
+    position:absolute;
+    bottom:0;
+    left:20%;
+    width:60%;
+    height:1px;
+    background:linear-gradient(to right, transparent, rgba(170,210,160,0.5), transparent);
+  "></div>
+
+  <!-- 🌿 主标题（缩小！） -->
+  <div style="
+    font-size:24px;             
+    letter-spacing:3px;
+    color:#f3efd9;
+    font-family: serif;
+    text-shadow: 0 0 6px rgba(200,230,180,0.25);
   ">
+    秘密のバザール・ルノルマン
+  </div>
 
-  <!-- 🌿 原本标题内容 -->
-  <div style="position:relative; z-index:1;">
-
-    
-
-    <!-- 🌿 标题 -->
-    <div style="
-      font-size:24px;
-      letter-spacing:3px;
-      color:#f3efd9;
-      font-family: serif;
-      text-shadow: 0 0 6px rgba(200,230,180,0.25);
-    ">
-      秘密集市雷諾曼
-    </div>
-
-    <!-- 🌿 副标题 -->
-    <div style="
-      font-size:13px;
-      letter-spacing:1.5px;
-      margin-top:4px;
-      color:#cfc7a8;
-      opacity:0.8;
-    ">
-      Secret Bazaar Lenormand ・ 秘密のバザール・ルノルマン
-    </div>
-
+  <!-- 🌿 副标题 -->
+  <div style="
+    font-size:13px;
+    letter-spacing:1.5px;
+    margin-top:4px;
+    color:#cfc7a8;
+    opacity:0.8;
+  ">
+    Secret Bazaar Lenormand ・ 秘密集市雷諾曼
   </div>
 
 </div>
