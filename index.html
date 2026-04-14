@@ -22,6 +22,8 @@ body {
 
   <body>
 
+<div class="fireflies"></div>
+
 <div id="header" style="
   text-align:center;
   margin-top:18px;
@@ -173,6 +175,54 @@ body {
 </body>
 
 <style>
+
+  /* ✨✨✨ 萤火虫 ✨✨✨ */
+
+.fireflies {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.fireflies span {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, rgba(255,220,120,0.9) 0%, rgba(255,220,120,0) 80%);
+filter: blur(1px);
+  border-radius: 50%;
+  animation: float 12s linear infinite;
+  opacity: 0;
+}
+
+/* 随机位置 + 时间差（关键） */
+.fireflies span:nth-child(1) { left:10%; top:80%; animation-delay: 0s; }
+.fireflies span:nth-child(2) { left:30%; top:60%; animation-delay: 2s; }
+.fireflies span:nth-child(3) { left:50%; top:90%; animation-delay: 4s; }
+.fireflies span:nth-child(4) { left:70%; top:70%; animation-delay: 1s; }
+.fireflies span:nth-child(5) { left:85%; top:85%; animation-delay: 3s; }
+.fireflies span:nth-child(6) { left:20%; top:40%; animation-delay: 5s; }
+.fireflies span:nth-child(7) { left:60%; top:30%; animation-delay: 6s; }
+.fireflies span:nth-child(8) { left:80%; top:50%; animation-delay: 7s; }
+
+@keyframes float {
+  0% {
+    transform: translateY(0) scale(0.8);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-60px) scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-120px) scale(0.6);
+    opacity: 0;
+  }
+}
 @keyframes breathe {
   0% { transform: scale(1); }
   50% { transform: scale(1.04); }
@@ -454,6 +504,14 @@ meaningEl.style.textShadow = "0 0 8px rgba(255,240,180,0.28)";
   showingMeaning = !showingMeaning;
 
 });
+
+  // ✨ 生成萤火虫
+const fireflyContainer = document.querySelector(".fireflies");
+
+for (let i = 0; i < 12; i++) {
+  const f = document.createElement("span");
+  fireflyContainer.appendChild(f);
+}
 
 </script>
 
