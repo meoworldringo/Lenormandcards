@@ -20,6 +20,16 @@ body {
 <body>
 
 
+<body>
+
+<div style="
+  display:flex;
+  justify-content:center;
+  align-items:center;   
+  gap:40px;             
+  margin-top:40px;
+">
+
 <div style="perspective:1000px;">
 
   <div id="card-container" style="
@@ -66,15 +76,19 @@ body {
 </div>
 
  <div id="text" style="
-  margin-top:16px;
-  text-align:center;
+  text-align:left;          
+  max-width:420px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;   
+">
   color:#f5e6c8;
   font-family: serif;
   text-shadow: 0 0 6px rgba(255,255,200,0.25);
 ">
 
   <h2 id="title" style="
-    margin:12px 0 6px;
+    margin:0 0 10px;
     font-size:20px;
     letter-spacing:3px;
     color:#f8f1d4;
@@ -86,9 +100,10 @@ body {
 
   <p id="meaning" style="
     font-size:16.5px;
-    line-height:1.5;
-    width:90%;
-    max-width:520px;
+    line-height:1.5
+    width:100%;
+max-width:420px;
+line-height:1.6;
     margin:12px auto 0;
     color:#f5e9cc;   
     letter-spacing:0.5px;
