@@ -510,12 +510,9 @@ traditional["card36.jpg"] = "關鍵詞：命運、負擔、信念";
 
   
 var random = Math.floor(Math.random() * cards.length);
+var card = cards[random];
 
 // 设置正面牌
-document.getElementById("front-img").src = currentCard;
-document.getElementById("title").innerText = titles[currentCard];
-document.getElementById("meaning").innerHTML = meanings[currentCard];
-
 document.getElementById("front-img").src = card;
 document.getElementById("title").innerText = titles[card];
 document.getElementById("meaning").innerHTML = meanings[card];
@@ -595,9 +592,9 @@ cardEl.style.transform = "rotateY(0deg)";
   cardEl.style.transition = "transform 1s ease";
 
   // 换内容
-  document.getElementById("front-img").src = newCard;
-  document.getElementById("title").innerText = titles[newCard];
-  document.getElementById("meaning").innerHTML = meanings[newCard];
+document.getElementById("front-img").src = card;
+document.getElementById("title").innerText = titles[card];
+document.getElementById("meaning").innerHTML = meanings[card];
 
   // 再翻开
   cardEl.style.transform = "rotateY(180deg)";
@@ -605,9 +602,9 @@ cardEl.style.transform = "rotateY(0deg)";
 }, 50);   
 
     // 换内容
-    document.getElementById("front-img").src = newCard;
-    document.getElementById("title").innerText = titles[newCard];
-    document.getElementById("meaning").innerHTML = meanings[newCard];
+    document.getElementById("front-img").src = currentCard;
+document.getElementById("title").innerText = titles[currentCard];
+document.getElementById("meaning").innerHTML = meanings[currentCard];
 
     // 再翻开
     document.getElementById("card-container").style.transform = "rotateY(180deg)";
