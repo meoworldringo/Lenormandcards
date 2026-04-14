@@ -512,7 +512,7 @@ traditional["card36.jpg"] = "關鍵詞：命運、負擔、信念";
 var random = Math.floor(Math.random() * cards.length);
 
 // 设置正面牌
-var card = cards[random];
+var currentCard = cards[random];
 
 document.getElementById("front-img").src = card;
 document.getElementById("title").innerText = titles[card];
@@ -574,6 +574,7 @@ for (let i = 0; i < 15; i++) {
 document.getElementById("drawBtn").addEventListener("click", function() {
 
   var newCard = cards[Math.floor(Math.random() * cards.length)];
+  card = newCard;
 
   showingMeaning = true;
 
