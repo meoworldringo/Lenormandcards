@@ -181,18 +181,36 @@ body::before {
   z-index: 2;
 }
 
+  @keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.profile-item:nth-child(2) { animation-delay: 0.1s; }
+.profile-item:nth-child(4) { animation-delay: 0.2s; }
+.profile-item:nth-child(6) { animation-delay: 0.3s; }
+.profile-item:nth-child(8) { animation-delay: 0.4s; }
+.profile-item:nth-child(10) { animation-delay: 0.5s; }
+.profile-item:nth-child(12) { animation-delay: 0.6s; }
+.profile-item:nth-child(14) { animation-delay: 0.7s; }
+  
 /* ===== profile 排版优化 ===== */
 
 /* 每一行 */
 .profile-item {
   margin: 6px 0;
-
-  color: #d8d1b5;   /* ⭐关键：暖灰，不是白也不是金 */
-
+  color: #d8d1b5;
   font-size: 15.5px;
   line-height: 1.6;
 
-  text-shadow: 0 0 4px rgba(255,220,120,0.08);
+  opacity: 0; 
+
+  animation: fadeUp 0.6s ease forwards;
 }
 
 /* 小标题（关键✨） */
