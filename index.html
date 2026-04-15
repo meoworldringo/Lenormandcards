@@ -45,8 +45,9 @@ body {
   font-size: 20px;
   opacity: 0.18;
   transform: translate(-1px, 1px);
-  transform: translate(-12px, 18px);
+  transform: translate(-60px, 30px);
   animation: float1 6s ease-in-out infinite alternate; 
+  animation-delay: 0.5s;
 }
 
 /* 🌫 英文 */
@@ -55,20 +56,42 @@ body {
   opacity: 0.15;
   transform: translate(1px, -1px);
   letter-spacing: 0.04em;
-  transform: translate(14px, -14px);
+  transform: translate(70px, -40px);
   animation: float2 7s ease-in-out infinite alternate;
+  animation-delay: 1s; 
 }
 
 /* 🎬 第一段动画 */
-.scene1 .lang {
+.scene1 .jp {
   animation: fade1 5s ease forwards;
 }
 
+.scene1 .cn {
+  animation: fade1 5s ease forwards;
+  animation-delay: 0.3s;
+}
+
+.scene1 .en {
+  animation: fade1 5s ease forwards;
+  animation-delay: 0.6s;
+}
+
 /* 🎬 第二段动画（延迟） */
-.scene2 .lang {
+.scene2 .jp {
   animation: fade2 5s ease forwards;
   animation-delay: 5.5s;
 }
+
+.scene2 .cn {
+  animation: fade2 5s ease forwards;
+  animation-delay: 5.8s;
+}
+
+.scene2 .en {
+  animation: fade2 5s ease forwards;
+  animation-delay: 6.1s;
+}
+  
   /* ✅ 控制两段“不会同时出现” */
 .scene1 {
   animation: scene1Fade 5s ease forwards;
