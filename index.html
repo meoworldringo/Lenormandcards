@@ -47,7 +47,7 @@ body {
   transform: translate(-1px, 1px);
   transform: translate(-60px, 30px);
   animation: float1 6s ease-in-out infinite alternate; 
-  animation-delay: 0.5s;
+  animation-delay: 1s;
 }
 
 /* 🌫 英文 */
@@ -58,7 +58,7 @@ body {
   letter-spacing: 0.04em;
   transform: translate(70px, -40px);
   animation: float2 7s ease-in-out infinite alternate;
-  animation-delay: 1s; 
+  animation-delay: 2s; 
 }
 
 /* 🎬 第一段动画 */
@@ -68,12 +68,12 @@ body {
 
 .scene1 .cn {
   animation: fade1 5s ease forwards;
-  animation-delay: 0.3s;
+  animation-delay: 1s;
 }
 
 .scene1 .en {
   animation: fade1 5s ease forwards;
-  animation-delay: 0.6s;
+  animation-delay: 2s;
 }
 
 /* 🎬 第二段动画（延迟） */
@@ -84,12 +84,12 @@ body {
 
 .scene2 .cn {
   animation: fade2 5s ease forwards;
-  animation-delay: 5.8s;
+  animation-delay: 6.5s;
 }
 
 .scene2 .en {
   animation: fade2 5s ease forwards;
-  animation-delay: 6.1s;
+  animation-delay: 7.5s;
 }
   
   /* ✅ 控制两段“不会同时出现” */
@@ -143,17 +143,17 @@ body {
 
 /* ✨ 动画定义 */
 @keyframes fade1 {
-  0%   { opacity: 0; transform: translateY(10px); }
-  15%  { opacity: 1; transform: translateY(0); }
+  0%   { opacity: 0; }
+  15%  { opacity: 1; }
   70%  { opacity: 1; }
-  100% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 0; }
 }
 
 @keyframes fade2 {
-  0%   { opacity: 0; transform: translateY(10px); }
-  15%  { opacity: 1; transform: translateY(0); }
+  0%   { opacity: 0; }
+  15%  { opacity: 1; }
   70%  { opacity: 1; }
-  100% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 0; }
 }
 
 @keyframes showMenu {
