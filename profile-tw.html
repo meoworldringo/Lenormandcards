@@ -36,6 +36,10 @@ body {
   transition: all 0.5s ease;
 }
 
+  .orb.active {
+  transform: scale(1.2);
+}
+
 /* 漂浮动画 */
 @keyframes float {
   0% { transform: translateY(0px); }
@@ -44,9 +48,9 @@ body {
 }
 
 /* hover效果（微互动） */
-.orb:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 35px rgba(255, 240, 180, 0.9);
+.orb.active {
+  transform: scale(1.2);
+  box-shadow: 0 0 50px rgba(255, 240, 180, 1);
 }
 </style>
 </head>
@@ -54,10 +58,21 @@ body {
 <body>
 
 <div class="stage">
-  <img src="profile-c.png" class="orb">
-  <img src="profile-me.png" class="orb">
-  <img src="profile-g.png" class="orb">
+<img src="profile-c.png" class="orb">
+<img src="profile-me.png" class="orb active">
+<img src="profile-g.png" class="orb">
 </div>
 
+  <script>
+const orbs = document.querySelectorAll('.orb');
+
+orbs.forEach(orb => {
+  orb.onclick = () => {
+    orbs.forEach(o => o.classList.remove('active'));
+    orb.classList.add('active');
+  };
+});
+</script>
+  
 </body>
 </html>
