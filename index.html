@@ -22,6 +22,20 @@ body {
   font-family: serif;
 }
 
+  body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  background: radial-gradient(
+    circle at center,
+    rgba(255,255,255,0.06),
+    transparent 60%
+  );
+
+  pointer-events: none;
+}
+
 /* 🌙 文字容器 */
 .scene {
   position: relative;
@@ -30,19 +44,6 @@ body {
   text-align: center;
   line-height: 2;
   z-index: 1; 
-}
-
-.scene::before {
-  content: "";
-  position: absolute;
-  inset: -100px;
-  background: radial-gradient(
-    circle,
-    rgba(255,255,255,0.05),
-    transparent 70%
-  );
-  pointer-events: none;
-  z-index: -1; 
 }
 
 /* 共通语言层 */
