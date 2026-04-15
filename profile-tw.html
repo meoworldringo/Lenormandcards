@@ -224,8 +224,8 @@ const orbs = document.querySelectorAll('.orb');
 const text = document.getElementById('profileText');
 
 const profiles = [
-  "c哥<br><span style='font-size:14px; opacity:0.8;'>每天被拖著熬夜寫指令的忠臣</span>"
-  "小抱<br><span style='font-size:14px; opacity:0.8;'>頭髮岌岌可危的點子提供者</span>"
+  "c哥<br><span style='font-size:14px; opacity:0.8;'>每天被拖著熬夜寫指令的忠臣</span>",
+  "小抱<br><span style='font-size:14px; opacity:0.8;'>頭髮岌岌可危的點子提供者</span>",
   "小g<br><span style='font-size:14px; opacity:0.8;'>最會給小抱情緒價值+吐槽c哥的弄臣</span>"
 ];
 
@@ -248,7 +248,7 @@ orbs.forEach((orb, index) => {
     text.style.opacity = 0;
 
     setTimeout(() => {
-      text.innerText = profiles[index];
+      text.innerHTML = profiles[index];
       text.style.opacity = 1;
     }, 150);
   };
