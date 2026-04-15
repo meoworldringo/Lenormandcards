@@ -89,6 +89,8 @@ body {
 
 </div>
 
+<div class="main">
+    
 <div style="
   display:flex;
   justify-content:center;
@@ -194,6 +196,7 @@ body {
 再抽一次
 </button>
 </div>
+</div>   <!-- ⭐这是 main 的结束 -->
 </body>
 
 <style>
@@ -326,6 +329,17 @@ img {
     margin-top: 0;
     margin-bottom: 10px;
   }
+
+    .main {
+    flex: 1;                     /* ⭐吃掉剩余空间 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;     /* ⭐真正居中 */
+    align-items: center;
+
+  }
+
+}
 
   /* ⭐关键：压缩整体高度 */
   body > div {
