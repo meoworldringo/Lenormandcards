@@ -239,12 +239,11 @@ body::before {
 }
 
 /* 按钮容器（改成右侧固定✨） */
+/* 按钮容器（固定右下✨） */
 .back-wrapper {
   position: fixed;
-
-  right: clamp(16px, 5vw, 50px);
-  bottom: clamp(30px, 6vh, 80px);
-
+  right: clamp(16px, 4vw, 40px);
+  bottom: clamp(24px, 4vh, 60px);
   z-index: 10;
 }
 
@@ -256,7 +255,9 @@ body::before {
 
   color: #f5e9cc;
 
-  background: transparent;
+  background: rgba(20, 25, 30, 0.35);
+  backdrop-filter: blur(6px);
+
   border: 1px solid rgba(255,230,150,0.4);
   border-radius: 999px;
 
@@ -264,12 +265,15 @@ body::before {
 
   text-shadow: 0 0 6px rgba(255,220,120,0.3);
 
-  transition: all 0.25s ease;
+  transition: all 0.3s ease;
+
+  /* ✨ 呼吸光 */
+  animation: btnBreath 3s ease-in-out infinite;
 }
 
 /* hover（重点✨） */
 #backBtn:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.04);
 
   background: linear-gradient(
     to bottom,
@@ -281,14 +285,33 @@ body::before {
   color: #2a1e05;
 
   box-shadow:
-    0 6px 18px rgba(0,0,0,0.5),
-    0 0 16px rgba(255,210,120,0.4),
-    inset 0 1px 3px rgba(255,255,255,0.3);
+    0 8px 22px rgba(0,0,0,0.6),
+    0 0 20px rgba(255,210,120,0.6),
+    inset 0 1px 3px rgba(255,255,255,0.4);
+
+  animation: none; /* hover时停止呼吸 */
 }
 
 /* 点击感 */
 #backBtn:active {
-  transform: scale(0.96);
+  transform: scale(0.95);
+}
+
+/* ✨ 呼吸动画（重点） */
+@keyframes btnBreath {
+  0% {
+    box-shadow:
+      0 0 8px rgba(255,220,120,0.2);
+  }
+  50% {
+    box-shadow:
+      0 0 18px rgba(255,220,120,0.6),
+      0 0 35px rgba(255,200,80,0.3);
+  }
+  100% {
+    box-shadow:
+      0 0 8px rgba(255,220,120,0.2);
+  }
 }
 
 
