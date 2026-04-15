@@ -7,7 +7,12 @@
 <style>
 body {
   margin: 0;
-  background: #0B0F14;
+  background: radial-gradient(
+    circle at center,
+    #1a2230 0%,
+    #0b0f14 60%,
+    #05070a 100%
+  );
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,6 +29,20 @@ body {
   max-width: 600px;
   text-align: center;
   line-height: 2;
+  z-index: 1; 
+}
+
+.scene::before {
+  content: "";
+  position: absolute;
+  inset: -100px;
+  background: radial-gradient(
+    circle,
+    rgba(255,255,255,0.05),
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: -1; 
 }
 
 /* 共通语言层 */
