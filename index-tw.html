@@ -92,12 +92,6 @@ body {
 <div class="main">
     
 <div class="card-area">
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:40px;
-  margin-top:10px;   
-">
 
   <!-- 卡牌 -->
   <div style="perspective:1000px;">
@@ -326,36 +320,32 @@ img {
     padding-bottom: 12vh;
   }
 
-}
-
   #header {
     margin-top: 0;
     margin-bottom: 10px;
   }
 
   .main {
-    min-height: calc(100vh - 140px); /* ⭐关键：扣掉header高度 */
-
+    min-height: calc(100vh - 140px);
     display: flex;
     flex-direction: column;
-
-    justify-content: center;   /* ⭐垂直居中 */
-    align-items: center;       /* ⭐水平居中 */
-
+    justify-content: center;
+    align-items: center;
     width: 100%;
   }
 
   .card-area {
-    flex-direction: column;  /* ⭐横变竖 */
+    display: flex;          /* ⭐补回来 */
+    flex-direction: column; /* ⭐变上下排 */
+    align-items: center;
     gap: 20px;
   }
 
   #text {
-    width: 90%;              /* ⭐避免文字太窄 */
+    width: 90%;
   }
 
 }
-
 </style>
 
 
