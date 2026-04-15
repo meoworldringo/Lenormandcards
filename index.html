@@ -246,33 +246,32 @@ background: rgba(5,7,10,0.8);
 /* 🎬 第一段动画 */
 .scene1 .jp {
   animation: fade1 5s ease forwards;
-  animation-delay: 3.5s;
 }
 
 .scene1 .cn {
   animation: fade1 5s ease forwards;
-  animation-delay: 4.5s;
+  animation-delay: 1s;
 }
 
 .scene1 .en {
   animation: fade1 5s ease forwards;
-  animation-delay: 5.5s;
+  animation-delay: 2s;
 }
 
 /* 🎬 第二段动画（延迟） */
 .scene2 .jp {
   animation: fade2 5s ease forwards;
-  animation-delay: 7s;
+  animation-delay: 5.5s;
 }
 
 .scene2 .cn {
   animation: fade2 5s ease forwards;
-  animation-delay: 8s;
+  animation-delay: 6.5s;
 }
 
 .scene2 .en {
   animation: fade2 5s ease forwards;
-  animation-delay: 9s;
+  animation-delay: 7.5s;
 }
   
   /* ✅ 控制两段“不会同时出现” */
@@ -392,57 +391,12 @@ background: rgba(5,7,10,0.8);
     margin: 12px 0;
     letter-spacing: 0.05em;
   }
-/* 🕊️ 鹤鸟（入口视觉） */
-.stork {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0.95);
-
-  width: 180px;
-  max-width: 40vw;
-
-  opacity: 0;
-  pointer-events: none;
-  z-index: 1;
-
-  filter: blur(0.5px) brightness(1.1);
-
-  animation: storkIntro 3.5s ease forwards;
-animation-delay: 0s;
-}
-
-/* ✨ 动画 */
-@keyframes storkIntro {
-  0% {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.9);
-  }
-
-  20% {
-    opacity: 0.6;
-  }
-
-  40% {
-    opacity: 0.5;
-  }
-
-  60% {
-    opacity: 0.3; /* 👈 开始退场 */
-  }
-
-  100% {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(1.05);
-  }
 }
  
 </style>
 </head>
 
 <body>
-  
-<img src="card17.jpg" class="stork">
   
 <div class="scene">
 
@@ -452,7 +406,7 @@ animation-delay: 0s;
     AIと紡いだルノルマンカードの夢の世界
   </div>
   <div class="lang l2 cn">
-    與AI共同編織的雷諾曼幻夢
+    與AI共同編織的雷諾曼世界
   </div>
   <div class="lang l3 en">
     Woven with AI, a realm of Lenormand dreams
