@@ -273,25 +273,14 @@ body::before {
 
 /* hover（重点✨） */
 #backBtn:hover {
-  transform: translateY(-3px) scale(1.04);
+  transform: translateY(-2px);
 
-  background: linear-gradient(
-    to bottom,
-    #e6c878,
-    #caa94a,
-    #a07c2a
-  );
-
-  color: #2a1e05;
+  background: rgba(255,230,150,0.08);
 
   box-shadow:
-    0 8px 22px rgba(0,0,0,0.6),
-    0 0 20px rgba(255,210,120,0.6),
-    inset 0 1px 3px rgba(255,255,255,0.4);
-
-  animation: none; /* hover时停止呼吸 */
+    0 6px 18px rgba(0,0,0,0.5),
+    0 0 12px rgba(255,210,120,0.2);
 }
-
 /* 点击感 */
 #backBtn:active {
   transform: scale(0.95);
