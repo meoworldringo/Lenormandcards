@@ -244,35 +244,32 @@ background: rgba(5,7,10,0.8);
  
 /* 🎬 第一段动画 */
 .scene1 .jp {
-  animation: fade1 8s ease forwards;
+  animation: fadeIn 1.5s ease forwards;
 }
 
 .scene1 .cn {
-  animation: fade1 8s ease forwards;
+  animation: fadeIn 1.5s ease forwards;
   animation-delay: 1.5s;
 }
 
 .scene1 .en {
-  animation: fade1 8s ease forwards;
+  animation: fadeIn 1.5s ease forwards;
   animation-delay: 3s;
 }
-
-/* 🎬 第二段动画（延迟） */
-.scene2 .jp {
-  animation: fade2 8s ease forwards;
+  .scene2 .jp {
+  animation: fadeIn 1.5s ease forwards;
   animation-delay: 12s;
 }
 
 .scene2 .cn {
-  animation: fade2 8s ease forwards;
+  animation: fadeIn 1.5s ease forwards;
   animation-delay: 13.5s;
 }
 
 .scene2 .en {
-  animation: fade2 8s ease forwards;
+  animation: fadeIn 1.5s ease forwards;
   animation-delay: 15s;
 }
-  
   /* ✅ 控制两段“不会同时出现” */
 .scene1 {
   animation: scene1Fade 11s ease forwards;
@@ -287,7 +284,7 @@ background: rgba(5,7,10,0.8);
 /* 第一段：正常出现后消失 */
 @keyframes scene1Fade {
   0%   { opacity: 1; }
-  90%  { opacity: 1; }
+  85%  { opacity: 1; }
   100% { opacity: 0; }
 }
 
@@ -295,7 +292,7 @@ background: rgba(5,7,10,0.8);
 @keyframes scene2Fade {
   0%   { opacity: 0; }
   10%  { opacity: 1; }
-  90%  { opacity: 1; }
+  85%  { opacity: 1; }
   100% { opacity: 0; }
 }
 
@@ -323,18 +320,9 @@ background: rgba(5,7,10,0.8);
 }
 
 /* ✨ 动画定义 */
-@keyframes fade1 {
+@keyframes fadeIn {
   0%   { opacity: 0; }
-  15%  { opacity: 1; }
-  85%  { opacity: 1; }
-  100% { opacity: 0; }
-}
-
-@keyframes fade2 {
-  0%   { opacity: 0; }
-  10%  { opacity: 1; }
-  85%  { opacity: 1; }
-  100% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 @keyframes showMenu {
