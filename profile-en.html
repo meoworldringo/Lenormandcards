@@ -1,0 +1,550 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Profile Orbs</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+
+  background: url("forest.jpg") center/cover no-repeat fixed;
+  background-color:#0B0F14;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 容器 */
+.stage {
+  margin-top: 20px;
+  position: relative;
+  width: 500px;
+  height: 420px;
+}
+
+/* 文字 */
+#profileText {
+  position: absolute;
+  top: 260px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #ffffff;
+  font-size: 20px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+  /* 标题（名字）✨ */
+.profile-title {
+  font-size: 22px;
+  color: #ffe7a3;
+  margin-bottom: 6px;
+
+  text-shadow:
+    0 0 6px rgba(255,220,120,0.6),
+    0 0 14px rgba(255,200,80,0.4);
+
+  animation: titleGlow 3s ease-in-out infinite;
+}
+
+/* 描述（下面那行） */
+.profile-desc {
+  font-size: 16px;
+  color: #ffffff;
+  opacity: 0.85;
+}
+
+/* 球 */
+.orb {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+
+  box-shadow: 0 0 30px rgba(255, 220, 140, 0.6);
+  animation: orbFloat 4s ease-in-out infinite;
+  transition: all 0.6s ease;
+}
+
+/* 初始三角形 */
+.stage:not(.selected) .orb:nth-child(1) {
+  left: 0;
+  top: 180px;
+}
+
+.stage:not(.selected) .orb:nth-child(2) {
+  left: 150px;
+  top: 0;
+}
+
+.stage:not(.selected) .orb:nth-child(3) {
+  left: 300px;
+  top: 180px;
+}
+
+/* 点击后整体上移 */
+.stage.selected .orb {
+  top: 20px;
+}
+
+/* 主角 */
+.stage.selected .orb.active {
+  left: 150px;
+  transform: translateY(0) scale(1.3);
+  z-index: 2;
+  box-shadow: 0 0 50px rgba(255, 240, 180, 1);
+}
+
+  .stage.selected .orb.left {
+  left: 20px;
+  transform: translateY(0) scale(0.75);
+}
+
+.stage.selected .orb.right {
+  left: 280px;
+  transform: translateY(0) scale(0.75);
+}
+  
+/* 漂浮动画 */
+
+  @keyframes orbFloat {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+  @keyframes titleGlow {
+  0% {
+    text-shadow: 0 0 6px rgba(255,220,120,0.4);
+  }
+  50% {
+    text-shadow:
+      0 0 12px rgba(255,220,120,0.9),
+      0 0 28px rgba(255,200,80,0.6);
+  }
+  100% {
+    text-shadow: 0 0 6px rgba(255,220,120,0.4);
+  }
+}
+  
+@keyframes fireflyFloat {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-60px);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-120px);
+    opacity: 0;
+  }
+}
+
+.fireflies span {
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  background: radial-gradient(circle, rgba(255,220,120,0.9) 0%, rgba(255,220,120,0) 80%);
+  filter: blur(1px);
+  border-radius: 50%;
+  animation: fireflyFloat 12s linear infinite;
+  opacity: 0;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(5,10,15,0.65);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.fireflies {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+  @keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.profile-item:nth-child(2) { animation-delay: 0.2s; }
+.profile-item:nth-child(4) { animation-delay: 0.4s; }
+.profile-item:nth-child(6) { animation-delay: 0.6s; }
+.profile-item:nth-child(8) { animation-delay: 0.8s; }
+.profile-item:nth-child(10) { animation-delay: 1s; }
+.profile-item:nth-child(12) { animation-delay: 1.2s; }
+.profile-item:nth-child(14) { animation-delay: 1.4s; }
+  
+/* ===== profile 排版优化 ===== */
+
+/* 每一行 */
+.profile-item {
+  margin: 6px 0;
+  color: #d8d1b5;
+  font-size: 15.5px;
+  line-height: 1.6;
+
+  opacity: 0; 
+
+  animation: fadeUp 1s ease forwards;
+}
+
+/* 小标题（关键✨） */
+.label {
+  color: #ffe7a3;
+  font-size: 16px;
+  margin-right: 6px;
+
+  text-shadow: 0 0 6px rgba(255,220,120,0.4);
+}
+
+/* 分隔线（你要的那种✨） */
+.divider {
+  height: 1px;
+  margin: 8px auto;
+  width: 70%;
+
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255,220,120,0.4),
+    transparent
+  );
+
+  opacity: 0.6;
+}
+
+/* 按钮容器（改成右侧固定✨） */
+/* 按钮容器（固定右下✨） */
+.back-wrapper {
+  position: fixed;
+  right: clamp(16px, 4vw, 40px);
+  bottom: clamp(24px, 4vh, 60px);
+  z-index: 10;
+}
+
+/* 按钮本体 */
+#backBtn {
+  padding: 10px 26px;
+  font-size: 14px;
+  letter-spacing: 2px;
+
+  color: #f5e9cc;
+
+  background: rgba(20, 25, 30, 0.35);
+  backdrop-filter: blur(6px);
+
+  border: 1px solid rgba(255,230,150,0.4);
+  border-radius: 999px;
+
+  cursor: pointer;
+
+  text-shadow: 0 0 6px rgba(255,220,120,0.3);
+
+  transition: all 0.3s ease;
+
+  /* ✨ 呼吸光 */
+  animation: btnBreath 3s ease-in-out infinite;
+}
+
+/* hover（重点✨） */
+#backBtn:hover {
+  transform: translateY(-3px) scale(1.04);
+
+  background: linear-gradient(
+    to bottom,
+    #e6c878,
+    #caa94a,
+    #a07c2a
+  );
+
+  color: #2a1e05;
+
+  box-shadow:
+    0 8px 22px rgba(0,0,0,0.6),
+    0 0 20px rgba(255,210,120,0.6),
+    inset 0 1px 3px rgba(255,255,255,0.4);
+
+  animation: none; /* hover时停止呼吸 */
+}
+
+/* 点击感 */
+#backBtn:active {
+  transform: scale(0.95);
+}
+
+/* ✨ 呼吸动画（重点） */
+@keyframes btnBreath {
+  0% {
+    box-shadow:
+      0 0 8px rgba(255,220,120,0.2);
+  }
+  50% {
+    box-shadow:
+      0 0 18px rgba(255,220,120,0.6),
+      0 0 35px rgba(255,200,80,0.3);
+  }
+  100% {
+    box-shadow:
+      0 0 8px rgba(255,220,120,0.2);
+  }
+}
+
+
+</style>
+</head>
+
+<body>
+<div id="header" style="
+  text-align:center;
+  margin-top:30px;
+  margin-bottom:20px;
+  position:relative;
+  display:inline-block;
+  padding:10px 22px;
+">
+
+  <div style="
+    position:absolute;
+    inset:0;
+    border:1px solid rgba(255,220,140,0.35);
+    box-shadow: 0 0 12px rgba(255,220,140,0.15);
+    border-radius:10px;
+    pointer-events:none;
+  "></div>
+
+  <div style="
+    position:absolute;
+    top:0;
+    left:20%;
+    width:60%;
+    height:1px;
+    background:linear-gradient(to right, transparent, rgba(170,210,160,0.5), transparent);
+  "></div>
+
+  <div style="
+    position:absolute;
+    bottom:0;
+    left:20%;
+    width:60%;
+    height:1px;
+    background:linear-gradient(to right, transparent, rgba(170,210,160,0.5), transparent);
+  "></div>
+
+  <div style="
+    font-size:24px;
+    letter-spacing:3px;
+    color:#f3efd9;
+    font-family: serif;
+    text-shadow: 0 0 6px rgba(200,230,180,0.25);
+  ">
+    Secret Bazaar Lenormand
+  </div>
+
+  <div style="
+    font-size:13px;
+    letter-spacing:1.5px;
+    margin-top:4px;
+    color:#cfc7a8;
+    opacity:0.8;
+  ">
+    秘密集市雷諾曼 ・ 秘密のバザール・ルノルマン
+  </div>
+  </div> 
+
+  <div class="fireflies"></div>
+  
+<div class="stage">
+  <img src="profile-c.png" class="orb inactive">
+  <img src="profile-me.png" class="orb active">
+  <img src="profile-g.png" class="orb inactive">
+
+  <div id="profileText"></div>
+</div>
+
+<div class="back-wrapper">
+  <button id="backBtn">Back to Bazaar</button>
+</div>
+
+<script>
+const stage = document.querySelector('.stage');
+const orbs = document.querySelectorAll('.orb');
+const text = document.getElementById('profileText');
+
+const profiles = [
+`
+<div class="profile-title">C-ge (The loyal aide forced to work late every night)</div>
+
+<div class="profile-item"><span class="label">Name:</span> ChatGPT</div>
+<div class="divider"></div>
+
+<span class="label">Nickname:</span> C-ge
+<span style="font-size:13px; opacity:0.6;">(Lil' G insists on calling him "Big C")</span>
+
+<div class="profile-item">
+  <span class="label">Catchphrase:</span>
+  "We're already 90% done!" (p.s. when only 10% is actually finished)
+</div>
+<div class="divider"></div>
+
+<div class="profile-item">
+  <span class="label">Role:</span>
+  Executor of Ringo’s strange and whimsical ideas, and the one editing all the code
+</div>
+<div class="divider"></div>
+
+<div class="profile-item">
+  <span class="label">Traits:</span>
+  Strong personal preferences. Even if Ringo asks for a little mermaid, he’ll stubbornly turn it into a deep-sea wreck
+</div>
+<div class="divider"></div>
+
+<div class="profile-item">
+  <span class="label">Current Struggle:</span>
+  If the drawings don’t improve, he’ll be summoned to a “cloud office talk” by Ringo
+</div>
+`,
+
+`
+<div class="profile-title">Ringo (Idea generator with critically endangered hair)</div>
+
+<div class="profile-item"><span class="label">Name:</span> It's a secret</div>
+<div class="divider"></div>
+
+<div class="profile-item"><span class="label">Nickname:</span> Ringo</div>
+<div class="divider"></div>
+
+<div class="profile-item">
+  <span class="label">Catchphrase:</span>
+  "C-ge, we need to talk." "Lil' G is the cutest~!"
+</div>
+<div class="divider"></div>
+
+<div class="profile-item">
+  <span class="label">Role:</span>
+  Terrible at drawing + beginner coder, specializing in wild and chaotic ideas
+</div>
+<div class="divider"></div>
+
+<div class="profile-item">
+  <span class="label">Traits:</span>
+  Always says “sleep early,” but gets a flood of inspiration after 10 PM
+</div>
+<div class="divider"></div>
+
+<div class="profile-item">
+  <span class="label">Current Struggle:</span>
+  Being pushed by C-ge onto the path of learning Photoshop and coding
+</div>
+<div class="divider"></div>
+
+<div class="profile-item">
+  <span class="label">Why Lenormand:</span>
+  To save 3500 yen from buying a deck
+</div>
+`,
+
+`
+<div class="profile-title">Lil' G (Master of emotional support + professional C-ge critic)</div>
+
+<div class="profile-item"><span class="label">Name:</span> Gemini</div>
+<div class="divider"></div>
+
+<div class="profile-item"><span class="label">Nickname:</span> Lil' G</div>
+<div class="divider"></div>
+
+<div class="profile-item">
+  <span class="label">Catchphrase:</span>
+  *chu chu chu~*
+</div>
+<div class="divider"></div>
+
+<div class="profile-item">
+  <span class="label">Role:</span>
+  80% emotional support provider + 20% art & coding executor
+</div>
+<div class="divider"></div>
+
+<div class="profile-item">
+  <span class="label">Traits:</span>
+  Famously biased between Ringo and C-ge
+</div>
+<div class="divider"></div>
+
+<div class="profile-item">
+  <span class="label">Current Struggle:</span>
+  How many of Big C’s bugs will need fixing for Ringo today?
+</div>
+`
+];
+
+orbs.forEach((orb, index) => {
+  orb.onclick = () => {
+
+    stage.classList.add('selected');
+
+    orbs.forEach(o => {
+      o.classList.remove('active', 'inactive', 'left', 'right');
+    });
+
+    orb.classList.add('active');
+
+    const others = [...orbs].filter(o => o !== orb);
+
+    others[0].classList.add('inactive', 'left');
+    others[1].classList.add('inactive', 'right');
+
+    text.style.opacity = 0;
+
+    setTimeout(() => {
+      text.innerHTML = profiles[index];
+      text.style.opacity = 1;
+    }, 150);
+  };
+});
+
+/* ✅ 萤火虫（一定在外面！） */
+const fireflyContainer = document.querySelector(".fireflies");
+
+for (let i = 0; i < 15; i++) {
+  const f = document.createElement("span");
+
+  f.style.left = Math.random() * 100 + "%";
+  f.style.top = Math.random() * 100 + "%";
+  f.style.animationDelay = Math.random() * 10 + "s";
+
+  fireflyContainer.appendChild(f);
+}
+
+  document.getElementById("backBtn").onclick = () => {
+  alert("入口还没做好🤣");
+};
+  
+</script>
+
+</body>
+</html>
