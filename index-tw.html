@@ -313,26 +313,34 @@ img {
   -webkit-touch-callout: none;
 }
 
+  
+.card-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-top: 10px;
+}
+
+
 @media (max-width: 900px) and (orientation: portrait) {
 
   .main {
-    min-height: auto;
     margin-top: 40px;
   }
 
   .card-area {
     flex-direction: column;
-    align-items: center;
-    gap: 20px;
+    gap: 28px; /* ⭐ 拉开图片和文字 */
   }
 
-}
-
-  @media (max-width: 600px) and (orientation: portrait) {
-
-  body {
-    padding: 0;
+  #card-container {
+    margin-left: 0; /* ⭐ 修正偏左 */
   }
+
+} 
+
+@media (max-width: 600px) and (orientation: portrait) {
 
   .main {
     min-height: 100vh;
@@ -347,18 +355,18 @@ img {
   }
 
   .card-area {
-    display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 24px;
+    gap: 30px;
   }
 
   #text {
     width: 92%;
   }
 
+  /* ⭐ 关键：视觉变大 */
   #card-container {
-    transform: scale(1.08);
+    transform: scale(1.12);
   }
 
 }
