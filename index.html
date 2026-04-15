@@ -313,10 +313,12 @@ background: rgba(5,7,10,0.8);
 
 .lang-select a {
   display: block;
-  margin: 6px 0;
-  color: rgba(255,255,255,0.75);
+  margin: 10px 0;
+  color: rgba(255,255,255,0.85);
   text-decoration: none;
   transition: 0.3s;
+
+  font-size: clamp(18px, 5.5vw, 24px); /* ⭐直接加这里 */
 }
 
 .lang-select a:hover {
