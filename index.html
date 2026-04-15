@@ -39,33 +39,81 @@ body {
   opacity: 0;
 }
 
-/* 🌕 主语言（日文） */
+/* 🌕 语言样式（只负责外观，不负责位置） */
 .jp {
   font-size: 18px;
   letter-spacing: 0.08em;
   text-shadow: 0 0 12px rgba(255,220,150,0.25);
-  transform: translate(calc(-50% - 50px), calc(-50% - 100px));
 }
 
-/* 🌫 中文 */
 .cn {
   font-size: 18px;
   opacity: 0.18;
   filter: blur(0.3px);
-  transform: translate(calc(-50% + 50px), calc(-50% - 10px));
-  animation: float1 6s ease-in-out infinite alternate; 
-  animation-delay: 1s;
 }
 
-/* 🌫 英文 */
 .en {
   font-size: 20px;
   opacity: 0.15;
   letter-spacing: 0.04em;
   filter: blur(0.5px);
-  transform: translate(calc(-50% + 160px), calc(-50% + 100px));
-  animation: float2 7s ease-in-out infinite alternate;
-  animation-delay: 2s; 
+}
+
+
+/* 🌌 六句独立位置（核心） */
+
+.l1 { transform: translate(calc(-50% - 100px), calc(-50% - 120px)); }
+
+.l2 { transform: translate(calc(-50% + 40px), calc(-50% - 20px)); }
+
+.l3 { transform: translate(calc(-50% + 180px), calc(-50% + 100px)); }
+
+.l4 { transform: translate(calc(-50% - 80px), calc(-50% - 80px)); }
+
+.l5 { transform: translate(calc(-50% + 60px), calc(-50% + 40px)); }
+
+.l6 { transform: translate(calc(-50% + 200px), calc(-50% + 120px)); }
+
+
+/* 🌫️ 漂浮（只作用在部分句子） */
+
+.l2 {
+  animation: float2 6s ease-in-out infinite alternate;
+}
+
+.l3 {
+  animation: float3 7s ease-in-out infinite alternate;
+}
+
+.l5 {
+  animation: float5 6s ease-in-out infinite alternate;
+}
+
+.l6 {
+  animation: float6 7s ease-in-out infinite alternate;
+}
+
+
+/* 🌫️ 动画（不会覆盖位置） */
+
+@keyframes float2 {
+  from { transform: translate(calc(-50% + 40px), calc(-50% - 20px)); }
+  to   { transform: translate(calc(-50% + 50px), calc(-50% - 10px)); }
+}
+
+@keyframes float3 {
+  from { transform: translate(calc(-50% + 180px), calc(-50% + 100px)); }
+  to   { transform: translate(calc(-50% + 200px), calc(-50% + 120px)); }
+}
+
+@keyframes float5 {
+  from { transform: translate(calc(-50% + 60px), calc(-50% + 40px)); }
+  to   { transform: translate(calc(-50% + 70px), calc(-50% + 50px)); }
+}
+
+@keyframes float6 {
+  from { transform: translate(calc(-50% + 200px), calc(-50% + 120px)); }
+  to   { transform: translate(calc(-50% + 220px), calc(-50% + 140px)); }
 }
  
 /* 🎬 第一段动画 */
@@ -166,16 +214,7 @@ body {
 @keyframes showMenu {
   to { opacity: 1; transform: translateY(-20px); }
 }
-  /* 🌫️ 漂浮感 */
-@keyframes float1 {
-  from { transform: translate(calc(-50% - 80px), calc(-50% + 40px)); }
-  to   { transform: translate(calc(-50% - 90px), calc(-50% + 50px)); }
-}
-
-@keyframes float2 {
-  from { transform: translate(calc(-50% + 90px), calc(-50% - 50px)); }
-  to   { transform: translate(calc(-50% + 100px), calc(-50% - 60px)); }
-}
+ 
 </style>
 </head>
 
