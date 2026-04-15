@@ -30,7 +30,7 @@ body {
 
   background: radial-gradient(
   ellipse at 40% 65%,  
-  rgba(255,230,160,0.22),
+  rgba(255,230,160,0.45),
   transparent 60%
 );
 
@@ -187,15 +187,15 @@ body {
   }
 
   40% {
-    opacity: 0.5;
-    transform: scale(1.08);
-    filter: blur(28px);
+    opacity: 0.9;   /* 👈关键提升 */
+    transform: scale(1.12);
+    filter: blur(26px);
   }
 
   70% {
-    opacity: 0.35;
-    transform: scale(1.03);
-    filter: blur(24px);
+    opacity: 0.45;
+    transform: scale(1.05);
+    filter: blur(22px);
   }
 
   100% {
