@@ -313,36 +313,52 @@ img {
   -webkit-touch-callout: none;
 }
 
-@media (max-width: 900px) {
-
-  body {
-    padding-top: 12vh;
-    padding-bottom: 12vh;
-  }
-
-  #header {
-    margin-top: 0;
-    margin-bottom: 10px;
-  }
+@media (max-width: 900px) and (orientation: portrait) {
 
   .main {
-    min-height: calc(100vh - 140px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+    min-height: auto;
+    margin-top: 40px;
   }
 
   .card-area {
-    display: flex;          /* ⭐补回来 */
-    flex-direction: column; /* ⭐变上下排 */
+    flex-direction: column;
     align-items: center;
     gap: 20px;
   }
 
+}
+
+  @media (max-width: 600px) and (orientation: portrait) {
+
+  body {
+    padding: 0;
+  }
+
+  .main {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px 0;
+  }
+
+  .card-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
   #text {
-    width: 90%;
+    width: 92%;
+  }
+
+  #card-container {
+    transform: scale(1.08);
   }
 
 }
