@@ -26,16 +26,17 @@ body {
   content: "";
   position: fixed;
   inset: 0;
+  will-change: transform, opacity, filter;
 
   background: radial-gradient(
-    circle at 40% 65%,  
-    rgba(255,230,160,0.18),
-    transparent 55%
-  );
+  ellipse at 40% 65%,  
+  rgba(255,230,160,0.22),
+  transparent 60%
+);
 
   pointer-events: none;
 
-  animation: bgPulse 4s ease-in-out infinite;
+  animation: bgPulse 6s ease-in-out infinite;
 }
 
 /* 🌙 文字容器 */
@@ -160,8 +161,10 @@ body {
   50% {
     text-shadow: 0 0 18px rgba(191,233,255,0.5);
   }
+}
 
-    @keyframes enGlow {
+/* ✅ 要独立出来 */
+@keyframes enGlow {
   0%, 100% {
     text-shadow:
       0 0 4px rgba(255,244,204,0.4),
@@ -176,14 +179,29 @@ body {
   }
 }
 
-  @keyframes bgPulse {
-  0%, 100% {
-    opacity: 0.4;
-    transform: scale(1);
+@keyframes bgPulse {
+  0% {
+    opacity: 0.25;
+    transform: scale(0.9);
+    filter: blur(40px);
   }
-  50% {
-    opacity: 0.8;
-    transform: scale(1.15);
+
+  40% {
+    opacity: 0.6;
+    transform: scale(1.1);
+    filter: blur(60px);
+  }
+
+  70% {
+    opacity: 0.45;
+    transform: scale(1.05);
+    filter: blur(55px);
+  }
+
+  100% {
+    opacity: 0.25;
+    transform: scale(0.9);
+    filter: blur(40px);
   }
 }
   }
