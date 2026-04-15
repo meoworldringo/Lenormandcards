@@ -260,34 +260,34 @@ background: rgba(5,7,10,0.8);
 /* 🎬 第二段动画（延迟） */
 .scene2 .jp {
   animation: fade2 8s ease forwards;
-  animation-delay: 9s;
+  animation-delay: 12s;
 }
 
 .scene2 .cn {
   animation: fade2 8s ease forwards;
-  animation-delay: 10.5s;
+  animation-delay: 13.5s;
 }
 
 .scene2 .en {
   animation: fade2 8s ease forwards;
-  animation-delay: 12s;
+  animation-delay: 15s;
 }
   
   /* ✅ 控制两段“不会同时出现” */
 .scene1 {
-  animation: scene1Fade 5s ease forwards;
+  animation: scene1Fade 11s ease forwards;
 }
 
 .scene2 {
   opacity: 0; /* 👈关键！！一开始隐藏 */
-  animation: scene2Fade 5s ease forwards;
-  animation-delay: 5.5s;
+  animation: scene2Fade 11s ease forwards;
+  animation-delay: 11.5s;
 }
 
 /* 第一段：正常出现后消失 */
 @keyframes scene1Fade {
   0%   { opacity: 1; }
-  80%  { opacity: 1; }
+  90%  { opacity: 1; }
   100% { opacity: 0; }
 }
 
@@ -295,7 +295,7 @@ background: rgba(5,7,10,0.8);
 @keyframes scene2Fade {
   0%   { opacity: 0; }
   10%  { opacity: 1; }
-  80%  { opacity: 1; }
+  90%  { opacity: 1; }
   100% { opacity: 0; }
 }
 
