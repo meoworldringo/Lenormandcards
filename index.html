@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -244,56 +245,58 @@ background: rgba(5,7,10,0.8);
  
 /* 🎬 第一段动画 */
 .scene1 .jp {
-  animation: fadeIn 1.5s ease forwards;
+  animation: fade1 5s ease forwards;
 }
 
 .scene1 .cn {
-  animation: fadeIn 1.5s ease forwards;
-  animation-delay: 1.5s;
+  animation: fade1 5s ease forwards;
+  animation-delay: 1s;
 }
 
 .scene1 .en {
-  animation: fadeIn 1.5s ease forwards;
-  animation-delay: 3s;
+  animation: fade1 5s ease forwards;
+  animation-delay: 2s;
 }
-  .scene2 .jp {
-  animation: fadeIn 1.5s ease forwards;
-  animation-delay: 9s;
+
+/* 🎬 第二段动画（延迟） */
+.scene2 .jp {
+  animation: fade2 5s ease forwards;
+  animation-delay: 5.5s;
 }
 
 .scene2 .cn {
-  animation: fadeIn 1.5s ease forwards;
-  animation-delay: 10.5s;
+  animation: fade2 5s ease forwards;
+  animation-delay: 6.5s;
 }
 
 .scene2 .en {
-  animation: fadeIn 1.5s ease forwards;
-  animation-delay: 12s;
+  animation: fade2 5s ease forwards;
+  animation-delay: 7.5s;
 }
+  
   /* ✅ 控制两段“不会同时出现” */
 .scene1 {
-  animation: scene1Fade 8s ease forwards;
+  animation: scene1Fade 5s ease forwards;
 }
 
 .scene2 {
   opacity: 0; /* 👈关键！！一开始隐藏 */
-  animation: scene2Fade 8s ease forwards;
-  animation-delay: 8.5s;
+  animation: scene2Fade 5s ease forwards;
+  animation-delay: 5.5s;
 }
 
 /* 第一段：正常出现后消失 */
-@keyframes fade1 {
-  0%   { opacity: 0; }
-  15%  { opacity: 1; }
-  85%  { opacity: 1; }
+@keyframes scene1Fade {
+  0%   { opacity: 1; }
+  80%  { opacity: 1; }
   100% { opacity: 0; }
 }
 
 /* 第二段：先隐藏 → 再出现 */
-@keyframes fade2 {
+@keyframes scene2Fade {
   0%   { opacity: 0; }
-  15%  { opacity: 1; }
-  85%  { opacity: 1; }
+  10%  { opacity: 1; }
+  80%  { opacity: 1; }
   100% { opacity: 0; }
 }
 
@@ -305,7 +308,7 @@ background: rgba(5,7,10,0.8);
   text-align: center;
   opacity: 0;
   animation: showMenu 2s ease forwards;
-  animation-delay: 17s;
+  animation-delay: 11s;
 }
 
 .lang-select a {
@@ -321,9 +324,18 @@ background: rgba(5,7,10,0.8);
 }
 
 /* ✨ 动画定义 */
-@keyframes fadeIn {
+@keyframes fade1 {
   0%   { opacity: 0; }
-  100% { opacity: 1; }
+  15%  { opacity: 1; }
+  70%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes fade2 {
+  0%   { opacity: 0; }
+  15%  { opacity: 1; }
+  70%  { opacity: 1; }
+  100% { opacity: 0; }
 }
 
 @keyframes showMenu {
