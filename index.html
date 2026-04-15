@@ -9,7 +9,12 @@ body {
   margin: 0;
   background:
     radial-gradient(circle at 50% 55%, rgba(255,255,240,0.12), transparent 65%),
+    url("forest.jpg"),
     #05070a;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
   display: flex;
   justify-content: center;
@@ -19,22 +24,34 @@ body {
   color: #f5e9d6;
   font-family: serif;
 }
-
+  
   body::before {
   content: "";
   position: fixed;
   inset: 0;
+  z-index: 1;
+
   will-change: transform, opacity, filter;
 
   background: radial-gradient(
     ellipse at 30% 30%,  
-    rgba(255,245,200,0.25),   /* 👈核心更亮 */
-    rgba(255,255,230,0.18),   /* 👈过渡层 */
+    rgba(255,245,200,0.25),
+    rgba(255,255,230,0.18),
     transparent 45%
   );
 
   pointer-events: none;
   animation: bgPulse 6s ease-in-out infinite;
+}
+
+  body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+
+  background: rgba(5,7,10,0.5);
+  pointer-events: none;
 }
 
 /* 🌙 文字容器 */
@@ -44,7 +61,7 @@ body {
   max-width: 600px;
   text-align: center;
   line-height: 2;
-  z-index: 1; 
+  z-index: 2; 
 }
 
 /* 共通语言层 */
