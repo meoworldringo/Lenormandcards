@@ -44,15 +44,15 @@ body {
   font-size: 20px;
   letter-spacing: 0.08em;
   text-shadow: 0 0 12px rgba(255,220,150,0.25);
-  transform: translate(-50%, -50%);
+  transform: translate(calc(-50% - 50px), calc(-50% - 100px));
 }
 
 /* 🌫 中文 */
 .cn {
-  font-size: 20px;
+  font-size: 18px;
   opacity: 0.18;
   filter: blur(0.3px);
-  transform: translate(calc(-50% - 140px), calc(-50% + 80px));
+  transform: translate(calc(-50% - 100px), calc(-50% - 10px));
   animation: float1 6s ease-in-out infinite alternate; 
   animation-delay: 1s;
 }
@@ -63,7 +63,7 @@ body {
   opacity: 0.15;
   letter-spacing: 0.04em;
   filter: blur(0.5px);
-  transform: translate(calc(-50% + 160px), calc(-50% - 100px));
+  transform: translate(calc(-50% + 160px), calc(-50% + 100px));
   animation: float2 7s ease-in-out infinite alternate;
   animation-delay: 2s; 
 }
