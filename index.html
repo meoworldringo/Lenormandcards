@@ -82,26 +82,42 @@ body {
 
 /* 🌕 语言样式（只负责外观，不负责位置） */
 .jp {
-  font-size: 18px;
+  font-size: 18px;  /* 保留你的尺寸 */
   letter-spacing: 0.08em;
-  color: #ffffff;  
-  text-shadow: 0 0 14px rgba(191,233,255,0.35);
-  filter: blur(0.3px);
-  animation: glow 3s ease-in-out infinite;
+
+  color: #fff4cc;
+
+  opacity: 0.9;
+
+  text-shadow:
+    0 0 6px rgba(255,244,204,0.6),
+    0 0 12px rgba(255,230,160,0.5),
+    0 0 24px rgba(255,220,140,0.35),
+    0 0 48px rgba(255,200,120,0.2);
+
+  filter: blur(0.2px);
+
+  animation: enGlow 3.5s ease-in-out infinite;
 }
 
 .cn {
-  font-size: 17.5px;
+  font-size: 17.5px;  /* 保留你的尺寸 */
   letter-spacing: 0.08em;
-  color: #d9d2ff; 
-  opacity: 0.16;   
-  filter: blur(0.3px);  
+
+  color: #fff4cc;
+
+  opacity: 0.9;
 
   text-shadow:
-    0 0 8px rgba(217,210,255,0.4),
-    0 0 18px rgba(217,210,255,0.25); 
-}
+    0 0 6px rgba(255,244,204,0.6),
+    0 0 12px rgba(255,230,160,0.5),
+    0 0 24px rgba(255,220,140,0.35),
+    0 0 48px rgba(255,200,120,0.2);
 
+  filter: blur(0.2px);
+
+  animation: enGlow 3.5s ease-in-out infinite;
+}
 .en {
   font-size: 22px;
   color: #fff4cc; 
