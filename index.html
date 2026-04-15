@@ -61,7 +61,7 @@ overflow-x: hidden;
 background: rgba(5,7,10,0.8);
   pointer-events: none;
 }
-
+  
 /* 🌙 文字容器 */
 .scene {
   position: relative;
@@ -391,14 +391,54 @@ background: rgba(5,7,10,0.8);
     margin: 12px 0;
     letter-spacing: 0.05em;
   }
+/* 🕊️ 鹤鸟（入口视觉） */
+.stork {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
 
+  width: 180px;
+  max-width: 40vw;
+
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+
+  filter: blur(0.5px) brightness(1.1);
+
+  animation: storkIntro 3s ease forwards;
+}
+
+/* ✨ 动画 */
+@keyframes storkIntro {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+
+  30% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  70% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
 }
  
 </style>
 </head>
 
 <body>
-
+  
+<img src="card17.jpg" class="stork">
+  
 <div class="scene">
 
   <!-- 🌙 第一段 -->
