@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Card Meanings</title>
+<title>Book</title>
 
 <style>
 body {
@@ -16,38 +16,84 @@ body {
 
 /* 📖 整本书 */
 .book {
+  display: flex;
   width: 90%;
-  max-width: 700px;
+  max-width: 900px;
+  height: 70vh;
+  position: relative;
 }
 
-/* 📜 书页 */
+/* 📜 每一页 */
 .page {
+  flex: 1;
   padding: 60px 50px;
 
   background: radial-gradient(
-    ellipse at center,
-    #f3e6c9 0%,
-    #e2cf9f 100%
+    circle at 50% 40%,
+    #f6edd6 0%,
+    #e8d8b0 60%,
+    #d8c79a 100%
   );
 
   box-shadow:
-    inset 0 0 80px rgba(0,0,0,0.35),
-    0 20px 60px rgba(0,0,0,0.5);
+    inset 0 0 100px rgba(0,0,0,0.45),
+    inset 0 0 30px rgba(255,255,255,0.15);
 
-  border-radius: 6px;
-
-  color: #3a2f1b;
+  color: #2a1f10;
   font-family: serif;
-  line-height: 1.8;
+  line-height: 1.9;
+
+  position: relative;
 }
 
-.page h1 {
-  font-size: 28px;
-  margin-bottom: 20px;
+/* 📖 左页 */
+.left {
+  border-radius: 8px 0 0 8px;
 }
 
-.page p {
-  font-size: 16px;
+/* 📖 右页 */
+.right {
+  border-radius: 0 8px 8px 0;
+}
+
+/* 🌑 中间书脊（最关键） */
+.book::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 40px;
+  height: 100%;
+
+  transform: translateX(-50%);
+
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0,0,0,0.6),
+    transparent 70%
+  );
+
+  pointer-events: none;
+}
+
+/* 🌫 页面微光 */
+.page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255,255,255,0.15),
+    transparent 70%
+  );
+
+  pointer-events: none;
+}
+
+/* 标题 */
+h1 {
+  margin-top: 0;
 }
 </style>
 </head>
@@ -55,13 +101,23 @@ body {
 <body>
 
 <div class="book">
-  <div class="page">
-    <h1>秘密のバザール</h1>
+
+  <div class="page left">
+    <h1>Book of Secrets</h1>
     <p>
-      在靜謐的命運之中，  
-      每一張牌都低聲訴說著尚未被看見的真相。
+      在命運的縫隙之中，  
+      每一張牌都靜靜等待被翻開。
     </p>
   </div>
+
+  <div class="page right">
+    <h1>The Card</h1>
+    <p>
+      Each symbol holds a path,  
+      each meaning unfolds in silence.
+    </p>
+  </div>
+
 </div>
 
 </body>
