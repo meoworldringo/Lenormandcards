@@ -241,8 +241,10 @@ body::before {
 /* 按钮容器（改成右侧固定✨） */
 .back-wrapper {
   position: fixed;
-  right: 30px;
-  bottom: 40px;
+
+  right: clamp(16px, 5vw, 50px);
+  bottom: clamp(30px, 6vh, 80px);
+
   z-index: 10;
 }
 
