@@ -21,17 +21,18 @@ body {
   width: 500px;
   height: 420px;
 }
-  
-  #profileText {
+
+/* 文字 */
+#profileText {
   position: absolute;
-  top: 220px;
+  top: 260px;
   left: 50%;
-  opacity: 0;
-  transition: opacity 0.4s ease;
   transform: translateX(-50%);
   color: #ffe9b0;
   font-size: 18px;
   text-align: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
   pointer-events: none;
 }
 
@@ -47,39 +48,51 @@ body {
   box-shadow: 0 0 30px rgba(255, 220, 140, 0.6);
 
   animation: float 4s ease-in-out infinite;
-  transition: all 0.5s ease;
+  transition: all 0.6s ease;
 }
 
-  .orb:nth-child(1) {
+/* 初始三角形 */
+.stage:not(.selected) .orb:nth-child(1) {
   left: 0;
   top: 180px;
 }
 
-.orb:nth-child(2) {
+.stage:not(.selected) .orb:nth-child(2) {
   left: 150px;
   top: 0;
 }
 
-.orb:nth-child(3) {
+.stage:not(.selected) .orb:nth-child(3) {
   left: 300px;
   top: 180px;
 }
-  
-/* 主角位置（中央） */
-.orb.active {
-  left: 150px !important;
-  top: 120px !important;
+
+/* 点击后整体上移 */
+.stage.selected .orb {
+  top: 20px;
+}
+
+/* 主角 */
+.stage.selected .orb.active {
+  left: 150px;
   transform: scale(1.3);
   z-index: 2;
   box-shadow: 0 0 50px rgba(255, 240, 180, 1);
 }
 
-/* 其他缩小 */
-.orb.inactive {
+/* 左边小球 */
+.stage.selected .orb.inactive:nth-child(1) {
+  left: 20px;
   transform: scale(0.75);
   opacity: 0.6;
 }
-  
+
+/* 右边小球 */
+.stage.selected .orb.inactive:nth-child(3) {
+  left: 280px;
+  transform: scale(0.75);
+  opacity: 0.6;
+}
 
 /* 漂浮动画 */
 @keyframes float {
@@ -94,14 +107,15 @@ body {
 <body>
 
 <div class="stage">
-<img src="profile-c.png" class="orb inactive">
-<img src="profile-me.png" class="orb active">
-<img src="profile-g.png" class="orb inactive">
-  
-  <div id="profileText"></div> 
+  <img src="profile-c.png" class="orb inactive">
+  <img src="profile-me.png" class="orb active">
+  <img src="profile-g.png" class="orb inactive">
+
+  <div id="profileText"></div>
 </div>
 
-  <script>
+<script>
+const stage = document.querySelector('.stage');
 const orbs = document.querySelectorAll('.orb');
 const text = document.getElementById('profileText');
 
@@ -114,6 +128,10 @@ const profiles = [
 orbs.forEach((orb, index) => {
   orb.onclick = () => {
 
+    // 进入“选中模式”
+    stage.classList.add('selected');
+
+    // 切换状态
     orbs.forEach(o => {
       o.classList.remove('active');
       o.classList.add('inactive');
@@ -122,15 +140,16 @@ orbs.forEach((orb, index) => {
     orb.classList.add('active');
     orb.classList.remove('inactive');
 
+    // 文字淡入
     text.style.opacity = 0;
 
-setTimeout(() => {
-  text.innerText = profiles[index];
-  text.style.opacity = 1;
-}, 150);
+    setTimeout(() => {
+      text.innerText = profiles[index];
+      text.style.opacity = 1;
+    }, 150);
   };
 });
 </script>
-  
+
 </body>
 </html>
