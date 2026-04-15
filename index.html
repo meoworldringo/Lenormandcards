@@ -32,6 +32,7 @@ body {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  white-space: nowrap;
 }
 .scene1 .lang,
 .scene2 .lang {
@@ -42,7 +43,7 @@ body {
 .jp {
   font-size: 20px;
   letter-spacing: 0.08em;
-  text-shadow: 0 0 10px rgba(255,220,150,0.25);
+  text-shadow: 0 0 12px rgba(255,220,150,0.25);
   transform: translate(-50%, -50%);
 }
 
@@ -50,7 +51,8 @@ body {
 .cn {
   font-size: 20px;
   opacity: 0.18;
-  transform: translate(calc(-50% - 80px), calc(-50% + 40px));
+  filter: blur(0.3px);
+  transform: translate(calc(-50% - 140px), calc(-50% + 80px));
   animation: float1 6s ease-in-out infinite alternate; 
   animation-delay: 1s;
 }
@@ -60,7 +62,8 @@ body {
   font-size: 20px;
   opacity: 0.15;
   letter-spacing: 0.04em;
-  transform: translate(calc(-50% + 90px), calc(-50% - 50px));
+  filter: blur(0.5px);
+  transform: translate(calc(-50% + 160px), calc(-50% - 100px));
   animation: float2 7s ease-in-out infinite alternate;
   animation-delay: 2s; 
 }
