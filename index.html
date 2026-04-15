@@ -363,8 +363,9 @@ background: rgba(5,7,10,0.8);
     margin: 12px 0;
   }
 
-  .l3 {
-    transform: translate(-50%, calc(-50% + 80px));
+  /* ⭐这里一起处理（关键） */
+  .l2, .l3, .l5, .l6 {
+    animation: none;   /* ← 这一行就是你缺的 */
   }
 
 }
