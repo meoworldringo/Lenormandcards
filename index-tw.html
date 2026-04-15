@@ -327,16 +327,24 @@ img {
 @media (max-width: 900px) and (orientation: portrait) {
 
   .main {
-    margin-top: 10px;
+    margin-top: 0;
   }
 
   .card-area {
     flex-direction: column !important;
-    gap: 28px; /* ⭐ 必须在里面 */
+    align-items: center;
+    gap: 28px;
   }
 
   #card-container {
     margin-left: 0;
+  }
+
+  /* ⭐ 就加在这里 ⭐ */
+  #text {
+    width: 92%;
+    max-width: 420px;
+    padding: 0 10px;
   }
 
 }
