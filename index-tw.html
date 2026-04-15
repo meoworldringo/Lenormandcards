@@ -330,7 +330,8 @@ img {
   }
 
   .card-area {
-    flex-direction: column;
+  flex-direction: column !important;
+}
     gap: 28px; /* ⭐ 拉开图片和文字 */
   }
 
@@ -340,7 +341,7 @@ img {
 
 } 
 
-@media (max-width: 600px) and (orientation: portrait) {
+@media (max-width: 768px) and (orientation: portrait) {
 
   .main {
     min-height: 100vh;
