@@ -34,7 +34,7 @@ body {
   will-change: transform, opacity, filter;
 
   background: radial-gradient(
-    ellipse at 30% 30%,  
+    ellipse at 70% 30%,  
     rgba(255,245,200,0.25),
     rgba(255,255,230,0.18),
     transparent 45%
@@ -50,7 +50,11 @@ body {
   inset: 0;
   z-index: 0;
 
-  background: rgba(5,7,10,0.7);
+  background: radial-gradient(
+  circle at center,
+  rgba(5,7,10,0.4),
+  rgba(5,7,10,0.85)
+);
   pointer-events: none;
 }
 
