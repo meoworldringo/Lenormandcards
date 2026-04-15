@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Secret Bazaar</title>
+
+<style>
+body {
+  margin: 0;
+  background: #0B0F14;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  color: #f5e9d6;
+  font-family: serif;
+}
+
+/* 🌙 文字容器 */
+.scene {
+  position: relative;
+  text-align: center;
+  line-height: 1.8;
+}
+
+/* 共通语言层 */
+.lang {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+/* 🌕 主语言（日文） */
+.jp {
+  font-size: 28px;
+  letter-spacing: 0.08em;
+  text-shadow: 0 0 10px rgba(255,220,150,0.25);
+}
+
+/* 🌫 中文 */
+.cn {
+  font-size: 26px;
+  opacity: 0.18;
+  transform: translate(-1px, 1px);
+}
+
+/* 🌫 英文 */
+.en {
+  font-size: 24px;
+  opacity: 0.15;
+  transform: translate(1px, -1px);
+  letter-spacing: 0.04em;
+}
+
+/* 🎬 第一段动画 */
+.scene1 .lang {
+  animation: fade1 5s ease forwards;
+}
+
+/* 🎬 第二段动画（延迟） */
+.scene2 .lang {
+  animation: fade2 5s ease forwards;
+  animation-delay: 5.5s;
+}
+
+/* 🌐 语言选择 */
+.lang-select {
+  position: absolute;
+  bottom: -120px;
+  width: 100%;
+  text-align: center;
+  opacity: 0;
+  animation: showMenu 2s ease forwards;
+  animation-delay: 11s;
+}
+
+.lang-select a {
+  display: block;
+  margin: 6px 0;
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.lang-select a:hover {
+  color: #ffe9a8;
+}
+
+/* ✨ 动画定义 */
+@keyframes fade1 {
+  0%   { opacity: 0; transform: translateY(10px); }
+  15%  { opacity: 1; transform: translateY(0); }
+  70%  { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-10px); }
+}
+
+@keyframes fade2 {
+  0%   { opacity: 0; transform: translateY(10px); }
+  15%  { opacity: 1; transform: translateY(0); }
+  70%  { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-10px); }
+}
+
+@keyframes showMenu {
+  to { opacity: 1; transform: translateY(-20px); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="scene">
+
+  <!-- 🌙 第一段 -->
+  <div class="scene1">
+    <div class="lang jp">
+      AIと紡いだルノルマンカードの夢の世界。
+    </div>
+    <div class="lang cn">
+      與ai共同編織的雷諾曼幻夢。
+    </div>
+    <div class="lang en">
+     Woven with AI, a realm of Lenormand dreams.
+    </div>
+  </div>
+
+  <!-- 🌙 第二段 -->
+  <div class="scene2">
+    <div class="lang jp">
+      それが――秘密のバザール。
+    </div>
+    <div class="lang cn">
+      那便是——秘密集市。
+    </div>
+    <div class="lang en">
+      Welcome to—The Secret Bazaar.
+    </div>
+  </div>
+
+  <!-- 🌐 语言选择 -->
+  <div class="lang-select">
+    <a href="index-tw.html">繁體中文</a>
+    <a href="index-cn.html">简体中文</a>
+    <a href="index-jp.html">日本語</a>
+    <a href="index-en.html">English</a>
+  </div>
+
+</div>
+
+</body>
+</html>
