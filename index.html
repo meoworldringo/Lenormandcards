@@ -28,8 +28,14 @@ body {
 
 /* 共通语言层 */
 .lang {
-  position: relative;
-  display: block;
+  position: absolute;  
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.scene1 .lang,
+.scene2 .lang {
+  opacity: 0;
 }
 
 /* 🌕 主语言（日文） */
@@ -37,15 +43,14 @@ body {
   font-size: 20px;
   letter-spacing: 0.08em;
   text-shadow: 0 0 10px rgba(255,220,150,0.25);
-  transform: translate(0px, 0px);
+  transform: translate(-50%, -50%);
 }
 
 /* 🌫 中文 */
 .cn {
   font-size: 20px;
   opacity: 0.18;
-  transform: translate(-1px, 1px);
-  transform: translate(-60px, 30px);
+  transform: translate(calc(-50% - 80px), calc(-50% + 40px));
   animation: float1 6s ease-in-out infinite alternate; 
   animation-delay: 1s;
 }
@@ -54,13 +59,12 @@ body {
 .en {
   font-size: 20px;
   opacity: 0.15;
-  transform: translate(1px, -1px);
   letter-spacing: 0.04em;
-  transform: translate(70px, -40px);
+  transform: translate(calc(-50% + 90px), calc(-50% - 50px));
   animation: float2 7s ease-in-out infinite alternate;
   animation-delay: 2s; 
 }
-
+ 
 /* 🎬 第一段动画 */
 .scene1 .jp {
   animation: fade1 5s ease forwards;
@@ -161,13 +165,13 @@ body {
 }
   /* 🌫️ 漂浮感 */
 @keyframes float1 {
-  from { transform: translate(-12px, 18px); }
-  to   { transform: translate(-16px, 22px); }
+  from { transform: translate(calc(-50% - 80px), calc(-50% + 40px)); }
+  to   { transform: translate(calc(-50% - 90px), calc(-50% + 50px)); }
 }
 
 @keyframes float2 {
-  from { transform: translate(14px, -14px); }
-  to   { transform: translate(18px, -18px); }
+  from { transform: translate(calc(-50% + 90px), calc(-50% - 50px)); }
+  to   { transform: translate(calc(-50% + 100px), calc(-50% - 60px)); }
 }
 </style>
 </head>
