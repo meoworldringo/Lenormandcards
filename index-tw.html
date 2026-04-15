@@ -331,16 +331,15 @@ img {
   }
 
   .card-area {
-  flex-direction: column !important;
-}
-    gap: 28px; /* ⭐ 拉开图片和文字 */
+    flex-direction: column !important;
+    gap: 28px; /* ⭐ 必须在里面 */
   }
 
   #card-container {
-    margin-left: 0; /* ⭐ 修正偏左 */
+    margin-left: 0;
   }
 
-} 
+}
 
 @media (max-width: 768px) and (orientation: portrait) {
 
@@ -357,7 +356,7 @@ img {
   }
 
   .card-area {
-    flex-direction: column;
+    flex-direction: column !important; /* ⭐ 加这个 */
     align-items: center;
     gap: 30px;
   }
@@ -366,7 +365,6 @@ img {
     width: 92%;
   }
 
-  /* ⭐ 关键：视觉变大 */
   #card-container {
     transform: scale(1.12);
   }
