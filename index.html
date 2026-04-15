@@ -65,6 +65,31 @@ body {
   animation: fade2 5s ease forwards;
   animation-delay: 5.5s;
 }
+  /* ✅ 控制两段“不会同时出现” */
+.scene1 {
+  animation: scene1Fade 5s ease forwards;
+}
+
+.scene2 {
+  opacity: 0; /* 👈关键！！一开始隐藏 */
+  animation: scene2Fade 5s ease forwards;
+  animation-delay: 5.5s;
+}
+
+/* 第一段：正常出现后消失 */
+@keyframes scene1Fade {
+  0%   { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* 第二段：先隐藏 → 再出现 */
+@keyframes scene2Fade {
+  0%   { opacity: 0; }
+  10%  { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { opacity: 0; }
+}
 
 /* 🌐 语言选择 */
 .lang-select {
