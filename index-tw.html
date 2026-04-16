@@ -379,17 +379,17 @@ img {
  #text {
   width: 94%;
   max-width: 420px;
-  padding: 16px 12px 10px;   /* ⭐ 左右从8 → 12 */
+  padding: 16px 14px 10px;   
   box-sizing: border-box;
 }
   
  #meaning {
-  font-size: 14.5px;
-  line-height: 1.65;
+  font-size: 14px;
+  line-height: 1.7;
   letter-spacing: 0.2px;
 
-  word-break: break-word;
-  overflow-wrap: break-word;
+  word-break: break-all;     /* ⭐ 关键：不再裁字 */
+  overflow-wrap: anywhere;   /* ⭐ 双保险 */
 }
 
   /* ⭐ 按钮靠近说明文 */
@@ -408,19 +408,16 @@ img {
   }
 
   /* ⭐ 副标题（关键修复） */
-  #header div:last-child {
+#header div:last-child {
   white-space: nowrap;
 
-  font-size: clamp(7px, 2.8vw, 11px);  /* ⭐ 再压一点 */
+  font-size: 2.6vw;   /* ⭐ 用vw强制随屏缩放 */
+  letter-spacing: 0.3px;
 
-  letter-spacing: 0.5px;               /* ⭐ 稍微挤一点 */
-
-  overflow: visible;                   /* ❗关键：不要裁 */
-  text-overflow: unset;
+  display: block;
 }
   }
 
-}
 </style>
 
 
