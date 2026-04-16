@@ -341,9 +341,9 @@ img {
 
 }
 
-  @media (min-width: 769px) and (max-width: 1024px) {
+@media (min-width: 769px) and (max-width: 1024px) {
   #meaning {
-    font-size: 16.5px;
+    font-size: 18.5px !important;
   }
 }
 
@@ -361,18 +361,18 @@ img {
     padding: 0;
   }
 
-  /* ⭐ 卡牌区域（改关键点） */
-  .card-area {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;   /* ❗不要再用 center */
+  /* ⭐ 卡牌区域（改关键点） */.card-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    padding-top: 40px;             /* ⭐ 用 padding 控位置（稳定） */
-    padding-bottom: 20px;
+  justify-content: flex-start;
 
-    gap: 16px;
-  }
+  padding-top: 60px;   /* ⭐ 原本40 → 拉开首屏 */
+  padding-bottom: 20px;
+
+  gap: 16px;
+}
 
   #card-container {
     transform: scale(1.05);        /* ⭐ 稍微缩一点，避免挤爆 */
