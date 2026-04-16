@@ -376,20 +376,21 @@ img {
   }
 
   /* ⭐ 说明文 */
-  #text {
-    width: 94%;
-    max-width: 420px;
-    padding: 16px 8px 10px;        /* ⭐ 减少上下距离 */
-    box-sizing: border-box;
-  }
+ #text {
+  width: 94%;
+  max-width: 420px;
+  padding: 16px 12px 10px;   /* ⭐ 左右从8 → 12 */
+  box-sizing: border-box;
+}
+  
+ #meaning {
+  font-size: 14.5px;
+  line-height: 1.65;
+  letter-spacing: 0.2px;
 
-  #meaning {
-    font-size: 14.5px;
-    line-height: 1.65;
-    letter-spacing: 0.2px;
-
-    word-break: keep-all;
-  }
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
 
   /* ⭐ 按钮靠近说明文 */
   #text + div {
@@ -408,11 +409,15 @@ img {
 
   /* ⭐ 副标题（关键修复） */
   #header div:last-child {
-    white-space: nowrap;
-    font-size: clamp(8px, 2.5vw, 11px);
+  white-space: nowrap;
 
-    overflow: hidden;              /* ⭐ 不再溢出 */
-    text-overflow: ellipsis;       /* ⭐ 超出变 … */
+  font-size: clamp(7px, 2.8vw, 11px);  /* ⭐ 再压一点 */
+
+  letter-spacing: 0.5px;               /* ⭐ 稍微挤一点 */
+
+  overflow: visible;                   /* ❗关键：不要裁 */
+  text-overflow: unset;
+}
   }
 
 }
