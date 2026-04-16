@@ -7,7 +7,7 @@
 
 <style>
 
-/* 🌿 背景 /
+/* 🌿 背景 */
 body {
   margin: 0;
   background: url("forest.jpg") center/cover no-repeat fixed;
@@ -17,7 +17,7 @@ body {
   justify-content: center;
 }
 
-/ 🌑 暗层 /
+/* 🌑 暗层 */
 body::before {
   content: "";
   position: fixed;
@@ -26,7 +26,7 @@ body::before {
   z-index: 0;
 }
 
-/ 📖 核心容器（关键！） /
+/ *📖 核心容器（关键！）*/
 .book-wrapper {
   position: relative;
   width: min(92vw, 900px);
@@ -34,29 +34,29 @@ body::before {
   z-index: 2;
 }
 
-/ 📖 图片强制规则（关键！） /
+/* 📖 图片强制规则（关键！）*/
 .book-wrapper img {
   width: 100%;
   height: auto;
   display: block;
 }
 
-/ 👉 默认隐藏单页 /
+/ *👉 默认隐藏单页* /
 .book-single {
   display: none;
 }
 
-/ 📱 手机切换 /
+/ *📱 手机切换 */
 @media (max-width: 600px) {
   .book-double { display: none; }
   .book-single { display: block; }
 }
 
-/ 📝 文字（绝对贴书） /
+/ *📝 文字（绝对贴书） */
 .book-text {
   position: absolute;
 
-  / ⭐ 左页区域（核心） /
+  / *⭐ 左页区域（核心）*/
   top: 18%;
   left: 24%;
   width: 23%;
@@ -67,7 +67,7 @@ body::before {
   font-size: clamp(12px, 1.4vw, 16px);
 }
 
-/ 📱 手机 */
+/ *📱 手机 */
 @media (max-width: 600px) {
   .book-text {
     left: 50%;
