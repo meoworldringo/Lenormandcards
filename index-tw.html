@@ -368,6 +368,7 @@ img {
     width: 92%;
     max-width: 420px;
     padding: 0 12px; /* ⭐ 防止文字被裁 */
+    box-sizing: border-box;
   }
 
   #title {
@@ -381,9 +382,13 @@ img {
   }
 
   #header {
-    margin-bottom: 8px; /* ⭐ 控制标题 → 卡牌距离 */
+    margin-bottom: 6px; /* ⭐ 控制标题 → 卡牌距离 */
   }
-
+  
+ #header div:last-child {
+  white-space: nowrap;
+  font-size: 11px;
+}
 }
 </style>
 
