@@ -354,9 +354,10 @@ body::before {
 
   /* 主角 */
   .stage.selected .orb.active {
-    left: 50%;
-    transform: translateX(-50%) scale(1.2);
-  }
+  left: 50%;
+  margin-left: -60px; /* 球一半宽度（120px / 2） */
+  transform: scale(1.2);
+}
 
   .stage.selected .orb.left {
     left: 0;
@@ -373,7 +374,7 @@ body::before {
   #profileText {
     position: static;
     transform: none;
-    margin-top: 40px;
+    margin-top: 80px;
     padding: 0 10px;
     font-size: 15px;
     white-space: normal;
