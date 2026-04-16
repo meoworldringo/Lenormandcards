@@ -705,18 +705,6 @@ document.getElementById("meaning").innerHTML = meanings[currentCard];
 
 });
 
-  function fitSubtitle() {
-  const el = document.getElementById("subtitle");
-  const parent = document.getElementById("header");
-
-  let size = 13;   // 初始字体
-  el.style.fontSize = size + "px";
-
-  while (el.scrollWidth > parent.clientWidth && size > 8) {
-    size -= 0.5;
-    el.style.fontSize = size + "px";
-  }
-}
 
 window.addEventListener("load", fitSubtitle);
 window.addEventListener("resize", fitSubtitle);
