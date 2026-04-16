@@ -17,46 +17,40 @@ body {
   justify-content: center;
 }
 
-/* 🌑 暗层 */
+/ *🌑 暗层（变淡！）*/
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: rgba(5,10,15,0.65);
+  background: rgba(5,10,15,0.4); / ⭐ 原本太黑 /
   z-index: 0;
 }
 
-/ *📖 核心容器（关键！）*/
+/* 📖 容器 */
 .book-wrapper {
   position: relative;
-  width: min(92vw, 900px);
+  width: min(80vw, 700px);  / ⭐ 再缩一点 /
   margin-top: 40px;
   z-index: 2;
 }
 
-/* 📖 图片强制规则（关键！）*/
+/* 📖 图片 */
 .book-wrapper img {
   width: 100%;
   height: auto;
   display: block;
 }
 
-/ *👉 默认隐藏单页* /
+/* ❗ 强制只显示双页（先稳定） */
 .book-single {
   display: none;
 }
 
-/ *📱 手机切换 */
-@media (max-width: 600px) {
-  .book-double { display: none; }
-  .book-single { display: block; }
-}
-
-/ *📝 文字（绝对贴书） */
+/* 📝 文字（保证在最上层）*/
 .book-text {
   position: absolute;
+  z-index: 5;  / ⭐ 关键 /
 
-  / *⭐ 左页区域（核心）*/
   top: 18%;
   left: 24%;
   width: 23%;
@@ -67,8 +61,15 @@ body::before {
   font-size: clamp(12px, 1.4vw, 16px);
 }
 
-/ *📱 手机 */
+/*📱 手机（之后再开） */
 @media (max-width: 600px) {
+  .book-double { display: none; }
+  .book-single { display: block; }
+
+  .book-wrapper {
+    width: 85vw;
+  }
+
   .book-text {
     left: 50%;
     transform: translateX(-50%);
@@ -84,13 +85,9 @@ body::before {
 
 <div class="book-wrapper">
 
-  <!-- 双页 -->
   <img src="book-open-v1.png" class="book-double">
-
-  <!-- 单页 -->
   <img src="book-open-v2.png" class="book-single">
 
-  <!-- 文字 -->
   <div class="book-text">
     <b>狐狸（Fox）</b><br><br>
     代表聪明、谨慎与策略。<br>
@@ -102,4 +99,4 @@ body::before {
 </div>
 
 </body>
-</
+</html>
