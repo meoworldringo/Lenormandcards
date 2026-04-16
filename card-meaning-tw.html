@@ -77,11 +77,38 @@ body::before {
     top: 20%;
   }
 }
+.fireflies {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.fireflies span {
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  background: radial-gradient(circle, rgba(255,220,120,0.9) 0%, rgba(255,220,120,0) 80%);
+  filter: blur(1px);
+  border-radius: 50%;
+  animation: fireflyFloat 12s linear infinite;
+  opacity: 0;
+}
+
+@keyframes fireflyFloat {
+  0% { transform: translateY(0); opacity: 0; }
+  20% { opacity: 1; }
+  50% { transform: translateY(-60px); opacity: 0.8; }
+  100% { transform: translateY(-120px); opacity: 0; }
+}
+  
 
 </style>
 </head>
 
 <body>
+
+<div class="fireflies"></div>
 
 <div class="book-wrapper">
 
@@ -97,6 +124,18 @@ body::before {
   </div>
 
 </div>
+<script>
+const fireflyContainer = document.querySelector(".fireflies");
 
+for (let i = 0; i < 15; i++) {
+  const f = document.createElement("span");
+
+  f.style.left = Math.random() * 100 + "%";
+  f.style.top = Math.random() * 100 + "%";
+  f.style.animationDelay = Math.random() * 10 + "s";
+
+  fireflyContainer.appendChild(f);
+}
+</script>
 </body>
 </html>
