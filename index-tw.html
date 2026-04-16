@@ -381,13 +381,18 @@ img {
     margin-top: 6px;
   }
 
-  #header {
-    margin-bottom: 6px; /* ⭐ 控制标题 → 卡牌距离 */
-  }
+ #header {
+  margin-bottom: 4px;
+  padding: 8px 18px;
+}
   
- #header div:last-child {
+#header div:last-child {
   white-space: nowrap;
-  font-size: 11px;
+  font-size: 10.5px;
+
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 }
 </style>
