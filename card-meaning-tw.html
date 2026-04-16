@@ -98,12 +98,14 @@ body::before {
 
   border-radius: 50%;
 
-  /* ⭐ 关键：加一圈冷色微光 */
   box-shadow:
     0 0 6px rgba(255,220,120,0.6),
-    0 0 12px rgba(180,200,255,0.25); /* 淡蓝边缘 */
+    0 0 12px rgba(180,200,255,0.25);
 
   filter: blur(0.8px);
+
+  /* ⭐ 就是这行不见了！ */
+  animation: fireflyFloat 12s linear infinite;
 }
 
 @keyframes fireflyFloat {
@@ -143,7 +145,10 @@ for (let i = 0; i < 15; i++) {
 
   f.style.left = Math.random() * 100 + "%";
   f.style.top = Math.random() * 100 + "%";
+
+  /* ⭐ 每一只萤火虫不同节奏 */
   f.style.animationDelay = Math.random() * 10 + "s";
+  f.style.animationDuration = (8 + Math.random() * 6) + "s";
 
   fireflyContainer.appendChild(f);
 }
