@@ -323,23 +323,23 @@ body::before {
     margin-top: 40px;
   }
 
-  /* 🌕 球变大一点 + 更集中 */
+  /* 🌕 球 */
   .orb {
     width: 120px;
     height: 120px;
   }
 
-  /* 三角布局（缩紧一点） */
+  /* 三角布局 */
   .stage:not(.selected) .orb:nth-child(1) {
     left: 0;
     top: 180px;
   }
 
   .stage:not(.selected) .orb:nth-child(2) {
-  left: 50%;
-  top: 0;
-  transform: translateX(-50%);
-}
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+  }
 
   .stage:not(.selected) .orb:nth-child(3) {
     right: 0;
@@ -347,17 +347,12 @@ body::before {
     top: 180px;
   }
 
+  /* 点击后整体上移 */
   .stage.selected .orb {
-  top: -30px;
+    top: -50px;
+  }
 
-    #subtitle {
-  font-size: 10px;
-  letter-spacing: 0.2px;
-  white-space: nowrap;
-}
-}
-
-  /* 点击后布局 */
+  /* 主角 */
   .stage.selected .orb.active {
     left: 50%;
     transform: translateX(-50%) scale(1.2);
@@ -374,30 +369,32 @@ body::before {
     transform: scale(0.7);
   }
 
-  /* 📝 文字区域（重点！！） */
+  /* 📝 文字 */
   #profileText {
     position: static;
     transform: none;
-    margin-top: 20px;
+    margin-top: 40px;
     padding: 0 10px;
-
     font-size: 15px;
-    white-space: normal; /* ❗允许换行（你之前被这个坑了） */
+    white-space: normal;
   }
 
   .profile-title {
     font-size: 18px;
   }
 
-  .profile-desc {
-    font-size: 14px;
-  }
-
   .profile-item {
     font-size: 14px;
   }
 
-  /* 🔘 按钮变大（很关键） */
+  /* 🔤 副标题 */
+  #subtitle {
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+
+  /* 🔘 按钮 */
   #backBtn {
     font-size: 16px;
     padding: 14px 32px;
