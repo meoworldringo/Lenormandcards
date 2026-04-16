@@ -78,15 +78,14 @@ body {
   </div>
 
   <!-- 🌿 副标题 -->
-  <div style="
-    font-size:13px;
-    letter-spacing:1.5px;
-    margin-top:4px;
-    color:#cfc7a8;
-    opacity:0.8;
-  ">
-    Secret Bazaar Lenormand ・ 秘密のバザール・ルノルマン
-  </div>
+  <div id="subtitle" style="
+  letter-spacing:1.5px;
+  margin-top:4px;
+  color:#cfc7a8;
+  opacity:0.8;
+">
+  Secret Bazaar Lenormand ・ 秘密のバザール・ルノルマン
+</div>
 
 </div>
 
@@ -324,78 +323,96 @@ img {
 }
 
 
+/* 🌿 平板（仅纵向）→ 改结构：图片上 / 文字下 */
 @media (max-width: 900px) and (orientation: portrait) {
 
-  .main {
-    margin-top: 0;
-  }
-
   .card-area {
+    display: flex;
     flex-direction: column !important;
     align-items: center;
-    gap: 28px;
+    gap: 28px; /* 图片和文字距离 */
   }
 
   #card-container {
     margin-left: 0;
   }
 
-  /* ⭐ 就加在这里 ⭐ */
-  #text {
-    width: 92%;
-    max-width: 420px;
-    padding: 0 10px;
-  }
-
 }
 
-/* 📱 手机优化（最终版） */
+
+/* 📱 手机（细节优化，不动结构逻辑） */
 @media (max-width: 768px) {
 
   .main {
     margin-top: 0;
-    min-height: 100vh;
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 
-    padding: 20px 0;
+    padding: 0;
   }
 
+  /* ⭐ 卡牌区域（改关键点） */
   .card-area {
     display: flex;
-    flex-direction: column !important;
+    flex-direction: column;
     align-items: center;
-    gap: 24px;
+    justify-content: flex-start;   /* ❗不要再用 center */
+
+    padding-top: 40px;             /* ⭐ 用 padding 控位置（稳定） */
+    padding-bottom: 20px;
+
+    gap: 16px;
   }
 
   #card-container {
-    transform: scale(1.1);
-  }
-
-  #text {
-    width: 92%;
-    max-width: 420px;
-    padding: 0 10px;
+    transform: scale(1.05);        /* ⭐ 稍微缩一点，避免挤爆 */
   }
 
   #title {
-    margin-bottom: 6px;
+    margin-top: 6px;
   }
 
-  #meaning {
-    font-size: 16px;
-    line-height: 1.5;
-    margin-top: 4px;
-  }
-
-  #header {
-    margin-bottom: 12px;
-  }
-
+  /* ⭐ 说明文 */
+ #text {
+  width: 94%;
+  max-width: 420px;
+  padding: 16px 14px 10px;   
+  box-sizing: border-box;
 }
+  
+ #meaning {
+  font-size: 14px;
+  line-height: 1.7;
+
+  white-space: normal;      /* 允许你用 <br> 控制换行 */
+  word-break: keep-all;     /* 不拆中文 */
+  overflow-wrap: normal;    /* 不乱断 */
+}
+  /* ⭐ 按钮靠近说明文 */
+  #text + div {
+    margin-top: 12px !important;   /* ⭐ 把按钮拉上来 */
+  }
+
+  /* ⭐ 标题区 */
+  #header {
+    margin-bottom: 6px;
+    padding: 6px 12px;
+
+    width: 92%;
+    max-width: 420px;
+    box-sizing: border-box;
+  }
+
+  /* ⭐ 副标题（关键修复） */
+#subtitle {
+  font-size: 10px;
+  letter-spacing: 0.2px;
+
+  white-space: nowrap;
+}
+  }
 </style>
 
 
@@ -500,7 +517,7 @@ titles["card36.jpg"] = "十字架";
 
 meanings["card1.jpg"] = "兔子骑士和同伴带上搭顺风车的小乌龟，准备出发！<br>不论沼泽还是陆地，鳄鱼大哥，冲鸭～～";
 traditional["card1.jpg"] = "关键词：消息、行动、来访";
-meanings["card2.jpg"] = "街道的石砖缝，长了一株四叶草。<br>人们不停驻的匆匆走过——嘘，三花猫发现它了！";
+meanings["card2.jpg"] = "街道的石砖缝，长了一株四叶草。<br>人们不停驻的匆匆走过——<br>嘘，三花猫发现它了！";
 traditional["card2.jpg"] = "关键词：幸运、机会、偶然";
 meanings["card3.jpg"] = "过去是船，现在添了飞机，未来可能还有宇宙飞梭！<br>再到更久远的未来————<br>嘿，说不定有天我们打开门就能到任何地方。<br>你说是不？";
 traditional["card3.jpg"] = "关键词：旅行、移动、远方";
