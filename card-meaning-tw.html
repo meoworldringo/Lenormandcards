@@ -1,120 +1,78 @@
+k01"}
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Secret Bazaar Book</title>
+<title>Book Test</title>
 
 <style>
 
 /* 🌿 背景 /
 body {
   margin: 0;
-  height: 100vh;
-
   background: url("forest.jpg") center/cover no-repeat fixed;
   background-color:#0B0F14;
 
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-/ 🌑 压暗层 /
+/ 🌑 暗层 /
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   background: rgba(5,10,15,0.65);
-  pointer-events: none;
   z-index: 0;
 }
 
-/ ✨ 萤火虫 /
-.fireflies {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.fireflies span {
-  position: absolute;
-  width: 13px;
-  height: 13px;
-  background: radial-gradient(circle, rgba(255,220,120,0.9) 0%, rgba(255,220,120,0) 80%);
-  filter: blur(1px);
-  border-radius: 50%;
-  animation: fireflyFloat 12s linear infinite;
-  opacity: 0;
-}
-
-@keyframes fireflyFloat {
-  0% { transform: translateY(0); opacity: 0; }
-  20% { opacity: 1; }
-  50% { transform: translateY(-60px); opacity: 0.8; }
-  100% { transform: translateY(-120px); opacity: 0; }
-}
-
-/ 📖 书容器 /
+/ 📖 容器（关键！！） /
 .book-wrapper {
-  margin-top: 60px;
-  width: 90%;
-  max-width: 900px;
   position: relative;
+  width: min(92vw, 900px);   / ⭐ 限制大小 /
+  margin-top: 60px;
   z-index: 2;
-
-  display: flex;
-  justify-content: center;
 }
 
-/ 📖 书本 /
+/ 📖 书 /
 .book {
   width: 100%;
-  height: auto;
   display: none;
-
-  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.6));
 }
 
-/ 🖥 双页 /
+/ 默认显示双页 /
 .book-double {
   display: block;
 }
 
-/ 📱 单页 /
+/ 📱 手机切单页 /
 @media (max-width: 600px) {
-  .book-double {
-    display: none;
-  }
-  .book-single {
-    display: block;
-    max-width: 420px;
-  }
+  .book-double { display: none; }
+  .book-single { display: block; }
 }
 
-/ 📝 文字（贴在书上） /
+/ 📝 文字（贴书关键！！） /
 .book-text {
   position: absolute;
   top: 18%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60%;
+  left: 25%;        / ⭐ 左页位置 /
+  width: 22%;
 
   color: #3a2e1f;
   font-family: serif;
-  line-height: 1.7;
-  font-size: 16px;
-
-  z-index: 3;
+  line-height: 1.6;
+  font-size: clamp(12px, 1.5vw, 16px);
 }
 
-/ 📱 手机文字优化 /
+/ 📱 手机文字 */
 @media (max-width: 600px) {
   .book-text {
-    width: 70%;
-    font-size: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
     top: 20%;
   }
 }
@@ -124,41 +82,24 @@ body::before {
 
 <body>
 
-<div class="fireflies"></div>
-
-<!-- 📖 书 -->
 <div class="book-wrapper">
 
+  <!-- 双页 -->
   <img src="book-open-v1.png" class="book book-double">
+
+  <!-- 单页 -->
   <img src="book-open-v2.png" class="book book-single">
 
-  <!-- 📝 内容 -->
+  <!-- 内容 -->
   <div class="book-text">
     <b>狐狸（Fox）</b><br><br>
     代表聪明、谨慎与策略。<br>
-    有时也暗示算计、欺骗或自我保护。<br><br>
+    有时也暗示算计与防备。<br><br>
     当它出现时，提醒你保持警觉，<br>
-    并用智慧而非冲动行动。
+    用智慧而非冲动行动。
   </div>
 
 </div>
 
-<script>
-
-/ ✨ 萤火虫生成 */
-const fireflyContainer = document.querySelector(".fireflies");
-
-for (let i = 0; i < 15; i++) {
-  const f = document.createElement("span");
-
-  f.style.left = Math.random() * 100 + "%";
-  f.style.top = Math.random() * 100 + "%";
-  f.style.animationDelay = Math.random() * 10 + "s";
-
-  fireflyContainer.appendChild(f);
-}
-
-</script>
-
 </body>
-</html>
+</
