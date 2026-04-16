@@ -3,6 +3,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Profile Orbs</title>
 
 <style>
@@ -304,6 +305,117 @@ body::before {
   }
 }
 
+  #subtitle {
+  font-size:13px;
+  letter-spacing:1.5px;
+  margin-top:4px;
+  color:#cfc7a8;
+  opacity:0.8;
+}
+
+  /* ===================== */
+/* 📱 手机优化（重点！！） */
+/* ===================== */
+@media (max-width: 600px) {
+
+  body {
+    height: auto;
+    padding: 20px 16px 80px;
+  }
+
+  /* 🌿 主容器 */
+  .stage {
+    width: 100%;
+    max-width: 360px;
+    height: 380px;
+    margin-top: 40px;
+  }
+
+  /* 🌕 球 */
+  .orb {
+    width: 120px;
+    height: 120px;
+  }
+
+  /* 三角布局 */
+  .stage:not(.selected) .orb:nth-child(1) {
+    left: 0;
+    top: 180px;
+  }
+
+ .stage:not(.selected) .orb:nth-child(2) {
+  left: 50%;
+  top: 0;
+  margin-left: -60px; /* 120px的一半 */
+}
+
+  .stage:not(.selected) .orb:nth-child(3) {
+    right: 0;
+    left: auto;
+    top: 180px;
+  }
+
+  /* 点击后整体上移 */
+  .stage.selected .orb {
+    top: -50px;
+  }
+
+  /* 主角 */
+  .stage.selected .orb.active {
+  left: 50%;
+  margin-left: -60px; /* 球一半宽度（120px / 2） */
+  transform: scale(1.2);
+}
+
+  .stage.selected .orb.left {
+  left: 10px;
+}
+
+.stage.selected .orb.right {
+  right: 10px;
+  left: auto;
+}
+
+  /* 📝 文字 */
+  #profileText {
+    position: static;
+    transform: none;
+    margin-top: 80px;
+    padding: 0 10px;
+    font-size: 13.5px;
+    white-space: normal;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+
+  .profile-title {
+    font-size: 18px;
+  }
+
+  .profile-item {
+    font-size: 14px;
+  }
+
+  /* 🔤 副标题 */
+#subtitle {
+  font-size:10px;
+  letter-spacing:0.2px;
+
+  white-space: nowrap;
+}
+  /* 🔘 按钮 */
+  #backBtn {
+    font-size: 16px;
+    padding: 14px 32px;
+  }
+
+  .back-wrapper {
+    right: 50%;
+    transform: translateX(50%);
+    bottom: 20px;
+  }
+}
+
 
 </style>
 </head>
@@ -311,11 +423,15 @@ body::before {
 <body>
 <div id="header" style="
   text-align:center;
-  margin-top:30px;
-  margin-bottom:20px;
+  margin:24px auto 20px;
   position:relative;
-  display:inline-block;
-  padding:10px 22px;
+  display:block;
+
+  width:92%;
+  max-width:420px;
+
+  padding:10px 16px;
+  box-sizing:border-box;
 ">
 
   <div style="
@@ -355,13 +471,7 @@ body::before {
     秘密のバザール・ルノルマン
   </div>
 
-  <div style="
-    font-size:13px;
-    letter-spacing:1.5px;
-    margin-top:4px;
-    color:#cfc7a8;
-    opacity:0.8;
-  ">
+  <div id="subtitle">
     Secret Bazaar Lenormand ・ 秘密集市雷諾曼
   </div>
   </div> 
@@ -378,6 +488,8 @@ body::before {
 
 <div class="back-wrapper">
   <button id="backBtn">バザールへ戻る</button>
+
+
 </div>
 
 <script>
