@@ -386,12 +386,11 @@ img {
  #meaning {
   font-size: 14px;
   line-height: 1.7;
-  letter-spacing: 0.2px;
 
-  word-break: break-all;     /* ⭐ 关键：不再裁字 */
-  overflow-wrap: anywhere;   /* ⭐ 双保险 */
+  white-space: normal;      /* 允许你用 <br> 控制换行 */
+  word-break: keep-all;     /* 不拆中文 */
+  overflow-wrap: normal;    /* 不乱断 */
 }
-
   /* ⭐ 按钮靠近说明文 */
   #text + div {
     margin-top: 12px !important;   /* ⭐ 把按钮拉上来 */
@@ -409,8 +408,10 @@ img {
 
   /* ⭐ 副标题（关键修复） */
 #subtitle {
-  letter-spacing: 0.3px;
-  display: block;
+  font-size: 10.5px;
+  letter-spacing: 0.2px;
+
+  white-space: nowrap;
 }
   }
 
