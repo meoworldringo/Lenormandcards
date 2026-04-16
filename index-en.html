@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -376,25 +377,22 @@ img {
   }
 
   /* ⭐ 说明文 */
-#text {
-  width: 100%;
+ #text {
+  width: 94%;
   max-width: 420px;
-  padding: 16px 18px 10px;
-  margin: 0 auto;
+  padding: 16px 18px 10px;   
   box-sizing: border-box;
 }
-
-#meaning {
-  font-size: 13.5px;
+  
+ #meaning {
+  font-size: 13.5px;        /* ⭐ 稍微再小一点（关键） */
   line-height: 1.7;
   letter-spacing: 0.2px;
-
-  white-space: normal;        /* ⭐ 关键改这里 */
-  word-break: keep-all;       /* 英文不乱断 */
-  overflow-wrap: break-word;  /* 太长才断 */
-
+  white-space: nowrap;      /* ⭐ 核心：只用 <br> 换行 */
+  word-break: normal;       
+  overflow-wrap: normal;
   text-align: center;
-  padding: 0 14px;
+  padding-right: 2px;
 }
   
   /* ⭐ 按钮靠近说明文 */
