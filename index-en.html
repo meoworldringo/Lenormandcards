@@ -382,14 +382,6 @@ img {
   padding: 16px 18px 10px;
   margin: 0 auto;
   box-sizing: border-box;
-
-  overflow-x: auto;
-
-  scrollbar-width: none;          /* Firefox */
-}
-
-#text::-webkit-scrollbar {
-  display: none;                  /* Chrome / Safari */
 }
 
 #meaning {
@@ -397,14 +389,12 @@ img {
   line-height: 1.7;
   letter-spacing: 0.2px;
 
-  white-space: nowrap;
-  display: inline-block;
+  white-space: normal;        /* ⭐ 关键改这里 */
+  word-break: keep-all;       /* 英文不乱断 */
+  overflow-wrap: break-word;  /* 太长才断 */
 
-  padding: 0 18px;
-
-  margin-right: 20px;             /* ⭐ 强行补右边空间 */
-
-  text-align: left;               /* ⭐ 不要再 center（关键） */
+  text-align: center;
+  padding: 0 14px;
 }
   
   /* ⭐ 按钮靠近说明文 */
