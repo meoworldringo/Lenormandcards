@@ -1,11 +1,9 @@
-k01"}
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Book Test</title>
 
 <style>
 
@@ -17,7 +15,6 @@ body {
 
   display: flex;
   justify-content: center;
-  align-items: flex-start;
 }
 
 / 🌑 暗层 /
@@ -29,45 +26,48 @@ body::before {
   z-index: 0;
 }
 
-/ 📖 容器（关键！！） /
+/ 📖 核心容器（关键！） /
 .book-wrapper {
   position: relative;
-  width: min(92vw, 900px);   / ⭐ 限制大小 /
-  margin-top: 60px;
+  width: min(92vw, 900px);
+  margin-top: 40px;
   z-index: 2;
 }
 
-/ 📖 书 /
-.book {
+/ 📖 图片强制规则（关键！） /
+.book-wrapper img {
   width: 100%;
-  display: none;
-}
-
-/ 默认显示双页 /
-.book-double {
+  height: auto;
   display: block;
 }
 
-/ 📱 手机切单页 /
+/ 👉 默认隐藏单页 /
+.book-single {
+  display: none;
+}
+
+/ 📱 手机切换 /
 @media (max-width: 600px) {
   .book-double { display: none; }
   .book-single { display: block; }
 }
 
-/ 📝 文字（贴书关键！！） /
+/ 📝 文字（绝对贴书） /
 .book-text {
   position: absolute;
+
+  / ⭐ 左页区域（核心） /
   top: 18%;
-  left: 25%;        / ⭐ 左页位置 /
-  width: 22%;
+  left: 24%;
+  width: 23%;
 
   color: #3a2e1f;
   font-family: serif;
   line-height: 1.6;
-  font-size: clamp(12px, 1.5vw, 16px);
+  font-size: clamp(12px, 1.4vw, 16px);
 }
 
-/ 📱 手机文字 */
+/ 📱 手机 */
 @media (max-width: 600px) {
   .book-text {
     left: 50%;
@@ -85,12 +85,12 @@ body::before {
 <div class="book-wrapper">
 
   <!-- 双页 -->
-  <img src="book-open-v1.png" class="book book-double">
+  <img src="book-open-v1.png" class="book-double">
 
   <!-- 单页 -->
-  <img src="book-open-v2.png" class="book book-single">
+  <img src="book-open-v2.png" class="book-single">
 
-  <!-- 内容 -->
+  <!-- 文字 -->
   <div class="book-text">
     <b>狐狸（Fox）</b><br><br>
     代表聪明、谨慎与策略。<br>
