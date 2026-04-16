@@ -2,127 +2,163 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Book</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Secret Bazaar Book</title>
 
 <style>
+
+/* 🌿 背景 /
 body {
   margin: 0;
-  background: #0B0F14;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
+
+  background: url("forest.jpg") center/cover no-repeat fixed;
+  background-color:#0B0F14;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* 📖 整本书 */
-.book {
-  display: flex;
+/ 🌑 压暗层 /
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(5,10,15,0.65);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/ ✨ 萤火虫 /
+.fireflies {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.fireflies span {
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  background: radial-gradient(circle, rgba(255,220,120,0.9) 0%, rgba(255,220,120,0) 80%);
+  filter: blur(1px);
+  border-radius: 50%;
+  animation: fireflyFloat 12s linear infinite;
+  opacity: 0;
+}
+
+@keyframes fireflyFloat {
+  0% { transform: translateY(0); opacity: 0; }
+  20% { opacity: 1; }
+  50% { transform: translateY(-60px); opacity: 0.8; }
+  100% { transform: translateY(-120px); opacity: 0; }
+}
+
+/ 📖 书容器 /
+.book-wrapper {
+  margin-top: 60px;
   width: 90%;
   max-width: 900px;
-  height: 70vh;
   position: relative;
+  z-index: 2;
+
+  display: flex;
+  justify-content: center;
 }
 
-/* 📜 每一页 */
-.page {
-  flex: 1;
-  padding: 70px 60px;
+/ 📖 书本 /
+.book {
+  width: 100%;
+  height: auto;
+  display: none;
 
-  /* 🟤 羊皮纸底色（偏脏、偏暖） */
-  background:
-    radial-gradient(circle at 50% 40%, #f2e6c9 0%, #d9c79a 60%, #bfa87a 100%);
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.6));
+}
 
-  /* 🌫 不均匀脏感（关键！！！） */
-  background-blend-mode: multiply;
+/ 🖥 双页 /
+.book-double {
+  display: block;
+}
 
-  /* 🌑 内部旧感 + 厚度 */
-  box-shadow:
-    inset 0 0 120px rgba(0,0,0,0.6),
-    inset 0 0 40px rgba(120,90,50,0.25);
+/ 📱 单页 /
+@media (max-width: 600px) {
+  .book-double {
+    display: none;
+  }
+  .book-single {
+    display: block;
+    max-width: 420px;
+  }
+}
 
-  color: #2a1f10;
+/ 📝 文字（贴在书上） /
+.book-text {
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+
+  color: #3a2e1f;
   font-family: serif;
-  line-height: 1.9;
+  line-height: 1.7;
+  font-size: 16px;
 
-  position: relative;
+  z-index: 3;
 }
 
-  .page::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background:
-    radial-gradient(circle at 20% 30%, rgba(120,90,50,0.15), transparent 40%),
-    radial-gradient(circle at 80% 70%, rgba(120,90,50,0.12), transparent 50%),
-    radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1), transparent 60%);
-
-  mix-blend-mode: multiply;
-
-  pointer-events: none;
+/ 📱 手机文字优化 /
+@media (max-width: 600px) {
+  .book-text {
+    width: 70%;
+    font-size: 15px;
+    top: 20%;
+  }
 }
 
-  .page::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  box-shadow:
-    inset 0 0 60px rgba(0,0,0,0.5),
-    inset 0 0 120px rgba(80,60,30,0.4);
-
-  pointer-events: none;
-}
-  
-
-/* 📖 左页 */
-.left {
-  border-radius: 8px 0 0 8px;
-}
-
-/* 📖 右页 */
-.right {
-  border-radius: 0 8px 8px 0;
-}
-
-/* 🌑 中间书脊（最关键） */
-.book::before {
-  background: radial-gradient(
-    ellipse at center,
-    rgba(0,0,0,0.8),
-    rgba(60,40,20,0.4),
-    transparent 70%
-  );
-}
-
-/* 标题 */
-h1 {
-  margin-top: 0;
-}
 </style>
 </head>
 
 <body>
 
-<div class="book">
+<div class="fireflies"></div>
 
-  <div class="page left">
-    <h1>Book of Secrets</h1>
-    <p>
-      在命運的縫隙之中，  
-      每一張牌都靜靜等待被翻開。
-    </p>
-  </div>
+<!-- 📖 书 -->
+<div class="book-wrapper">
 
-  <div class="page right">
-    <h1>The Card</h1>
-    <p>
-      Each symbol holds a path,  
-      each meaning unfolds in silence.
-    </p>
+  <img src="book-open-v1.png" class="book book-double">
+  <img src="book-open-v2.png" class="book book-single">
+
+  <!-- 📝 内容 -->
+  <div class="book-text">
+    <b>狐狸（Fox）</b><br><br>
+    代表聪明、谨慎与策略。<br>
+    有时也暗示算计、欺骗或自我保护。<br><br>
+    当它出现时，提醒你保持警觉，<br>
+    并用智慧而非冲动行动。
   </div>
 
 </div>
+
+<script>
+
+/ ✨ 萤火虫生成 */
+const fireflyContainer = document.querySelector(".fireflies");
+
+for (let i = 0; i < 15; i++) {
+  const f = document.createElement("span");
+
+  f.style.left = Math.random() * 100 + "%";
+  f.style.top = Math.random() * 100 + "%";
+  f.style.animationDelay = Math.random() * 10 + "s";
+
+  fireflyContainer.appendChild(f);
+}
+
+</script>
 
 </body>
 </html>
