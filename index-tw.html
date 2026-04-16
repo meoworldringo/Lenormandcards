@@ -355,48 +355,57 @@ img {
     padding: 0;
   }
 
-  /* ⭐ 首屏区域（卡牌 + 标题） */
+  /* ⭐ 首屏：卡牌区域 */
   .card-area {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    height: 85vh;   /* ⭐ 核心：锁定首屏高度 */
+    min-height: 100vh;
     gap: 18px;
   }
 
   #card-container {
-    transform: scale(1.1);
+    transform: scale(1.08);
   }
 
   #title {
-    margin-top: 6px;
+    margin-top: 4px;
   }
 
-  /* ⭐ 说明文区域（自然在第二屏） */
+  /* ⭐ 说明文区域 */
   #text {
-    width: 92%;
+    width: 94%;
     max-width: 420px;
-    padding: 20px 10px 0;
+    padding: 24px 6px 40px;   /* ⭐ 减少左右padding，让一行多放字 */
     box-sizing: border-box;
   }
 
   #meaning {
-    font-size: 15.5px;
-    line-height: 1.6;
+    font-size: 14.5px;        /* ⭐ 关键：减少断行 */
+    line-height: 1.65;
+    letter-spacing: 0.2px;
+
+    word-break: keep-all;     /* ⭐ 尽量不断句 */
+    overflow-wrap: normal;
   }
 
-  /* ⭐ 标题区压紧 */
+  /* ⭐ 标题区 */
   #header {
     margin-bottom: 2px;
-    padding: 6px 16px;
+    padding: 6px 14px;
+
+    width: 94%;
+    max-width: 420px;
+    box-sizing: border-box;
   }
 
-  /* ⭐ 副标题：不裁、不换行、自动缩 */
+  /* ⭐ 副标题：不裁、不换行、自动缩放 */
   #header div:last-child {
     white-space: nowrap;
-    font-size: clamp(8.5px, 2.6vw, 11px);
+    font-size: clamp(8px, 2.6vw, 11px);
+    text-align: center;
   }
 
 }
