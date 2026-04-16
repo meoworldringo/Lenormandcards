@@ -304,6 +304,101 @@ body::before {
   }
 }
 
+  /* ===================== */
+/* 📱 手机优化（重点！！） */
+/* ===================== */
+@media (max-width: 600px) {
+
+  body {
+    height: auto;
+    padding: 20px 16px 80px;
+  }
+
+  /* 🌿 主容器 */
+  .stage {
+    width: 100%;
+    max-width: 360px;
+    height: 380px;
+    margin-top: 40px;
+  }
+
+  /* 🌕 球变大一点 + 更集中 */
+  .orb {
+    width: 120px;
+    height: 120px;
+  }
+
+  /* 三角布局（缩紧一点） */
+  .stage:not(.selected) .orb:nth-child(1) {
+    left: 0;
+    top: 180px;
+  }
+
+  .stage:not(.selected) .orb:nth-child(2) {
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+  }
+
+  .stage:not(.selected) .orb:nth-child(3) {
+    right: 0;
+    left: auto;
+    top: 180px;
+  }
+
+  /* 点击后布局 */
+  .stage.selected .orb.active {
+    left: 50%;
+    transform: translateX(-50%) scale(1.2);
+  }
+
+  .stage.selected .orb.left {
+    left: 0;
+    transform: scale(0.7);
+  }
+
+  .stage.selected .orb.right {
+    right: 0;
+    left: auto;
+    transform: scale(0.7);
+  }
+
+  /* 📝 文字区域（重点！！） */
+  #profileText {
+    position: static;
+    transform: none;
+    margin-top: 20px;
+    padding: 0 10px;
+
+    font-size: 15px;
+    white-space: normal; /* ❗允许换行（你之前被这个坑了） */
+  }
+
+  .profile-title {
+    font-size: 18px;
+  }
+
+  .profile-desc {
+    font-size: 14px;
+  }
+
+  .profile-item {
+    font-size: 14px;
+  }
+
+  /* 🔘 按钮变大（很关键） */
+  #backBtn {
+    font-size: 16px;
+    padding: 14px 32px;
+  }
+
+  .back-wrapper {
+    right: 50%;
+    transform: translateX(50%);
+    bottom: 20px;
+  }
+}
+
 
 </style>
 </head>
