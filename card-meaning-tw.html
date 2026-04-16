@@ -88,15 +88,22 @@ body::before {
   position: absolute;
   width: 13px;
   height: 13px;
+
   background: radial-gradient(
-  circle,
-  rgba(180,255,200,0.9) 0%,   /* ⭐ 偏绿 */
-  rgba(180,255,200,0) 80%
-);
-  filter: blur(1px);
+    circle,
+    rgba(255,220,120,0.9) 0%,
+    rgba(255,220,120,0.4) 40%,
+    rgba(255,220,120,0) 80%
+  );
+
   border-radius: 50%;
-  animation: fireflyFloat 12s linear infinite;
-  opacity: 0;
+
+  /* ⭐ 关键：加一圈冷色微光 */
+  box-shadow:
+    0 0 6px rgba(255,220,120,0.6),
+    0 0 12px rgba(180,200,255,0.25); /* 淡蓝边缘 */
+
+  filter: blur(0.8px);
 }
 
 @keyframes fireflyFloat {
