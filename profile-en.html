@@ -409,11 +409,11 @@ body::before {
     padding: 14px 32px;
   }
 
-  .back-wrapper {
-    right: 50%;
-    transform: translateX(50%);
-    bottom: 20px;
-  }
+.back-wrapper {
+  position: static;
+  margin: 30px auto 80px;
+  text-align: center;
+}
 }
 
 
@@ -462,14 +462,17 @@ body::before {
   "></div>
 
   <div style="
-    font-size:24px;
-    letter-spacing:3px;
-    color:#f3efd9;
-    font-family: serif;
-    text-shadow: 0 0 6px rgba(200,230,180,0.25);
-  ">
-    Secret Bazaar Lenormand
-  </div>
+  font-size: clamp(18px, 5vw, 24px);
+  letter-spacing:3px;
+  color:#f3efd9;
+  font-family: serif;
+  text-shadow: 0 0 6px rgba(200,230,180,0.25);
+
+  white-space: nowrap;
+">
+  Secret Bazaar Lenormand
+</div>
+
 
   <div id="subtitle">
     秘密集市雷諾曼 ・ 秘密のバザール・ルノルマン
