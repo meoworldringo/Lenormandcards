@@ -353,21 +353,21 @@ img {
     justify-content: center;
     align-items: center;
 
-    padding: 0; /* ⭐ 控制标题距离关键 */
+    padding: 0;
   }
 
   .card-area {
-    gap: 24px;
+    gap: 26px; /* ⭐ 微拉开一点，避免说明文顶上来 */
   }
 
   #card-container {
-    transform: scale(1.08); /* ⭐ 视觉放大（不要太大） */
+    transform: scale(1.08);
   }
 
   #text {
     width: 92%;
     max-width: 420px;
-    padding: 0 12px; /* ⭐ 防止文字被裁 */
+    padding: 0 8px; /* ⭐ 增加可用宽度（减少断行） */
     box-sizing: border-box;
   }
 
@@ -376,24 +376,22 @@ img {
   }
 
   #meaning {
-    font-size: 16px;
-    line-height: 1.55;
-    margin-top: 6px;
+    font-size: 15.5px;   /* ⭐ 稍微变小一点点，减少断行 */
+    line-height: 1.6;
+    margin-top: 8px;     /* ⭐ 把说明文轻轻往下压一点 */
   }
 
- #header {
-  margin-bottom: 4px;
-  padding: 8px 18px;
-}
-  
-#header div:last-child {
-  white-space: nowrap;
-  font-size: 10.5px;
+  #header {
+    margin-bottom: 2px;  /* ⭐ 再贴近卡牌 */
+    padding: 6px 16px;   /* ⭐ 降低整体高度 */
+  }
 
-  display: block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
+  /* ⭐ 副标题：不换行 + 自动缩放，不裁切 */
+  #header div:last-child {
+    white-space: nowrap;
+    font-size: clamp(9px, 2.8vw, 11px);
+  }
+
 }
 </style>
 
