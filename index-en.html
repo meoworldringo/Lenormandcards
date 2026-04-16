@@ -382,17 +382,19 @@ img {
   padding: 16px 18px 10px;
   margin: 0 auto;
   box-sizing: border-box;
+  overflow-x: auto;                 /* ⭐ 开启横向滑动 */
+  -webkit-overflow-scrolling: touch;/* ⭐ 手机滑动顺一点 */
 }
-  
- #meaning {
-  font-size: 13.5px;        /* ⭐ 稍微再小一点（关键） */
+
+#meaning {
+  font-size: 13.5px;
   line-height: 1.7;
   letter-spacing: 0.2px;
-  white-space: nowrap;      /* ⭐ 核心：只用 <br> 换行 */
-  word-break: normal;       
-  overflow-wrap: normal;
+  white-space: nowrap;              /* ⭐ 只用 <br> 换行 */
+  display: inline-block;
   text-align: center;
-  padding-right: 2px;
+  padding: 0 14px;                 /* ⭐ 左右呼吸空间 */
+  margin-right: 10px;              /* ⭐ 防止最后一个字被吃 */
 }
   
   /* ⭐ 按钮靠近说明文 */
