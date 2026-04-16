@@ -68,8 +68,9 @@ body {
 
   <!-- 🌿 主标题（缩小！） -->
   <div style="
-    font-size:24px;             
-    letter-spacing:3px;
+    font-size:22px;             
+    letter-spacing:2px;
+    white-space: nowrap;
     color:#f3efd9;
     font-family: serif;
     text-shadow: 0 0 6px rgba(200,230,180,0.25);
@@ -380,16 +381,19 @@ img {
   max-width: 420px;
   padding: 16px 14px 10px;   
   box-sizing: border-box;
+  overflow-x: hidden;
 }
   
  #meaning {
-  font-size: 14px;
+  font-size: 13.5px;        /* ⭐ 稍微再小一点（关键） */
   line-height: 1.7;
-
-  white-space: normal;      /* 允许你用 <br> 控制换行 */
-  word-break: keep-all;     /* 不拆中文 */
-  overflow-wrap: normal;    /* 不乱断 */
+  letter-spacing: 0.2px;
+  white-space: nowrap;      /* ⭐ 核心：只用 <br> 换行 */
+  word-break: normal;       
+  overflow-wrap: normal;
+  text-align: center;
 }
+  
   /* ⭐ 按钮靠近说明文 */
   #text + div {
     margin-top: 12px !important;   /* ⭐ 把按钮拉上来 */
