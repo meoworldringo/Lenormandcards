@@ -1,3 +1,5 @@
+c哥，光的部分要不要让它收或全爆我再想一下。然后现在有一个问题。就是我用平板横向画面看时，语种选择的文字列有点偏下，但是纵向画面刚刚好，这要怎么改？然后手机画面的话，图案跟语种都很小
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,7 +27,7 @@ body {
   overflow: hidden;
   color: #f5e9d6;
   font-family: serif;
-  padding-top: clamp(80px, 18vh, 180px);
+  padding-top: 22vh;
 }
 
 /* 🌙 呼吸光 */
@@ -51,8 +53,8 @@ body::before {
 
 /*🔮 水晶球 */
 .crystal {
-  width: clamp(220px, 50vw, 320px);
-  height: clamp(220px, 50vw, 320px);
+  width: 260px;
+  height: 260px;
   border-radius: 50%;
   position: relative;
   overflow: visible;
@@ -294,7 +296,7 @@ box-shadow:
 .lang-select {
   position: relative;   /* ⭐ 加这个 */
   z-index: 10;          /* ⭐ 加这个 */
-  margin-top: clamp(30px, 6vh, 80px);
+  margin-top: 60px;
   text-align: center;   /* ⭐ 关键：真正置中 */
 
   opacity: 0;
@@ -309,7 +311,7 @@ box-shadow:
   margin: 14px 0;
   padding: 6px 12px;
 
-  font-size: clamp(14px, 3.8vw, 18px);
+  font-size: 16px;
   letter-spacing: 0.05em;
 
   color: rgba(255,255,255,0.9);
@@ -367,8 +369,6 @@ box-shadow:
   <div class="crystal-mask">
     <img src="girl.png" class="girl">
   </div>
-
-
 
   <!-- 粒子（放在后面！） -->
 <!-- 左侧 -->
