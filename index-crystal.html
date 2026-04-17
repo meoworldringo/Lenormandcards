@@ -93,7 +93,7 @@ body::before {
   position: relative;
   overflow: hidden;
   z-index: 3;
-  margin-top: -80px;
+  margin-top: -60px;
   background:
     radial-gradient(circle at 30% 30%, rgba(255,255,255,0.8), transparent 35%),
     radial-gradient(circle at 70% 70%, rgba(120,180,255,0.25), transparent 65%),
@@ -105,8 +105,8 @@ body::before {
 
   opacity: 0;
   transform: scale(0.8);
-  animation: crystalAppear 2s ease forwards 1.5s,
-             crystalGlow 5s ease-in-out infinite 2s;
+  animation: crystalAppear 2s ease forwards 2.5s,
+             crystalGlow 5s ease-in-out infinite 3s;
 }
 
 .crystal::after {
@@ -152,7 +152,7 @@ body::before {
   }
 }
 
-<!-- 粒子 -->
+/* 粒子 */
 .sparkle {
   position: absolute;
   width: 4px;
@@ -183,7 +183,7 @@ body::before {
   transform: translate(-50%, -50%);
   opacity: 0.95;
   filter: none;
-  animation: girlAppear 3s ease forwards 2.5s;
+  animation: girlAppear 3s ease forwards 4.2s;
 }
 
 @keyframes girlAppear {
@@ -196,10 +196,8 @@ body::before {
 
 /* 🌐 语言 */
 .lang-select {
-  position: absolute;
-  bottom: 80px;
-  text-align: center;
-  width: 100%;
+  position: static;   /* ← 必改 */
+  margin-top: 50px;   /* ← 拉开距离 */
   opacity: 0;
   z-index: 4;
   animation: showMenu 2s ease forwards 6s;
