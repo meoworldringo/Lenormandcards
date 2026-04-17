@@ -18,16 +18,15 @@ body {
   background-position: center;
 
   display: flex;
-  flex-direction: column;  
+  flex-direction: column;
 
-  justify-content: flex-start;
+  justify-content: center;   /* ⭐ 核心 */
   align-items: center;
 
   min-height: 100vh;
   overflow: hidden;
   color: #f5e9d6;
   font-family: serif;
-  padding-top: 22vh;
 }
 
 /* 🌙 呼吸光 */
@@ -63,7 +62,7 @@ body::before {
   position: relative;
   overflow: visible;
   z-index: 3;
-  margin-top: -20px;
+  margin-top: -40px;
   background:
     radial-gradient(circle at 30% 30%, rgba(255,255,255,0.8), transparent 35%),
     radial-gradient(circle at 70% 70%, rgba(120,180,255,0.25), transparent 65%),
@@ -377,23 +376,10 @@ box-shadow:
   }
 
   .lang-select {
-    margin-top: 40px;
+    margin-top: 50px;
   }
-
 }
 
-  @media (orientation: landscape) and (max-height: 700px) {
-
-  body {
-    padding-top: 12vh;
-  }
-
-  .lang-select {
-    margin-top: 30px;
-  }
-
-}
-  
 
 </style>
 </head>
