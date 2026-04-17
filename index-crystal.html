@@ -55,7 +55,7 @@ body::before {
   height: 260px;
   border-radius: 50%;
   position: relative;
-  overflow: visible;
+  overflow: hidden;
   z-index: 3;
   margin-top: -60px;
   background:
@@ -138,28 +138,28 @@ box-shadow:
     0 0 700px var(--glow-color),
     0 0 1000px var(--glow-color);
 
-  transition: 0.5s cubic-bezier(.2,.8,.2,1);
   animation: crystalBurst 1s ease forwards;
 }
   
 .crystal.active .sparkle {
+  animation: none;           /* ⭐ 先关掉 float */
   opacity: 1;
   animation: suckIn 1.6s ease forwards;
-  animation-fill-mode: forwards;
 }
 
-  .crystal.active .girl {
-  animation: girlSuck 1.4s ease forwards;
-    
- .crystal-mask {
+.crystal.active .girl {
+  animation: none;
+  animation: girlSuck 1.2s ease forwards;
+}
+
+.crystal-mask {
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  overflow: hidden; /* ⭐ 只裁剪内容 */
+  overflow: hidden;
   z-index: 1;
 }
-
-}
+  
 
    @keyframes crystalFloat {
   0%,100% { transform: scale(1) translateY(0); }
@@ -191,6 +191,7 @@ box-shadow:
 
   @keyframes crystalBurst {
   0% {
+    opacity: 1;
     transform: scale(1);
     box-shadow:
       0 0 40px var(--glow-color),
@@ -198,6 +199,7 @@ box-shadow:
   }
 
   40% {
+    opacity: 1;
     transform: scale(1.25);
     box-shadow:
       0 0 120px var(--glow-color),
@@ -206,6 +208,7 @@ box-shadow:
   }
 
   70% {
+    opacity: 1;
     transform: scale(1.35);
     box-shadow:
       0 0 180px var(--glow-color),
@@ -214,6 +217,7 @@ box-shadow:
   }
 
   100% {
+    opacity: 1;
     transform: scale(1.45);
     box-shadow:
       0 0 140px var(--glow-color),
@@ -379,8 +383,11 @@ box-shadow:
 
 <!-- 🔮 水晶球 -->
 <div class="crystal">
-  <div class="crystal-mask"> 
-  <img src="girl.png" class="girl">
+  <div class="crystal-mask">
+    <img src="girl.png" class="girl">
+  </div>
+
+
 
   <!-- 粒子（放在后面！） -->
 <!-- 左侧 -->
