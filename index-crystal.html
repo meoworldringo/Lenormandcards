@@ -140,11 +140,6 @@ box-shadow:
   animation: suckIn 1.6s ease forwards;
 }
 
-.crystal.active .girl {
-  animation: none;
-  animation: girlSuck 1.2s ease forwards;
-}
-
 .crystal-mask {
   position: absolute;
   inset: 0;
@@ -224,25 +219,6 @@ box-shadow:
     box-shadow:
       0 0 120px var(--glow-color),
       0 0 240px var(--glow-color);
-  }
-}
-
-@keyframes girlSuck {
-  0% {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 1;
-    filter: blur(0);
-  }
-
-  60% {
-    transform: translate(-50%, -48%) scale(0.5);
-    filter: blur(2px);
-  }
-
-  100% {
-    transform: translate(-50%, -45%) scale(0.1);
-    opacity: 0.2;
-    filter: blur(6px);
   }
 }
   
