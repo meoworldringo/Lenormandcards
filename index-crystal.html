@@ -190,9 +190,9 @@ body::before {
   left: 50%;
   top: 55%;
   transform: translate(-50%, -50%);
-  opacity: 0;
+  opacity: 0.9;
   filter: none;
-  animation: girlAppear 3s ease forwards 4.5s;
+  animation: girlAppear 4s ease forwards 4.5s;
   z-index: 1;
 }
 
@@ -217,7 +217,8 @@ body::before {
 
 /* 🌐 每一行 */
 .lang-select a {
-  display: inline-block;   /* ⭐ 关键：不要占满整行 */
+  display: block;  
+  text-align: center;
 
   margin: 14px 0;
   padding: 6px 12px;
