@@ -364,55 +364,6 @@ box-shadow:
   to { opacity: 1; transform: translateY(-10px); }
 }
 
-
-/* 手机 */
-@media (max-width: 600px) {
-  .subtitle {
-    font-size: 9px;
-  }
-}
-  
-@media (max-width: 900px) {
-
-  .crystal {
-    width: 70vw;
-    height: 70vw;
-    max-width: 340px;
-    max-height: 340px;
-  }
-
-  .lang-select {
-    margin-top: 25px;
-  }
-
-  .lang-select a {
-    font-size: 18px;
-  }
-}
-
-/* ⭐ 标题单独一段（不要嵌进去） */
-@media (max-width: 900px) {
-
-  .title {
-    font-size: 18px;
-    letter-spacing: 2px;
-  }
-
-  .subtitle {
-    font-size: 11px;   /* ← 建议改这里（你现在7太小） */
-    letter-spacing: 0.5px;
-    white-space: nowrap;
-  }
-
-}
-
-  
-.header {
-  text-align: center;
-  margin-bottom: 10px;
-  z-index: 5;
-}
-
 /* 主标题 */
 .title {
   font-size: 24px;
@@ -489,6 +440,53 @@ box-shadow:
   color: #f3efd9;
 
   text-shadow: 0 0 6px rgba(200,230,180,0.25);
+}
+  
+@media (max-width: 900px) {
+
+  .crystal {
+    width: 70vw;
+    height: 70vw;
+    max-width: 340px;
+    max-height: 340px;
+  }
+
+  .lang-select {
+    margin-top: 25px;
+  }
+
+  .lang-select a {
+    font-size: 18px;
+  }
+}
+
+/* ⭐ 标题单独一段（不要嵌进去） */
+@media (max-width: 900px) {
+
+  .title {
+    font-size: 18px;
+    letter-spacing: 2px;
+  }
+
+  .subtitle {
+    font-size: 13px;   /* ← 建议改这里（你现在7太小） */
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+
+}
+  
+/* 手机 */
+@media (max-width: 600px) {
+  .subtitle {
+    font-size: 10px;
+  }
+}
+  
+.header {
+  text-align: center;
+  margin-bottom: 10px;
+  z-index: 5;
 }
 
 
