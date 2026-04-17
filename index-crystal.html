@@ -172,6 +172,39 @@ box-shadow:
     0 0 200px var(--glow-color),
     inset 0 0 60px rgba(255,255,255,0.4);
   transition: 1.2s ease;
+  animation: crystalBurst 1.6s ease forwards;
+}
+
+  @keyframes crystalBurst {
+  0% {
+    transform: scale(1);
+    box-shadow:
+      0 0 40px var(--glow-color),
+      0 0 80px var(--glow-color);
+  }
+
+  40% {
+    transform: scale(1.25);
+    box-shadow:
+      0 0 120px var(--glow-color),
+      0 0 260px var(--glow-color),
+      0 0 400px var(--glow-color);
+  }
+
+  70% {
+    transform: scale(1.35);
+    box-shadow:
+      0 0 180px var(--glow-color),
+      0 0 360px var(--glow-color),
+      0 0 600px var(--glow-color);
+  }
+
+  100% {
+    transform: scale(1.45);
+    box-shadow:
+      0 0 140px var(--glow-color),
+      0 0 280px var(--glow-color);
+  }
 }
 
 /* 粒子 */
@@ -331,7 +364,7 @@ const links = document.querySelectorAll(".lang-select a");
 const crystal = document.querySelector(".crystal");
 
 const colors = [
-  "rgba(220,220,235,0.75)", // 繁中
+  "rgba(150,255,200,0.9)", // 繁中
   "rgba(255,220,140,0.75)", // 简中
   "rgba(210,190,255,0.75)", // 日文
   "rgba(180,220,255,0.75)"  // 英文
