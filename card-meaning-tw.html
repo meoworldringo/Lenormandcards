@@ -54,16 +54,31 @@ body::before {
   top: 20%;
   left: 18%;
   width: 26%;
-  color: rgba(60, 45, 25, 0.85); /* ⭐ 不纯黑 */
+
+  color: rgba(60, 45, 25, 0.85);
+
   font-family: "Georgia", "Times New Roman", serif;
-  line-height: 1.9;   /* ⭐ 再拉开 */
+
+  line-height: 1.9;
   letter-spacing: 0.6px;
+
   font-size: clamp(13px, 1.4vw, 17px);
-  text-shadow: 0 0 1px rgba(0,0,0,0.15); /* ⭐ 微脏感 */
 }
 
-  .book-text p {
-  height: 12px; /* 控制段落间距 */
+.book-text p {
+  margin: 12px 0;
+}
+
+.title {
+  display: block;
+  text-align: center;
+
+  font-size: 1.35em;
+  letter-spacing: 2px;
+
+  margin-bottom: 18px;
+
+  color: rgba(50, 35, 20, 0.9);
 }
   
 /* 📝 标题 */
