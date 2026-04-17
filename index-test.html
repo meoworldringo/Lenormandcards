@@ -363,8 +363,8 @@ box-shadow:
 @keyframes showMenu {
   to { opacity: 1; transform: translateY(-10px); }
 }
-
-  @media (max-width: 768px) {
+  
+@media (max-width: 768px) {
 
   .crystal {
     width: 70vw;
@@ -373,15 +373,17 @@ box-shadow:
     max-height: 340px;
   }
 
-  .lang-select a {
-    font-size: 18px;
-  }
-
   .lang-select {
     margin-top: 25px;
   }
 
-  @media (max-width: 768px) {
+  .lang-select a {
+    font-size: 18px;
+  }
+}
+
+/* ⭐ 标题单独一段（不要嵌进去） */
+@media (max-width: 768px) {
 
   .title {
     font-size: 18px;
@@ -389,12 +391,10 @@ box-shadow:
   }
 
   .subtitle {
-    font-size: 7px;
-    letter-spacing: 0.3px;
+    font-size: 9px;   /* ← 建议改这里（你现在7太小） */
+    letter-spacing: 0.5px;
     white-space: nowrap;
   }
-
-}
 
 }
 
@@ -481,16 +481,6 @@ box-shadow:
   color: #f3efd9;
 
   text-shadow: 0 0 6px rgba(200,230,180,0.25);
-}
-
-/* 副标题 */
-.subtitle {
-  font-size: 10px;
-  letter-spacing: 1.5px;
-  margin-top: 6px;
-
-  color: #cfc7a8;
-  opacity: 0.8;
 }
 
 
