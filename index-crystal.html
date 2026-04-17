@@ -100,13 +100,16 @@ body::before {
     radial-gradient(circle at 70% 70%, rgba(120,180,255,0.25), transparent 65%),
     rgba(200,230,255,0.08);   /* ← 提亮一点 */
 
+   --glow-color: rgba(180,220,255,0.45);  /* ⭐ 默认光 */
+
   box-shadow:
-    0 0 80px rgba(180,220,255,0.45),   /* ← 更外发光 */
-    inset 0 0 40px rgba(255,255,255,0.35);
+    0 0 80px var(--glow-color),
+    inset 0 0 40px rgba(255,255,255,0.35)
 
   opacity: 0;
   outline: 2px solid rgba(200,230,255,0.25);
   transform: scale(0.8);
+  transition: 0.4s;
   animation: crystalAppear 3s ease forwards 3.4s,
              crystalGlow 5s ease-in-out infinite 3.4s;
 }
@@ -302,5 +305,31 @@ body::before {
   <a href="index-en.html">English</a>
 </div>
 
+<script>
+const links = document.querySelectorAll(".lang-select a");
+const crystal = document.querySelector(".crystal");
+
+const colors = [
+  "rgba(220,220,235,0.75)", // 繁中（银）
+  "rgba(255,220,140,0.75)", // 简中（金）
+  "rgba(210,190,255,0.75)", // 日文（浅紫）
+  "rgba(180,220,255,0.75)"  // 英文（浅蓝）
+];
+
+const defaultColor = "rgba(180,220,255,0.45)";
+
+links.forEach((link, i) => {
+  link.addEventListener("mouseenter", () => {
+    crystal.style.setProperty("--glow-color", colors[i]);
+    crystal.style.transform = "scale(1.05)";
+  });
+
+  link.addEventListener("mouseleave", () => {
+    crystal.style.setProperty("--glow-color", defaultColor);
+    crystal.style.transform = "scale(1)";
+  });
+});
+</script>
+  
 </body>
 </html>
