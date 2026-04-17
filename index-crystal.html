@@ -155,33 +155,13 @@ box-shadow:
 @keyframes crystalGlow {
   0%,100% {
     box-shadow:
-      0 0 30px rgba(180,220,255,0.3),
+      0 0 30px var(--glow-color),
       inset 0 0 20px rgba(255,255,255,0.2);
   }
   50% {
     box-shadow:
-      0 0 70px rgba(180,220,255,0.6),
+      0 0 70px var(--glow-color),
       inset 0 0 40px rgba(255,255,255,0.3);
-  }
-  }
-
-  /* ⭐ 新增动画 */
-
-@keyframes bgFadeIn {
-  from { background-color: rgba(5,10,15,0); }
-  to   { background-color: rgba(5,10,15,0.55); }
-}
-
-  @keyframes crystalGlowStart {
-  0% {
-    opacity: 0;
-    transform: scale(0.6);
-    box-shadow: 0 0 0 rgba(180,220,255,0);
-  }
-  100% {
-    opacity: 0.6;
-    transform: scale(0.9);
-    box-shadow: 0 0 120px rgba(180,220,255,0.8);
   }
 }
 
@@ -238,9 +218,9 @@ box-shadow:
   
 /* 🌐 语言 */
 .lang-select {
-  position: static;
+  position: relative;   /* ⭐ 加这个 */
+  z-index: 10;          /* ⭐ 加这个 */
   margin-top: 60px;
-
   text-align: center;   /* ⭐ 关键：真正置中 */
 
   opacity: 0;
