@@ -105,8 +105,8 @@ body::before {
 
   opacity: 0;
   transform: scale(0.8);
-  animation: crystalAppear 2s ease forwards 2.5s,
-             crystalGlow 5s ease-in-out infinite 3s;
+  animation: crystalAppear 2s ease forwards 2.8s,
+             crystalGlow 5s ease-in-out infinite 3.3s;
 }
 
 .crystal::after {
@@ -160,6 +160,7 @@ body::before {
   background: rgba(255,255,255,0.8);
   border-radius: 50%;
   animation: float 6s linear infinite;
+  opacity: 0;
 }
 
 @keyframes float {
@@ -183,7 +184,7 @@ body::before {
   transform: translate(-50%, -50%);
   opacity: 0.95;
   filter: none;
-  animation: girlAppear 3s ease forwards 4.2s;
+  animation: girlAppear 3s ease forwards 4.8s;
 }
 
 @keyframes girlAppear {
@@ -231,10 +232,10 @@ body::before {
 <!-- 🔮 水晶球 -->
 <div class="crystal">
 
-  <* 粒子 *>
-  <div class="sparkle" style="left:30%; animation-delay:0s;"></div>
-  <div class="sparkle" style="left:60%; animation-delay:2s;"></div>
-  <div class="sparkle" style="left:50%; animation-delay:4s;"></div>
+ <!-- 粒子 -->
+<div class="sparkle" style="left:25%; animation-delay:0s; animation-duration:6s;"></div>
+<div class="sparkle" style="left:60%; animation-delay:2s; animation-duration:8s;"></div>
+<div class="sparkle" style="left:45%; animation-delay:4s; animation-duration:7s;"></div>
 
   <img src="girl.png" class="girl">
 
