@@ -98,17 +98,13 @@ box-shadow:
   .crystal::before {
   content: "";
   position: absolute;
-  inset: 0;
+  inset: -40px;
   border-radius: 50%;
-
-  box-shadow:
-    inset 0 0 30px rgba(255,255,255,0.25),
-    inset 0 0 60px rgba(180,220,255,0.15);
-
-  pointer-events: none;
-  z-index: 2;
+  background: radial-gradient(circle, var(--glow-color), transparent 70%);
+  opacity: 0;
+  z-index: 0;
 }
-
+  
 @keyframes crystalAppear {
   to { 
     opacity: 1; 
@@ -130,15 +126,11 @@ box-shadow:
 }
 
 .crystal.active {
-  transform: scale(1.35);
+  animation: crystalBurst 1.2s ease forwards;
+}
 
-  box-shadow:
-    0 0 200px var(--glow-color),
-    0 0 400px var(--glow-color),
-    0 0 700px var(--glow-color),
-    0 0 1000px var(--glow-color);
-
-  animation: crystalBurst 1s ease forwards;
+  .crystal.active::before {
+  animation: shockwave 1.2s ease forwards;
 }
   
 .crystal.active .sparkle {
@@ -164,6 +156,23 @@ box-shadow:
    @keyframes crystalFloat {
   0%,100% { transform: scale(1) translateY(0); }
   50%     { transform: scale(1) translateY(-6px); }
+}
+
+  @keyframes shockwave {
+  0% {
+    opacity: 0.8;
+    transform: scale(0.6);
+  }
+
+  60% {
+    opacity: 0.4;
+    transform: scale(1.8);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(2.5);
+  }
 }
   
   @keyframes suckIn {
@@ -191,16 +200,12 @@ box-shadow:
 
   @keyframes crystalBurst {
   0% {
-    opacity: 1;
-    transform: scale(1);
     box-shadow:
       0 0 40px var(--glow-color),
       0 0 80px var(--glow-color);
   }
 
   40% {
-    opacity: 1;
-    transform: scale(1.25);
     box-shadow:
       0 0 120px var(--glow-color),
       0 0 260px var(--glow-color),
@@ -208,20 +213,16 @@ box-shadow:
   }
 
   70% {
-    opacity: 1;
-    transform: scale(1.35);
     box-shadow:
-      0 0 180px var(--glow-color),
-      0 0 360px var(--glow-color),
-      0 0 600px var(--glow-color);
+      0 0 220px var(--glow-color),
+      0 0 420px var(--glow-color),
+      0 0 700px var(--glow-color);
   }
 
   100% {
-    opacity: 1;
-    transform: scale(1.45);
     box-shadow:
-      0 0 140px var(--glow-color),
-      0 0 280px var(--glow-color);
+      0 0 120px var(--glow-color),
+      0 0 240px var(--glow-color);
   }
 }
 
