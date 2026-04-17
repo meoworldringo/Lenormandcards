@@ -48,33 +48,35 @@ body::before {
 
 /* 📝 文字（保证在最上层）*/
 .book-text {
-  -webkit-font-smoothing: antialiased;
   position: absolute;
   z-index: 5;
 
   top: 20%;
   left: 18%;
   width: 26%;
-
-  color: #4a3a26; /* ⭐ 比现在更柔 */
+  color: rgba(60, 45, 25, 0.85); /* ⭐ 不纯黑 */
   font-family: "Georgia", "Times New Roman", serif;
-  line-height: 1.8;   /* ⭐ 拉开一点 */
-  letter-spacing: 0.5px;
+  line-height: 1.9;   /* ⭐ 再拉开 */
+  letter-spacing: 0.6px;
   font-size: clamp(13px, 1.4vw, 17px);
-  text-shadow: 0 0 1px rgba(0,0,0,0.1); /* ⭐ 很 subtle */
+  text-shadow: 0 0 1px rgba(0,0,0,0.15); /* ⭐ 微脏感 */
+}
+
+  .book-text p {
+  height: 12px; /* 控制段落间距 */
 }
   
 /* 📝 标题 */
-  .title {
+.title {
   display: block;
   text-align: center;
 
-  font-size: 1.2em;
-  letter-spacing: 1px;
+  font-size: 1.35em;   /* ⭐ 放大一点 */
+  letter-spacing: 2px; /* ⭐ 拉开 */
 
-  margin-bottom: 10px;
+  margin-bottom: 18px; /* ⭐ 空气感 */
 
-  color: #3a2e1f;
+  color: rgba(50, 35, 20, 0.9);
 }
 
 /*📱 手机（之后再开） */
@@ -145,12 +147,14 @@ body::before {
   <img src="book-open-v2.png" class="book-single">
 
   <div class="book-text">
-    <b class="title">狐狸（Fox）</b>
-    代表聪明、谨慎与策略。<br>
-    有时也暗示算计与防备。<br><br>
-    当它出现时，提醒你保持警觉，<br>
-    用智慧而非冲动行动。
-  </div>
+  <b class="title">狐狸（Fox）</b>
+
+  <p>代表聪明、谨慎与策略。<br>
+  有时也暗示算计与防备。</p>
+
+  <p>当它出现时，提醒你保持警觉，<br>
+  用智慧而非冲动行动。</p>
+</div>
 
 </div>
 <script>
