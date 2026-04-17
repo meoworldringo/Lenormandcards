@@ -104,6 +104,7 @@ body::before {
     inset 0 0 40px rgba(255,255,255,0.35);
 
   opacity: 0;
+  outline: 2px solid rgba(200,230,255,0.25);
   transform: scale(0.8);
   animation: crystalAppear 2s ease forwards 2.8s,
              crystalGlow 5s ease-in-out infinite 3.3s;
@@ -120,6 +121,7 @@ body::before {
     radial-gradient(circle at 70% 75%, rgba(180,220,255,0.2), transparent 60%);
 
   pointer-events: none;
+  z-index: 2;
 }
 
   .crystal::before {
@@ -133,6 +135,7 @@ body::before {
     inset 0 0 60px rgba(180,220,255,0.15);
 
   pointer-events: none;
+  z-index: 2;
 }
 
 @keyframes crystalAppear {
@@ -177,14 +180,15 @@ body::before {
 
 /* 👧 girl */
 .girl {
-  width: 120%;
+  width: 110%;
   position: absolute;
   left: 50%;
   top: 55%;
   transform: translate(-50%, -50%);
-  opacity: 0.95;
+  opacity: 0.92;
   filter: none;
-  animation: girlAppear 3s ease forwards 4.8s;
+  animation: girlAppear 3s ease forwards 5s;
+  z-index: 1;
 }
 
 @keyframes girlAppear {
