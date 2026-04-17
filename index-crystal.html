@@ -14,9 +14,13 @@ body {
 
   background-size: cover;
   background-position: center;
+
   display: flex;
+  flex-direction: column;  
+
   justify-content: center;
   align-items: center;
+
   min-height: 100vh;
   overflow: hidden;
   color: #f5e9d6;
@@ -57,27 +61,28 @@ body::before {
   left: 20%;
   top: 30%;
   background-image: url("card14.jpg");
-  animation: flash 1.2s ease forwards;
+  animation: flash 2.5s ease forwards;
 }
 
 .card2 {
   right: 20%;
   top: 25%;
   background-image: url("card22.jpg");
-  animation: flash 1.2s ease forwards 0.3s;
+  animation: flash 2.5s ease forwards 0.8s;
 }
 
 .card3 {
   left: 40%;
   bottom: 20%;
   background-image: url("card30.jpg");
-  animation: flash 1.2s ease forwards 0.6s;
+  animation: flash 2.5s ease forwards 1.6s;
 }
 
 @keyframes flash {
-  0% { opacity: 0; transform: scale(0.8); }
-  30% { opacity: 0.4; }
-  100% { opacity: 0; transform: scale(1.1); }
+  0%   { opacity: 0; transform: scale(0.9); }
+  30%  { opacity: 0.5; }
+  70%  { opacity: 0.4; }
+  100% { opacity: 0; transform: scale(1.05); }
 }
 
 /*🔮 水晶球 */
@@ -88,15 +93,15 @@ body::before {
   position: relative;
   overflow: hidden;
   z-index: 3;
-
+  margin-top: -80px;
   background:
-    radial-gradient(circle at 30% 30%, rgba(255,255,255,0.6), transparent 40%),
-    radial-gradient(circle at 70% 70%, rgba(180,220,255,0.2), transparent 60%),
-    rgba(120,160,200,0.1);
+    radial-gradient(circle at 30% 30%, rgba(255,255,255,0.8), transparent 35%),
+    radial-gradient(circle at 70% 70%, rgba(120,180,255,0.25), transparent 65%),
+    rgba(200,230,255,0.08);   /* ← 提亮一点 */
 
   box-shadow:
-    0 0 40px rgba(180,220,255,0.4),
-    inset 0 0 30px rgba(255,255,255,0.2);
+    0 0 80px rgba(180,220,255,0.45),   /* ← 更外发光 */
+    inset 0 0 40px rgba(255,255,255,0.35);
 
   opacity: 0;
   transform: scale(0.8);
@@ -147,7 +152,7 @@ body::before {
   }
 }
 
-/* ✨ 粒子 */
+<!-- 粒子 -->
 .sparkle {
   position: absolute;
   width: 4px;
@@ -202,7 +207,7 @@ body::before {
 
 .lang-select a {
   display: block;
-  margin: 10px;
+  margin: 40px;
   color: rgba(255,255,255,0.85);
   text-decoration: none;
 }
