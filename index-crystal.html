@@ -114,6 +114,7 @@ box-shadow:
   transition: 0.4s;
   filter: brightness(1.1) contrast(1.05);
   
+  animation:
     crystalGlowStart 1.2s ease forwards 3.4s,   /* ⭐ 先发光 */
     crystalAppear 1.8s ease forwards 4s,      /* ⭐ 再成形 */
     crystalGlow 5s ease-in-out infinite 5.2s;     /* ⭐ 持续呼吸 */
@@ -162,6 +163,7 @@ box-shadow:
       0 0 70px rgba(180,220,255,0.6),
       inset 0 0 40px rgba(255,255,255,0.3);
   }
+  }
 
   /* ⭐ 新增动画 */
 
@@ -182,7 +184,6 @@ box-shadow:
     box-shadow: 0 0 120px rgba(180,220,255,0.8);
   }
 }
-
 
 
 /* 粒子 */
@@ -248,7 +249,7 @@ box-shadow:
 
 /* 🌐 每一行 */
 .lang-select a {
-  display: block;  
+  display: inline-block; 
   text-align: center;
 
   margin: 14px 0;
