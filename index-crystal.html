@@ -55,7 +55,7 @@ body::before {
   height: 260px;
   border-radius: 50%;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   z-index: 3;
   margin-top: +20px;
   background:
@@ -102,7 +102,7 @@ box-shadow:
   border-radius: 50%;
   background: radial-gradient(circle, var(--glow-color), transparent 70%);
   opacity: 0;
-  z-index: 0;
+  z-index: 1;
 }
   
 @keyframes crystalAppear {
@@ -126,6 +126,7 @@ box-shadow:
 }
 
 .crystal.active {
+  opacity: 1; /* ⭐ 防止消失 */
   animation: crystalBurst 1.2s ease forwards;
 }
 
