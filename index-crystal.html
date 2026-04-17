@@ -76,7 +76,6 @@ box-shadow:
   filter: brightness(1.1) contrast(1.05);
   
   animation:
-  crystalGlowStart 1.2s ease,
   crystalAppear 1.8s ease forwards 1s,
   crystalGlow 5s ease-in-out infinite 2.8s,
   crystalFloat 6s ease-in-out infinite 2.8s;
@@ -131,7 +130,7 @@ box-shadow:
 }
 
 .crystal.active {
-  transform: scale(1.2);
+  transform: scale(1.2) translateY(0);  /* ⭐ 一定要补 translateY */
 
   box-shadow:
     0 0 120px var(--glow-color),
@@ -139,12 +138,13 @@ box-shadow:
     0 0 420px var(--glow-color),
     0 0 620px var(--glow-color);
 
-  animation: crystalBurst 1.6s ease forwards; /* ⭐ 加这一行 */
+  animation: crystalBurst 1.6s ease forwards;
 }
-
+  
  .crystal.active .sparkle {
-  animation: none;              /* ⭐ 先关掉原本动画 */
+  animation: none; /* ⭐ 先关掉原本 float */
   animation: suckIn 1.6s ease forwards;
+}
 
    @keyframes crystalFloat {
   0%,100% { transform: scale(1) translateY(0); }
@@ -215,8 +215,12 @@ box-shadow:
   border-radius: 50%;
   background: rgba(255,255,255,0.9);
 
- top: calc(15% + 70% * var(--y));
-left: calc(15% + 70% * var(--x));
+  top: calc(10% + 80% * var(--y));
+
+  /* ⭐ 核心：左右分布 */
+  left: calc(
+    (var(--side) * 70%) + (var(--x) * 30%)
+  );
 
   animation: float 6s linear infinite;
   opacity: 0;
@@ -349,14 +353,17 @@ left: calc(15% + 70% * var(--x));
   <img src="girl.png" class="girl">
 
   <!-- 粒子（放在后面！） -->
-<div class="sparkle" style="--x:0.1; --y:0.2; animation-delay:0s;"></div>
-<div class="sparkle" style="--x:0.8; --y:0.3; animation-delay:1s;"></div>
-<div class="sparkle" style="--x:0.3; --y:0.7; animation-delay:2s;"></div>
-<div class="sparkle" style="--x:0.6; --y:0.5; animation-delay:3s;"></div>
-<div class="sparkle" style="--x:0.2; --y:0.4; animation-delay:4s;"></div>
-<div class="sparkle" style="--x:0.9; --y:0.6; animation-delay:2.5s;"></div>
-<div class="sparkle" style="--x:0.4; --y:0.1; animation-delay:1.5s;"></div>
-<div class="sparkle" style="--x:0.7; --y:0.8; animation-delay:3.5s;"></div>
+<!-- 左侧 -->
+<div class="sparkle" style="--side:0; --x:0.1; --y:0.2; animation-delay:0s;"></div>
+<div class="sparkle" style="--side:0; --x:0.3; --y:0.7; animation-delay:2s;"></div>
+<div class="sparkle" style="--side:0; --x:0.2; --y:0.4; animation-delay:4s;"></div>
+<div class="sparkle" style="--side:0; --x:0.4; --y:0.1; animation-delay:1.5s;"></div>
+
+<!-- 右侧 -->
+<div class="sparkle" style="--side:1; --x:0.2; --y:0.3; animation-delay:1s;"></div>
+<div class="sparkle" style="--side:1; --x:0.6; --y:0.5; animation-delay:3s;"></div>
+<div class="sparkle" style="--side:1; --x:0.9; --y:0.6; animation-delay:2.5s;"></div>
+<div class="sparkle" style="--side:1; --x:0.7; --y:0.8; animation-delay:3.5s;"></div>
 
 </div>
   
@@ -373,7 +380,7 @@ const links = document.querySelectorAll(".lang-select a");
 const crystal = document.querySelector(".crystal");
 
 const colors = [
-  "rgba(255,170,210,0.95)", // 繁中
+  "rgba(255,200,230,0.65)" // 繁中
   "rgba(255,220,140,0.75)", // 简中
   "rgba(210,190,255,0.75)", // 日文
   "rgba(180,220,255,0.75)"  // 英文
