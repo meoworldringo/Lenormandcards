@@ -65,6 +65,7 @@ body::before {
   overflow: visible;
   z-index: 3;
   margin-top: 30px;
+  isolation: isolate;
   background:
     radial-gradient(circle at 30% 30%, rgba(255,255,255,0.8), transparent 35%),
     radial-gradient(circle at 70% 70%, rgba(120,180,255,0.25), transparent 65%),
@@ -109,7 +110,7 @@ box-shadow:
   border-radius: 50%;
   background: radial-gradient(circle, var(--glow-color), transparent 70%);
   opacity: 0;
-  z-index: 5;
+  z-index: 1;
 }
   
 @keyframes crystalAppear {
