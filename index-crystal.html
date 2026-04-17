@@ -36,8 +36,10 @@ body::before {
   z-index: 1;
 
   background:
-    radial-gradient(circle at 30% 30%, rgba(255,245,200,0.35), transparent 45%),
-    radial-gradient(circle at 80% 80%, rgba(255,245,200,0.2), transparent 30%);
+
+    radial-gradient(circle at 30% 30%, rgba(255,245,200,0.25), transparent 45%),
+    radial-gradient(circle at 80% 80%, rgba(255,245,200,0.15), transparent 30%),
+    rgba(5,10,15,0.55);   /* ⭐ 新增：整体压暗 */
 
   animation: bgPulse 6s ease-in-out infinite;
 }
@@ -102,14 +104,15 @@ body::before {
 
    --glow-color: rgba(180,220,255,0.45);  /* ⭐ 默认光 */
 
-  box-shadow:
-    0 0 80px var(--glow-color),
-    inset 0 0 40px rgba(255,255,255,0.35)
+box-shadow:
+  0 0 80px var(--glow-color),
+  inset 0 0 40px rgba(255,255,255,0.35);  /* ⭐ 这里要加分号 */
 
   opacity: 0;
   outline: 2px solid rgba(200,230,255,0.25);
   transform: scale(0.8);
   transition: 0.4s;
+  filter: brightness(1.1) contrast(1.05);
   animation: crystalAppear 3s ease forwards 3.4s,
              crystalGlow 5s ease-in-out infinite 3.4s;
 }
