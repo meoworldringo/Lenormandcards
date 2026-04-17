@@ -55,7 +55,7 @@ body::before {
   height: 260px;
   border-radius: 50%;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   z-index: 3;
   margin-top: -60px;
   background:
@@ -130,19 +130,21 @@ box-shadow:
 }
 
 .crystal.active {
-  transform: scale(1.25) translateY(0);
+  transform: scale(1.35);
 
   box-shadow:
-    0 0 160px var(--glow-color),
-    0 0 320px var(--glow-color),
-    0 0 520px var(--glow-color);
+    0 0 200px var(--glow-color),
+    0 0 400px var(--glow-color),
+    0 0 700px var(--glow-color),
+    0 0 1000px var(--glow-color);
 
-  transition: 0.6s ease;
+  transition: 0.5s cubic-bezier(.2,.8,.2,1);
 }
   
- .crystal.active .sparkle {
-  animation: none; /* ⭐ 先关掉原本 float */
+.crystal.active .sparkle {
+  opacity: 1;
   animation: suckIn 1.6s ease forwards;
+  animation-fill-mode: forwards;
 }
 
    @keyframes crystalFloat {
