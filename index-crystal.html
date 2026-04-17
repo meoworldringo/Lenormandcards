@@ -165,6 +165,14 @@ box-shadow:
   }
 }
 
+  .crystal.active {
+  transform: scale(1.15); /* ⭐ 放大 */
+  box-shadow:
+    0 0 120px var(--glow-color),
+    0 0 200px var(--glow-color),
+    inset 0 0 60px rgba(255,255,255,0.4);
+  transition: 1.2s ease;
+}
 
 /* 粒子 */
 .sparkle {
@@ -199,7 +207,7 @@ box-shadow:
   transform: translate(-50%, -50%);
   opacity: 0;
   filter: blur(20px);
-  animation: girlAppear 3.5s ease forwards 5.2s;
+  animation: girlAppear 3.5s ease forwards 5s;
   z-index: 1;
 }
 
@@ -332,10 +340,21 @@ const colors = [
 const defaultColor = "rgba(180,220,255,0.45)";
 
 links.forEach((link, i) => {
-  link.addEventListener("mouseenter", () => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault(); // ⭐ 阻止立刻跳转
+
+    // 🌈 改变水晶球颜色
     crystal.style.setProperty("--glow-color", colors[i]);
-    crystal.style.transform = "scale(1.05)";
+
+    // ✨ 放大 + 强光
+    crystal.classList.add("active");
+
+    // ⏳ 2.2秒后跳转
+    setTimeout(() => {
+      window.location.href = link.href;
+    }, 2200);
   });
+});
 
   link.addEventListener("mouseleave", () => {
     crystal.style.setProperty("--glow-color", defaultColor);
