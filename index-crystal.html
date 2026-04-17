@@ -165,7 +165,7 @@ body::before {
   border-radius: 50%;
   animation: float 6s linear infinite;
   opacity: 0;
-  z-index: 3;
+  z-index: 5;
 }
 
 @keyframes float {
@@ -238,19 +238,20 @@ body::before {
 <!-- 🔮 水晶球 -->
 <div class="crystal">
 
- <!-- 粒子 -->
-<div class="sparkle" style="left:10%; animation-delay:0s; animation-duration:6s;"></div>
-<div class="sparkle" style="left:25%; animation-delay:1s; animation-duration:7s;"></div>
-<div class="sparkle" style="left:40%; animation-delay:2s; animation-duration:5s;"></div>
-<div class="sparkle" style="left:55%; animation-delay:3s; animation-duration:8s;"></div>
-<div class="sparkle" style="left:70%; animation-delay:4s; animation-duration:6s;"></div>
-<div class="sparkle" style="left:85%; animation-delay:2.5s; animation-duration:7s;"></div>
-<div class="sparkle" style="left:30%; animation-delay:1.5s; animation-duration:6s;"></div>
-<div class="sparkle" style="left:60%; animation-delay:3.5s; animation-duration:5s;"></div>
-
   <img src="girl.png" class="girl">
 
+  <!-- 粒子（放在后面！） -->
+  <div class="sparkle" style="left:10%; animation-delay:0s;"></div>
+  <div class="sparkle" style="left:25%; animation-delay:1s;"></div>
+  <div class="sparkle" style="left:40%; animation-delay:2s;"></div>
+  <div class="sparkle" style="left:55%; animation-delay:3s;"></div>
+  <div class="sparkle" style="left:70%; animation-delay:4s;"></div>
+  <div class="sparkle" style="left:85%; animation-delay:2.5s;"></div>
+  <div class="sparkle" style="left:30%; animation-delay:1.5s;"></div>
+  <div class="sparkle" style="left:60%; animation-delay:3.5s;"></div>
+
 </div>
+  
 <!-- 🌐 语言 -->
 <div class="lang-select">
   <a href="index-tw.html">繁體中文</a>
