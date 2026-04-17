@@ -25,7 +25,7 @@ body {
   overflow: hidden;
   color: #f5e9d6;
   font-family: serif;
-  padding-top: 22vh;
+  padding-top: clamp(80px, 18vh, 180px);
 }
 
 /* 🌙 呼吸光 */
@@ -51,8 +51,8 @@ body::before {
 
 /*🔮 水晶球 */
 .crystal {
-  width: 260px;
-  height: 260px;
+  width: clamp(220px, 50vw, 320px);
+  height: clamp(220px, 50vw, 320px);
   border-radius: 50%;
   position: relative;
   overflow: visible;
@@ -294,7 +294,7 @@ box-shadow:
 .lang-select {
   position: relative;   /* ⭐ 加这个 */
   z-index: 10;          /* ⭐ 加这个 */
-  margin-top: 60px;
+  margin-top: clamp(30px, 6vh, 80px);
   text-align: center;   /* ⭐ 关键：真正置中 */
 
   opacity: 0;
@@ -309,7 +309,7 @@ box-shadow:
   margin: 14px 0;
   padding: 6px 12px;
 
-  font-size: 16px;
+  font-size: clamp(14px, 3.8vw, 18px);
   letter-spacing: 0.05em;
 
   color: rgba(255,255,255,0.9);
