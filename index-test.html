@@ -269,6 +269,7 @@ box-shadow:
 .girl {
   width: 110%;
   position: absolute;
+  transform: translate(-50%, -50%);
   opacity: 0;
   filter: blur(20px);
   animation: girlAppear 3.5s ease forwards 2.8s,
@@ -551,6 +552,21 @@ box-shadow:
 </div>
 
 <script>
+
+  <script id="fix-rotate">
+window.addEventListener("orientationchange", () => {
+  const girl = document.querySelector(".girl");
+
+  // ⭐ 暂停动画
+  girl.style.animation = "none";
+
+  // ⭐ 强制重绘
+  void girl.offsetWidth;
+
+  // ⭐ 恢复动画
+  girl.style.animation = "";
+});
+  
 const links = document.querySelectorAll(".lang-select a");
 const crystal = document.querySelector(".crystal");
 
