@@ -331,36 +331,26 @@ const links = document.querySelectorAll(".lang-select a");
 const crystal = document.querySelector(".crystal");
 
 const colors = [
-  "rgba(220,220,235,0.75)", // 繁中（银）
-  "rgba(255,220,140,0.75)", // 简中（金）
-  "rgba(210,190,255,0.75)", // 日文（浅紫）
-  "rgba(180,220,255,0.75)"  // 英文（浅蓝）
+  "rgba(220,220,235,0.75)", // 繁中
+  "rgba(255,220,140,0.75)", // 简中
+  "rgba(210,190,255,0.75)", // 日文
+  "rgba(180,220,255,0.75)"  // 英文
 ];
-
-const defaultColor = "rgba(180,220,255,0.45)";
 
 links.forEach((link, i) => {
   link.addEventListener("click", (e) => {
-    e.preventDefault(); // ⭐ 阻止立刻跳转
+    e.preventDefault();
 
-    // 🌈 改变水晶球颜色
     crystal.style.setProperty("--glow-color", colors[i]);
-
-    // ✨ 放大 + 强光
     crystal.classList.add("active");
 
-    // ⏳ 2.2秒后跳转
     setTimeout(() => {
       window.location.href = link.href;
     }, 2200);
   });
 });
 
-  link.addEventListener("mouseleave", () => {
-    crystal.style.setProperty("--glow-color", defaultColor);
-    crystal.style.transform = "scale(1)";
-  });
-});
+  
 </script>
   
 </body>
