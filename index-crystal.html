@@ -203,22 +203,64 @@ body::before {
 
 /* 🌐 语言 */
 .lang-select {
-  position: static;   /* ← 必改 */
-  margin-top: 50px;   /* ← 拉开距离 */
+  position: static;
+  margin-top: 60px;
+
+  text-align: center;   /* ⭐ 关键：真正置中 */
+
   opacity: 0;
-  z-index: 4;
   animation: showMenu 2s ease forwards 5.5s;
 }
 
+/* 🌐 每一行 */
 .lang-select a {
-  display: block;
-  margin: 40px;
-  color: rgba(255,255,255,0.85);
+  display: inline-block;   /* ⭐ 关键：不要占满整行 */
+
+  margin: 14px 0;
+  padding: 6px 12px;
+
+  font-size: 16px;
+  letter-spacing: 0.05em;
+
+  color: rgba(255,255,255,0.9);
   text-decoration: none;
+
+  /* ✨ 发光 */
+  text-shadow:
+    0 0 6px rgba(255,240,180,0.6),
+    0 0 14px rgba(255,220,140,0.4),
+    0 0 24px rgba(255,200,120,0.25);
+
+  transition: 0.3s;
+
+  /* 🌙 呼吸光（可留可删） */
+  animation: textGlow 3.5s ease-in-out infinite;
 }
 
+/* ✨ hover 提亮 */
 .lang-select a:hover {
   color: #ffe9a8;
+
+  text-shadow:
+    0 0 10px rgba(255,240,180,0.9),
+    0 0 22px rgba(255,220,140,0.7),
+    0 0 40px rgba(255,200,120,0.5);
+
+  transform: translateY(-2px);
+}
+
+/* 🌙 呼吸光动画 */
+@keyframes textGlow {
+  0%,100% {
+    text-shadow:
+      0 0 4px rgba(255,240,180,0.4),
+      0 0 10px rgba(255,220,140,0.3);
+  }
+  50% {
+    text-shadow:
+      0 0 10px rgba(255,240,180,0.9),
+      0 0 22px rgba(255,220,140,0.7);
+  }
 }
 
 @keyframes showMenu {
