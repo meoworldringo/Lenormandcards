@@ -139,12 +139,26 @@ box-shadow:
     0 0 1000px var(--glow-color);
 
   transition: 0.5s cubic-bezier(.2,.8,.2,1);
+  animation: crystalBurst 1s ease forwards;
 }
   
 .crystal.active .sparkle {
   opacity: 1;
   animation: suckIn 1.6s ease forwards;
   animation-fill-mode: forwards;
+}
+
+  .crystal.active .girl {
+  animation: girlSuck 1.4s ease forwards;
+    
+ .crystal-mask {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  overflow: hidden; /* ⭐ 只裁剪内容 */
+  z-index: 1;
+}
+
 }
 
    @keyframes crystalFloat {
@@ -207,6 +221,22 @@ box-shadow:
   }
 }
 
+ @keyframes girlSuck {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+
+  60% {
+    transform: translate(-50%, -48%) scale(0.6);
+  }
+
+  100% {
+    transform: translate(-50%, -45%) scale(0.1);
+    opacity: 0;
+  }
+}
+  
 /* 粒子 */
 .sparkle {
   position: absolute;
@@ -349,7 +379,7 @@ box-shadow:
 
 <!-- 🔮 水晶球 -->
 <div class="crystal">
-
+  <div class="crystal-mask"> 
   <img src="girl.png" class="girl">
 
   <!-- 粒子（放在后面！） -->
