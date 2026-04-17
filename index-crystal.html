@@ -76,10 +76,10 @@ box-shadow:
   filter: brightness(1.1) contrast(1.05);
   
   animation:
-    crystalGlowStart 1.2s ease,   /* ⭐ 先发光 */
-    crystalAppear 1.8s ease forwards 1s,      /* ⭐ 再成形 */
-    crystalGlow 5s ease-in-out infinite 2.8s;     /* ⭐ 持续呼吸 */
-    crystalFloat 6s ease-in-out infinite 2.8s;
+  crystalGlowStart 1.2s ease,
+  crystalAppear 1.8s ease forwards 1s,
+  crystalGlow 5s ease-in-out infinite 2.8s,
+  crystalFloat 6s ease-in-out infinite 2.8s;
 }
 
 .crystal::after {
@@ -141,7 +141,34 @@ box-shadow:
 
   transition: 1.4s ease;
 }
-  
+
+  .crystal.active .sparkle {
+  animation: suckIn 1.6s ease forwards;
+}
+
+  @keyframes suckIn {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+
+  70% {
+    opacity: 1;
+    transform: translate(
+      calc(130px - 100% * var(--x)),
+      calc(130px - 100% * var(--y))
+    ) scale(0.3);
+  }
+
+  100% {
+  opacity: 0;
+  transform: translate(
+    calc(130px - 100% * var(--x)),
+    calc(130px - 100% * var(--y))
+  ) scale(0.1) rotate(180deg);
+  }
+}
+
   @keyframes crystalBurst {
   0% {
     transform: scale(1);
@@ -179,11 +206,15 @@ box-shadow:
   position: absolute;
   width: 4px;
   height: 4px;
-  background: rgba(255,255,255,0.8);
   border-radius: 50%;
+  background: rgba(255,255,255,0.9);
+
+ top: calc(15% + 70% * var(--y));
+left: calc(15% + 70% * var(--x));
+
   animation: float 6s linear infinite;
   opacity: 0;
-  z-index: 5;
+  z-index: 4;
 }
 
 @keyframes float {
@@ -207,7 +238,7 @@ box-shadow:
   transform: translate(-50%, -50%);
   opacity: 0;
   filter: blur(20px);
-  animation: girlAppear 3.5s ease forwards 3.2s;
+  animation: girlAppear 3.5s ease forwards 3.2s,
   girlFloat 6s ease-in-out infinite 6.7s;
   z-index: 2;
 }
@@ -312,14 +343,14 @@ box-shadow:
   <img src="girl.png" class="girl">
 
   <!-- 粒子（放在后面！） -->
-  <div class="sparkle" style="left:10%; animation-delay:0s;"></div>
-  <div class="sparkle" style="left:25%; animation-delay:1s;"></div>
-  <div class="sparkle" style="left:40%; animation-delay:2s;"></div>
-  <div class="sparkle" style="left:55%; animation-delay:3s;"></div>
-  <div class="sparkle" style="left:70%; animation-delay:4s;"></div>
-  <div class="sparkle" style="left:85%; animation-delay:2.5s;"></div>
-  <div class="sparkle" style="left:30%; animation-delay:1.5s;"></div>
-  <div class="sparkle" style="left:60%; animation-delay:3.5s;"></div>
+<div class="sparkle" style="--x:0.1; --y:0.2; animation-delay:0s;"></div>
+<div class="sparkle" style="--x:0.8; --y:0.3; animation-delay:1s;"></div>
+<div class="sparkle" style="--x:0.3; --y:0.7; animation-delay:2s;"></div>
+<div class="sparkle" style="--x:0.6; --y:0.5; animation-delay:3s;"></div>
+<div class="sparkle" style="--x:0.2; --y:0.4; animation-delay:4s;"></div>
+<div class="sparkle" style="--x:0.9; --y:0.6; animation-delay:2.5s;"></div>
+<div class="sparkle" style="--x:0.4; --y:0.1; animation-delay:1.5s;"></div>
+<div class="sparkle" style="--x:0.7; --y:0.8; animation-delay:3.5s;"></div>
 
 </div>
   
@@ -355,6 +386,9 @@ links.forEach((link, i) => {
   });
 });
 
+  document.querySelectorAll(".sparkle").forEach(s => {
+  s.style.animationDuration = "1.6s";
+});
   
 </script>
   
