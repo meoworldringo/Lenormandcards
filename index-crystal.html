@@ -433,6 +433,13 @@ links.forEach((link, i) => {
   link.addEventListener("click", (e) => {
     e.preventDefault();
 
+    // ⭐ 关键：先移除 active（重置）
+    crystal.classList.remove("active");
+
+    // ⭐ 强制浏览器重新计算（触发重绘）
+    void crystal.offsetWidth;
+
+    // ⭐ 再加回去（动画就会重新播放）
     crystal.style.setProperty("--glow-color", colors[i]);
     crystal.classList.add("active");
 
@@ -440,6 +447,10 @@ links.forEach((link, i) => {
       window.location.href = link.href;
     }, 2200);
   });
+});
+
+  window.addEventListener("pageshow", () => {
+  crystal.classList.remove("active");
 });
 
   document.querySelectorAll(".sparkle").forEach(s => {
