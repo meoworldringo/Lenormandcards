@@ -153,6 +153,10 @@ box-shadow:
   border-radius: 50%;
   overflow: hidden;
   z-index: 1;
+
+  display: flex;                /* ⭐ 新增 */
+  justify-content: center;      /* ⭐ 新增 */
+  align-items: center;          /* ⭐ 新增 */
 }
   
 
@@ -265,9 +269,6 @@ box-shadow:
 .girl {
   width: 110%;
   position: absolute;
-  left: 50%;
-  top: 55%;
-  transform: translate(-50%, -50%);
   opacity: 0;
   filter: blur(20px);
   animation: girlAppear 3.5s ease forwards 2.8s,
