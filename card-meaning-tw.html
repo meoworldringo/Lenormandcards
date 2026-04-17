@@ -48,17 +48,33 @@ body::before {
 
 /* 📝 文字（保证在最上层）*/
 .book-text {
+  -webkit-font-smoothing: antialiased;
   position: absolute;
   z-index: 5;
 
   top: 20%;
-  left: 18%;     /* ⭐ 往内收 */
-  width: 26%;    /* ⭐ 稍微变宽 */
+  left: 18%;
+  width: 26%;
+
+  color: #4a3a26; /* ⭐ 比现在更柔 */
+  font-family: "Georgia", "Times New Roman", serif;
+  line-height: 1.8;   /* ⭐ 拉开一点 */
+  letter-spacing: 0.5px;
+  font-size: clamp(13px, 1.4vw, 17px);
+  text-shadow: 0 0 1px rgba(0,0,0,0.1); /* ⭐ 很 subtle */
+}
+  
+/* 📝 标题 */
+  .title {
+  display: block;
+  text-align: center;
+
+  font-size: 1.2em;
+  letter-spacing: 1px;
+
+  margin-bottom: 10px;
 
   color: #3a2e1f;
-  font-family: serif;
-  line-height: 1.6;
-  font-size: clamp(12px, 1.4vw, 16px);
 }
 
 /*📱 手机（之后再开） */
@@ -129,7 +145,7 @@ body::before {
   <img src="book-open-v2.png" class="book-single">
 
   <div class="book-text">
-    <b>狐狸（Fox）</b><br><br>
+    <b class="title">狐狸（Fox）</b>
     代表聪明、谨慎与策略。<br>
     有时也暗示算计与防备。<br><br>
     当它出现时，提醒你保持警觉，<br>
