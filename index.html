@@ -135,7 +135,7 @@ box-shadow:
 
 .crystal.active {
   opacity: 1; /* ⭐ 防止消失 */
-  animation: crystalBurst 0.8s ease forwards;
+  animation: crystalBurst 0.8s cubic-bezier(0.2, 0, 0.8, 1) forwards;
 }
 
   .crystal.active::before {
