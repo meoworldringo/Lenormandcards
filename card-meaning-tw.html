@@ -74,17 +74,15 @@ body::before {
 
 .title {
   display: inline-block;
-  margin-top: 35px;   /* ⭐ 轻微往下压 */
-  text-align: center;
+  text-align: left;        /* ⭐ 不要再居中，会更自然 */
 
-  font-size: 1.15em;      /* ⭐ 稍微缩一点，防止换行 */
+  font-size: 1.15em;       /* ⭐ 控标题大小（防换行） */
+  line-height: 1.3;
 
-  line-height: 1.3;       /* ⭐ 避免两行太挤 */
+  margin: 0;               /* ⭐ 统一归零 */
+  margin-bottom: 6px;      /* ⭐ 控标题 ↔ 下方说明 */
 
-  margin: 0;              /* ❗ 清掉原本的 margin */
-  letter-spacing: 0.5px;  /* ⭐ 收紧 */
-  margin-bottom: 14px;
-
+  letter-spacing: 0.5px;
   color: rgba(50, 35, 20, 0.9);
 }
 
