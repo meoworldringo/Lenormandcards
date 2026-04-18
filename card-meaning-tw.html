@@ -266,6 +266,7 @@ body::before {
     display: flex;
     gap: 8px;
     align-items: flex-start;
+    margin-top: -10px;
   }
 
   .card-img {
@@ -281,7 +282,8 @@ body::before {
   margin-left: auto;   /* ⭐ 让标题自动贴右 */
   text-align: right;
   margin-right: 45px;
-  transform: translateY(-20px);   /* ⭐ 往上 */
+  transform: none;
+  margin-top: 0;
   }
 
   .book-text {
@@ -344,6 +346,7 @@ body::before {
   align-items: center;   /* ⭐ 垂直居中 */
   gap: 8px;
   margin-bottom: 130px;
+  margin-top: -10px;
 }
 
    .book-text {
@@ -366,6 +369,7 @@ body::before {
   justify-content: space-between;
   margin-left: auto;   /* ⭐ 让标题自动贴右 */
   text-align: right;
+  transform: none;
   margin-right: 45px;
 }
   
@@ -492,30 +496,23 @@ for (let i = 0; i < 15; i++) {
 let currentPage = 0;
 
 function renderPage() {
-  const leftIndex = currentPage * 2;
-  const rightIndex = currentPage * 2 + 1;
+  const index = currentPage;
 
-  const left = pages[leftIndex];
-  const right = pages[rightIndex];
+  const page = pages[index];
 
-  document.getElementById("leftPage").innerHTML = left ? `
+  document.getElementById("leftPage").innerHTML = page ? `
     <div class="title-row">
-      <img src="${left.img}" class="card-img">
-      <b class="title">${left.title}</b>
+      <img src="${page.img}" class="card-img">
+      <b class="title">${page.title}</b>
     </div>
-    <p>${left.text}</p>
+    <p>${page.text}</p>
   ` : "";
 
-  document.getElementById("rightPage").innerHTML = right ? `
-    <div class="title-row">
-      <img src="${right.img}" class="card-img">
-      <b class="title">${right.title}</b>
-    </div>
-    <p>${right.text}</p>
-  ` : "";
+  document.getElementById("rightPage").innerHTML = "";
 }
+  
 function nextPage() {
-  if ((currentPage + 1) * 2 >= pages.length) return;
+  if (currentPage + 1 >= pages.length) return;
   currentPage++;
   renderPage();
 }
