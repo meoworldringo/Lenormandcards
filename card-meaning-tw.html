@@ -236,9 +236,10 @@ body::before {
 
   .book-wrapper {
     width: 92vw;
-    margin-top: clamp(60px, 10vh, 120px);
+    margin-top: 70px;
     position: relative;
     aspect-ratio: 3 / 4;
+    transform: translateY(40px); /* ⭐ 整体往下 */
   }
 
   .book-wrapper img {
@@ -247,67 +248,65 @@ body::before {
     left: 0;
   }
 
-  /* ⭐⭐ 核心修复：排版结构 */
+  /* ⭐ 单页结构 */
   .book-text.left {
     left: 56%;
     transform: translateX(-50%);
     width: 64%;
-    top: 26%;
-
-    display: flex;              /* ⭐ 关键 */
+    top: 28%;   /* ⭐ 原本 26 → 28 往下 */
+    
+    display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 16px;  /* ⭐ 拉开标题和说明文 */
   }
 
   .book-text.right { display: none; }
 
-  /* ⭐ 不再重叠 */
- /* ⭐ 标题排版（手机） */
-.title-row {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;   /* ⭐ 关键：左右分开 */
+  /* ⭐⭐⭐ 核心：标题稳定布局 */
+  .title-row {
+    display: grid;
+    grid-template-columns: 100px 1fr;  /* ⭐ 图固定 + 标题填满 */
+    align-items: start;
+    column-gap: 10px;
+  }
 
-  gap: 8px;
-}
-
-.title {
-  flex: 1;              /* ⭐ 吃掉剩余空间 */
-  text-align: right;    /* ⭐ 靠右 */
-
-  margin: 0;            /* ❗ 防止每页跳动 */
-  line-height: 1.3;
-
-  white-space: nowrap;  /* 你原本要的效果 */
-}
-  
   .card-img {
     width: 100px !important;
-    flex-shrink: 0;            /* ⭐ 防压 */
-    margin-top: -50px;
+    margin-top: -40px;  /* ⭐ 保留一点视觉贴合 */
+  }
+
+  .title {
+    display: block;
+    text-align: right;   /* ⭐ 永远贴右 */
+    
+    margin: 0;
+    line-height: 1.3;
+
+    white-space: nowrap;
+  }
+
+  /* ⭐ 说明文往下 */
+  .book-text p {
+    margin-top: 18px;   /* ⭐ 从12 → 18 */
   }
 
   .book-text {
-    font-size: 11px;           /* ⭐ 放大 */
+    font-size: 11px;
     line-height: 1.5;
   }
 
-  .book-text p {
-  margin-top: 12px;   /* ⭐ 从12 → 20 / 24 / 28 慢慢加 */
-}
-
   .back-btn {
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 18px;
 
-  width: fit-content;      /* ⭐ 关键 */
-  max-width: 160px;        /* ⭐ 再收一点 */
-  padding: 10px 16px;
+    width: fit-content;
+    max-width: 160px;
+    padding: 10px 16px;
 
-  white-space: nowrap;     /* ⭐ 防断行 */
-  text-align: center;
-}
+    white-space: nowrap;
+    text-align: center;
+  }
 }
 
  @media (min-width: 601px) and (max-width: 768px) and (orientation: portrait) {
