@@ -169,18 +169,56 @@ body::before {
   width: 26%;
 }
 
-/* ✨ 浮现动画 */
+/* ✨ 魔法浮现（核心） */
 .fade-text {
   opacity: 0;
-  transform: translateY(10px);
-  filter: blur(4px);
-  transition: all 0.6s ease;
+  filter: blur(6px);
+  transform: scale(0.98); /* 微微缩小（像在纸里） */
+
+  transition: 
+    opacity 0.8s ease,
+    filter 0.8s ease,
+    transform 0.8s ease;
 }
 
 .fade-text.show {
   opacity: 1;
-  transform: translateY(0);
   filter: blur(0);
+  transform: scale(1);
+}
+
+  .fade-text::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255,240,180,0.25),
+    transparent 70%
+  );
+
+  opacity: 0;
+  pointer-events: none;
+}
+
+.fade-text.show::after {
+  animation: magicGlow 1.2s ease;
+}
+
+@keyframes magicGlow {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.2);
+  }
 }
 
 </style>
