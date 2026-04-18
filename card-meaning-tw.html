@@ -224,6 +224,21 @@ body::before {
   }
 
 }
+  
+  @media (hover: hover) {
+  .back-btn:hover {
+    transform: translateY(-2px);
+
+    /* ❗不改背景 → 就不会变黄 */
+    background: rgba(20,25,30,0.55);
+
+    /* ⭐ 只做发光 */
+    box-shadow:
+      0 6px 18px rgba(0,0,0,0.5),
+      0 0 18px rgba(255,220,120,0.35),
+      0 0 28px rgba(255,220,120,0.15);
+  }
+}
 
 
 </style>
