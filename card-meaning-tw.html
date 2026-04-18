@@ -170,32 +170,45 @@ body::before {
 }
 
 /* ✨ 页面动画 */
+/* 📖 3D环境 */
+.book-wrapper {
+  perspective: 1200px;
+}
+
+/* 📄 页面基础 */
 .page {
+  transform-origin: left center;
+  transition: transform 0.6s ease, opacity 0.3s ease;
+}
+
+/* 👉 右页翻走 */
+.page.flip-out {
+  transform: rotateY(-120deg);
+  opacity: 0.2;
+}
+
+/* 👉 新页翻进 */
+.page.flip-in {
+  transform: rotateY(90deg);
+  opacity: 0;
+}
+
+/* ✨ 纸张阴影 */
+.page::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to left,
+    rgba(0,0,0,0.2),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.page.flip-out::after {
   opacity: 1;
-  transform: translateX(0);
-  transition: all 0.4s ease;
-}
-
-/* 👉 往左翻（下一页） */
-.page.next-out {
-  opacity: 0;
-  transform: translateX(-40px);
-}
-
-.page.next-in {
-  opacity: 0;
-  transform: translateX(40px);
-}
-
-/* 👉 往右翻（上一页） */
-.page.prev-out {
-  opacity: 0;
-  transform: translateX(40px);
-}
-
-.page.prev-in {
-  opacity: 0;
-  transform: translateX(-40px);
 }
 
 </style>
@@ -305,55 +318,44 @@ function renderPage() {
 function nextPage() {
   if ((currentPage + 1) * 2 >= pages.length) return;
 
-  const leftEl = document.getElementById("leftPage");
   const rightEl = document.getElementById("rightPage");
 
-  leftEl.classList.add("next-out");
-  rightEl.classList.add("next-out");
+  // 👉 右页翻走
+  rightEl.classList.add("flip-out");
 
   setTimeout(() => {
     currentPage++;
     renderPage();
 
-    leftEl.classList.remove("next-out");
-    rightEl.classList.remove("next-out");
-
-    leftEl.classList.add("next-in");
-    rightEl.classList.add("next-in");
+    rightEl.classList.remove("flip-out");
+    rightEl.classList.add("flip-in");
 
     setTimeout(() => {
-      leftEl.classList.remove("next-in");
-      rightEl.classList.remove("next-in");
+      rightEl.classList.remove("flip-in");
     }, 50);
 
-  }, 200);
+  }, 300);
 }
 
 function prevPage() {
   if (currentPage === 0) return;
 
   const leftEl = document.getElementById("leftPage");
-  const rightEl = document.getElementById("rightPage");
 
-  leftEl.classList.add("prev-out");
-  rightEl.classList.add("prev-out");
+  leftEl.classList.add("flip-out");
 
   setTimeout(() => {
     currentPage--;
     renderPage();
 
-    leftEl.classList.remove("prev-out");
-    rightEl.classList.remove("prev-out");
-
-    leftEl.classList.add("prev-in");
-    rightEl.classList.add("prev-in");
+    leftEl.classList.remove("flip-out");
+    leftEl.classList.add("flip-in");
 
     setTimeout(() => {
-      leftEl.classList.remove("prev-in");
-      rightEl.classList.remove("prev-in");
+      leftEl.classList.remove("flip-in");
     }, 50);
 
-  }, 200);
+  }, 300);
 }
 renderPage();
   
