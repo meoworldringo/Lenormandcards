@@ -170,45 +170,45 @@ body::before {
 }
 
 /* ✨ 页面动画 */
-/* 📖 3D环境 */
-.book-wrapper {
-  perspective: 1200px;
-}
-
-/* 📄 页面基础 */
 .page {
-  transform-origin: left center;
-  transition: transform 0.6s ease, opacity 0.3s ease;
+  transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
-/* 👉 右页翻走 */
-.page.flip-out {
-  transform: rotateY(-120deg);
-  opacity: 0.2;
-}
-
-/* 👉 新页翻进 */
-.page.flip-in {
-  transform: rotateY(90deg);
+/* 👉 出去 */
+.page.fade-out {
   opacity: 0;
+  transform: translateX(-20px);
 }
 
-/* ✨ 纸张阴影 */
-.page::after {
+/* 👉 进来 */
+.page.fade-in {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+/* ✨ 光影扫过（重点） */
+.page::before {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    to left,
-    rgba(0,0,0,0.2),
+    120deg,
+    transparent,
+    rgba(255,255,255,0.15),
     transparent
   );
   opacity: 0;
-  transition: opacity 0.3s;
+  pointer-events: none;
 }
 
-.page.flip-out::after {
-  opacity: 1;
+.page.shine::before {
+  animation: shineMove 0.6s ease;
+}
+
+@keyframes shineMove {
+  0% { transform: translateX(-100%); opacity: 0; }
+  30% { opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0; }
 }
 
 </style>
@@ -318,44 +318,58 @@ function renderPage() {
 function nextPage() {
   if ((currentPage + 1) * 2 >= pages.length) return;
 
+  const leftEl = document.getElementById("leftPage");
   const rightEl = document.getElementById("rightPage");
 
-  // 👉 右页翻走
-  rightEl.classList.add("flip-out");
+  leftEl.classList.add("fade-out");
+  rightEl.classList.add("fade-out");
 
   setTimeout(() => {
     currentPage++;
     renderPage();
 
-    rightEl.classList.remove("flip-out");
-    rightEl.classList.add("flip-in");
+    leftEl.classList.remove("fade-out");
+    rightEl.classList.remove("fade-out");
+
+    leftEl.classList.add("fade-in");
+    rightEl.classList.add("fade-in");
+    rightEl.classList.add("shine"); // ⭐ 右页扫光
 
     setTimeout(() => {
-      rightEl.classList.remove("flip-in");
+      leftEl.classList.remove("fade-in");
+      rightEl.classList.remove("fade-in");
+      rightEl.classList.remove("shine");
     }, 50);
 
-  }, 300);
+  }, 200);
 }
-
 function prevPage() {
   if (currentPage === 0) return;
 
   const leftEl = document.getElementById("leftPage");
+  const rightEl = document.getElementById("rightPage");
 
-  leftEl.classList.add("flip-out");
+  leftEl.classList.add("fade-out");
+  rightEl.classList.add("fade-out");
 
   setTimeout(() => {
     currentPage--;
     renderPage();
 
-    leftEl.classList.remove("flip-out");
-    leftEl.classList.add("flip-in");
+    leftEl.classList.remove("fade-out");
+    rightEl.classList.remove("fade-out");
+
+    leftEl.classList.add("fade-in");
+    rightEl.classList.add("fade-in");
+    leftEl.classList.add("shine"); // ⭐ 左页扫光
 
     setTimeout(() => {
-      leftEl.classList.remove("flip-in");
+      leftEl.classList.remove("fade-in");
+      rightEl.classList.remove("fade-in");
+      leftEl.classList.remove("shine");
     }, 50);
 
-  }, 300);
+  }, 200);
 }
 renderPage();
   
