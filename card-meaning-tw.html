@@ -236,79 +236,62 @@ body::before {
 
   .book-wrapper {
     width: 92vw;
-    margin-top: 70px;
-    position: relative;
-    aspect-ratio: 3 / 4;
-    transform: translateY(40px);
+    margin-top: 80px;
+    transform: none;
   }
 
-  .book-wrapper img {
-    position: absolute;
-    top: 0;
-    left: 0;
+  /* ❗关键：取消绝对定位 */
+  .book-text {
+    position: static;
+    width: 100%;
+    left: auto;
+    top: auto;
+
+    padding: 0 6%;
   }
 
-  /* ⭐ 整体往下（解决说明文太上） */
   .book-text.left {
-    left: 56%;
-    transform: translateX(-50%);
-    width: 64%;
-    top: 32%;   /* ⭐ 关键：从26 → 32 */
-
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
+    transform: none;
   }
 
-  .book-text.right { display: none; }
+  .book-text.right {
+    display: none;
+  }
 
-  /* ⭐⭐⭐ 稳定布局（重点） */
+  /* ⭐ 标题区 */
   .title-row {
     display: flex;
-    align-items: flex-start;
-    gap: 10px;   /* ⭐ 控距离 */
+    align-items: center;
+    justify-content: space-between;
 
-    /* ❗不要 space-between */
+    gap: 12px;
+    margin-bottom: 14px;
   }
 
+  /* ⭐ 图片稳定 */
   .card-img {
-    width: 100px !important;
-    flex-shrink: 0;
-    margin-top: -30px;  /* ⭐ 比你之前温和 */
+    width: 90px !important;
+    margin: 0;
   }
 
-  /* ⭐⭐⭐ 标题定位（核心修复） */
+  /* ⭐ 标题固定右侧 */
   .title {
-    display: block;
-    text-align: left;   /* ⭐ 改回左对齐（关键） */
+    flex: 1;
+    text-align: right;
 
     margin: 0;
     line-height: 1.3;
-
     white-space: nowrap;
   }
 
-  /* ⭐ 说明文往下 */
+  /* ⭐ 正文自然往下 */
   .book-text p {
-    margin-top: 16px;
+    margin-top: 10px;
   }
 
   .book-text {
-    font-size: 11px;
-    line-height: 1.5;
-  }
-
-  .back-btn {
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 18px;
-
-    width: fit-content;
-    max-width: 160px;
-    padding: 10px 16px;
-
-    white-space: nowrap;
-    text-align: center;
+    font-size: 13px;
+    line-height: 1.6;
   }
 }
 
