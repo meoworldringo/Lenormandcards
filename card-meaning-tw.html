@@ -227,80 +227,86 @@ body::before {
       0 0 8px rgba(255,220,120,0.2);
   }
 }
-
+  
   /* 📱 手机 + 平板纵向 → 按钮在正下方 */
-@media (max-width: 900px) and (orientation: portrait),
-       (max-width: 600px) {
+@media (max-width: 600px) {
 
-  /* 📖 用单页书 */
-  .book-double {
-    display: none;
+  .book-double { display: none; }
+  .book-single { display: block !important; }
+
+  .book-wrapper {
+    width: 92vw;
+    margin-top: 60px;
+    position: relative;
+    aspect-ratio: 3 / 4;
   }
-
-  .book-single {
-    display: block !important;
-  }
-
-  /* 📖 书整体 */
-.book-wrapper {
-  width: 94vw;
-  margin-top: 24px;
-  aspect-ratio: 3 / 2; /* 👉 根据你的书比例微调 */
-  position: relative;   /* ✅ 确保定位基准 */
-}
 
   .book-wrapper img {
-  position: absolute;
-  top: 0;
-  left: 0;
-}      
-
-
-
-  /* ⭐ 关键：内容贴到单页 */
-  .book-text.left {
     position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .book-text.left {
     left: 50%;
     transform: translateX(-50%);
-    width: 64%;
-    top: 22%;
+    width: 70%;
+    top: 18%;
   }
 
-  /* ❗ 右页消失 */
-  .book-text.right {
-    display: none;
+  .book-text.right { display: none; }
+
+  .card-img { width: 80px !important; }
+
+  .title { white-space: normal; }
+
+  .back-btn {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+  @media (min-width: 601px) and (max-width: 900px) and (orientation: portrait) {
+
+  .book-double { display: none; }
+  .book-single { display: block !important; }
+
+  .book-wrapper {
+    width: 70vw;        /* ⭐ 比手机小 → 不会撑满 */
+    margin-top: 40px;
+    position: relative;
+    aspect-ratio: 3 / 4;
   }
 
-  /* ✨ 文字优化 */
-  .book-text {
-    font-size: 14px;
-    line-height: 1.75;
+  .book-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 
-  /* 🖼 图 */
+  .book-text.left {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;        /* ⭐ 比手机更收一点 */
+    top: 20%;          /* ⭐ 稍微往下贴 */
+  }
+
+  .book-text.right { display: none; }
+
   .card-img {
-    width: 85px !important;
-  }
-
-  /* 🧩 标题 */
-  .title-row {
-    gap: 10px;
-    margin-bottom: 16px;
+    width: 90px !important;
   }
 
   .title {
     white-space: normal;
   }
 
-  /* 📍 按钮 */
   .back-btn {
     left: 50%;
-    right: auto;
     transform: translateX(-50%);
-    bottom: 18px;
   }
 }
-  
+    
   @media (hover: hover) {
   .back-btn:hover {
     transform: translateY(-2px);
