@@ -171,16 +171,23 @@ body::before {
 
 .card-img {
   display: block;
-  margin: 6px auto 10px;
-
-  width: 80px !important;
-
+  width: 40px !important;   /* ⭐ 改这里控制大小 */
+  margin: 0;     /* ⭐ 很重要：清掉上下距离 */
   opacity: 0.7;
 
   mix-blend-mode: multiply;
   filter: contrast(0.9) brightness(0.95);
 
   border-radius: 4px;
+
+  .title-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
 }
 
 
@@ -278,11 +285,12 @@ function renderPage() {
   const right = pages[currentPage * 2 + 1];
 
   document.getElementById("leftPage").innerHTML = left ? `
-  <b class="title">${left.title}</b>
-
+  <div class="title-row">
   ${currentPage === 0 ? `<img src="card1.jpg" class="card-img">` : ""}
+  <b class="title">${left.title}</b>
+</div>
 
-  <p>${left.text}</p>
+<p>${left.text}</p>
 ` : "";
 
   document.getElementById("rightPage").innerHTML = right ? `
