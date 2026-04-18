@@ -147,7 +147,17 @@ body::before {
   50% { transform: translateY(-60px); opacity: 0.8; }
   100% { transform: translateY(-120px); opacity: 0; }
 }
-  
+  .nav {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  cursor: pointer;
+  z-index: 6;
+}
+
+.nav.left { left: 0; }
+.nav.right { right: 0; }
 
 </style>
 </head>
@@ -157,11 +167,13 @@ body::before {
 <div class="fireflies"></div>
 
 <div class="book-wrapper">
+  <div class="nav left" onclick="prevPage()"></div>
+<div class="nav right" onclick="nextPage()"></div>
 
   <img src="book-open-v1.png" class="book-double">
   <img src="book-open-v2.png" class="book-single">
 
-  <div class="book-text">
+  <div class="book-text" id="bookContent"></div>
   <b class="title">
   <span class="zh">狐狸</span>
   <span class="en">（Fox）</span>
@@ -190,6 +202,45 @@ for (let i = 0; i < 15; i++) {
 
   fireflyContainer.appendChild(f);
 }
+
+  const pages = [
+  {
+    title: "狐狸（Fox）",
+    text: "代表聪明、谨慎与策略。<br>有时也暗示算计与防备。<br><br>当它出现时，提醒你保持警觉，用智慧而非冲动行动。"
+  },
+  {
+    title: "花束（Bouquet）",
+    text: "象征礼物、喜悦与人际关系的温暖。<br><br>它代表被欣赏、被给予，也意味着好运与美好。"
+  }
+];
+
+let currentPage = 0;
+
+function renderPage() {
+  const page = pages[currentPage];
+
+  document.getElementById("bookContent").innerHTML = `
+    <b class="title">${page.title}</b>
+    <p>${page.text}</p>
+  `;
+}
+
+function nextPage() {
+  if (currentPage < pages.length - 1) {
+    currentPage++;
+    renderPage();
+  }
+}
+
+function prevPage() {
+  if (currentPage > 0) {
+    currentPage--;
+    renderPage();
+  }
+}
+
+renderPage();
+  
 </script>
 </body>
 </html>
