@@ -250,19 +250,17 @@ body::before {
   }
 
   /* ⭐⭐ 核心：整块居中 + 上移 */
-  .book-text.left {
-    left: 50%;
-    transform: translateX(-50%);
-    width: 72%;
+ .book-text.left {
+  left: 20%;   /* ⭐ 关键：对齐书页版心 */
+  width: 60%;  /* ⭐ 控制版心宽度 */
 
-    top: 30%;   /* ⭐ 从34 → 30（往上拉） */
+  top: 28%;    /* 可微调 */
 
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    align-items: flex-start;  /* ❗关键：防止奇怪偏移 */
-  }
-
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+   
   .book-text.right { display: none; }
 
   /* ⭐ 标题区（不要再漂） */
@@ -292,7 +290,7 @@ body::before {
 
     /* ❗关键两行：防“看起来偏左” */
     display: block;
-    width: 100%;
+    width: auto;
   }
 
   /* ⭐ 说明文 */
