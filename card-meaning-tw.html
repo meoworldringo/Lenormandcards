@@ -231,98 +231,86 @@ body::before {
   /* 📱 手机 + 平板纵向 → 按钮在正下方 */
  @media (max-width: 600px) {
 
-  .book-double { display: none; }
-  .book-single { display: block !important; }
-
- /* ⭐ 手机端整体容器修复 */
+ /* ⭐⭐⭐ 核心修复：1. 强制显示牌图，2. 告别混乱的居中，回归自然的靠左 */
+  
+  /* 确保书本容器比例正确 */
   .book-wrapper {
     width: 100vw;
-    aspect-ratio: 3 / 4; /* 保持书本比例，非常重要！ */
-    
-    /* 核心：把书本图片变成背景，文字就不会乱飘了 */
-    background-image: url("book-open-v2.png"); 
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    
-    position: relative; /* 关键 */
+    aspect-ratio: 3 / 4; /* 保持书本比例 */
+    position: relative;
     margin-top: 60px;
+    z-index: 2;
   }
 
-  /* 隐藏原来的 img，因为我们用背景图了 */
-  .book-wrapper img {
-    display: none !important;
-  }
-
-  /* ⭐ 核心：让文字完美居中在“书页”内 */
+  /* ⭐⭐⭐ 关键修复：让文字容器填满书页，并左对齐内容 */
   .book-text.left {
     position: absolute;
     
-    /* 让文字容器覆盖书页的“左侧”部分 */
-    top: 15%; 
-    left: 10%; 
-    width: 80%; /* 留出边距 */
-    height: 70%;
+    /* 1. 精确卡位：告别固定百分比 top，改用视口高度，垂直居中 */
+    top: 50%;               /* ❗让容器整体垂直居中 */
+    transform: translateY(-50%); /* ❗配合 top: 50% 实现垂直居中 */
+    
+    /* 2. 左对齐：在复古书页上最自然 */
+    left: 12%;               /* ❗给左边留点呼吸感，数值越大越靠右 */
+    
+    width: 76%;              /* ❗控制文字总宽度，数值越大越宽 */
     
     display: flex;
-    flex-direction: column;
-    justify-content: center; /* 垂直居中 */
-    align-items: flex-start;  /* 文字整体靠左 */
+    flex-direction: column;  /* 依然竖着排 */
+    gap: 15px;               /* 标题和正文的间距 */
+
+    /* 3. ⭐关键修复：从 center 改为 flex-start (靠左) */
+    align-items: flex-start; /* ❗让里面的所有元素左对齐 */
     
-    gap: 10px;
     z-index: 5;
   }
-   
-  .book-text.right { display: none; }
 
-  /* ⭐ 标题 + 图片 */
+  /* ⭐ 确保标题不要被 white-space 撑破，并强制靠左 */
+  .title {
+    text-align: left !important; /* ❗强制靠左 */
+    width: 100%;
+    margin: 0;
+    font-size: 1.3em;
+    line-height: 1.3;
+    letter-spacing: 0.5px;
+    color: rgba(50, 35, 20, 0.9);
+  }
+
+  /* ⭐⭐⭐ 关键修复：强制显示牌图（卡片图片） */
+  .card-img {
+    display: block !important; /* ❗强行显示，防止被隐藏 */
+    width: 88px !important;    /* ❗控制图片宽度 */
+    height: auto;
+    flex-shrink: 0;           /* ❗防止图片被 Flex 容器挤压变形 */
+    margin: 0;
+    opacity: 0.7;
+    mix-blend-mode: multiply; /* ❗保持复古融合效果 */
+  }
+
+  /* ⭐⭐⭐ 关键修复：让标题行（图片+文字）左对齐 */
   .title-row {
     display: flex;
-    align-items: center;
-    justify-content: center;      /* ⭐ 整块居中 */
-
-    gap: 12px;
+    align-items: center;      /* 图片和文字垂直居中对齐 */
+    justify-content: flex-start; /* ❗整块左对齐 */
+    gap: 12px;                /* 图片和文字的空隙 */
     width: 100%;
   }
 
-  .card-img {
-    width: 88px !important;
-    flex-shrink: 0;
-    margin-top: 0;                /* ❗不要再负值了（会往下拖） */
-  }
-
-  .title {
-    text-align: left;
-    margin: 0;
-    line-height: 1.3;
-    white-space: nowrap;
-  }
-
-  /* ⭐ 说明文 */
+  /* ⭐ 强制正文段落文字靠左 */
   .book-text p {
-    margin-top: 10px;
-    text-align: left;
+    margin: 10px 0;
     width: 100%;
+    
+    /* 4. ⭐关键修复：正文文字必须靠左对齐，视觉最舒适 */
+    text-align: left !important; /* ❗强制左对齐 */
   }
 
   .book-text {
     font-size: 12px;
     line-height: 1.5;
+    color: rgba(70, 50, 25, 0.75);
+    font-family: "Hiragino Mincho ProN", serif;
   }
-
-  .back-btn {
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 18px;
-
-    width: fit-content;
-    max-width: 160px;
-    padding: 10px 16px;
-
-    white-space: nowrap;
-    text-align: center;
-  }
-}
   
   @media (min-width: 601px) and (max-width: 900px) and (orientation: portrait) {
 
