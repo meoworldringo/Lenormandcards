@@ -511,24 +511,60 @@ for (let i = 0; i < 15; i++) {
 let currentPage = 0;
 
 function renderPage() {
-  const index = currentPage;
 
-  const page = pages[index];
+  const isSingle = window.innerWidth <= 768 && window.innerHeight > window.innerWidth;
 
-  document.getElementById("leftPage").innerHTML = page ? `
-    <div class="title-row">
-      <img src="${page.img}" class="card-img">
-      <b class="title">${page.title}</b>
-    </div>
-    <p>${page.text}</p>
-  ` : "";
+  if (isSingle) {
+    // ⭐ 单页模式（手机 / 平板纵屏）
+    const page = pages[currentPage];
 
-  document.getElementById("rightPage").innerHTML = "";
+    document.getElementById("leftPage").innerHTML = page ? `
+      <div class="title-row">
+        <img src="${page.img}" class="card-img">
+        <b class="title">${page.title}</b>
+      </div>
+      <p>${page.text}</p>
+    ` : "";
+
+    document.getElementById("rightPage").innerHTML = "";
+
+  } else {
+    // ⭐ 双页模式（桌面 / 横屏）
+    const leftIndex = currentPage * 2;
+    const rightIndex = currentPage * 2 + 1;
+
+    const left = pages[leftIndex];
+    const right = pages[rightIndex];
+
+    document.getElementById("leftPage").innerHTML = left ? `
+      <div class="title-row">
+        <img src="${left.img}" class="card-img">
+        <b class="title">${left.title}</b>
+      </div>
+      <p>${left.text}</p>
+    ` : "";
+
+    document.getElementById("rightPage").innerHTML = right ? `
+      <div class="title-row">
+        <img src="${right.img}" class="card-img">
+        <b class="title">${right.title}</b>
+      </div>
+      <p>${right.text}</p>
+    ` : "";
+  }
 }
   
 function nextPage() {
-  if (currentPage + 1 >= pages.length) return;
-  currentPage++;
+  const isSingle = window.innerWidth <= 768 && window.innerHeight > window.innerWidth;
+
+  if (isSingle) {
+    if (currentPage + 1 >= pages.length) return;
+    currentPage++;
+  } else {
+    if ((currentPage + 1) * 2 >= pages.length) return;
+    currentPage++;
+  }
+
   renderPage();
 }
 
@@ -537,7 +573,10 @@ function prevPage() {
   currentPage--;
   renderPage();
 }
+  
 renderPage();
+
+  window.addEventListener("resize", renderPage);
   
 </script>
 
