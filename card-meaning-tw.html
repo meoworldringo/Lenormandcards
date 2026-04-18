@@ -229,16 +229,14 @@ body::before {
 }
   
   /* 📱 手机 + 平板纵向 → 按钮在正下方 */
- @media (max-width: 600px) {
+  @media (max-width: 600px) {
 
-  /* ⭐ 单页 */
   .book-double { display: none; }
   .book-single { display: block !important; }
 
-  /* ⭐ 书位置（只微调，不乱动结构） */
   .book-wrapper {
     width: 92vw;
-    margin-top: 80px;   /* ⭐ 从100 → 80（往上收一点） */
+    margin-top: 80px;
     position: relative;
     aspect-ratio: 3 / 4;
   }
@@ -249,29 +247,31 @@ body::before {
     left: 0;
   }
 
-  /* ⭐⭐ 核心：整块居中 + 上移 */
+  /* ⭐⭐⭐ 核心修复 */
   .book-text.left {
     left: 50%;
+    top: 30%;
+
     transform: translateX(-50%);
     width: 72%;
-
-    top: 30%;   /* ⭐ 从34 → 30（往上拉） */
 
     display: flex;
     flex-direction: column;
     gap: 12px;
-    align-items: flex-start;  /* ❗关键：防止奇怪偏移 */
+
+    align-items: center;   /* ❗从 flex-start → center（关键） */
+    text-align: center;    /* ❗让视觉回正 */
   }
 
   .book-text.right { display: none; }
 
-  /* ⭐ 标题区（不要再漂） */
   .title-row {
     display: flex;
     align-items: center;
-    gap: 10px;
+    justify-content: center;   /* ❗关键：整块居中 */
 
-    width: 100%;          /* ❗关键：撑满 */
+    gap: 10px;
+    width: 100%;
   }
 
   .card-img {
@@ -280,24 +280,20 @@ body::before {
     margin-top: -10px;
   }
 
-  /* ⭐⭐ 标题稳定器（重点） */
   .title {
-    flex: 1;
-    text-align: left;
+    flex: none;          /* ❗不要再撑满 */
+    width: auto;         /* ❗恢复自然宽度 */
+
+    text-align: left;    /* ⭐ 保持阅读舒服 */
 
     margin: 0;
     line-height: 1.3;
-
     white-space: nowrap;
-
-    /* ❗关键两行：防“看起来偏左” */
-    display: block;
-    width: 100%;
   }
 
-  /* ⭐ 说明文 */
   .book-text p {
-    margin-top: 12px;   /* ⭐ 稍微收紧 */
+    margin-top: 12px;
+    text-align: left;    /* ⭐ 说明文还是左对齐（好读） */
   }
 
   .book-text {
@@ -305,7 +301,6 @@ body::before {
     line-height: 1.5;
   }
 
-  /* ⭐ 按钮 */
   .back-btn {
     left: 50%;
     transform: translateX(-50%);
