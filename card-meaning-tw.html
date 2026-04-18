@@ -242,10 +242,20 @@ body::before {
   }
 
   /* 📖 书整体 */
-  .book-wrapper {
-    width: 94vw;
-    margin-top: 24px;
-  }
+.book-wrapper {
+  width: 94vw;
+  margin-top: 24px;
+  aspect-ratio: 3 / 2; /* 👉 根据你的书比例微调 */
+  position: relative;   /* ✅ 确保定位基准 */
+}
+
+  .book-wrapper img {
+  position: absolute;
+  top: 0;
+  left: 0;
+}      
+
+
 
   /* ⭐ 关键：内容贴到单页 */
   .book-text.left {
