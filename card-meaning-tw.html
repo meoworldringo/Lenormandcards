@@ -310,82 +310,31 @@ body::before {
   }
 }
 
-@media (min-width: 601px) and (max-width: 900px) and (orientation: portrait)
+@media (min-width: 601px) and (max-width: 900px) and (orientation: portrait) {
 
-  .book-double { display: none; }
-  .book-single { display: block !important; }
+  /* ⭐ 强制双页（重点） */
+  .book-double { display: block !important; }
+  .book-single { display: none !important; }
 
   .book-wrapper {
-    width: 66vw;         /* ⭐ 再小一点 */
-    margin-top: clamp(60px, 10vh, 120px);
-    margin-top: 120px;
+    width: 66vw;
+    margin-top: 120px;   /* ⭐ 控整体往下 */
     position: relative;
-    aspect-ratio: 3 / 4;
   }
 
-  .book-wrapper img {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-
-  /* ⭐⭐ 核心修复 */
+  /* ⭐ 左页 */
   .book-text.left {
-  left: 56%;
-  transform: translateX(-50%);
-  width: 60%;
-  top: 24%;
-
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-  .book-text.right { display: none; }
-
-   .book-text {
-  font-size: 16px;
-  line-height: 1.5;
-}
-
-  .card-img {
-    width: 150px !important;
-    flex-shrink: 0;
-    margin-top: -60px;
+    left: 18%;
+    width: 26%;
   }
-   /* ⭐ 标题排版（平板纵屏） */
-.title-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;   /* ⭐ 关键 */
 
-  gap: 8px;
+  /* ⭐ 右页（关键：必须显示） */
+  .book-text.right {
+    display: block !important;
+    left: 56%;
+    width: 26%;
+  }
 
-}
-
-.title {
-  flex: 1;
-  text-align: right;
-
-  margin: 0;          /* ❗ 防止忽高忽低 */
-  line-height: 1.3;
-
-  white-space: nowrap;
-}
-  
-
-  .back-btn {
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 18px;
-
-  width: fit-content;      /* ⭐ 关键 */
-  max-width: 160px;        /* ⭐ 再收一点 */
-  padding: 10px 16px;
-
-  white-space: nowrap;     /* ⭐ 防断行 */
-  text-align: center;
-}
 }
 
   /* ⭐ 强制横屏一定是双页 */
