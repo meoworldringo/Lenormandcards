@@ -263,18 +263,18 @@ body::before {
   .book-text.right { display: none; }
 
   /* ⭐ 标题区（不要再漂） */
-  .title-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width：100%;
 
-    width: 100%;          /* ❗关键：撑满 */
-  }
-
+  padding-left: 26px;   /* ⭐ 核心：往右推整组 */
+}
   .card-img {
     width: 90px !important;
     flex-shrink: 0;
-    margin-top: -10px;
+    margin-top: -26px;
   }
 
   /* ⭐⭐ 标题稳定器（重点） */
