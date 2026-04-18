@@ -309,7 +309,7 @@ body::before {
   }
 }
 
- @media (min-width: 601px) and (max-width: 768px) and (orientation: portrait) {
+ @media (min-width: 601px) and (max-width: 1024px) and (orientation: portrait) {
 
   .book-double { display: none; }
   .book-single { display: block !important; }
@@ -317,7 +317,7 @@ body::before {
   .book-wrapper {
     width: 66vw;         /* ⭐ 再小一点 */
     margin-top: clamp(60px, 10vh, 120px);
-    transform: translateY(40px);  /* ⭐ 往下推 */
+    transform: translateY(60px);  /* ⭐ 往下推 */
     position: relative;
     aspect-ratio: 3 / 4;
   }
