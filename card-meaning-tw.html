@@ -314,36 +314,45 @@ body::before {
 
   /* ⭐⭐ 核心修复 */
   .book-text.left {
-    left: 56%;
-    transform: translateX(-50%);
-    width: 60%;
-    top: 24%;
+  left: 56%;
+  transform: translateX(-50%);
+  width: 60%;
+  top: 24%;
 
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
 
   .book-text.right { display: none; }
 
-  .title-row {
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
-  }
+ .title-row {
+  display: flex;
+  align-items: center;   /* ⭐ 垂直对齐 */
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+   .book-text {
+  font-size: 17px;
+  line-height: 1.9;
+}
 
   .card-img {
-    width: 95px !important;
+    width: 110px !important;
     flex-shrink: 0;
   }
+   
+.title {
+ font-size: 1.4em;          /* ⭐ 标题更明显 */
 
-  .title {
-    white-space: normal;
-  }
+  white-space: nowrap;
 
+  margin-top: 0;             /* ❗取消你原本的35px */
   .book-text {
     font-size: 16px;      /* ⭐ 平板再大一点 */
     line-height: 1.85;
+  }
   }
 
   .back-btn {
