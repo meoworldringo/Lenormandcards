@@ -169,17 +169,20 @@ body::before {
   width: 26%;
 }
 
-  .card-img {
-  display: block;
-  margin: 8px auto 14px;
+ .card-img {
+  position: absolute;
 
-  width: 70px;            /* ⭐ 大小关键 */
-  opacity: 0.75;
+  top: 22%;      /* ⭐ 根据你书页位置微调 */
+  left: 22%;
 
-  mix-blend-mode: multiply;   /* ⭐ 融进纸张 */
+  width: 60px;
+
+  opacity: 0.65;
+
+  mix-blend-mode: multiply;
   filter: contrast(0.9) brightness(0.95);
 
-  border-radius: 6px;     /* 微微柔和一点 */
+  pointer-events: none; /* 不挡点击 */
 }
 
 
@@ -278,10 +281,9 @@ function renderPage() {
 
   document.getElementById("leftPage").innerHTML = left ? `
   <b class="title">${left.title}</b>
+  <p>${left.text}</p>
 
   ${currentPage === 0 ? `<img src="card1.jpg" class="card-img">` : ""}
-
-  <p>${left.text}</p>
 ` : "";
 
   document.getElementById("rightPage").innerHTML = right ? `
