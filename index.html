@@ -135,17 +135,17 @@ box-shadow:
 
 .crystal.active {
   opacity: 1; /* ⭐ 防止消失 */
-  animation: crystalBurst 1.2s ease forwards;
+  animation: crystalBurst 0.8s ease forwards;
 }
 
   .crystal.active::before {
-  animation: shockwave 1.2s ease forwards;
+  animation: shockwave 0.8s ease forwards;
 }
   
 .crystal.active .sparkle {
   animation: none;           /* ⭐ 先关掉 float */
   opacity: 1;
-  animation: suckIn 1.6s ease forwards;
+  animation: suckIn 1s ease forwards;
 }
 
 .crystal-mask {
@@ -594,7 +594,7 @@ links.forEach((link, i) => {
 
     setTimeout(() => {
       window.location.href = link.href;
-    }, 2200);
+    }, 1200);
   });
 });
 
