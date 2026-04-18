@@ -169,46 +169,18 @@ body::before {
   width: 26%;
 }
 
-/* ✨ 页面动画 */
-.page {
-  transition: opacity 0.35s ease, transform 0.35s ease;
-}
-
-/* 👉 出去 */
-.page.fade-out {
+/* ✨ 浮现动画 */
+.fade-text {
   opacity: 0;
-  transform: translateX(-20px);
+  transform: translateY(10px);
+  filter: blur(4px);
+  transition: all 0.6s ease;
 }
 
-/* 👉 进来 */
-.page.fade-in {
-  opacity: 0;
-  transform: translateX(20px);
-}
-
-/* ✨ 光影扫过（重点） */
-.page::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255,255,255,0.15),
-    transparent
-  );
-  opacity: 0;
-  pointer-events: none;
-}
-
-.page.shine::before {
-  animation: shineMove 0.6s ease;
-}
-
-@keyframes shineMove {
-  0% { transform: translateX(-100%); opacity: 0; }
-  30% { opacity: 1; }
-  100% { transform: translateX(100%); opacity: 0; }
+.fade-text.show {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
 }
 
 </style>
@@ -304,72 +276,42 @@ function renderPage() {
   const left = pages[currentPage * 2];
   const right = pages[currentPage * 2 + 1];
 
-  document.getElementById("leftPage").innerHTML = left ? `
-    <b class="title">${left.title}</b>
-    <p>${left.text}</p>
+  const leftEl = document.getElementById("leftPage");
+  const rightEl = document.getElementById("rightPage");
+
+  // 👉 先清空 + 加初始状态
+  leftEl.innerHTML = left ? `
+    <div class="fade-text">
+      <b class="title">${left.title}</b>
+      <p>${left.text}</p>
+    </div>
   ` : "";
 
-  document.getElementById("rightPage").innerHTML = right ? `
-    <b class="title">${right.title}</b>
-    <p>${right.text}</p>
+  rightEl.innerHTML = right ? `
+    <div class="fade-text">
+      <b class="title">${right.title}</b>
+      <p>${right.text}</p>
+    </div>
   ` : "";
+
+  // 👉 让它“浮现”
+  setTimeout(() => {
+    document.querySelectorAll(".fade-text").forEach(el => {
+      el.classList.add("show");
+    });
+  }, 50);
 }
 
 function nextPage() {
   if ((currentPage + 1) * 2 >= pages.length) return;
-
-  const leftEl = document.getElementById("leftPage");
-  const rightEl = document.getElementById("rightPage");
-
-  leftEl.classList.add("fade-out");
-  rightEl.classList.add("fade-out");
-
-  setTimeout(() => {
-    currentPage++;
-    renderPage();
-
-    leftEl.classList.remove("fade-out");
-    rightEl.classList.remove("fade-out");
-
-    leftEl.classList.add("fade-in");
-    rightEl.classList.add("fade-in");
-    rightEl.classList.add("shine"); // ⭐ 右页扫光
-
-    setTimeout(() => {
-      leftEl.classList.remove("fade-in");
-      rightEl.classList.remove("fade-in");
-      rightEl.classList.remove("shine");
-    }, 50);
-
-  }, 200);
+  currentPage++;
+  renderPage();
 }
+
 function prevPage() {
   if (currentPage === 0) return;
-
-  const leftEl = document.getElementById("leftPage");
-  const rightEl = document.getElementById("rightPage");
-
-  leftEl.classList.add("fade-out");
-  rightEl.classList.add("fade-out");
-
-  setTimeout(() => {
-    currentPage--;
-    renderPage();
-
-    leftEl.classList.remove("fade-out");
-    rightEl.classList.remove("fade-out");
-
-    leftEl.classList.add("fade-in");
-    rightEl.classList.add("fade-in");
-    leftEl.classList.add("shine"); // ⭐ 左页扫光
-
-    setTimeout(() => {
-      leftEl.classList.remove("fade-in");
-      rightEl.classList.remove("fade-in");
-      leftEl.classList.remove("shine");
-    }, 50);
-
-  }, 200);
+  currentPage--;
+  renderPage();
 }
 renderPage();
   
