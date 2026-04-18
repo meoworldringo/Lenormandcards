@@ -36,9 +36,12 @@ body::before {
 
 /* 📖 图片 */
 .book-wrapper img {
+  position: absolute;   /* ⭐关键！！ */
+  top: 0;
+  left: 0;
+
   width: 100%;
   height: auto;
-  display: block;
 }
 
 /* ❗ 强制只显示双页（先稳定） */
