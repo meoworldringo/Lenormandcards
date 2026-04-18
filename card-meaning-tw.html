@@ -257,7 +257,7 @@ for (let i = 0; i < 15; i++) {
   f.style.top = Math.random() * 100 + "%";
 
   /* ⭐ 每一只萤火虫不同节奏 */
-  f.style.animationDelay = Math.random() * 10 + "s";
+  f.style.animationDelay = -(Math.random() * 12) + "s";
   f.style.animationDuration = (8 + Math.random() * 6) + "s";
 
   fireflyContainer.appendChild(f);
