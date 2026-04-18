@@ -248,11 +248,11 @@ body::before {
   }
 
   .book-text.left {
-    left: 50%;
-    transform: translateX(-50%);
-    width: 70%;
-    top: 18%;
-  }
+  left: 56%;                /* ⭐ 往右补偿书脊 */
+  transform: translateX(-50%);
+  width: 58%;               /* ⭐ 收窄避免压边 */
+  top: 22%;                 /* ⭐ 往下贴纸 */
+}
 
   .book-text.right { display: none; }
 
@@ -261,9 +261,14 @@ body::before {
   .title { white-space: normal; }
 
   .back-btn {
-    left: 50%;
-    transform: translateX(-50%);
-  }
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 18px;
+
+  width: auto;             /* ⭐ 防止拉满 */
+  max-width: 220px;        /* ⭐ 控长度 */
+  text-align: center;
+}
 }
 
   @media (min-width: 601px) and (max-width: 900px) and (orientation: portrait) {
@@ -273,7 +278,7 @@ body::before {
 
   .book-wrapper {
     width: 70vw;        /* ⭐ 比手机小 → 不会撑满 */
-    margin-top: 40px;
+    margin-top: 60px;   /* ⭐ 原本40 → 再往下 */
     position: relative;
     aspect-ratio: 3 / 4;
   }
@@ -284,12 +289,12 @@ body::before {
     left: 0;
   }
 
-  .book-text.left {
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60%;        /* ⭐ 比手机更收一点 */
-    top: 20%;          /* ⭐ 稍微往下贴 */
-  }
+.book-text.left {
+  left: 56%;                /* ⭐ 往右补偿书脊 */
+  transform: translateX(-50%);
+  width: 58%;               /* ⭐ 收窄避免压边 */
+  top: 22%;                 /* ⭐ 往下贴纸 */
+}
 
   .book-text.right { display: none; }
 
@@ -301,10 +306,15 @@ body::before {
     white-space: normal;
   }
 
-  .back-btn {
-    left: 50%;
-    transform: translateX(-50%);
-  }
+.back-btn {
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 18px;
+
+  width: auto;             /* ⭐ 防止拉满 */
+  max-width: 220px;        /* ⭐ 控长度 */
+  text-align: center;
+}
 }
     
   @media (hover: hover) {
