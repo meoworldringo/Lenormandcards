@@ -232,27 +232,50 @@ body::before {
 @media (max-width: 900px) and (orientation: portrait),
        (max-width: 600px) {
 
-  .book-text {
-    position: static;   /* ❗关键！取消绝对定位 */
-    transform: none;
-    width: 85%;
-
-    margin: 20px auto;
-  }
+  /* 📖 切换成单页书 */
+  .book-double { display: none; }
+  .book-single { display: block; }
 
   .book-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 92vw;
+    margin-top: 20px;
   }
 
+  /* ⭐ 保留 absolute，但重新居中 */
+  .book-text.left {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 62%;
+    top: 20%;
+  }
+
+  /* ❗右页直接隐藏 */
+  .book-text.right {
+    display: none;
+  }
+
+  /* ✨ 微调排版 */
+  .book-text {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .card-img {
+    width: 90px !important;
+  }
+
+  .title-row {
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  /* 📍 按钮居中 */
   .back-btn {
     left: 50%;
     right: auto;
     transform: translateX(-50%);
     bottom: 20px;
   }
-
 }
   
   @media (hover: hover) {
