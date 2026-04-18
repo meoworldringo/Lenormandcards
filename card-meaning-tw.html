@@ -248,23 +248,24 @@ body::before {
   }
 
   /* ⭐⭐⭐ 核心：真正居中 */
-  .book-text.left {
+ .book-text.left {
     position: absolute;
-
-    left: 50%;
-    top: 24%;                     /* ⭐ 从30% → 24%（往上） */
-
-    transform: translateX(-50%);
-
-    width: 78%;                   /* ⭐ 比72再宽一点，视觉才会正 */
-
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* 让它跟书本背景一样大 */
+    
     display: flex;
     flex-direction: column;
-    gap: 10px;
-
-    align-items: center;          /* ⭐ 水平真正居中 */
+    justify-content: center; /* 垂直方向绝对居中 */
+    align-items: center;     /* 水平方向绝对居中 */
+    
+    padding: 0 12%;          /* 给两边留点呼吸感，防止字贴边 */
+    box-sizing: border-box;  /* 确保 padding 不会把容器撑破 */
+    
+    gap: 15px;               /* 标题和正文的间距 */
   }
-
+   
   .book-text.right { display: none; }
 
   /* ⭐ 标题 + 图片 */
