@@ -73,25 +73,22 @@ body::before {
   display: block;
   text-align: center;
 
-  font-size: 1.35em;
-  letter-spacing: 2px;
-
-  margin-bottom: 18px;
+  font-size: 1.3em;
+  letter-spacing: 0.5px;  /* ⭐ 收紧 */
+  margin-bottom: 14px;
 
   color: rgba(50, 35, 20, 0.9);
 }
-  
-/* 📝 标题 */
-.title {
-  display: block;
-  text-align: center;
 
-  font-size: 1.35em;   /* ⭐ 放大一点 */
-  letter-spacing: 2px; /* ⭐ 拉开 */
+  .zh {
+  font-family: inherit;
+}
 
-  margin-bottom: 18px; /* ⭐ 空气感 */
-
-  color: rgba(50, 35, 20, 0.9);
+.en {
+  font-family: inherit;
+  font-style: normal;
+  margin-left: 4px;
+  opacity: 0.75;
 }
 
 /*📱 手机（之后再开） */
@@ -162,7 +159,10 @@ body::before {
   <img src="book-open-v2.png" class="book-single">
 
   <div class="book-text">
-  <b class="title">狐狸（Fox）</b>
+  <b class="title">
+  <span class="zh">狐狸</span>
+  <span class="en">（Fox）</span>
+</b>
 
   <p>代表聪明、谨慎与策略。<br>
   有时也暗示算计与防备。</p>
