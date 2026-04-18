@@ -458,7 +458,7 @@ let currentPage = 0;
 
 function renderPage() {
 
-  const isSingle = window.innerWidth <= 600
+  const isSingle = window.innerWidth <= 600 && window.innerHeight > window.innerWidth
 
   if (isSingle) {
     // ⭐ 单页模式（手机 / 平板纵屏）
@@ -500,8 +500,7 @@ function renderPage() {
   }
 }
   
-function nextPage() {
-  const isSingle = window.innerWidth <= 600
+function nextPage() {const isSingle = window.innerWidth <= 600 && window.innerHeight > window.innerWidth
 
   if (isSingle) {
     if (currentPage + 1 >= pages.length) return;
