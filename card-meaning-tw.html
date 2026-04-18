@@ -312,13 +312,16 @@ body::before {
 
 @media (min-width: 601px) and (max-width: 900px) and (orientation: portrait) {
 
-  /* ⭐ 强制双页（重点） */
+  @media (min-width: 601px) and (max-width: 900px) and (orientation: portrait) {
+
+  /* ⭐ 强制双页 */
   .book-double { display: block !important; }
   .book-single { display: none !important; }
 
+  /* ⭐ 书尺寸恢复正常（关键） */
   .book-wrapper {
-    width: 66vw;
-    margin-top: 120px;   /* ⭐ 控整体往下 */
+    width: min(92vw, 900px);   /* ❗改回双页原本尺寸 */
+    margin-top: 120px;
     position: relative;
   }
 
@@ -326,31 +329,17 @@ body::before {
   .book-text.left {
     left: 18%;
     width: 26%;
+    top: 16%;   /* ❗恢复原本比例 */
   }
 
-  /* ⭐ 右页（关键：必须显示） */
+  /* ⭐ 右页 */
   .book-text.right {
     display: block !important;
     left: 56%;
     width: 26%;
+    top: 16%;   /* ❗同步 */
   }
 
-}
-
-  /* ⭐ 强制横屏一定是双页 */
-@media (orientation: landscape) {
-
-  .book-double {
-    display: block !important;
-  }
-
-  .book-single {
-    display: none !important;
-  }
-
-  .book-text.right {
-    display: block !important;
-  }
 }
     
   @media (hover: hover) {
