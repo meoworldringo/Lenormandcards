@@ -232,49 +232,62 @@ body::before {
 @media (max-width: 900px) and (orientation: portrait),
        (max-width: 600px) {
 
-  /* 📖 切换成单页书 */
-  .book-double { display: none; }
-  .book-single { display: block; }
-
-  .book-wrapper {
-    width: 92vw;
-    margin-top: 20px;
+  /* 📖 用单页书 */
+  .book-double {
+    display: none;
   }
 
-  /* ⭐ 保留 absolute，但重新居中 */
+  .book-single {
+    display: block !important;
+  }
+
+  /* 📖 书整体 */
+  .book-wrapper {
+    width: 94vw;
+    margin-top: 24px;
+  }
+
+  /* ⭐ 关键：内容贴到单页 */
   .book-text.left {
+    position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    width: 62%;
-    top: 20%;
+    width: 64%;
+    top: 22%;
   }
 
-  /* ❗右页直接隐藏 */
+  /* ❗ 右页消失 */
   .book-text.right {
     display: none;
   }
 
-  /* ✨ 微调排版 */
+  /* ✨ 文字优化 */
   .book-text {
     font-size: 14px;
-    line-height: 1.7;
+    line-height: 1.75;
   }
 
+  /* 🖼 图 */
   .card-img {
-    width: 90px !important;
+    width: 85px !important;
   }
 
+  /* 🧩 标题 */
   .title-row {
     gap: 10px;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
   }
 
-  /* 📍 按钮居中 */
+  .title {
+    white-space: normal;
+  }
+
+  /* 📍 按钮 */
   .back-btn {
     left: 50%;
     right: auto;
     transform: translateX(-50%);
-    bottom: 20px;
+    bottom: 18px;
   }
 }
   
