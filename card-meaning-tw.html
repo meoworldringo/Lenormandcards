@@ -169,6 +169,35 @@ body::before {
   width: 26%;
 }
 
+/* ✨ 页面动画 */
+.page {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 0.4s ease;
+}
+
+/* 👉 往左翻（下一页） */
+.page.next-out {
+  opacity: 0;
+  transform: translateX(-40px);
+}
+
+.page.next-in {
+  opacity: 0;
+  transform: translateX(40px);
+}
+
+/* 👉 往右翻（上一页） */
+.page.prev-out {
+  opacity: 0;
+  transform: translateX(40px);
+}
+
+.page.prev-in {
+  opacity: 0;
+  transform: translateX(-40px);
+}
+
 </style>
 </head>
 
@@ -183,8 +212,8 @@ body::before {
   <img src="book-open-v1.png" class="book-double">
   <img src="book-open-v2.png" class="book-single">
 
-  <div class="book-text left" id="leftPage"></div>
-<div class="book-text right" id="rightPage"></div>
+ <div class="book-text left page" id="leftPage"></div>
+<div class="book-text right page" id="rightPage"></div>
 
 </div>
 <script>
@@ -274,19 +303,58 @@ function renderPage() {
 }
 
 function nextPage() {
-  if ((currentPage + 1) * 2 < pages.length) {
+  if ((currentPage + 1) * 2 >= pages.length) return;
+
+  const leftEl = document.getElementById("leftPage");
+  const rightEl = document.getElementById("rightPage");
+
+  leftEl.classList.add("next-out");
+  rightEl.classList.add("next-out");
+
+  setTimeout(() => {
     currentPage++;
     renderPage();
-  }
+
+    leftEl.classList.remove("next-out");
+    rightEl.classList.remove("next-out");
+
+    leftEl.classList.add("next-in");
+    rightEl.classList.add("next-in");
+
+    setTimeout(() => {
+      leftEl.classList.remove("next-in");
+      rightEl.classList.remove("next-in");
+    }, 50);
+
+  }, 200);
 }
 
 function prevPage() {
-  if (currentPage > 0) {
+  if (currentPage === 0) return;
+
+  const leftEl = document.getElementById("leftPage");
+  const rightEl = document.getElementById("rightPage");
+
+  leftEl.classList.add("prev-out");
+  rightEl.classList.add("prev-out");
+
+  setTimeout(() => {
     currentPage--;
     renderPage();
-  }
-}
 
+    leftEl.classList.remove("prev-out");
+    rightEl.classList.remove("prev-out");
+
+    leftEl.classList.add("prev-in");
+    rightEl.classList.add("prev-in");
+
+    setTimeout(() => {
+      leftEl.classList.remove("prev-in");
+      rightEl.classList.remove("prev-in");
+    }, 50);
+
+  }, 200);
+}
 renderPage();
   
 </script>
