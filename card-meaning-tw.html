@@ -310,7 +310,7 @@ body::before {
 }
 }
 
- @media (min-width: 601px) and (max-width: 900px) and (orientation: portrait) {
+ @media (min-width: 601px) and (max-width: 768px) and (orientation: portrait) {
 
   .book-double { display: none; }
   .book-single { display: block !important; }
@@ -385,6 +385,22 @@ body::before {
   white-space: nowrap;     /* ⭐ 防断行 */
   text-align: center;
 }
+}
+
+  /* ⭐ 强制横屏一定是双页 */
+@media (orientation: landscape) {
+
+  .book-double {
+    display: block !important;
+  }
+
+  .book-single {
+    display: none !important;
+  }
+
+  .book-text.right {
+    display: block !important;
+  }
 }
     
   @media (hover: hover) {
