@@ -197,6 +197,11 @@ body::before {
   border-radius: 999px;
 
   background: rgba(20,25,30,0.4);
+
+  box-shadow:
+
+    0 0 10px rgba(255,220,120,0.15),
+    0 0 20px rgba(255,220,120,0.08);
 }
 
   /* 📱 手机 + 平板纵向 → 按钮在正下方 */
@@ -207,6 +212,7 @@ body::before {
     position: static;   /* ❗关键！取消绝对定位 */
     transform: none;
     width: 85%;
+
     margin: 20px auto;
   }
 
