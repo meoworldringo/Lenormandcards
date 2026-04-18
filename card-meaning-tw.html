@@ -22,7 +22,7 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: rgba(5,10,15,0.4); / ⭐ 原本太黑 /
+  background: rgba(5,10,15,0.4); /* ⭐ 原本太黑 */
   z-index: 0;
 }
 
@@ -189,6 +189,7 @@ body::before {
 
   padding: 10px 18px;
   font-size: 14px;
+  letter-spacing: 1px;
 
   color: #f5e9cc;
   text-decoration: none;
@@ -196,12 +197,32 @@ body::before {
   border: 1px solid rgba(255,230,150,0.35);
   border-radius: 999px;
 
-  background: rgba(20,25,30,0.4);
+  background: rgba(20,25,30,0.35);
+  backdrop-filter: blur(6px);
 
-  box-shadow:
+  /* ⭐ 基础光 */
+  box-shadow: 0 0 10px rgba(255,220,120,0.2);
 
-    0 0 10px rgba(255,220,120,0.15),
-    0 0 20px rgba(255,220,120,0.08);
+  /* ⭐ 核心：呼吸光 */
+  animation: btnBreath 3s ease-in-out infinite;
+
+  transition: all 0.25s ease;
+}
+
+  @keyframes btnBreath {
+  0% {
+    box-shadow:
+      0 0 8px rgba(255,220,120,0.2);
+  }
+  50% {
+    box-shadow:
+      0 0 20px rgba(255,220,120,0.7),
+      0 0 40px rgba(255,200,80,0.35);
+  }
+  100% {
+    box-shadow:
+      0 0 8px rgba(255,220,120,0.2);
+  }
 }
 
   /* 📱 手机 + 平板纵向 → 按钮在正下方 */
