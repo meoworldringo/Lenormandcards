@@ -169,57 +169,6 @@ body::before {
   width: 26%;
 }
 
-/* ✨ 魔法浮现（核心） */
-.fade-text {
-  opacity: 0;
-  filter: blur(6px);
-  transform: scale(0.98); /* 微微缩小（像在纸里） */
-
-  transition: 
-    opacity 0.8s ease,
-    filter 0.8s ease,
-    transform 0.8s ease;
-}
-
-.fade-text.show {
-  opacity: 1;
-  filter: blur(0);
-  transform: scale(1);
-}
-
-  .fade-text::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background: radial-gradient(
-    circle at 50% 50%,
-    rgba(255,240,180,0.25),
-    transparent 70%
-  );
-
-  opacity: 0;
-  pointer-events: none;
-}
-
-.fade-text.show::after {
-  animation: magicGlow 1.2s ease;
-}
-
-@keyframes magicGlow {
-  0% {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  40% {
-    opacity: 1;
-    transform: scale(1.05);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1.2);
-  }
-}
 
 </style>
 </head>
@@ -314,30 +263,15 @@ function renderPage() {
   const left = pages[currentPage * 2];
   const right = pages[currentPage * 2 + 1];
 
-  const leftEl = document.getElementById("leftPage");
-  const rightEl = document.getElementById("rightPage");
-
-  // 👉 先清空 + 加初始状态
-  leftEl.innerHTML = left ? `
-    <div class="fade-text">
-      <b class="title">${left.title}</b>
-      <p>${left.text}</p>
-    </div>
+  document.getElementById("leftPage").innerHTML = left ? `
+    <b class="title">${left.title}</b>
+    <p>${left.text}</p>
   ` : "";
 
-  rightEl.innerHTML = right ? `
-    <div class="fade-text">
-      <b class="title">${right.title}</b>
-      <p>${right.text}</p>
-    </div>
+  document.getElementById("rightPage").innerHTML = right ? `
+    <b class="title">${right.title}</b>
+    <p>${right.text}</p>
   ` : "";
-
-  // 👉 让它“浮现”
-  setTimeout(() => {
-    document.querySelectorAll(".fade-text").forEach(el => {
-      el.classList.add("show");
-    });
-  }, 50);
 }
 
 function nextPage() {
