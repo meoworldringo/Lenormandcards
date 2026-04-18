@@ -17,7 +17,7 @@ body {
   justify-content: center;
 }
 
-/ *🌑 暗层（变淡！）*/
+/* 🌑 暗层（变淡！） */
 body::before {
   content: "";
   position: fixed;
@@ -100,22 +100,6 @@ body::before {
   opacity: 0.75;
 }
 
-/*📱 手机（之后再开） */
-@media (max-width: 600px) {
-  .book-double { display: none; }
-  .book-single { display: block; }
-
-  .book-wrapper {
-    width: 85vw;
-  }
-
-  .book-text {
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60%;
-    top: 20%;
-  }
-}
 .fireflies {
   position: fixed;
   inset: 0;
@@ -198,6 +182,74 @@ body::before {
   margin-bottom: 25px;    /* ⭐ 上下区块距离（关键） */
 }
 
+  .back-btn {
+  position: fixed;
+
+  right: 24px;
+  bottom: 24px;
+
+  padding: 10px 18px;
+  font-size: 14px;
+  letter-spacing: 1px;
+
+  color: #f5e9cc;
+  text-decoration: none;
+
+  border: 1px solid rgba(255,230,150,0.35);
+  border-radius: 999px;
+
+  background: rgba(20,25,30,0.4);
+  backdrop-filter: blur(6px);
+
+  box-shadow:
+    0 0 10px rgba(255,220,120,0.15);
+
+  z-index: 10;
+}
+
+/* hover（你原本那套风格延续） */
+.back-btn:hover {
+  transform: translateY(-2px);
+
+  background: linear-gradient(
+    to bottom,
+    #e6c878 0%,
+    #caa94a 50%,
+    #a07c2a 100%
+  );
+
+  box-shadow:
+    0 6px 18px rgba(0,0,0,0.5),
+    0 0 16px rgba(255,210,120,0.4);
+}
+
+  /* 📱 手机 + 平板纵向 → 按钮在正下方 */
+@media (max-width: 900px) and (orientation: portrait),
+       (max-width: 600px) {
+
+  .book-text {
+    position: static;   /* ❗关键！取消绝对定位 */
+    transform: none;
+    width: 85%;
+    margin: 20px auto;
+  }
+
+  .book-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .back-btn {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+
+    bottom: 20px;
+  }
+
+}
+
 </style>
 </head>
 
@@ -216,6 +268,9 @@ body::before {
 <div class="book-text right page" id="rightPage"></div>
 
 </div>
+
+<a href="bazaar.html" class="back-btn">← 回到集市</a>
+  
 <script>
 const fireflyContainer = document.querySelector(".fireflies");
 
@@ -323,5 +378,6 @@ function prevPage() {
 renderPage();
   
 </script>
+
 </body>
 </html>
