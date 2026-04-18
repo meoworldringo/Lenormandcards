@@ -1,5 +1,7 @@
 
 
+没有任何变化，为什么单页要调这么久！
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,358 +12,360 @@
 
 /* 🌿 背景 */
 body {
-  margin: 0;
-  background: url("forest.jpg") center/cover no-repeat fixed;
-  background-color:#0B0F14;
+  margin: 0;
+  background: url("forest.jpg") center/cover no-repeat fixed;
+  background-color:#0B0F14;
 
-  display: flex;
-  justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 /* 🌑 暗层（变淡！） */
 body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: rgba(5,10,15,0.4); /* ⭐ 原本太黑 */
-  z-index: 0;
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(5,10,15,0.4); /* ⭐ 原本太黑 */
+  z-index: 0;
 }
 
 /* 📖 容器 */
 .book-wrapper {
-  position: relative;
-  width: min(92vw, 900px); 
-  margin-top: 40px;
-  z-index: 2;
+  position: relative;
+  width: min(92vw, 900px); 
+  margin-top: 40px;
+  z-index: 2;
 }
 
 /* 📖 图片 */
 .book-wrapper img {
-  width: 100%;
-  height: auto;
-  display: block;
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* ❗ 强制只显示双页（先稳定） */
 .book-single {
-  display: none !important;
+  display: none !important;
 }
 
 /* 📝 文字（保证在最上层）*/
 .book-text {
-  position: absolute;
-  z-index: 5;
+  position: absolute;
+  z-index: 5;
 
-  top: 16%;
-  left: 18%;
-  width: 30%;
+  top: 16%;
+  left: 18%;
+  width: 30%;
 
-  color: rgba(70, 50, 25, 0.75);  /* ⭐ 更淡 */
+  color: rgba(70, 50, 25, 0.75);  /* ⭐ 更淡 */
 
-  font-family: "Hiragino Mincho ProN", serif;
+  font-family: "Hiragino Mincho ProN", serif;
 
-  line-height: 1.6;               /* ⭐ 拉开（关键） */
-  letter-spacing: 0.5px;            /* ⭐ 明显变化 */
+  line-height: 1.6;               /* ⭐ 拉开（关键） */
+  letter-spacing: 0.5px;            /* ⭐ 明显变化 */
 
- font-size:clamp(12.2px, 1.4vw, 17px);
-  font-weight: 400;               /* ⭐ 变轻 */
+ font-size:clamp(12.2px, 1.4vw, 17px);
+  font-weight: 400;               /* ⭐ 变轻 */
 
-  text-align: justify;            /* ⭐ 像书（关键） */
+  text-align: justify;            /* ⭐ 像书（关键） */
 }
 
 .book-text p {
-  margin: 12px 0;
+  margin: 12px 0;
 }
 
 .title {
-  flex: 1;
-  display: inline-block;
-  text-align: left;        /* ⭐ 不要再居中，会更自然 */
+  flex: 1;
+  display: inline-block;
+  text-align: left;        /* ⭐ 不要再居中，会更自然 */
 
-  font-size: 1.3em;       /* ⭐ 控标题大小（防换行） */
-  line-height: 1.3;
+  font-size: 1.3em;       /* ⭐ 控标题大小（防换行） */
+  line-height: 1.3;
 
-  margin: 0;               /* ⭐ 统一归零 */
-  margin-bottom: 6px;      /* ⭐ 控标题 ↔ 下方说明 */
-  margin-top:35px;
+  margin: 0;               /* ⭐ 统一归零 */
+  margin-bottom: 6px;      /* ⭐ 控标题 ↔ 下方说明 */
+  margin-top:35px;
 
-  letter-spacing: 0.5px;
-  color: rgba(50, 35, 20, 0.9);
-  white-space: nowrap;
+  letter-spacing: 0.5px;
+  color: rgba(50, 35, 20, 0.9);
+  white-space: nowrap;
 }
 
-  .zh {
-  font-family: inherit;
+  .zh {
+  font-family: inherit;
 }
 
 .en {
-  font-family: inherit;
-  font-style: normal;
-  margin-left: 4px;
-  opacity: 0.75;
+  font-family: inherit;
+  font-style: normal;
+  margin-left: 4px;
+  opacity: 0.75;
 }
 
 .fireflies {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 3;
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
 }
 
 .fireflies span {
-  position: absolute;
-  width: 13px;
-  height: 13px;
+  position: absolute;
+  width: 13px;
+  height: 13px;
 
-  background: radial-gradient(
-    circle,
-    rgba(255,220,120,0.9) 0%,
-    rgba(255,220,120,0.4) 40%,
-    rgba(255,220,120,0) 80%
-  );
+  background: radial-gradient(
+    circle,
+    rgba(255,220,120,0.9) 0%,
+    rgba(255,220,120,0.4) 40%,
+    rgba(255,220,120,0) 80%
+  );
 
-  border-radius: 50%;
+  border-radius: 50%;
 
-  box-shadow:
-    0 0 6px rgba(255,220,120,0.6),
-    0 0 12px rgba(180,200,255,0.25);
+  box-shadow:
+    0 0 6px rgba(255,220,120,0.6),
+    0 0 12px rgba(180,200,255,0.25);
 
-  filter: blur(0.8px);
+  filter: blur(0.8px);
 
-  /* ⭐ 就是这行不见了！ */
-  animation: fireflyFloat 12s linear infinite;
+  /* ⭐ 就是这行不见了！ */
+  animation: fireflyFloat 12s linear infinite;
 }
 
 @keyframes fireflyFloat {
-  0% { transform: translateY(0); opacity: 0; }
-  20% { opacity: 1; }
-  50% { transform: translateY(-60px); opacity: 0.8; }
-  100% { transform: translateY(-120px); opacity: 0; }
+  0% { transform: translateY(0); opacity: 0; }
+  20% { opacity: 1; }
+  50% { transform: translateY(-60px); opacity: 0.8; }
+  100% { transform: translateY(-120px); opacity: 0; }
 }
-  .nav {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 50%;
-  cursor: pointer;
-  z-index: 6;
+  .nav {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  cursor: pointer;
+  z-index: 6;
 }
 
 .nav.left { left: 0; }
 .nav.right { right: 0; }
 
-  .book-text.left {
-  left: 18%;
-  width: 26%;
+  .book-text.left {
+  left: 18%;
+  width: 26%;
 }
 
 .book-text.right {
-  left: 56%;
-  width: 26%;
+  left: 56%;
+  width: 26%;
 }
 
 .card-img {
-  display: block;
-  width: 110px !important;
-  margin: 0; 
-  opacity: 0.7;
+  display: block;
+  width: 110px !important;
+  margin: 0; 
+  opacity: 0.7;
 
-  mix-blend-mode: multiply;
-  filter: contrast(0.9) brightness(0.95);
+  mix-blend-mode: multiply;
+  filter: contrast(0.9) brightness(0.95);
 
-  border-radius: 4px;
+  border-radius: 4px;
 }
 
 /* ⭐ 这个必须独立出来 */
 .title-row {
-  display: flex;
+  display: flex;
 
-  align-items: flex-start;
+  align-items: flex-start;
 
-  gap: 15px;              /* 图 ↔ 标题 */
+  gap: 15px;              /* 图 ↔ 标题 */
 
-  margin-bottom: 25px;    /* ⭐ 上下区块距离（关键） */
+  margin-bottom: 25px;    /* ⭐ 上下区块距离（关键） */
 }
 
 .back-btn {
-  position: fixed;
-  right: 24px;
-  bottom: 24px;
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
 
-  padding: 10px 18px;
-  font-size: 14px;
-  letter-spacing: 1px;
+  padding: 10px 18px;
+  font-size: 14px;
+  letter-spacing: 1px;
 
-  z-index: 10;
+  z-index: 10;
 
-  color: #f5e9cc;
-  text-decoration: none;
+  color: #f5e9cc;
+  text-decoration: none;
 
-  border: 1px solid rgba(255,230,150,0.35);
-  border-radius: 999px;
+  border: 1px solid rgba(255,230,150,0.35);
+  border-radius: 999px;
 
-  background: rgba(20,25,30,0.35);
-  backdrop-filter: blur(6px);
+  background: rgba(20,25,30,0.35);
+  backdrop-filter: blur(6px);
 
-  /* ⭐ 基础光 */
-  box-shadow: 0 0 10px rgba(255,220,120,0.2);
+  /* ⭐ 基础光 */
+  box-shadow: 0 0 10px rgba(255,220,120,0.2);
 
-  /* ⭐ 核心：呼吸光 */
-  animation: btnBreath 3s ease-in-out infinite;
+  /* ⭐ 核心：呼吸光 */
+  animation: btnBreath 3s ease-in-out infinite;
 
-  transition: all 0.25s ease;
-  
+  transition: all 0.25s ease;
+  
 }
 
-  @keyframes btnBreath {
-  0% {
-    box-shadow:
-      0 0 8px rgba(255,220,120,0.2);
-  }
-  50% {
-    box-shadow:
-      0 0 20px rgba(255,220,120,0.7),
-      0 0 40px rgba(255,200,80,0.35);
-  }
-  100% {
-    box-shadow:
-      0 0 8px rgba(255,220,120,0.2);
-  }
+  @keyframes btnBreath {
+  0% {
+    box-shadow:
+      0 0 8px rgba(255,220,120,0.2);
+  }
+  50% {
+    box-shadow:
+      0 0 20px rgba(255,220,120,0.7),
+      0 0 40px rgba(255,200,80,0.35);
+  }
+  100% {
+    box-shadow:
+      0 0 8px rgba(255,220,120,0.2);
+  }
 }
-  
-  /* 📱 手机 + 平板纵向 → 按钮在正下方 */
- @media (max-width: 600px) {
+  
+  /* 📱 手机 + 平板纵向 → 按钮在正下方 */
+ @media (max-width: 600px) {
 
-  .book-double { display: none; }
-  .book-single { display: block !important; }
+  /* ⭐ 单页 */
+  .book-double { display: none; }
+  .book-single { display: block !important; }
 
-  .book-wrapper {
-    width: 100vw;                 /* ⭐ 关键：不要92vw */
-    margin-top: 60px;             /* ⭐ 往上收 */
-    position: relative;
-    aspect-ratio: 3 / 4;
-  }
+  /* ⭐ 书位置（只微调，不乱动结构） */
+  .book-wrapper {
+    width: 92vw;
+    margin-top: 80px;   /* ⭐ 从100 → 80（往上收一点） */
+    position: relative;
+    aspect-ratio: 3 / 4;
+  }
 
-  .book-wrapper img {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
+  .book-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 
-  /* ⭐⭐⭐ 核心：真正居中 */
-  .book-text.left {
-    position: absolute;
+  /* ⭐⭐ 核心：整块居中 + 上移 */
+  .book-text.left {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 72%;
 
-    left: 50%;
-    top: 24%;                     /* ⭐ 从30% → 24%（往上） */
+    top: 30%;   /* ⭐ 从34 → 30（往上拉） */
 
-    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;  /* ❗关键：防止奇怪偏移 */
+  }
 
-    width: 78%;                   /* ⭐ 比72再宽一点，视觉才会正 */
+  .book-text.right { display: none; }
 
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  /* ⭐ 标题区（不要再漂） */
+  .title-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 
-    align-items: center;          /* ⭐ 水平真正居中 */
-  }
+    width: 100%;          /* ❗关键：撑满 */
+  }
 
-  .book-text.right { display: none; }
+  .card-img {
+    width: 90px !important;
+    flex-shrink: 0;
+    margin-top: -10px;
+  }
 
-  /* ⭐ 标题 + 图片 */
-  .title-row {
-    display: flex;
-    align-items: center;
-    justify-content: center;      /* ⭐ 整块居中 */
+  /* ⭐⭐ 标题稳定器（重点） */
+  .title {
+    flex: 1;
+    text-align: left;
 
-    gap: 12px;
-    width: 100%;
-  }
+    margin: 0;
+    line-height: 1.3;
 
-  .card-img {
-    width: 88px !important;
-    flex-shrink: 0;
-    margin-top: 0;                /* ❗不要再负值了（会往下拖） */
-  }
+    white-space: nowrap;
 
-  .title {
-    text-align: left;
-    margin: 0;
-    line-height: 1.3;
-    white-space: nowrap;
-  }
+    /* ❗关键两行：防“看起来偏左” */
+    display: block;
+    width: 100%;
+  }
 
-  /* ⭐ 说明文 */
-  .book-text p {
-    margin-top: 10px;
-    text-align: left;
-    width: 100%;
-  }
+  /* ⭐ 说明文 */
+  .book-text p {
+    margin-top: 12px;   /* ⭐ 稍微收紧 */
+  }
 
-  .book-text {
-    font-size: 12px;
-    line-height: 1.5;
-  }
+  .book-text {
+    font-size: 12px;
+    line-height: 1.5;
+  }
 
-  .back-btn {
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 18px;
+  /* ⭐ 按钮 */
+  .back-btn {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 18px;
 
-    width: fit-content;
-    max-width: 160px;
-    padding: 10px 16px;
+    width: fit-content;
+    max-width: 160px;
+    padding: 10px 16px;
 
-    white-space: nowrap;
-    text-align: center;
-  }
+    white-space: nowrap;
+    text-align: center;
+  }
 }
-  
-  @media (min-width: 601px) and (max-width: 900px) and (orientation: portrait) {
+  @media (min-width: 601px) and (max-width: 900px) and (orientation: portrait) {
 
-  /* ⭐ 强制双页 */
-  .book-double { display: block !important; }
-  .book-single { display: none !important; }
+  /* ⭐ 强制双页 */
+  .book-double { display: block !important; }
+  .book-single { display: none !important; }
 
-  /* ⭐ 书尺寸恢复正常（关键） */
-  .book-wrapper {
-    width: min(92vw, 900px);   /* ❗改回双页原本尺寸 */
-    margin-top: 150px;
-    position: relative;
-  }
+  /* ⭐ 书尺寸恢复正常（关键） */
+  .book-wrapper {
+    width: min(92vw, 900px);   /* ❗改回双页原本尺寸 */
+    margin-top: 150px;
+    position: relative;
+  }
 
-  /* ⭐ 左页 */
-  .book-text.left {
-    left: 18%;
-    width: 26%;
-    top: 16%;   /* ❗恢复原本比例 */
-  }
+  /* ⭐ 左页 */
+  .book-text.left {
+    left: 18%;
+    width: 26%;
+    top: 16%;   /* ❗恢复原本比例 */
+  }
 
-  /* ⭐ 右页 */
-  .book-text.right {
-    display: block !important;
-    left: 56%;
-    width: 26%;
-    top: 16%;   /* ❗同步 */
-  }
+  /* ⭐ 右页 */
+  .book-text.right {
+    display: block !important;
+    left: 56%;
+    width: 26%;
+    top: 16%;   /* ❗同步 */
+  }
 
 }
-    
-  @media (hover: hover) {
-  .back-btn:hover {
-    transform: translateY(-2px);
+    
+  @media (hover: hover) {
+  .back-btn:hover {
+    transform: translateY(-2px);
 
-    /* ❗不改背景 → 就不会变黄 */
-    background: rgba(20,25,30,0.55);
+    /* ❗不改背景 → 就不会变黄 */
+    background: rgba(20,25,30,0.55);
 
-    /* ⭐ 只做发光 */
-    box-shadow:
-      0 6px 18px rgba(0,0,0,0.5),
-      0 0 18px rgba(255,220,120,0.35),
-      0 0 28px rgba(255,220,120,0.15);
-  }
+    /* ⭐ 只做发光 */
+    box-shadow:
+      0 6px 18px rgba(0,0,0,0.5),
+      0 0 18px rgba(255,220,120,0.35),
+      0 0 28px rgba(255,220,120,0.15);
+  }
 }
-
 
 </style>
 </head>
@@ -371,156 +375,157 @@ body::before {
 <div class="fireflies"></div>
 
 <div class="book-wrapper">
-  <div class="nav left" onclick="prevPage()"></div>
+  <div class="nav left" onclick="prevPage()"></div>
 <div class="nav right" onclick="nextPage()"></div>
 
-  <img src="book-open-v1.png" class="book-double">
-  <img src="book-open-v2.png" class="book-single">
+  <img src="book-open-v1.png" class="book-double">
+  <img src="book-open-v2.png" class="book-single">
 
- <div class="book-text left page" id="leftPage"></div>
+ <div class="book-text left page" id="leftPage"></div>
 <div class="book-text right page" id="rightPage"></div>
 
 </div>
 
 <a href="bazaar.html" class="back-btn">← 回到集市</a>
-  
+  
 <script>
 const fireflyContainer = document.querySelector(".fireflies");
 
 for (let i = 0; i < 15; i++) {
-  const f = document.createElement("span");
+  const f = document.createElement("span");
 
-  f.style.left = Math.random() * 100 + "%";
-  f.style.top = Math.random() * 100 + "%";
+  f.style.left = Math.random() * 100 + "%";
+  f.style.top = Math.random() * 100 + "%";
 
-  /* ⭐ 每一只萤火虫不同节奏 */
-  f.style.animationDelay = -(Math.random() * 12) + "s";
-  f.style.animationDuration = (8 + Math.random() * 6) + "s";
+  /* ⭐ 每一只萤火虫不同节奏 */
+  f.style.animationDelay = -(Math.random() * 12) + "s";
+  f.style.animationDuration = (8 + Math.random() * 6) + "s";
 
-  fireflyContainer.appendChild(f);
+  fireflyContainer.appendChild(f);
 }
 
-  const pages = [
-  { title: "1. 騎士", img: "card1.jpg", text: "兔子騎士和同伴帶上搭順風車的小烏龜，準備出發！<br>不論沼澤還是陸地，鱷魚大哥，衝鴨～～<br><br>關鍵詞：消息、行動、來訪" },
-  { title: "2. 四葉草", img: "card2.jpg", text: "街道的石磚縫，長了一株四葉草。<br>人們不停駐的匆匆走過——<br>噓，三花貓發現它了！<br><br>關鍵詞：幸運、機會、偶然" },
-  { title: "3. 船", img: "card3.jpg", text: "過去是船，現在添了飛機，未來可能還有宇宙飛梭！<br>再到更久遠的未來————<br>嘿，說不定有天我們打開門就能到任何地方。<br>你說是不？<br><br>關鍵詞：旅行、移動、遠方" },
-  { title: "4. 房屋", img: "card4.jpg", text: "房屋是有生命的。<br>伴著燈的呼吸，今天，在家裡安心待著吧。<br><br>關鍵詞：家庭、安定、根基" },
+  const pages = [
+  { title: "1. 騎士", img: "card1.jpg", text: "兔子騎士和同伴帶上搭順風車的小烏龜，準備出發！<br>不論沼澤還是陸地，鱷魚大哥，衝鴨～～<br><br>關鍵詞：消息、行動、來訪" },
+  { title: "2. 四葉草", img: "card2.jpg", text: "街道的石磚縫，長了一株四葉草。<br>人們不停駐的匆匆走過——<br>噓，三花貓發現它了！<br><br>關鍵詞：幸運、機會、偶然" },
+  { title: "3. 船", img: "card3.jpg", text: "過去是船，現在添了飛機，未來可能還有宇宙飛梭！<br>再到更久遠的未來————<br>嘿，說不定有天我們打開門就能到任何地方。<br>你說是不？<br><br>關鍵詞：旅行、移動、遠方" },
+  { title: "4. 房屋", img: "card4.jpg", text: "房屋是有生命的。<br>伴著燈的呼吸，今天，在家裡安心待著吧。<br><br>關鍵詞：家庭、安定、根基" },
 
-  { title: "5.1 世界之樹", img: "card5-1.jpg", text: "你正扎根於現世之中。<br>生命裡有形的一切，都在穩固地成長。<br><br>關鍵詞：成長、連結、生命力" },
-  { title: "5.2 精神之樹", img: "card5-2.jpg", text: "你的靈魂於潛意識的湖泊舒展枝葉。<br>無形的改變，都在逐漸發生。<br><br>關鍵詞：內在、靈性、潛意識" },
+  { title: "5.1 世界之樹", img: "card5-1.jpg", text: "你正扎根於現世之中。<br>生命裡有形的一切，都在穩固地成長。<br><br>關鍵詞：成長、連結、生命力" },
+  { title: "5.2 精神之樹", img: "card5-2.jpg", text: "你的靈魂於潛意識的湖泊舒展枝葉。<br>無形的改變，都在逐漸發生。<br><br>關鍵詞：內在、靈性、潛意識" },
 
-  { title: "6. 雲", img: "card6.jpg", text: "雲遮住了視線，穿過亂流，就是晴天。<br><br>關鍵詞：混亂、不安、模糊" },
-  { title: "7. 蛇", img: "card7.jpg", text: "跟著蛇尾的罌粟花蜿蜒前進。<br>要多繞一些路，才知道通往何方。<br><br>關鍵詞：誘惑、複雜、曲折" },
-  { title: "8. 棺材", img: "card8.jpg", text: "死亡，只是開始。<br><br>關鍵詞：結束、轉變、釋放" },
-  { title: "9. 花束", img: "card9.jpg", text: "雖然花束的美麗無法久留，但那一刻我想說：<br><br>今晚的月色真美。<br><br>關鍵詞：禮物、喜悅、善意" },
+  { title: "6. 雲", img: "card6.jpg", text: "雲遮住了視線，穿過亂流，就是晴天。<br><br>關鍵詞：混亂、不安、模糊" },
+  { title: "7. 蛇", img: "card7.jpg", text: "跟著蛇尾的罌粟花蜿蜒前進。<br>要多繞一些路，才知道通往何方。<br><br>關鍵詞：誘惑、複雜、曲折" },
+  { title: "8. 棺材", img: "card8.jpg", text: "死亡，只是開始。<br><br>關鍵詞：結束、轉變、釋放" },
+  { title: "9. 花束", img: "card9.jpg", text: "雖然花束的美麗無法久留，但那一刻我想說：<br><br>今晚的月色真美。<br><br>關鍵詞：禮物、喜悅、善意" },
 
-  { title: "10. 鐮刀", img: "card10.jpg", text: "豐足的收穫前，需要鐮刀的斷捨離。<br><br>關鍵詞：決斷、收割、突然" },
-  { title: "11. 鞭子", img: "card11.jpg", text: "有些事物要一而再再而三的拉扯，才能看清事實的真相。<br><br>關鍵詞：衝突、重複、壓力" },
-  { title: "12. 鳥", img: "card12.jpg", text: "鴉鴉們來了！<br>也許是好消息，也許壞消息，又或許是些日常瑣事。<br>噢，不過牠們真真有點吵。<br><br>關鍵詞：訊息、交流、短暫" },
+  { title: "10. 鐮刀", img: "card10.jpg", text: "豐足的收穫前，需要鐮刀的斷捨離。<br><br>關鍵詞：決斷、收割、突然" },
+  { title: "11. 鞭子", img: "card11.jpg", text: "有些事物要一而再再而三的拉扯，才能看清事實的真相。<br><br>關鍵詞：衝突、重複、壓力" },
+  { title: "12. 鳥", img: "card12.jpg", text: "鴉鴉們來了！<br>也許是好消息，也許壞消息，又或許是些日常瑣事。<br>噢，不過牠們真真有點吵。<br><br>關鍵詞：訊息、交流、短暫" },
 
-  { title: "13.1 i人小孩", img: "card13-1.jpg", text: "i人小孩是星星來的孩子，<br>喜歡窩在自己的領地，安靜觀察著世界。<br><br>關鍵詞：新開始、純真、內向" },
-  { title: "13.2 e人小孩", img: "card13-2.jpg", text: "e人小孩的世界是燦爛與繽紛的，他們充满好奇心，興致勃勃的探索一切。<br><br>關鍵詞：新開始、活力、外向" },
+  { title: "13.1 i人小孩", img: "card13-1.jpg", text: "i人小孩是星星來的孩子，<br>喜歡窩在自己的領地，安靜觀察著世界。<br><br>關鍵詞：新開始、純真、內向" },
+  { title: "13.2 e人小孩", img: "card13-2.jpg", text: "e人小孩的世界是燦爛與繽紛的，他們充满好奇心，興致勃勃的探索一切。<br><br>關鍵詞：新開始、活力、外向" },
 
-  { title: "14. 狐狸", img: "card14.jpg", text: "狐狸說：<br>猜猜，哪把鑰匙才能打開我看守的門呢？<br><br>關鍵詞：策略、狡黠、欺騙" },
-  { title: "15. 熊", img: "card15.jpg", text: "在沈睡時蓄勢待發，醞釀一擊必中的力量。<br><br>關鍵詞：力量、權威、保護" },
-  { title: "16. 星星", img: "card16.jpg", text: "星星，是我們靈感的種子。<br><br>關鍵詞：網路、希望、靈感" },
-  { title: "17. 鸛鳥", img: "card17.jpg", text: "有些轉化正在發生。<br><br>關鍵詞：改變、轉化、遷移" },
-  { title: "18. 狗", img: "card18.jpg", text: "我們永遠是最好的小夥伴。<br>笑一個:）<br><br>關鍵詞：忠誠、朋友、信任" },
+  { title: "14. 狐狸", img: "card14.jpg", text: "狐狸說：<br>猜猜，哪把鑰匙才能打開我看守的門呢？<br><br>關鍵詞：策略、狡黠、欺騙" },
+  { title: "15. 熊", img: "card15.jpg", text: "在沈睡時蓄勢待發，醞釀一擊必中的力量。<br><br>關鍵詞：力量、權威、保護" },
+  { title: "16. 星星", img: "card16.jpg", text: "星星，是我們靈感的種子。<br><br>關鍵詞：網路、希望、靈感" },
+  { title: "17. 鸛鳥", img: "card17.jpg", text: "有些轉化正在發生。<br><br>關鍵詞：改變、轉化、遷移" },
+  { title: "18. 狗", img: "card18.jpg", text: "我們永遠是最好的小夥伴。<br>笑一個:）<br><br>關鍵詞：忠誠、朋友、信任" },
 
-  { title: "19. 塔", img: "card19.jpg", text: "為堅固的堡壘獻上一束花，<br>冀望能等到開門的那日。<br><br>關鍵詞：孤立、制度、距離" },
-  { title: "20. 花園", img: "card20.jpg", text: "絢爛的宴會開始啦！<br>大家一起玩耍吧！<br><br>關鍵詞：社交、人群、公開" },
-  { title: "21. 山", img: "card21.jpg", text: "以螢火燒須彌山，<br>需要義無反顧的勇氣。<br><br>關鍵詞：阻礙、困難、延遲" },
-  { title: "22. 十字路口", img: "card22.jpg", text: "報告！上山還有一公里，前方十五公尺處有蛇。<br>路分開了，<br>心是無極限近的抉擇。<br><br>關鍵詞：選擇、分岔、決定" },
-  { title: "23. 老鼠", img: "card23.jpg", text: "香甜的焦慮與細小的損失，<br>正在陰暗的角落吱吱的叫。<br><br>關鍵詞：損耗、焦慮、流失" },
+  { title: "19. 塔", img: "card19.jpg", text: "為堅固的堡壘獻上一束花，<br>冀望能等到開門的那日。<br><br>關鍵詞：孤立、制度、距離" },
+  { title: "20. 花園", img: "card20.jpg", text: "絢爛的宴會開始啦！<br>大家一起玩耍吧！<br><br>關鍵詞：社交、人群、公開" },
+  { title: "21. 山", img: "card21.jpg", text: "以螢火燒須彌山，<br>需要義無反顧的勇氣。<br><br>關鍵詞：阻礙、困難、延遲" },
+  { title: "22. 十字路口", img: "card22.jpg", text: "報告！上山還有一公里，前方十五公尺處有蛇。<br>路分開了，<br>心是無極限近的抉擇。<br><br>關鍵詞：選擇、分岔、決定" },
+  { title: "23. 老鼠", img: "card23.jpg", text: "香甜的焦慮與細小的損失，<br>正在陰暗的角落吱吱的叫。<br><br>關鍵詞：損耗、焦慮、流失" },
 
-  { title: "24.1 燃燒之心", img: "card24-1.jpg", text: "燃燒之心。<br>無可比擬的渴望與熱情。<br><br>關鍵詞：愛、熱情、情感" },
-  { title: "24.2 靈魂之心", img: "card24-2.jpg", text: "星空一樣透明的心，<br>只與理解者共鳴。<br><br>關鍵詞：連結、共鳴、心靈" },
-  { title: "24.3 歲月之心", img: "card24-3.jpg", text: "心，是歲月靜好的柴米油鹽詩酒花。<br><br>關鍵詞：關係、日常、陪伴" },
+  { title: "24.1 燃燒之心", img: "card24-1.jpg", text: "燃燒之心。<br>無可比擬的渴望與熱情。<br><br>關鍵詞：愛、熱情、情感" },
+  { title: "24.2 靈魂之心", img: "card24-2.jpg", text: "星空一樣透明的心，<br>只與理解者共鳴。<br><br>關鍵詞：連結、共鳴、心靈" },
+  { title: "24.3 歲月之心", img: "card24-3.jpg", text: "心，是歲月靜好的柴米油鹽詩酒花。<br><br>關鍵詞：關係、日常、陪伴" },
 
-  { title: "25. 戒指", img: "card25.jpg", text: "願每個承諾，<br>都帶著鴿子的和平與迷迭香的堅貞。<br><br>關鍵詞：承諾、關係、循環" },
-  { title: "26. 書本", img: "card26.jpg", text: "在扉頁裡的夜晚踽踽獨行，有些心事還說不出口。<br><br>關鍵詞：秘密、知識、隱藏" },
-  { title: "27. 信件", img: "card27.jpg", text: "續了許多夜的咖啡，終於得到確定的消息。<br>拆封吧——<br>不論結果如何，熊熊陪你。<br><br>關鍵詞：訊息、文件、通知" },
-  { title: "28. 男人", img: "card28.jpg", text: "白天與黑夜交界處，被稱為逢魔時刻。<br>看到這張牌，你想到了誰？<br><br>關鍵詞：男性、當事人、主體" },
-  { title: "29. 女人", img: "card29.jpg", text: "白天與黑夜交界處，被稱為逢魔時刻。<br>看到這張牌，你想到了誰？<br><br>關鍵詞：女性、當事人、主題" },
+  { title: "25. 戒指", img: "card25.jpg", text: "願每個承諾，<br>都帶著鴿子的和平與迷迭香的堅貞。<br><br>關鍵詞：承諾、關係、循環" },
+  { title: "26. 書本", img: "card26.jpg", text: "在扉頁裡的夜晚踽踽獨行，有些心事還說不出口。<br><br>關鍵詞：秘密、知識、隱藏" },
+  { title: "27. 信件", img: "card27.jpg", text: "續了許多夜的咖啡，終於得到確定的消息。<br>拆封吧——<br>不論結果如何，熊熊陪你。<br><br>關鍵詞：訊息、文件、通知" },
+  { title: "28. 男人", img: "card28.jpg", text: "白天與黑夜交界處，被稱為逢魔時刻。<br>看到這張牌，你想到了誰？<br><br>關鍵詞：男性、當事人、主體" },
+  { title: "29. 女人", img: "card29.jpg", text: "白天與黑夜交界處，被稱為逢魔時刻。<br>看到這張牌，你想到了誰？<br><br>關鍵詞：女性、當事人、主題" },
 
-  { title: "30. 百合花", img: "card30.jpg", text: "雪色的百合，就像果敢又潔淨的聖女貞德。<br><br>關鍵詞：成熟、平靜、親密" },
-  { title: "31. 太陽", img: "card31.jpg", text: "太陽寶寶誕生了，<br>生命是快樂及光明的循環。<br><br>關鍵詞：成功、能量、快樂" },
-  { title: "32. 月亮", img: "card32.jpg", text: "月亮落地了。<br>一側碰得著，一側正在消散。<br>哪一面的月亮向你顯現了？。<br><br>關鍵詞：情緒、直覺、波動" },
-  { title: "33. 鑰匙", img: "card33.jpg", text: "小紅帽在森林裡迷路，<br>友善的棕熊遞給她一把歇腳處的鑰匙。<br><br>關鍵詞：機會、答案、開啟" },
-  { title: "34. 魚", img: "card34.jpg", text: "魚兒大軍載著三種斧頭順著浪潮游過來囉～～<br>你掉的是金斧頭？銀斧頭？還是鐵斧頭呢？<br><br>關鍵詞：財富、流動、資源" },
-  { title: "35. 錨", img: "card35.jpg", text: "靠岸了。<br>有東西正在固定下來，帶著現實與長期的安定。<br><br>關鍵詞：穩定、持久、安全" },
-  { title: "36. 十字架", img: "card36.jpg", text: "信仰，<br>在日常生活的信念中落實。<br><br>關鍵詞：命運、負擔、信念" }
+  { title: "30. 百合花", img: "card30.jpg", text: "雪色的百合，就像果敢又潔淨的聖女貞德。<br><br>關鍵詞：成熟、平靜、親密" },
+  { title: "31. 太陽", img: "card31.jpg", text: "太陽寶寶誕生了，<br>生命是快樂及光明的循環。<br><br>關鍵詞：成功、能量、快樂" },
+  { title: "32. 月亮", img: "card32.jpg", text: "月亮落地了。<br>一側碰得著，一側正在消散。<br>哪一面的月亮向你顯現了？。<br><br>關鍵詞：情緒、直覺、波動" },
+  { title: "33. 鑰匙", img: "card33.jpg", text: "小紅帽在森林裡迷路，<br>友善的棕熊遞給她一把歇腳處的鑰匙。<br><br>關鍵詞：機會、答案、開啟" },
+  { title: "34. 魚", img: "card34.jpg", text: "魚兒大軍載著三種斧頭順著浪潮游過來囉～～<br>你掉的是金斧頭？銀斧頭？還是鐵斧頭呢？<br><br>關鍵詞：財富、流動、資源" },
+  { title: "35. 錨", img: "card35.jpg", text: "靠岸了。<br>有東西正在固定下來，帶著現實與長期的安定。<br><br>關鍵詞：穩定、持久、安全" },
+  { title: "36. 十字架", img: "card36.jpg", text: "信仰，<br>在日常生活的信念中落實。<br><br>關鍵詞：命運、負擔、信念" }
 ];
-  
+  
 let currentPage = 0;
 
 function renderPage() {
 
-  const isSingle = window.innerWidth <= 600 && window.innerHeight > window.innerWidth
+  const isSingle = window.innerWidth <= 600
 
-  if (isSingle) {
-    // ⭐ 单页模式（手机 / 平板纵屏）
-    const page = pages[currentPage];
+  if (isSingle) {
+    // ⭐ 单页模式（手机 / 平板纵屏）
+    const page = pages[currentPage];
 
-    document.getElementById("leftPage").innerHTML = page ? `
-      <div class="title-row">
-        <img src="${page.img}" class="card-img">
-        <b class="title">${page.title}</b>
-      </div>
-      <p>${page.text}</p>
-    ` : "";
+    document.getElementById("leftPage").innerHTML = page ? `
+      <div class="title-row">
+        <img src="${page.img}" class="card-img">
+        <b class="title">${page.title}</b>
+      </div>
+      <p>${page.text}</p>
+    ` : "";
 
-    document.getElementById("rightPage").innerHTML = "";
+    document.getElementById("rightPage").innerHTML = "";
 
-  } else {
-    // ⭐ 双页模式（桌面 / 横屏）
-    const leftIndex = currentPage * 2;
-    const rightIndex = currentPage * 2 + 1;
+  } else {
+    // ⭐ 双页模式（桌面 / 横屏）
+    const leftIndex = currentPage * 2;
+    const rightIndex = currentPage * 2 + 1;
 
-    const left = pages[leftIndex];
-    const right = pages[rightIndex];
+    const left = pages[leftIndex];
+    const right = pages[rightIndex];
 
-    document.getElementById("leftPage").innerHTML = left ? `
-      <div class="title-row">
-        <img src="${left.img}" class="card-img">
-        <b class="title">${left.title}</b>
-      </div>
-      <p>${left.text}</p>
-    ` : "";
+    document.getElementById("leftPage").innerHTML = left ? `
+      <div class="title-row">
+        <img src="${left.img}" class="card-img">
+        <b class="title">${left.title}</b>
+      </div>
+      <p>${left.text}</p>
+    ` : "";
 
-    document.getElementById("rightPage").innerHTML = right ? `
-      <div class="title-row">
-        <img src="${right.img}" class="card-img">
-        <b class="title">${right.title}</b>
-      </div>
-      <p>${right.text}</p>
-    ` : "";
-  }
+    document.getElementById("rightPage").innerHTML = right ? `
+      <div class="title-row">
+        <img src="${right.img}" class="card-img">
+        <b class="title">${right.title}</b>
+      </div>
+      <p>${right.text}</p>
+    ` : "";
+  }
 }
-  
-function nextPage() {const isSingle = window.innerWidth <= 600 && window.innerHeight > window.innerWidth
+  
+function nextPage() {
+  const isSingle = window.innerWidth <= 600
 
-  if (isSingle) {
-    if (currentPage + 1 >= pages.length) return;
-    currentPage++;
-  } else {
-    if ((currentPage + 1) * 2 >= pages.length) return;
-    currentPage++;
-  }
+  if (isSingle) {
+    if (currentPage + 1 >= pages.length) return;
+    currentPage++;
+  } else {
+    if ((currentPage + 1) * 2 >= pages.length) return;
+    currentPage++;
+  }
 
-  renderPage();
+  renderPage();
 }
 
 function prevPage() {
-  if (currentPage === 0) return;
-  currentPage--;
-  renderPage();
+  if (currentPage === 0) return;
+  currentPage--;
+  renderPage();
 }
-  
+  
 renderPage();
 
-  window.addEventListener("resize", renderPage);
-  
+  window.addEventListener("resize", renderPage);
+  
 </script>
 
 </body>
