@@ -113,25 +113,28 @@ body {
     </div>
 
     <!-- 🃏 第二张 -->
-    <div class="card-block">
+  <div class="card-block">
 
-      <div style="perspective:1000px;">
-        <div class="card-container">
-          <img class="back" src="back.jpg">
-          <div class="front">
-            <img class="front-img">
-          </div>
-        </div>
+  <div style="perspective:1000px;">
+    
+    <div class="card-container">
+
+      <div class="back">
+        <img src="back.jpg">
       </div>
 
-      <div class="text">
-        <h2 class="title"></h2>
-        <p class="meaning"></p>
+      <div class="front">
+        <img class="front-img">
       </div>
 
     </div>
 
-  </div> 
+  </div>
+
+  <div class="text">
+    <h2 class="title"></h2>
+    <p class="meaning"></p>
+  </div>
 
 </div>
   
@@ -364,6 +367,16 @@ img {
   object-fit: cover;
   border-radius: 12px;
 }
+
+  
+.back img,
+.front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
 
 /* 🌿 平板（仅纵向）→ 改结构：图片上 / 文字下 */
 @media (max-width: 900px) and (orientation: portrait) {
