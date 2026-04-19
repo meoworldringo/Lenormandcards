@@ -98,17 +98,20 @@ body {
 
   /* ⭐ 关键：中间挖洞 */
   mask-image: radial-gradient(circle at center,
-    transparent 30%,   /* 中间清楚 */
-    rgba(0,0,0,0.4) 55%,
-    black 75%         /* 外围全雾 */
-  );
+  transparent 30%,
+  rgba(0,0,0,0.15) 45%,
+  rgba(0,0,0,0.35) 60%,
+  rgba(0,0,0,0.7) 75%,
+  black 90%
+);
 
-  -webkit-mask-image: radial-gradient(circle at center,
-    transparent 30%,
-    rgba(0,0,0,0.4) 55%,
-    black 75%
-  );
-}
+-webkit-mask-image: radial-gradient(circle at center,
+  transparent 30%,
+  rgba(0,0,0,0.15) 45%,
+  rgba(0,0,0,0.35) 60%,
+  rgba(0,0,0,0.7) 75%,
+  black 90%
+);
 
 /* 不均匀雾 */
 .fog-veil::after {
