@@ -537,6 +537,25 @@ img {
     transform: none !important;
   }
 
+/* ⭐⭐ 平板横屏优化：拉开两张牌 + 控制文字宽度 */
+
+  /* 👉 两张牌距离拉开 */
+  .card-area {
+    gap: 80px !important;   /* 原本 40 → 拉开 */
+  }
+
+  /* 👉 每张卡的说明区域变窄一点 */
+  .text {
+    width: 320px;          /* 原本 300 → 收一点 */
+  }
+
+  /* 👉 文字更好读（可选但推荐） */
+  .meaning {
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+}
 }
 
 </style>
