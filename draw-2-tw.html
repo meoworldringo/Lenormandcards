@@ -124,10 +124,6 @@ body {
       </div>
     </div>
 
-    <div class="text">
-      <h2 class="title"></h2>
-      <p class="meaning"></p>
-    </div>
 
   </div>
 
@@ -608,54 +604,11 @@ blocks.forEach(function(block) {
 });
 
 
-// 设置正面牌
-document.getElementById("title").innerText = titles[card];
-document.getElementById("meaning").innerHTML = meanings[card];
-
-// 延迟翻牌
-setTimeout(function() {
-
-  // 停止呼吸
-  document.getElementById("back").style.animation = "none";
- 
-  // 翻牌
-  document.getElementById("card-container").style.transform = "rotateY(180deg)";
-
-}, 1200);
 
 document.addEventListener("contextmenu", function(e) {
   e.preventDefault();
 });
 
-  
-document.getElementById("meaning").addEventListener("click", function() {
-
-  var meaningEl = document.getElementById("meaning");
-
-  if (showingMeaning) {
-    meaningEl.innerHTML = traditional[card] || "（尚未補充）";
-
-    meaningEl.style.opacity = "1";
-
-    meaningEl.style.color = "#ffe7a3";
-    meaningEl.style.textShadow = `
-      0 0 6px rgba(255,220,120,0.6),
-      0 0 14px rgba(255,200,80,0.4)
-    `;
-meaningEl.style.animation = "goldFlash 0.6s ease";
-    
-  } else {
-    meaningEl.innerHTML = meanings[card];
-
-    meaningEl.style.opacity = "1";
-
-    meaningEl.style.color = "#f5e9cc";
-meaningEl.style.textShadow = "0 0 8px rgba(255,240,180,0.28)";
-  }
-
-  showingMeaning = !showingMeaning;
-
-});
 
   // ✨ 生成萤火虫
 const fireflyContainer = document.querySelector(".fireflies");
@@ -681,45 +634,41 @@ document.getElementById("drawBtn").addEventListener("click", function() {
 
 });
 
-  // 翻回背面
-  const cardEl = document.getElementById("card-container");
-
-// ❗先关掉动画
-cardEl.style.transition = "none";
-cardEl.style.transform = "rotateY(0deg)";
-
-  setTimeout(function() {
-
-    setTimeout(function() {
-
-  // ❗恢复动画
-  cardEl.style.transition = "transform 1s ease";
-
-  // 换内容
-document.getElementById("front-img").src = card;
-document.getElementById("title").innerText = titles[card];
-document.getElementById("meaning").innerHTML = meanings[card];
-
-  // 再翻开
-  cardEl.style.transform = "rotateY(180deg)";
-
-}, 50);   
-
-// 换内容
-    document.getElementById("front-img").src = currentCard;
-document.getElementById("title").innerText = titles[currentCard];
-document.getElementById("meaning").innerHTML = meanings[currentCard];
-
-    // 再翻开
-    document.getElementById("card-container").style.transform = "rotateY(180deg)";
-
-  }, 400);
-
-});
-
-
 window.addEventListener("load", fitSubtitle);
 window.addEventListener("resize", fitSubtitle);
+
+document.querySelectorAll(".card-block").forEach(function(block) {
+
+  let showingMeaning = true;
+
+  const meaningEl = block.querySelector(".meaning");
+
+  meaningEl.addEventListener("click", function() {
+
+    const img = block.querySelector(".front-img").src.split("/").pop();
+
+    if (showingMeaning) {
+      meaningEl.innerHTML = traditional[img] || "（尚未補充）";
+
+      meaningEl.style.color = "#ffe7a3";
+      meaningEl.style.textShadow = `
+        0 0 6px rgba(255,220,120,0.6),
+        0 0 14px rgba(255,200,80,0.4)
+      `;
+      meaningEl.style.animation = "goldFlash 0.6s ease";
+
+    } else {
+      meaningEl.innerHTML = meanings[img];
+
+      meaningEl.style.color = "#f5e9cc";
+      meaningEl.style.textShadow = "0 0 8px rgba(255,240,180,0.28)";
+    }
+
+    showingMeaning = !showingMeaning;
+
+  });
+
+});
   
 </script>
 
