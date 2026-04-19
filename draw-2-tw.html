@@ -370,6 +370,28 @@ img {
   border-radius: 12px;
 }
 
+  /* ⭐⭐ iOS / Safari 翻牌修复（关键补丁） */
+
+.card-container {
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+.back, .front {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+/* ⭐ 强制 GPU 加速（不加有时完全不翻） */
+.card-container,
+.back,
+.front {
+  transform: translateZ(0);
+}
+
 
 /* 🌿 平板（仅纵向）→ 改结构：图片上 / 文字下 */
 @media (max-width: 900px) and (orientation: portrait) {
