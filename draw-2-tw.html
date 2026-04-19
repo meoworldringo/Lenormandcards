@@ -328,7 +328,7 @@ img {
   white-space: pre-line;
 }
 
-/* ⭐⭐⭐ 最终稳定翻牌（100%可用版） */
+/* ⭐⭐⭐ 最终稳定翻牌（真的最终版） */
 
 .card-container {
   width: 220px;
@@ -339,7 +339,6 @@ img {
 .card-container-inner {
   width: 100%;
   height: 100%;
-
   position: relative;
 
   transform-style: preserve-3d;
@@ -348,7 +347,7 @@ img {
   transition: transform 0.8s ease;
 }
 
-/* ⭐ 翻牌触发 */
+/* ⭐ 正确注释写法（你之前炸在这里） */
 .card-container.flipped .card-container-inner {
   transform: rotateY(180deg);
 }
@@ -366,7 +365,6 @@ img {
 
 .back {
   transform: rotateY(0deg);
-  z-index: 2;
 }
 
 .front {
@@ -381,17 +379,41 @@ img {
   object-fit: cover;
   border-radius: 12px;
 }
+
+/* ⭐ iOS 防抽风 */
+.card-container-inner {
+  transform: translateZ(0);
+}
   
  /* ⭐⭐ iOS / Safari 翻牌修复（完整稳定版） */
 
 .card-container-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+
   transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;
+
+  transition: transform 0.8s ease;
+
+  /* ⭐ iOS 防抽风 */
+  transform: translateZ(0);
 }
 
 .back, .front {
+  position: absolute;
+  inset: 0;
+
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+
+  border-radius: 12px;
+}
+  .main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 
