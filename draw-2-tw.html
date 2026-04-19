@@ -138,8 +138,6 @@ body {
     <h2 class="title"></h2>
     <p class="meaning"></p>
   </div>
-
-</div>
   
 <div style="margin-top:40px; margin-bottom:40px; text-align:center;">
 
@@ -162,6 +160,7 @@ body {
 </button>
 </div>
 </div>   <!-- ⭐这是 main 的结束 -->
+
 
 <style>
 
@@ -727,7 +726,11 @@ document.getElementById("drawBtn").addEventListener("click", function() {
   setTimeout(function() {
 
     blocks.forEach(function(block, index) {
+   setTimeout(function() {
 
+    block.querySelector(".card-container").classList.add("flipped");
+
+  }, index * 400);
       const container = block.querySelector(".card-container");
 
       let card = shuffled[index]; // ⭐ 不重复
