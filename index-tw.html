@@ -90,10 +90,24 @@ body {
   pointer-events: none;
   z-index: 2;
 
+  /* 🌫️ 白雾 */
   background: rgba(255, 255, 255, 0.35);
 
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+
+  /* ⭐ 关键：中间挖洞 */
+  mask-image: radial-gradient(circle at center,
+    transparent 30%,   /* 中间清楚 */
+    rgba(0,0,0,0.4) 55%,
+    black 75%         /* 外围全雾 */
+  );
+
+  -webkit-mask-image: radial-gradient(circle at center,
+    transparent 30%,
+    rgba(0,0,0,0.4) 55%,
+    black 75%
+  );
 }
 
 /* 不均匀雾 */
