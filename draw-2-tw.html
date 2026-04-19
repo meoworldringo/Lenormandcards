@@ -686,6 +686,7 @@ traditional["card36.jpg"] = "關鍵詞：命運、負擔、信念";
 
 var blocks = document.querySelectorAll(".card-block");
 
+// ⭐ 先放牌（内容）
 blocks.forEach(function(block) {
 
   var card = cards[Math.floor(Math.random() * cards.length)];
@@ -695,6 +696,19 @@ blocks.forEach(function(block) {
   block.querySelector(".meaning").innerHTML = meanings[card];
 
 });
+
+// ⭐⭐ 初始翻牌（关键！！！）
+setTimeout(function() {
+
+  document.querySelectorAll(".card-container").forEach(function(card, index) {
+
+    setTimeout(function() {
+      card.classList.add("flipped");
+    }, index * 500);
+
+  });
+
+}, 300);
 
 
 
