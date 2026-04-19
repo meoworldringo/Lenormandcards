@@ -99,15 +99,14 @@ body {
   pointer-events: none;
   z-index: 2;
 
-  /* 🌫️ 整體白霧 */
   background: rgba(255, 255, 255, 0.35);
 
-  /* ⭐ 讓它變柔（超重要） */
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
 
-  .fog-veil::after {
+/* 不均匀雾 */
+.fog-veil::after {
   content: "";
   position: absolute;
   inset: 0;
