@@ -699,10 +699,13 @@ traditional["card36.jpg"] = "關鍵詞：命運、負擔、信念";
 
 var blocks = document.querySelectorAll(".card-block");
 
-// ⭐ 先放牌（内容）
-blocks.forEach(function(block) {
+// ⭐⭐⭐ 洗牌（不会重复）
+let shuffled = [...cards].sort(() => Math.random() - 0.5);
 
-  var card = cards[Math.floor(Math.random() * cards.length)];
+// ⭐ 发牌（按顺序拿）
+blocks.forEach(function(block, index) {
+
+  let card = shuffled[index];
 
   block.querySelector(".front-img").src = card;
   block.querySelector(".title").innerText = titles[card];
