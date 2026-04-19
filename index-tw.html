@@ -40,19 +40,46 @@ body {
   pointer-events: none;
   z-index: 2;
 
+  /* 🌫️ 底层柔雾 */
   background:
-    radial-gradient(circle at 30% 70%, rgba(255,255,255,0.18), transparent 60%),
-    radial-gradient(circle at 70% 30%, rgba(255,255,255,0.14), transparent 60%),
-    radial-gradient(circle at 50% 50%, rgba(255,255,255,0.10), transparent 70%);
+    radial-gradient(circle at 30% 70%, rgba(255,255,255,0.25), transparent 60%),
+    radial-gradient(circle at 70% 30%, rgba(255,255,255,0.18), transparent 60%),
+    radial-gradient(circle at 50% 50%, rgba(255,255,255,0.12), transparent 70%);
 
-  animation: fogMove 14s ease-in-out infinite;
-  mix-blend-mode: screen; /* ⭐关键 */
+  mix-blend-mode: screen;
+
+  /* ⭐ 关键：模糊 */
+  filter: blur(20px);
+
+  animation: fogMove 18s ease-in-out infinite;
+}
+
+/* 🌫️ 第二层：真实雾纹 */
+.fog::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  
+  background: url("https://images.unsplash.com/photo-1549887534-1541e9326642?q=80&w=1200&auto=format&fit=crop");
+  background-size: cover;
+  
+  opacity: 0.12;
+  mix-blend-mode: screen;
+
+  filter: blur(40px);
+  
+  animation: fogDrift 30s linear infinite;
 }
 
 @keyframes fogMove {
-  0%   { transform: translate(0,0); opacity: 0.5; }
-  50%  { transform: translate(-10px, 10px); opacity: 0.7; }
-  100% { transform: translate(0,0); opacity: 0.5; }
+  0%   { transform: translate(0,0); opacity: 0.6; }
+  50%  { transform: translate(-20px, 15px); opacity: 0.8; }
+  100% { transform: translate(0,0); opacity: 0.6; }
+}
+
+@keyframes fogDrift {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-100px); }
 }
 
 /* ✨ 中央微光（聚焦） */
