@@ -20,17 +20,13 @@ body {
     radial-gradient(circle at center, #3a2a1c 0%, #0d0805 100%);
 }
 
-/* 📷 主图 */
 /* 🖼 主容器 */
 
 .wrapper {
-
   position: relative;
-
   width: 100%;
-
   height: 100%;
-
+  max-width: 100vw;
 }
 
 .main-bg {
@@ -211,30 +207,22 @@ body {
 
 <body>
 
+<!-- 🌿 画面 -->
 <div class="wrapper">
   <img src="index-tw-full.jpg" class="main-bg">
+
   <div class="glow"></div>
   <div class="fog-veil"></div>
-  <div class="hotspot book"></div>
-  <div class="hotspot photo"></div>
-  <div class="hotspot card"></div>
-
-</div>
-
-  <img src="index-tw-full.jpg" class="main-bg">
-
-  <div class="glow"></div>
   <div class="fog"></div>
 
-  <!-- 点击区域 -->
   <div class="hotspot book" onclick="goMeaning()"></div>
   <div class="hotspot photo" onclick="goProfile()"></div>
   <div class="hotspot card" onclick="openMenu()"></div>
-
 </div>
 
 <div class="hint">✨ 輕觸物件開始探索</div>
 
+<!-- ⭐ script 放在最下面 -->
 <script>
 function goMeaning() {
   window.location.href = "meaning.html";
