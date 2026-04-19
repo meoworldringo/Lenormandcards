@@ -337,7 +337,6 @@ img {
   width: 220px;
   height: 320px;
 
-  transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;
 
   transition: transform 0.8s ease;
@@ -374,10 +373,8 @@ img {
 }
 
 /* ⭐ 防 iOS 抽风（关键） */
-.card-container,
-.back,
-.front {
-  transform: translateZ(0);
+.card-container {
+  transform: translateZ(0); /* ✅ 只加在这里 */
 }
 
 /* ⭐ 图片填满 */
