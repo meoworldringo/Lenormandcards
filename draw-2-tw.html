@@ -93,45 +93,55 @@ body {
 
   <div class="card-area">
 
-    <!-- 🃏 第一张 -->
-    <div class="card-container">
-
-  <div class="back">
-    <img src="back.jpg">
-  </div>
-
-  <div class="front">
-    <img class="front-img">
-  </div>
-
-</div>
-
-    <!-- 🃏 第二张 -->
+  <!-- 🃏 第一张 -->
   <div class="card-block">
 
-  <div style="perspective:1000px;">
-    
-    <div class="card-container">
+    <div style="perspective:1000px;">
+      <div class="card-container">
 
-      <div class="back">
-        <img src="back.jpg">
+        <div class="back">
+          <img src="back.jpg">
+        </div>
+
+        <div class="front">
+          <img class="front-img">
+        </div>
+
       </div>
+    </div>
 
-      <div class="front">
-        <img class="front-img">
-      </div>
-
+    <div class="text">
+      <h2 class="title"></h2>
+      <p class="meaning"></p>
     </div>
 
   </div>
 
-  <div class="text">
-    <h2 class="title"></h2>
-    <p class="meaning"></p>
+  <!-- 🃏 第二张 -->
+  <div class="card-block">
+
+    <div style="perspective:1000px;">
+      <div class="card-container">
+
+        <div class="back">
+          <img src="back.jpg">
+        </div>
+
+        <div class="front">
+          <img class="front-img">
+        </div>
+
+      </div>
+    </div>
+
+    <div class="text">
+      <h2 class="title"></h2>
+      <p class="meaning"></p>
+    </div>
+
   </div>
 
 </div>
-</div> 
   
 <div style="margin-top:40px; margin-bottom:40px; text-align:center;">
 
@@ -351,14 +361,7 @@ img {
   transform: rotateY(180deg);
 }
 
-.front-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 12px;
-}
-
-  
+/* ⭐关键：让里面的 img 填满 */
 .back img,
 .front img {
   width: 100%;
