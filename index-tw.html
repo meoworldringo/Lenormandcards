@@ -82,6 +82,32 @@ body {
   100% { transform: translateX(-100px); }
 }
 
+.fog-veil {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+
+  /* 🌫️ 整體白霧 */
+  background: rgba(255, 255, 255, 0.35);
+
+  /* ⭐ 讓它變柔（超重要） */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+  .fog-veil::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(circle at 30% 60%, rgba(255,255,255,0.45), transparent 60%),
+    radial-gradient(circle at 70% 40%, rgba(255,255,255,0.2), transparent 60%);
+
+  mix-blend-mode: screen;
+}
+
 /* ✨ 中央微光（聚焦） */
 .glow {
   position: absolute;
