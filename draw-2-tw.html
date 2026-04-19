@@ -359,6 +359,41 @@ img {
   word-break: keep-all;   /* 不乱拆中文 */
 }
 
+  .card-container {
+  width: 220px;
+  height: 320px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+}
+
+.card-container.flipped {
+  transform: rotateY(180deg);
+}
+
+.back, .front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+}
+
+.back {
+  transform: rotateY(0deg);
+}
+
+.front {
+  transform: rotateY(180deg);
+}
+
+.front-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
 /* 🌿 平板（仅纵向）→ 改结构：图片上 / 文字下 */
 @media (max-width: 900px) and (orientation: portrait) {
 
@@ -659,14 +694,30 @@ document.getElementById("drawBtn").addEventListener("click", function() {
   var blocks = document.querySelectorAll(".card-block");
 
   blocks.forEach(function(block) {
-
-    var card = cards[Math.floor(Math.random() * cards.length)];
-
-    block.querySelector(".front-img").src = card;
-    block.querySelector(".title").innerText = titles[card];
-    block.querySelector(".meaning").innerHTML = meanings[card];
-
+    const container = block.querySelector(".card-container");
+    container.classList.remove("flipped"); // 先翻回背面
   });
+
+  setTimeout(function() {
+
+    blocks.forEach(function(block, index) {
+
+      const container = block.querySelector(".card-container");
+
+      var card = cards[Math.floor(Math.random() * cards.length)];
+
+      block.querySelector(".front-img").src = card;
+      block.querySelector(".title").innerText = titles[card];
+      block.querySelector(".meaning").innerHTML = meanings[card];
+
+      // ⭐ 依序翻牌
+      setTimeout(function() {
+        container.classList.add("flipped");
+      }, index * 600); // 每张延迟0.6秒
+
+    });
+
+  }, 300); // 先等一下再开始翻
 
 });
 
