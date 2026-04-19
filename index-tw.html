@@ -41,11 +41,12 @@ body {
   z-index: 2;
 
   background:
-    radial-gradient(circle at 30% 70%, rgba(255,255,255,0.08), transparent 60%),
-    radial-gradient(circle at 70% 30%, rgba(255,255,255,0.06), transparent 60%),
-    radial-gradient(circle at 50% 50%, rgba(255,255,255,0.04), transparent 70%);
+    radial-gradient(circle at 30% 70%, rgba(255,255,255,0.18), transparent 60%),
+    radial-gradient(circle at 70% 30%, rgba(255,255,255,0.14), transparent 60%),
+    radial-gradient(circle at 50% 50%, rgba(255,255,255,0.10), transparent 70%);
 
   animation: fogMove 14s ease-in-out infinite;
+  mix-blend-mode: screen; /* ⭐关键 */
 }
 
 @keyframes fogMove {
@@ -102,6 +103,22 @@ body {
   background: radial-gradient(rgba(255,220,140,0.4), transparent 70%);
   animation: pulse 2.5s infinite;
   border-radius: 20px;
+}
+
+  .book::after,
+.photo::after {
+  content: "";
+  position: absolute;
+  inset: -8%;
+  background: radial-gradient(rgba(255,220,140,0.25), transparent 70%);
+  border-radius: 12px;
+  opacity: 0.4;
+  animation: softGlow 4s infinite;
+}
+
+@keyframes softGlow {
+  0%,100% { opacity: 0.2; }
+  50% { opacity: 0.5; }
 }
 
 @keyframes pulse {
