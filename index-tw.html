@@ -612,33 +612,30 @@ body {
 .fireflies span {
   position: absolute;
 
-  left: var(--x);
-  top: var(--y);
-
   width: 13px;
   height: 13px;
-  border-radius: 50%;
 
   background: radial-gradient(
-  circle,
-  rgba(255,220,120,0.9),
-  rgba(255,220,120,0.4),
-  transparent
-);
+    circle,
+    rgba(255,220,120,0.95) 0%,
+    rgba(255,220,120,0.5) 30%,
+    rgba(255,220,120,0.15) 55%,
+    transparent 70%
+  );
 
+  border-radius: 50%;
+
+  /* ⭐ 光收紧（重点） */
   box-shadow:
-    0 0 6px rgba(255,240,150,0.9),
-    0 0 12px rgba(255,220,120,0.8),
-    0 0 20px rgba(255,200,80,0.6);
+    0 0 4px rgba(255,220,120,0.6),
+    0 0 8px rgba(255,220,120,0.3);
 
-  opacity: 0;
+  /* ❌ 不要再 blur */
+  filter: none;
 
-  animation:
-    fireflyFloat 12s ease-in-out infinite,
-    fireflyBlink 4s ease-in-out infinite;
-
-  animation-delay: var(--d);
+  animation: fireflyFloat 12s linear infinite;
 }
+  
 
 /* ✨ 飘动 */
 @keyframes fireflyFloat {
