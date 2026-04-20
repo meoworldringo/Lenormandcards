@@ -600,57 +600,42 @@ body {
 
 }
 
-  /* ✨ 萤火虫容器 */
+    /* ✨✨✨ 萤火虫 ✨✨✨ */
+
 .fireflies {
-  position: absolute;
+  position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 2;
 }
 
-/* ✨ 单个萤火虫 */
 .fireflies span {
   position: absolute;
-
   width: 13px;
   height: 13px;
-
-  background: radial-gradient(
-    circle,
-    rgba(255,220,120,0.95) 0%,
-    rgba(255,220,120,0.5) 30%,
-    rgba(255,220,120,0.15) 55%,
-    transparent 70%
-  );
-
+  background: radial-gradient(circle, rgba(255,220,120,0.9) 0%, rgba(255,220,120,0) 80%);
+filter: blur(1px);
   border-radius: 50%;
-
-  /* ⭐ 光收紧（重点） */
-  box-shadow:
-    0 0 4px rgba(255,220,120,0.6),
-    0 0 8px rgba(255,220,120,0.3);
-
-  /* ❌ 不要再 blur */
-  filter: none;
-
-  animation: fireflyFloat 12s linear infinite;
-}
-  
-
-/* ✨ 飘动 */
-@keyframes fireflyFloat {
-  0%   { transform: translate(0, 0); }
-  50%  { transform: translate(20px, -30px); }
-  100% { transform: translate(-10px, 20px); }
+  animation: float 12s linear infinite;
+  opacity: 0;
 }
 
-/* ✨ 闪烁 */
-@keyframes fireflyBlink {
-  0%,100% { opacity: 0; }
-  20%     { opacity: 1; }
-  50%     { opacity: 0.6; }
-  80%     { opacity: 1; }
-}
+/* 随机位置 + 时间差（关键） */
+.fireflies span:nth-child(1) { left:10%; top:80%; animation-delay: 0s; }
+.fireflies span:nth-child(2) { left:30%; top:60%; animation-delay: 2s; }
+.fireflies span:nth-child(3) { left:50%; top:90%; animation-delay: 4s; }
+.fireflies span:nth-child(4) { left:70%; top:70%; animation-delay: 1s; }
+.fireflies span:nth-child(5) { left:85%; top:85%; animation-delay: 3s; }
+.fireflies span:nth-child(6) { left:20%; top:40%; animation-delay: 5s; }
+.fireflies span:nth-child(7) { left:60%; top:30%; animation-delay: 6s; }
+.fireflies span:nth-child(8) { left:80%; top:50%; animation-delay: 7s; }
+.fireflies span:nth-child(9)  { left:15%; top:75%; animation-delay: 2.5s; }
+.fireflies span:nth-child(10) { left:40%; top:85%; animation-delay: 1.5s; }
+.fireflies span:nth-child(11) { left:75%; top:20%; animation-delay: 3.5s; }
+.fireflies span:nth-child(12) { left:55%; top:65%; animation-delay: 4.5s; }
+.fireflies span:nth-child(13) { left:6%;  top:55%; animation-delay: 1.2s; }
+.fireflies span:nth-child(14) { left:10%; top:35%; animation-delay: 2.8s; }
+.fireflies span:nth-child(15) { left:18%; top:20%; animation-delay: 4.2s; }
 
   /* 🌑 黑幕 */
 .intro {
