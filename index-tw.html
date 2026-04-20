@@ -348,6 +348,35 @@ body {
   70% { opacity: 0.8; }
   100% { opacity: 0; }
 }
+
+  /* 📱 直屏（手机 / 平板竖） */
+@media (orientation: portrait) {
+
+  /* 📖 书 */
+  .book {
+    bottom: 6%;
+    left: 8%;
+    width: 38%;
+  }
+
+  /* 🖼 相片 */
+  .photo {
+    bottom: 4%;
+    right: 8%;
+    width: 30%;
+    transform: rotate(1.7deg);
+  }
+
+  /* 🃏 牌（主视觉要放大） */
+  .card {
+    top: 47%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+  }
+
+}
+  
 </style>
 </head>
 
