@@ -267,24 +267,8 @@ body {
   object-fit: contain;
   display: block;
 
-  animation: glowCycle 12s infinite;
   animation-delay: 0s;
-  animation-duration: 12s;
-animation-iteration-count: infinite;
-}
-
-
-@keyframes bookCycle {
-  0%,18% {
-    filter:
-      drop-shadow(0 0 12px rgba(180,220,255,0.7)
-      drop-shadow(0 0 30px rgba(180,220,255,1))
-      drop-shadow(0 0 60px rgba(180,220,255,0.8));
-  }
-
-  22%,100% {
-    filter: drop-shadow(0 0 6px rgba(180,220,255,0.2));
-  }
+  animation: glowCycle 12s infinite;
 }
 
 @keyframes bookGlow {
@@ -324,25 +308,10 @@ animation-iteration-count: infinite;
   object-fit: contain;
   display: block;
   
-  animation: glowCycle 12s infinite;
   animation-delay: 8s;
-  animation-duration: 12s;
-animation-iteration-count: infinite;
+  animation: glowCycle 12s infinite;
 }
   
-
-@keyframes cardCycle {
-  60%,78% {
-    filter:
-      drop-shadow(0 0 15px rgba(180,220,255,0.8))
-      drop-shadow(0 0 35px rgba(180,220,255,1))
-      drop-shadow(0 0 70px rgba(180,220,255,0.9));
-  }
-
-  82%,100% {
-    filter: drop-shadow(0 0 8px rgba(180,220,255,0.25));
-  }
-}
   
   /* 🖼 相片 */
 
@@ -365,25 +334,9 @@ animation-iteration-count: infinite;
   display: block;
 
   /* ⭐ 边缘发光（跟牌一样逻辑） */
-  
-  animation: glowCycle 12s infinite;
   animation-delay: 4s;
-  animation-duration: 12s;
-animation-iteration-count: infinite;
+  animation: glowCycle 12s infinite;
 
-}
-
-@keyframes photoCycle {
-  30%,48% {
-    filter:
-      drop-shadow(0 0 12px rgba(180,220,255,0.7))
-      drop-shadow(0 0 30px rgba(180,220,255,1))
-      drop-shadow(0 0 60px rgba(180,220,255,0.8));
-  }
-
-  52%,100% {
-    filter: drop-shadow(0 0 6px rgba(180,220,255,0.2));
-  }
 }
 
 @keyframes photoGlow {
@@ -474,24 +427,18 @@ text-shadow:
 
       
 .t1 {
-  animation: textCycle 12s infinite;
   animation-delay: 0s;
-  animation-duration: 12s;
-animation-iteration-count: infinite;
+  animation: glowCycle 12s infinite;
 }
 
 .t2 {
-  animation: textCycle 12s infinite;
   animation-delay: 4s;
-  animation-duration: 12s;
-animation-iteration-count: infinite;
+  animation: glowCycle 12s infinite;
 }
 
 .t3 {
-  animation: textCycle 12s infinite;
   animation-delay: 8s;
-  animation-duration: 12s;
-animation-iteration-count: infinite;
+  animation: glowCycle 12s infinite;
 }
 
  @keyframes text1 {
