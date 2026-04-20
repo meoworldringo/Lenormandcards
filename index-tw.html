@@ -245,7 +245,7 @@ body {
 }
 
 .crystal {
-  position: absolute;
+  position: absolute;   /* ← 保留这个 */
   top: 1.5%;
   left: 50.5%;
   transform: translateX(-50%);
@@ -255,9 +255,8 @@ body {
   border-radius: 50%;
   z-index: 3;
 
-  position: relative;
+  /* ❌ 不要再写 position: relative */
 
-  /* ⭐ 球体本体（保留但降低强度） */
   background:
     radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), transparent 40%),
     radial-gradient(circle at 70% 70%, rgba(180,220,255,0.4), transparent 70%),
@@ -268,12 +267,8 @@ body {
     0 0 60px rgba(180,220,255,0.3),
     inset 0 0 20px rgba(255,255,255,0.5);
 
-  /* ❗ 先关掉这个（Safari 会吃掉球） */
-  /* backdrop-filter: blur(4px); */
-
   animation: crystalFloat 6s ease-in-out infinite;
 }
-
 
 /* 🌌 雾（主层） */
 .crystal::before {
