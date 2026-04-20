@@ -31,7 +31,7 @@ body {
   filter: brightness(0.6) blur(6px);
 
   animation: sceneReveal 1.8s ease forwards;
-  animation-delay: 4.8s;
+  animation-delay: 6.8s;
 }
 
 @keyframes sceneReveal {
@@ -454,7 +454,7 @@ body {
   justify-content: center;
 
   animation: introFadeOut 2s ease forwards;
-  animation-delay: 4.5s; /* ⭐ 总时长控制 */
+  animation-delay: 6.5s; /* ⭐ 总时长控制 */
 }
 
 /* ✨ 文字容器 */
@@ -470,11 +470,12 @@ body {
   opacity: 0;
   transform: translateY(20px);
 
-  animation: textFlow 2.8s ease forwards;
+  animation: textFlow 3s ease forwards;
+  animation-delay: 2s;  /* ⭐ 这里控制“黑幕多久后才出字” */
 }
 
 .line.delay {
-  animation-delay: 0.8s;
+  animation-delay: 3s;
 }
 
   @keyframes textFlow {
