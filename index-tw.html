@@ -406,7 +406,7 @@ body {
   }
 }
 
- .crystal-text {
+.crystal-text {
   position: absolute;
   inset: 0;
 
@@ -414,17 +414,36 @@ body {
   align-items: center;
   justify-content: center;
 
-  color: #1a1a1a;
-
   font-size: 13px;
   letter-spacing: 1px;
 
-  text-shadow:
-    0 0 4px rgba(255,255,255,0.6),
-    0 0 10px rgba(255,255,255,0.4),
-    0 0 18px rgba(180,220,255,0.6);
+  /* ⭐ 关键：不是纯黑，是“墨蓝黑” */
+  color: #0f1720;
 
-  animation: textBreath 2.5s ease-in-out infinite;
+  /* ⭐ 多层光（外光 + 内光） */
+  text-shadow:
+    0 0 2px rgba(255,255,255,0.8),
+    0 0 6px rgba(180,220,255,0.7),
+    0 0 12px rgba(180,220,255,0.5);
+
+  /* ⭐ 微微发光呼吸 */
+  animation: crystalTextGlow 6s ease-in-out infinite;
+}
+
+  @keyframes crystalTextGlow {
+  0%,100% {
+    text-shadow:
+      0 0 2px rgba(255,255,255,0.6),
+      0 0 6px rgba(180,220,255,0.5),
+      0 0 12px rgba(180,220,255,0.3);
+  }
+
+  50% {
+    text-shadow:
+      0 0 4px rgba(255,255,255,1),
+      0 0 10px rgba(180,220,255,0.9),
+      0 0 20px rgba(180,220,255,0.7);
+  }
 }
   
    .crystal-text span {
