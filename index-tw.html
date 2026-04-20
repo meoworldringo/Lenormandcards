@@ -44,10 +44,6 @@ body {
   animation: none !important;
 }
 
-  .wrapper.active * {
-  animation-delay: var(--start-delay) !important;
-
-}
 
   .wrapper.start .book-img {
   animation: bookGlow 12s infinite;
@@ -73,6 +69,13 @@ body {
 }
 .wrapper.start .t3 {
   animation: t3show 12s infinite;
+}
+
+  .wrapper.active .crystal-text {
+  animation:
+    crystalTextBreath 4s ease-in-out infinite,
+    crystalTextGlow 3s ease-in-out infinite,
+    crystalTextFloat 6s ease-in-out infinite;
 }
 
 @keyframes sceneReveal {
@@ -472,11 +475,6 @@ body {
     0 0 18px rgba(180,220,255,0.4);
 
   /* ⭐ 微呼吸（让它不像UI字） */
-  animation:
-
-    crystalTextBreath 4s ease-in-out infinite,
-    crystalTextGlow 3s ease-in-out infinite,
-    crystalTextFloat 6s ease-in-out infinite;
 }
 
   @keyframes crystalTextBreath {
