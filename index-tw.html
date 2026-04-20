@@ -451,16 +451,20 @@ body {
 
   color: #f3e2a3;
 
+  /* ⭐ 第一层：锐度（关键！） */
   text-shadow:
     0 0 1px rgba(0,0,0,0.9),
-    0 0 6px rgba(255,230,150,0.7),
-    0 0 14px rgba(255,220,140,0.6),
-    0 0 24px rgba(180,220,255,0.5);
 
-  /* ⭐ 关键：多层动画叠加 */
+    /* ⭐ 第二层：轻发光（不要太大） */
+    0 0 4px rgba(255,230,150,0.6),
+    0 0 8px rgba(255,220,140,0.5),
+    0 0 12px rgba(180,220,255,0.4);
+
+  /* ❌ 删除 filter 造成模糊 */
+  /* filter: brightness(...) ← 不要用 */
+
   animation:
     crystalTextBreath 4s ease-in-out infinite,
-    crystalTextGlow 3s ease-in-out infinite,
     crystalTextFloat 6s ease-in-out infinite;
 }
 
