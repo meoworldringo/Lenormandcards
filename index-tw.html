@@ -308,10 +308,10 @@ body {
   border-radius: inherit;
 
   background:
-    radial-gradient(circle at 30% 40%, rgba(120,180,255,0.35), transparent 60%),
-    radial-gradient(circle at 70% 60%, rgba(180,120,255,0.3), transparent 65%),
-    radial-gradient(circle at 50% 50%, rgba(255,120,220,0.2), transparent 70%);
-
+  radial-gradient(circle at 30% 40%, rgba(80,140,255,0.45), transparent 60%),
+  radial-gradient(circle at 70% 60%, rgba(160,80,255,0.4), transparent 65%),
+  radial-gradient(circle at 50% 50%, rgba(255,120,220,0.25), transparent 70%);
+    
   filter: blur(14px);
   opacity: 0.8;
 
@@ -323,20 +323,27 @@ body {
   position: absolute;
   inset: 0;
   border-radius: inherit;
+  overflow: hidden;
 
   background:
-    radial-gradient(2px 2px at 20% 30%, #ffffff, transparent),
-    radial-gradient(3px 3px at 70% 40%, #7fd4ff, transparent),
-    radial-gradient(2px 2px at 40% 70%, #caa6ff, transparent),
-    radial-gradient(3px 3px at 80% 80%, #9be7ff, transparent),
-    radial-gradient(2px 2px at 55% 20%, #ffd6ff, transparent),
-    radial-gradient(3px 3px at 30% 60%, #a0cfff, transparent);
+    radial-gradient(circle, rgba(255,255,255,0.9) 1px, transparent 1px),
+    radial-gradient(circle, rgba(120,180,255,0.9) 1.5px, transparent 1.5px),
+    radial-gradient(circle, rgba(180,120,255,0.8) 1.5px, transparent 1.5px);
 
-  opacity: 0.95;
+  background-size:
+    30px 30px,
+    40px 40px,
+    50px 50px;
 
+  background-position:
+    0 0,
+    10px 20px,
+    20px 10px;
+
+  animation: starFlow 25s linear infinite;
+
+  opacity: 0.9;
   mix-blend-mode: screen;
-
-  animation: starsDrift 20s linear infinite;
 }
 
 @keyframes nebulaFlow {
@@ -350,6 +357,22 @@ body {
 
   100% {
     transform: scale(1) rotate(0deg) translate(0,0);
+  }
+}
+
+  @keyframes starFlow {
+  0% {
+    background-position:
+      0 0,
+      10px 20px,
+      20px 10px;
+  }
+
+  100% {
+    background-position:
+      -60px -80px,
+      -40px -60px,
+      -80px -40px;
   }
 }
 
