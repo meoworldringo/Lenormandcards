@@ -450,26 +450,44 @@ body {
   font-size: 13px;
   letter-spacing: 1px;
 
-  /* ⭐ 核心：金色渐层（不是死金） */
+  /* ⭐ 金色渐层 */
   background: linear-gradient(
-    180deg,
+    120deg,
     #fff6cc 0%,
-    #ffd96a 40%,
+    #ffd96a 30%,
+    #ffec9a 50%,
     #e6b84f 70%,
     #b8892c 100%
   );
 
+  background-size: 200% 200%; /* ⭐ 为动画准备 */
+
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  /* ⭐ 外轮廓（关键：让字清楚） */
+  /* ⭐ 关键：缩小光晕，让字清晰 */
   text-shadow:
-    0 0 2px rgba(0,0,0,0.6),          /* 轻微对比边 */
-    0 0 6px rgba(255,230,150,0.6),    /* 金光 */
-    0 0 12px rgba(180,220,255,0.7),   /* 冷光 */
-    0 0 24px rgba(120,180,255,0.5);
+    0 0 1px rgba(0,0,0,0.7),   /* 锐化边缘（重点！！！） */
+    0 0 6px rgba(255,220,120,0.6),
+    0 0 12px rgba(120,180,255,0.4);
 
-  animation: crystalTextFloat 6s ease-in-out infinite;
+  /* ⭐ 不要 blur！真的不要 */
+  
+  animation:
+    crystalTextFloat 6s ease-in-out infinite,
+    goldFlow 6s linear infinite;
+}
+
+  @keyframes goldFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
   @keyframes crystalTextFloat {
