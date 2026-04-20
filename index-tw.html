@@ -259,9 +259,10 @@ body {
 
   /* ⭐ 球体本体（更通透） */
   background:
-    radial-gradient(circle at 30% 30%, rgba(255,255,255,1), transparent 35%),
-    radial-gradient(circle at 70% 70%, rgba(180,220,255,0.55), transparent 70%),
-    rgba(200,230,255,0.45);
+  radial-gradient(circle at 50% 50%, rgba(255,255,255,0.35), transparent 45%),
+  radial-gradient(circle at 30% 30%, rgba(255,255,255,1), transparent 35%),
+  radial-gradient(circle at 70% 70%, rgba(180,220,255,0.55), transparent 70%),
+  rgba(200,230,255,0.45);
 
   /* ⭐ 核心：外光 + 内光（恢复灵魂） */
   box-shadow:
@@ -301,68 +302,23 @@ body {
   }
 }
 
-  .crystal::before {
+.crystal::before {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: inherit;
 
   background:
-  radial-gradient(circle at 30% 40%, rgba(80,140,255,0.45), transparent 60%),
-  radial-gradient(circle at 70% 60%, rgba(160,80,255,0.4), transparent 65%),
-  radial-gradient(circle at 50% 50%, rgba(255,120,220,0.25), transparent 70%);
-    
-  filter: blur(14px);
-  opacity: 0.8;
+    radial-gradient(circle at 30% 40%, rgba(80,140,255,0.5), transparent 60%),
+    radial-gradient(circle at 70% 60%, rgba(160,80,255,0.45), transparent 65%),
+    radial-gradient(circle at 50% 50%, rgba(255,120,220,0.25), transparent 70%);
 
-  animation: nebulaFlow 18s ease-in-out infinite;
+  filter: blur(18px);
+  opacity: 0.9;
+
+  animation: nebulaFlow 20s ease-in-out infinite;
 }
 
-.crystal::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  overflow: hidden;
-
-  background:
-    radial-gradient(circle, rgba(255,255,255,0.9) 1px, transparent 1px),
-    radial-gradient(circle, rgba(120,180,255,0.9) 1.5px, transparent 1.5px),
-    radial-gradient(circle, rgba(180,120,255,0.8) 1.5px, transparent 1.5px);
-
-  background-size:
-    18px 18px,
-    28px 28px,
-    40px 40px;
-
-  background-position:
-    0 0,
-    10px 20px,
-    20px 10px;
-
-  animation:
-    starFlow1 18s linear infinite,
-    starFlow2 26s linear infinite,
-    starFlow3 32s linear infinite;
-
-  mix-blend-mode: screen;
-  filter: drop-shadow(0 0 6px rgba(180,220,255,0.6));
-}
-
-  @keyframes starFlow1 {
-  0% { background-position: 0 0; }
-  100% { background-position: -80px -120px; }
-}
-
-@keyframes starFlow2 {
-  0% { background-position: 10px 20px; }
-  100% { background-position: 60px -80px; }
-}
-
-@keyframes starFlow3 {
-  0% { background-position: 20px 10px; }
-  100% { background-position: -120px 40px; }
-}
   
 @keyframes nebulaFlow {
   0% {
@@ -370,7 +326,7 @@ body {
   }
 
   50% {
-    transform: scale(1.1) rotate(10deg) translate(5px, -5px);
+    transform: scale(1.15) rotate(8deg) translate(6px, -8px);
   }
 
   100% {
@@ -378,91 +334,37 @@ body {
   }
 }
 
-  @keyframes starFlow {
-  0% {
-    background-position:
-      0 0,
-      10px 20px,
-      20px 10px;
-  }
+  .crystal::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
 
-  100% {
-    background-position:
-      -60px -80px,
-      -40px -60px,
-      -80px -40px;
-  }
+  background:
+    radial-gradient(circle at 40% 30%, rgba(120,180,255,0.25), transparent 70%),
+    radial-gradient(circle at 60% 70%, rgba(180,120,255,0.2), transparent 75%);
+
+  filter: blur(25px);
+  opacity: 0.6;
+
+  animation: nebulaFlow2 30s ease-in-out infinite;
 }
 
-  @keyframes starsDrift {
+  @keyframes nebulaFlow2 {
   0% {
-    transform: translate(0,0);
+    transform: scale(1) rotate(0deg);
   }
 
   50% {
-    transform: translate(-8px, -12px);
+    transform: scale(1.2) rotate(-6deg);
   }
 
   100% {
-    transform: translate(0,0);
+    transform: scale(1) rotate(0deg);
   }
 }
 
-@keyframes starsMove {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-40px);
-  }
-}
-
- @keyframes starsFloat {
-  0%,100% {
-    transform: scale(1);
-    opacity: 0.8;
-  }
-
-  50% {
-    transform: scale(1.05);
-    opacity: 1;
-  }
-}
-  
-  
-  @keyframes glowCycle {
-  0%   { filter: drop-shadow(0 0 30px rgba(180,220,255,1)); }
-  25%  { filter: drop-shadow(0 0 30px rgba(180,220,255,1)); }
-
-  33%  { filter: drop-shadow(0 0 6px rgba(180,220,255,0.2)); }
-  100% { filter: drop-shadow(0 0 6px rgba(180,220,255,0.2)); }
-}
-  
-
-/* 📱 点击反馈 */
-.hotspot:active {
-  transform: scale(0.95);
-}
-
-/* 📝 一次性提示 */
-.hint {
-  position: fixed;
-  bottom: 10%;
-  width: 100%;
-  text-align: center;
-  color: #f5e6c8;
-  font-size: 14px;
-  opacity: 0.8;
-  animation: fadeOut 3s forwards;
-}
-
-@keyframes fadeOut {
-  0% { opacity: 0.8; }
-  70% { opacity: 0.8; }
-  100% { opacity: 0; }
-}
-
-  .sparkle {
+    .sparkle {
   position: absolute;
 
   width: 3px;
@@ -506,6 +408,40 @@ body {
     opacity: 0;
   }
 }
+
+  
+  @keyframes glowCycle {
+  0%   { filter: drop-shadow(0 0 30px rgba(180,220,255,1)); }
+  25%  { filter: drop-shadow(0 0 30px rgba(180,220,255,1)); }
+
+  33%  { filter: drop-shadow(0 0 6px rgba(180,220,255,0.2)); }
+  100% { filter: drop-shadow(0 0 6px rgba(180,220,255,0.2)); }
+}
+  
+
+/* 📱 点击反馈 */
+.hotspot:active {
+  transform: scale(0.95);
+}
+
+/* 📝 一次性提示 */
+.hint {
+  position: fixed;
+  bottom: 10%;
+  width: 100%;
+  text-align: center;
+  color: #f5e6c8;
+  font-size: 14px;
+  opacity: 0.8;
+  animation: fadeOut 3s forwards;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 0.8; }
+  70% { opacity: 0.8; }
+  100% { opacity: 0; }
+}
+
 
   /* 📱 直屏（手机 / 平板竖） */
 @media (orientation: portrait) {
