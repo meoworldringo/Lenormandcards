@@ -599,6 +599,56 @@ body {
 
 }
 
+  /* ✨ 萤火虫容器 */
+.fireflies {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ✨ 单个萤火虫 */
+.fireflies span {
+  position: absolute;
+
+  left: var(--x);
+  top: var(--y);
+
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+
+  background: radial-gradient(circle, #fff8cc, rgba(255,255,200,0));
+
+  box-shadow:
+    0 0 6px rgba(255,240,150,0.9),
+    0 0 12px rgba(255,220,120,0.8),
+    0 0 20px rgba(255,200,80,0.6);
+
+  opacity: 0;
+
+  animation:
+    fireflyFloat 12s ease-in-out infinite,
+    fireflyBlink 4s ease-in-out infinite;
+
+  animation-delay: var(--d);
+}
+
+/* ✨ 飘动 */
+@keyframes fireflyFloat {
+  0%   { transform: translate(0, 0); }
+  50%  { transform: translate(20px, -30px); }
+  100% { transform: translate(-10px, 20px); }
+}
+
+/* ✨ 闪烁 */
+@keyframes fireflyBlink {
+  0%,100% { opacity: 0; }
+  20%     { opacity: 1; }
+  50%     { opacity: 0.6; }
+  80%     { opacity: 1; }
+}
+
   /* 🌑 黑幕 */
 .intro {
   position: fixed;
@@ -687,7 +737,15 @@ body {
 <div class="wrapper">
   <img src="index-tw-full.jpg" class="main-bg">
 
-  <div class="glow"></div>
+  <div class="glow">
+  <div class="fireflies">
+  <span style="--x:10%; --y:20%; --d:0s;"></span>
+  <span style="--x:80%; --y:30%; --d:2s;"></span>
+  <span style="--x:40%; --y:70%; --d:4s;"></span>
+  <span style="--x:70%; --y:60%; --d:1s;"></span>
+  <span style="--x:20%; --y:80%; --d:3s;"></span>
+</div>
+  </div>
   <div class="crystal">
   
 
