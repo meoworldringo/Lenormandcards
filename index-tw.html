@@ -411,10 +411,7 @@ body {
   animation: crystalFloat 6s ease-in-out infinite,
              crystalGlow 5s ease-in-out infinite;
 }
-  u
-      inset 0 0 40px rgba(255,255,255,0.5);
-  }
-}
+  
 
 .crystal-text {
   position: absolute;
@@ -499,8 +496,13 @@ body {
   }
 }
   
-   .crystal-text span {
+ .crystal-text span {
   position: absolute;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
   opacity: 0;
 }
 
