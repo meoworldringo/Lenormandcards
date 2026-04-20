@@ -331,21 +331,39 @@ body {
     radial-gradient(circle, rgba(180,120,255,0.8) 1.5px, transparent 1.5px);
 
   background-size:
-    30px 30px,
-    40px 40px,
-    50px 50px;
+    18px 18px,
+    28px 28px,
+    40px 40px;
 
   background-position:
     0 0,
     10px 20px,
     20px 10px;
 
-  animation: starFlow 25s linear infinite;
+  animation:
+    starFlow1 18s linear infinite,
+    starFlow2 26s linear infinite,
+    starFlow3 32s linear infinite;
 
-  opacity: 0.9;
   mix-blend-mode: screen;
+  filter: drop-shadow(0 0 6px rgba(180,220,255,0.6));
 }
 
+  @keyframes starFlow1 {
+  0% { background-position: 0 0; }
+  100% { background-position: -80px -120px; }
+}
+
+@keyframes starFlow2 {
+  0% { background-position: 10px 20px; }
+  100% { background-position: 60px -80px; }
+}
+
+@keyframes starFlow3 {
+  0% { background-position: 20px 10px; }
+  100% { background-position: -120px 40px; }
+}
+  
 @keyframes nebulaFlow {
   0% {
     transform: scale(1) rotate(0deg) translate(0,0);
