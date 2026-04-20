@@ -40,6 +40,36 @@ body {
   animation-delay: 8.8s; /* ⭐ 原本6.8 → 改成8.8（多停2秒） */
 }
 
+  .wrapper * {
+  animation: none !important;
+}
+
+  .wrapper.start .book-img {
+  animation: bookGlow 12s infinite;
+}
+
+.wrapper.start .cards {
+  animation: cardGlow 12s infinite;
+}
+
+.wrapper.start .photo-img {
+  animation: photoGlow 12s infinite;
+}
+
+.wrapper.start .crystal {
+  animation: crystalPulse 4s ease-in-out infinite;
+}
+
+.wrapper.start .t1 {
+  animation: t1show 12s infinite;
+}
+.wrapper.start .t2 {
+  animation: t2show 12s infinite;
+}
+.wrapper.start .t3 {
+  animation: t3show 12s infinite;
+}
+
 @keyframes sceneReveal {
   0% {
     opacity: 0;
@@ -1009,8 +1039,8 @@ function openMenu() {
 
 window.addEventListener("load", () => {
   setTimeout(() => {
-    document.querySelector(".wrapper").classList.add("active");
-  }, 2000); // ⭐ 这里控制你要停多久（2000 = 2秒）
+    document.querySelector(".wrapper").classList.add("start");
+  }, 2000);
 });
 
 </script>
