@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* 🌌 背景 */
+body {
+  background:
+    radial-gradient(circle at center, rgba(0,0,0,0.6), rgba(0,0,0,0.9)),
+    url("forest.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* 🖼 主容器 */
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  opacity: 0;
+  filter: brightness(0.6) blur(6px);
+  animation: sceneReveal 1.8s ease forwards;
+}
+
+/* 🌅 開場 */
+@keyframes sceneReveal {
+  to {
+    opacity: 1;
+    filter: brightness(1) blur(0);
+  }
+}
+
+.main-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(0.5) contrast(1.2);
+}
+
+/* ✨ 光 */
+.glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255,220,140,0.08), transparent 70%);
+}
+
+/* 📖 書 */
+.book {
+  position: absolute;
+  bottom: 9.7%;
+  left: 21%;
+  width: 24%;
+  transform: rotate(-2.2deg) translateY(2px) translateX(-2px);
+}
+
+.book-img {
+  width: 100%;
+  animation: bookCycle 12s infinite;
+}
+
+/* 🃏 牌 */
+.card {
+  position: absolute;
+  top: 49.5%;
+  left: 50.5%;
+  transform: translate(-50%, -50%) translateX(2px);
+  width: 30.5%;
+  aspect-ratio: 5 / 2;
+}
+
+.cards {
+  width: 100%;
+  animation: cardCycle 12s infinite;
+}
+
+/* 🖼 相片 */
+.photo {
+  position: absolute;
+  bottom: 5.15%;
+  right: 23%;
+  width: 17.3%;
+  transform: rotate(1.7deg);
+}
+
+.photo-img {
+  width: 100%;
+  animation: photoCycle 12s infinite;
+}
+
+/* 🔮 水晶球 */
+.crystal {
+  position: absolute;
+  top: 1.5%;
+  left: 50.5%;
+  transform: translateX(-50%);
+  width: 8%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+
+  background:
+    radial-gradient(circle at 30% 30%, white, transparent 35%),
+    radial-gradient(circle at 70% 70%, rgba(180,220,255,0.55), transparent 70%),
+    rgba(200,230,255,0.45);
+
+  box-shadow:
+    0 0 40px rgba(180,220,255,0.6),
+    0 0 80px rgba(180,220,255,0.5),
+    inset 0 0 30px rgba(255,255,255,0.6);
+}
+
+/* ✨ 文字 */
+.crystal-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f3e2a3;
+}
+
+.crystal-text span {
+  position: absolute;
+  opacity: 0;
+}
+
+.t1 { animation: t1show 12s infinite; }
+.t2 { animation: t2show 12s infinite; }
+.t3 { animation: t3show 12s infinite; }
+
+/* ✨ 發光節奏（完全同步） */
+
+@keyframes bookCycle {
+  0%,20% { filter: drop-shadow(0 0 30px rgba(180,220,255,1)); }
+  25%,100% { filter: drop-shadow(0 0 6px rgba(180,220,255,0.2)); }
+}
+
+@keyframes cardCycle {
+  0%,30% { filter: drop-shadow(0 0 6px rgba(180,220,255,0.2)); }
+  35%,55% { filter: drop-shadow(0 0 30px rgba(180,220,255,1)); }
+  60%,100% { filter: drop-shadow(0 0 6px rgba(180,220,255,0.2)); }
+}
+
+@keyframes photoCycle {
+  0%,60% { filter: drop-shadow(0 0 6px rgba(180,220,255,0.2)); }
+  65%,85% { filter: drop-shadow(0 0 30px rgba(180,220,255,1)); }
+  90%,100% { filter: drop-shadow(0 0 6px rgba(180,220,255,0.2)); }
+}
+
+/* ✨ 文字同步 */
+
+@keyframes t1show {
+  0%,20% { opacity: 1; }
+  25%,100% { opacity: 0; }
+}
+
+@keyframes t2show {
+  0%,30% { opacity: 0; }
+  35%,55% { opacity: 1; }
+  60%,100% { opacity: 0; }
+}
+
+@keyframes t3show {
+  0%,60% { opacity: 0; }
+  65%,85% { opacity: 1; }
+  90%,100% { opacity: 0; }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+  <img src="index-tw-full.jpg" class="main-bg">
+
+  <div class="glow"></div>
+
+  <div class="crystal">
+    <div class="crystal-text">
+      <span class="t1">命運圖譜</span>
+      <span class="t2">幕後編織者</span>
+      <span class="t3">開啟占卜</span>
+    </div>
+  </div>
+
+  <div class="book">
+    <img src="index-book-tw.png" class="book-img">
+  </div>
+
+  <div class="photo">
+    <img src="index-photo.png" class="photo-img">
+  </div>
+
+  <div class="card">
+    <img src="index-card.png" class="cards">
+  </div>
+
+</div>
+
+</body>
+</html>
