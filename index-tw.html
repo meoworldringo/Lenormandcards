@@ -313,17 +313,12 @@ body {
 
   color: #f3e2a3;
 
-  /* ⭐ 第一层：锐度（关键！） */
+  /* ⭐ 关键：锐 + 光 分层 */
   text-shadow:
-    0 0 1px rgba(0,0,0,0.9),
-
-    /* ⭐ 第二层：轻发光（不要太大） */
+    0 0 1px rgba(0,0,0,0.9),   /* 锐边 */
     0 0 4px rgba(255,230,150,0.6),
-    0 0 8px rgba(255,220,140,0.5),
-    0 0 12px rgba(180,220,255,0.4);
-
-  /* ❌ 删除 filter 造成模糊 */
-  /* filter: brightness(...) ← 不要用 */
+    0 0 10px rgba(255,220,140,0.5),
+    0 0 18px rgba(180,220,255,0.4);
 
   animation:
     crystalTextBreath 4s ease-in-out infinite,
