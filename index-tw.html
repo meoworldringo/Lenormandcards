@@ -13,11 +13,12 @@ html, body {
 
 /* 🌌 背景氛围 */
 body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background:
-    radial-gradient(circle at center, #3a2a1c 0%, #0d0805 100%);
+    radial-gradient(circle at center, rgba(0,0,0,0.6), rgba(0,0,0,0.9)),
+    url("forest.jpg");
+
+  background-size: cover;
+  background-position: center;
 }
 
 /* 🖼 主容器 */
@@ -745,8 +746,6 @@ body {
     <span class="t3">開啟占卜</span>
   </div>
 </div>
-  <div class="fog-veil"></div>
-  <div class="fog"></div>
 
   <div class="hotspot book" onclick="goMeaning()">
   <img src="index-book-tw.png" class="book-img">
