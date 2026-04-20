@@ -268,7 +268,12 @@ body {
   display: block;
 
   /* ⭐ 温暖呼吸光（比牌弱一点） */
-  animation: bookGlow 3.5s ease-in-out infinite;
+  animation: bookCycle 9s infinite;
+}
+
+@keyframes bookCycle {
+  0%,20% { filter: drop-shadow(0 0 20px rgba(180,220,255,0.9)); }
+  30%,100% { filter: drop-shadow(0 0 6px rgba(180,220,255,0.3)); }
 }
 
 @keyframes bookGlow {
@@ -306,11 +311,16 @@ body {
   width: 100%;
   height: 100%;
   object-fit: contain;
-
   display: block;
-
-  animation: glowPulse 2s ease-in-out infinite;
+  animation: cardCycle 9s infinite;
   }
+  
+
+@keyframes cardCycle {
+  66%,86% { filter: drop-shadow(0 0 30px rgba(180,220,255,1)); }
+  0%,100% { filter: drop-shadow(0 0 10px rgba(180,220,255,0.3)); }
+}
+
 
   /* 🖼 相片 */
 
@@ -333,7 +343,12 @@ body {
   display: block;
 
   /* ⭐ 边缘发光（跟牌一样逻辑） */
-  animation: photoGlow 3s ease-in-out infinite;
+  animation: photoCycle 9s infinite;
+}
+
+@keyframes photoCycle {
+  33%,53% { filter: drop-shadow(0 0 20px rgba(180,220,255,0.9)); }
+  0%,100% { filter: drop-shadow(0 0 6px rgba(180,220,255,0.3)); }
 }
 
 @keyframes photoGlow {
@@ -364,6 +379,75 @@ body {
   }
 }
 
+  .crystal {
+  position: absolute;
+
+  top: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 18%;
+
+  z-index: 3;
+}
+
+.crystal-img {
+  width: 100%;
+  display: block;
+  animation: crystalGlow 6s ease-in-out infinite;
+}
+
+@keyframes crystalGlow {
+  0%,100% {
+    filter: drop-shadow(0 0 10px rgba(180,220,255,0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 30px rgba(180,220,255,0.9));
+  }
+}
+
+  .crystal-text {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #eaf6ff;
+  font-size: 14px;
+  text-align: center;
+
+  opacity: 0;
+}
+
+  .crystal-text {
+  animation: crystalTextCycle 9s infinite;
+}
+
+@keyframes crystalTextCycle {
+
+  0%, 20% {
+    content: "牌意一覽";
+    opacity: 1;
+  }
+
+  33%, 53% {
+    content: "製作小組";
+    opacity: 1;
+  }
+
+  66%, 86% {
+    content: "開始占卜";
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+  
   .book::after,
 .photo::after {
   content: "";
@@ -532,6 +616,10 @@ body {
   <img src="index-tw-full.jpg" class="main-bg">
 
   <div class="glow"></div>
+  <div class="crystal">
+  <img src="index-crystal.png" class="crystal-img">
+  <div class="crystal-text"></div>
+</div>
   <div class="fog-veil"></div>
   <div class="fog"></div>
 
