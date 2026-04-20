@@ -44,6 +44,9 @@ body {
   animation: none !important;
 }
 
+  .wrapper.active {
+  animation: sceneCycle 12s infinite linear;
+}
 
   .wrapper.start .book-img {
   animation: bookGlow 12s infinite;
@@ -77,6 +80,12 @@ body {
     crystalTextGlow 3s ease-in-out infinite,
     crystalTextFloat 6s ease-in-out infinite;
 }
+
+.t1 { opacity: var(--t1); }
+.t2 { opacity: var(--t2); }
+.t3 { opacity: var(--t3); }
+  
+
 
 @keyframes sceneReveal {
   0% {
@@ -126,6 +135,39 @@ body {
   }
 }
 
+  @keyframes sceneCycle {
+
+  /* 🔹 t1阶段（书亮） */
+  0%, 20% {
+    --book: 1;
+    --card: 0;
+    --photo: 0;
+    --t1: 1;
+    --t2: 0;
+    --t3: 0;
+  }
+
+  /* 🔹 t2阶段（牌亮） */
+  33%, 53% {
+    --book: 0;
+    --card: 1;
+    --photo: 0;
+    --t1: 0;
+    --t2: 1;
+    --t3: 0;
+  }
+
+  /* 🔹 t3阶段（相片亮） */
+  66%, 86% {
+    --book: 0;
+    --card: 0;
+    --photo: 1;
+    --t1: 0;
+    --t2: 0;
+    --t3: 1;
+  }
+}
+  
 .main-bg {
   width: 100%;
   height: 100%;
@@ -310,8 +352,10 @@ body {
   height: 100%;
   object-fit: contain;
   display: block;
+  filter: drop-shadow(0 0 calc(30px * var(--book)) rgba(180,220,255,1));
 
 }
+
 
 @keyframes bookGlow {
   0%,25% {
@@ -347,6 +391,7 @@ body {
   height: 100%;
   object-fit: contain;
   display: block;
+filter: drop-shadow(0 0 calc(30px * var(--book)) rgba(180,220,255,1));
 
 }
 
@@ -386,8 +431,10 @@ body {
   height: 100%;
   object-fit: contain;
   display: block;
+  filter: drop-shadow(0 0 calc(30px * var(--book)) rgba(180,220,255,1));
 
 }
+
 
 @keyframes photoGlow {
   0%,30% {
