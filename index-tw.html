@@ -259,7 +259,7 @@ body {
 
   /* ⭐ 球体本体（更通透） */
   background:
-  radial-gradient(circle at 50% 50%, rgba(255,255,255,0.35), transparent 45%),
+  radial-gradient(circle at 50% 50%, rgba(255,255,255,0.18), transparent 45%),
   radial-gradient(circle at 30% 30%, rgba(255,255,255,1), transparent 35%),
   radial-gradient(circle at 70% 70%, rgba(180,220,255,0.55), transparent 70%),
   rgba(200,230,255,0.45);
@@ -277,6 +277,7 @@ body {
   /* ⭐ 动画（浮 + 呼吸） */
   animation: crystalFloat 6s ease-in-out infinite,
              crystalPulse 4s ease-in-out infinite;
+  position: relative;
 }
   
 @keyframes crystalFloat {
@@ -317,6 +318,7 @@ body {
   opacity: 0.9;
 
   animation: nebulaFlow 20s ease-in-out infinite;
+  z-index: 1;
 }
 
   
