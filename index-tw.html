@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+
+:root {
+  --start-delay: 2s;
+}
+  
 html, body {
   margin: 0;
   height: 100%;
@@ -34,18 +39,6 @@ body {
   animation: sceneReveal 1.8s ease forwards;
   animation-delay: 8.8s; /* ⭐ 原本6.8 → 改成8.8（多停2秒） */
 }
-
-  
-/* ⭐ 全部动画先暂停 */
-.wrapper * {
-  animation-play-state: paused !important;
-}
-
-/* ⭐ 画面出现后才开始 */
-.wrapper.active * {
-  animation-play-state: running !important;
-}
-
 
 @keyframes sceneReveal {
   0% {
@@ -281,6 +274,8 @@ body {
   display: block;
 
   animation: bookGlow 12s infinite;
+
+  animation-delay: var(--start-delay);
 }
 
 @keyframes bookGlow {
@@ -319,6 +314,8 @@ body {
   display: block;
   
   animation: cardGlow 12s infinite;
+
+  animation-delay: var(--start-delay);
 }
 
 @keyframes cardGlow {
@@ -360,6 +357,8 @@ body {
 
   /* ⭐ 边缘发光（跟牌一样逻辑） */
   animation: photoGlow 12s infinite;
+
+  animation-delay: var(--start-delay);
 }
 
 @keyframes photoGlow {
@@ -421,6 +420,7 @@ body {
     inset 0 0 30px rgba(255,255,255,0.6),
     inset 0 0 60px rgba(180,220,255,0.4);  /* ⭐ 内发光 */
   animation: crystalPulse 4s ease-in-out infinite;
+  animation-delay: var(--start-delay);
 
   /* ⭐ 关键：盖掉下面旧球 */
   backdrop-filter: blur(4px);
@@ -534,6 +534,7 @@ body {
   }
 }
 
+  
   @keyframes crystalTextShimmer {
   0%,100% {
     text-shadow:
@@ -605,10 +606,8 @@ body {
 /* 👉 每个文字自己定义“出现区间” */
 
 .t1 {
-  animation: textCycle 12s infinite;
-}
-.t1 {
-  animation-name: t1show;
+  animation: t1show 12s infinite;
+  animation-delay: var(--start-delay);
 }
 
 @keyframes t1show {
@@ -619,9 +618,8 @@ body {
 
 
 .t2 {
-  animation-name: t2show;
-  animation-duration: 12s;
-  animation-iteration-count: infinite;
+  animation: t2show 12s infinite;
+  animation-delay: var(--start-delay);
 }
 
 @keyframes t2show {
@@ -632,9 +630,8 @@ body {
 
 
 .t3 {
-  animation-name: t3show;
-  animation-duration: 12s;
-  animation-iteration-count: infinite;
+  animation: t3show 12s infinite;
+  animation-delay: var(--start-delay);
 }
 
 @keyframes t3show {
