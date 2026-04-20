@@ -977,29 +977,29 @@ body {
 
   /* ⭐ 启动后恢复动画 */
 .wrapper.active .book-img {
-  animation: bookGlow 12s infinite;
+  animation: bookGlow 12s infinite !important;
 }
 
 .wrapper.active .cards {
-  animation: cardGlow 12s infinite;
+  animation: cardGlow 12s infinite !important;
 }
 
 .wrapper.active .photo-img {
-  animation: photoGlow 12s infinite;
+  animation: photoGlow 12s infinite !important;
 }
 
 .wrapper.active .crystal {
-  animation: crystalPulse 4s ease-in-out infinite;
+  animation: crystalPulse 4s ease-in-out infinite !important;
 }
 
 .wrapper.active .t1 {
-  animation: t1show 12s infinite;
+  animation: t1show 12s infinite !important;
 }
 .wrapper.active .t2 {
-  animation: t2show 12s infinite;
+  animation: t2show 12s infinite !important;
 }
 .wrapper.active .t3 {
-  animation: t3show 12s infinite;
+  animation: t3show 12s infinite !important;
 }
   
 </style>
@@ -1064,9 +1064,13 @@ function openMenu() {
 }
 
 window.addEventListener("load", () => {
+
   setTimeout(() => {
-    document.querySelector(".wrapper").classList.add("start");
+
+    document.querySelector(".wrapper").classList.add("active");
+
   }, 2000);
+
 });
 
 </script>
