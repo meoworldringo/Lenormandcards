@@ -272,8 +272,8 @@ body {
 }
 
 @keyframes bookCycle {
-  0%,20% { filter: drop-shadow(0 0 20px rgba(180,220,255,0.9)); }
-  30%,100% { filter: drop-shadow(0 0 6px rgba(180,220,255,0.3)); }
+  0%,20% { filter: drop-shadow(0 0 30px rgba(180,220,255,1)); }
+  25%,100% { filter: drop-shadow(0 0 6px rgba(180,220,255,0.3)); }
 }
 
 @keyframes bookGlow {
@@ -317,10 +317,9 @@ body {
   
 
 @keyframes cardCycle {
-  66%,86% { filter: drop-shadow(0 0 30px rgba(180,220,255,1)); }
-  0%,100% { filter: drop-shadow(0 0 10px rgba(180,220,255,0.3)); }
+  66%,86% { filter: drop-shadow(0 0 35px rgba(180,220,255,1)); }
+  0%,100% { filter: drop-shadow(0 0 8px rgba(180,220,255,0.3)); }
 }
-
 
   /* 🖼 相片 */
 
@@ -347,7 +346,7 @@ body {
 }
 
 @keyframes photoCycle {
-  33%,53% { filter: drop-shadow(0 0 20px rgba(180,220,255,0.9)); }
+  33%,53% { filter: drop-shadow(0 0 30px rgba(180,220,255,1)); }
   0%,100% { filter: drop-shadow(0 0 6px rgba(180,220,255,0.3)); }
 }
 
@@ -394,7 +393,7 @@ body {
 .crystal-img {
   width: 100%;
   display: block;
-  animation: crystalGlow 6s ease-in-out infinite;
+  animation: crystalGlow 9s ease-in-out infinite;
 }
 
 @keyframes crystalGlow {
@@ -414,7 +413,12 @@ body {
   align-items: center;
   justify-content: center;
 
-  color: #eaf6ff;
+  color: #f5d48a;
+
+text-shadow:
+  0 0 6px rgba(255,220,140,0.8),
+  0 0 12px rgba(255,220,140,0.6),
+  0 0 20px rgba(255,220,140,0.4);
   font-size: 13px;
   letter-spacing: 1px;
 
@@ -425,7 +429,7 @@ body {
   
    .crystal-text span {
   position: absolute;
-  opacity：0;
+  opacity: 0;
 }
 
       
