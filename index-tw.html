@@ -30,19 +30,46 @@ body {
   opacity: 0;
   filter: brightness(0.6) blur(6px);
 
-  animation: sceneReveal 3s ease forwards;
+  animation: sceneReveal 1s ease forwards;
   animation-delay: 5s;
 }
 
 @keyframes sceneReveal {
   0% {
     opacity: 0;
-    filter: brightness(0.6) blur(6px);
+    filter: brightness(0.45) blur(10px);
   }
-  50% {
-    opacity: 0.6;
-    filter: brightness(0.8) blur(3px);
+
+  15% {
+    opacity: 0.15;
+    filter: brightness(0.55) blur(8px);
   }
+
+  30% {
+    opacity: 0.35;
+    filter: brightness(0.65) blur(6px);
+  }
+
+  45% {
+    opacity: 0.55;
+    filter: brightness(0.75) blur(4px);
+  }
+
+  60% {
+    opacity: 0.7;
+    filter: brightness(0.82) blur(3px);
+  }
+
+  75% {
+    opacity: 0.85;
+    filter: brightness(0.9) blur(2px);
+  }
+
+  90% {
+    opacity: 0.95;
+    filter: brightness(0.96) blur(1px);
+  }
+
   100% {
     opacity: 1;
     filter: brightness(1) blur(0);
@@ -60,7 +87,7 @@ body {
   height: 100%;
   object-fit: contain;
   width: 100%;
-  filter: brightness(0.6) contrast(1.1);
+  filter: brightness(0.5) contrast(1.2);
 }
 
 /* 🌫️ 第二层：真实雾纹 */
