@@ -450,19 +450,19 @@ body {
   font-size: 13px;
   letter-spacing: 1px;
 
-  /* ⭐ 关键：不要纯色，用“半透明发光字” */
-  color: rgba(255,255,255,0.85);
+  /* ⭐ 关键：字本体是深色 */
+  color: rgba(30, 40, 55, 0.85);
 
-  /* ⭐ 多层魔法光（重点） */
+  /* ⭐ 外发光（制造魔法感） */
   text-shadow:
-    0 0 4px rgba(255,255,255,0.9),
-    0 0 10px rgba(180,220,255,0.9),
-    0 0 20px rgba(180,220,255,0.8),
-    0 0 40px rgba(180,220,255,0.6);
+    0 0 6px rgba(255,255,255,0.9),
+    0 0 12px rgba(180,220,255,0.9),
+    0 0 24px rgba(180,220,255,0.7);
 
-  /* ⭐ 微微漂浮（让它不像贴上去） */
-  animation: crystalTextFloat 6s ease-in-out infinite;
+  /* ⭐ 融合进球 */
   mix-blend-mode: screen;
+
+  animation: crystalTextFloat 6s ease-in-out infinite;
 }
 
   @keyframes crystalTextFloat {
