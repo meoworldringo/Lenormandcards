@@ -40,6 +40,11 @@ body {
   animation-delay: 8.8s; /* ⭐ 原本6.8 → 改成8.8（多停2秒） */
 }
 
+/* ⭐ 一开始全部动画关闭 */
+.wrapper * {
+  animation: none !important;
+}
+
   .wrapper * {
   animation: none !important;
 }
@@ -305,7 +310,6 @@ body {
 
   animation: bookGlow 12s infinite;
 
-  animation-delay: var(--start-delay);
 }
 
 @keyframes bookGlow {
@@ -345,7 +349,6 @@ body {
   
   animation: cardGlow 12s infinite;
 
-  animation-delay: var(--start-delay);
 }
 
 @keyframes cardGlow {
@@ -388,7 +391,6 @@ body {
   /* ⭐ 边缘发光（跟牌一样逻辑） */
   animation: photoGlow 12s infinite;
 
-  animation-delay: var(--start-delay);
 }
 
 @keyframes photoGlow {
@@ -450,7 +452,7 @@ body {
     inset 0 0 30px rgba(255,255,255,0.6),
     inset 0 0 60px rgba(180,220,255,0.4);  /* ⭐ 内发光 */
   animation: crystalPulse 4s ease-in-out infinite;
-  animation-delay: var(--start-delay);
+
 
   /* ⭐ 关键：盖掉下面旧球 */
   backdrop-filter: blur(4px);
@@ -637,7 +639,6 @@ body {
 
 .t1 {
   animation: t1show 12s infinite;
-  animation-delay: var(--start-delay);
 }
 
 @keyframes t1show {
@@ -649,7 +650,6 @@ body {
 
 .t2 {
   animation: t2show 12s infinite;
-  animation-delay: var(--start-delay);
 }
 
 @keyframes t2show {
@@ -661,7 +661,6 @@ body {
 
 .t3 {
   animation: t3show 12s infinite;
-  animation-delay: var(--start-delay);
 }
 
 @keyframes t3show {
@@ -974,6 +973,33 @@ body {
     opacity: 0;
     visibility: hidden;
   }
+}
+
+  /* ⭐ 启动后恢复动画 */
+.wrapper.active .book-img {
+  animation: bookGlow 12s infinite;
+}
+
+.wrapper.active .cards {
+  animation: cardGlow 12s infinite;
+}
+
+.wrapper.active .photo-img {
+  animation: photoGlow 12s infinite;
+}
+
+.wrapper.active .crystal {
+  animation: crystalPulse 4s ease-in-out infinite;
+}
+
+.wrapper.active .t1 {
+  animation: t1show 12s infinite;
+}
+.wrapper.active .t2 {
+  animation: t2show 12s infinite;
+}
+.wrapper.active .t3 {
+  animation: t3show 12s infinite;
 }
   
 </style>
