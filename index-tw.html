@@ -37,7 +37,6 @@ body {
   filter: brightness(0.6) blur(6px);
 
   animation: sceneReveal 1.8s ease forwards;
-  animation-delay: 8.8s; /* ⭐ 原本6.8 → 改成8.8（多停2秒） */
 }
 
 /* ⭐ 一开始全部动画关闭 */
@@ -45,8 +44,9 @@ body {
   animation: none !important;
 }
 
-  .wrapper * {
-  animation: none !important;
+  .wrapper.active * {
+  animation-delay: var(--start-delay) !important;
+ animation-delay: 0s !important;
 }
 
   .wrapper.start .book-img {
