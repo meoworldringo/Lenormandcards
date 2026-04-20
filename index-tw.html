@@ -300,6 +300,61 @@ body {
       inset 0 0 40px rgba(255,255,255,0.8);
   }
 }
+
+  .crystal::before {
+  content: "";
+  position: absolute;
+  inset: 10%;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(circle at 30% 40%, rgba(180,220,255,0.4), transparent 60%),
+    radial-gradient(circle at 70% 60%, rgba(120,180,255,0.35), transparent 65%),
+    radial-gradient(circle at 50% 50%, rgba(255,255,255,0.2), transparent 70%);
+
+  filter: blur(8px);
+  opacity: 0.8;
+
+  animation: nebulaFlow 12s ease-in-out infinite;
+}
+
+  .crystal::after {
+  content: "";
+  position: absolute;
+  inset: 15%;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(circle, white 1px, transparent 1px);
+
+  background-size: 20px 20px;
+  opacity: 0.6;
+
+  animation: starsMove 20s linear infinite;
+}
+
+  @keyframes nebulaFlow {
+  0%,100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: scale(1.1) rotate(15deg);
+    opacity: 1;
+  }
+}
+
+@keyframes starsMove {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-40px);
+  }
+}
   
   
   @keyframes glowCycle {
