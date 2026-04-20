@@ -199,7 +199,13 @@ body {
 
   width: 23.5%;
 
-  transform: skewY(-1.5deg);  /* ⭐ 关键 */
+  transform:
+
+    perspective(800px)
+
+    rotateX(8deg)   /* ⭐ 左上往上（关键） */
+
+    rotateZ(-2deg); /* 微歪 */
 
   pointer-events: auto;
 }
