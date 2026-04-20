@@ -37,6 +37,18 @@ body {
   filter: brightness(0.6) blur(6px);
 
   animation: sceneReveal 1.8s ease forwards;
+
+  --book: 0;
+
+  --card: 0;
+
+  --photo: 0;
+
+  --t1: 0;
+
+  --t2: 0;
+
+  --t3: 0;
 }
 
 /* ⭐ 一开始全部动画关闭 */
@@ -48,31 +60,6 @@ body {
   animation: sceneCycle 12s infinite linear;
 }
 
-  .wrapper.start .book-img {
-  animation: bookGlow 12s infinite;
-}
-
-.wrapper.start .cards {
-  animation: cardGlow 12s infinite;
-}
-
-.wrapper.start .photo-img {
-  animation: photoGlow 12s infinite;
-}
-
-.wrapper.start .crystal {
-  animation: crystalPulse 4s ease-in-out infinite;
-}
-
-.wrapper.start .t1 {
-  animation: t1show 12s infinite;
-}
-.wrapper.start .t2 {
-  animation: t2show 12s infinite;
-}
-.wrapper.start .t3 {
-  animation: t3show 12s infinite;
-}
 
   .wrapper.active .crystal-text {
   animation:
@@ -352,7 +339,6 @@ body {
   height: 100%;
   object-fit: contain;
   display: block;
-  filter: drop-shadow(0 0 calc(30px * var(--book)) rgba(180,220,255,1));
 
 }
 
@@ -391,7 +377,6 @@ body {
   height: 100%;
   object-fit: contain;
   display: block;
-filter: drop-shadow(0 0 calc(30px * var(--book)) rgba(180,220,255,1));
 
 }
 
@@ -431,7 +416,6 @@ filter: drop-shadow(0 0 calc(30px * var(--book)) rgba(180,220,255,1));
   height: 100%;
   object-fit: contain;
   display: block;
-  filter: drop-shadow(0 0 calc(30px * var(--book)) rgba(180,220,255,1));
 
 }
 
