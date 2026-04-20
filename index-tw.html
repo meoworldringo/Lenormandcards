@@ -402,14 +402,16 @@ body {
     
   /* ⭐ 外光 + 内光 */
   box-shadow:
-    0 0 40px rgba(180,220,255,0.5),
-    inset 0 0 25px rgba(255,255,255,0.4);
+
+    0 0 40px rgba(180,220,255,0.6),
+    0 0 80px rgba(180,220,255,0.5),
+    0 0 120px rgba(120,180,255,0.4),   /* ⭐ 外扩光 */
+    inset 0 0 30px rgba(255,255,255,0.6),
+    inset 0 0 60px rgba(180,220,255,0.4);  /* ⭐ 内发光 */
+  animation: crystalPulse 4s ease-in-out infinite;
 
   /* ⭐ 关键：盖掉下面旧球 */
-  backdrop-filter: blur(6px);
-
-  animation: crystalFloat 6s ease-in-out infinite,
-             crystalGlow 5s ease-in-out infinite;
+  backdrop-filter: blur(5px);
 }
   
 
@@ -435,8 +437,11 @@ body {
     0 0 18px rgba(180,220,255,0.4);
 
   /* ⭐ 微呼吸（让它不像UI字） */
-  animation: crystalTextBreath 5s ease-in-out infinite,
-             crystalTextFloat 6s ease-in-out infinite;
+  animation:
+
+    crystalTextBreath 4s ease-in-out infinite,
+    crystalTextGlow 3s ease-in-out infinite,
+    crystalTextFloat 6s ease-in-out infinite;
 }
 
   @keyframes crystalTextBreath {
@@ -455,6 +460,30 @@ body {
       0 0 16px rgba(255,220,140,0.7),
       0 0 28px rgba(180,220,255,0.5);
   }
+}
+
+  .crystal::after {
+  content: "";
+  position: absolute;
+  inset: 20%;
+
+  background: radial-gradient(circle,
+    rgba(255,255,255,0.9),
+    rgba(180,220,255,0.6),
+    transparent 70%
+  );
+
+  border-radius: 50%;
+
+  filter: blur(15px);
+  opacity: 0.8;
+
+  animation: corePulse 3s ease-in-out infinite;
+}
+
+  @keyframes corePulse {
+  0%,100% { opacity: 0.6; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.1); }
 }
 
   @keyframes goldFlow {
@@ -480,7 +509,7 @@ body {
   }
 }
 
-  @keyframes crystalTextGlow {
+  @keyframes crystalTextShimmer {
   0%,100% {
     text-shadow:
       0 0 2px rgba(255,255,255,0.6),
@@ -495,6 +524,16 @@ body {
       0 0 20px rgba(180,220,255,0.7);
   }
 }
+
+  @keyframes crystalTextGlow {
+  0%,100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.6);
+  }
+}
+  
   
  .crystal-text span {
   position: absolute;
