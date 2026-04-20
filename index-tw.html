@@ -23,13 +23,30 @@ body {
 /* 🖼 主容器 */
 
 .wrapper {
-  position: relative;   /* ⭐ 补回来（关键） */
+  position: relative;
   width: 100%;
   height: 100%;
 
   opacity: 0;
-  animation: sceneFadeIn 2s ease forwards;
-  animation-delay: 4.8s;
+  filter: brightness(0.6) blur(6px);
+
+  animation: sceneReveal 2.5s ease forwards;
+  animation-delay: 5s;
+}
+
+@keyframes sceneReveal {
+  0% {
+    opacity: 0;
+    filter: brightness(0.6) blur(6px);
+  }
+  50% {
+    opacity: 0.6;
+    filter: brightness(0.8) blur(3px);
+  }
+  100% {
+    opacity: 1;
+    filter: brightness(1) blur(0);
+  }
 }
 
 @keyframes sceneFadeIn {
