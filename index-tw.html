@@ -32,7 +32,7 @@ body {
   filter: brightness(0.6) blur(6px);
 
   animation: sceneReveal 1.8s ease forwards;
-  animation-delay: 6.8s;
+  animation-delay: 8.8s; /* ⭐ 原本6.8 → 改成8.8（多停2秒） */
 }
 
 @keyframes sceneReveal {
@@ -581,16 +581,54 @@ body {
   }
 }
       
-.t1 {
-  animation: textCycle 12s infinite 6.8s;
+@keyframes textCycle {
+
+  /* ❄️ 全部默认隐藏 */
+  0%, 100% {
+    opacity: 0;
+  }
+
 }
+
+/* 👉 每个文字自己定义“出现区间” */
+
+.t1 {
+  animation: textCycle 12s infinite;
+}
+.t1 {
+  animation-name: t1show;
+}
+
+@keyframes t1show {
+  0%, 20% { opacity: 0; }
+  25%, 40% { opacity: 1; }
+  45%,100% { opacity: 0; }
+}
+
 
 .t2 {
-  animation: textCycle 12s infinite calc(6.8s + 4.2s);
+  animation-name: t2show;
+  animation-duration: 12s;
+  animation-iteration-count: infinite;
 }
 
+@keyframes t2show {
+  0%, 40% { opacity: 0; }
+  45%, 60% { opacity: 1; }
+  65%,100% { opacity: 0; }
+}
+
+
 .t3 {
-  animation: textCycle 12s infinite calc(6.8s + 8.4s);
+  animation-name: t3show;
+  animation-duration: 12s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes t3show {
+  0%, 60% { opacity: 0; }
+  65%, 80% { opacity: 1; }
+  85%,100% { opacity: 0; }
 }
 
  @keyframes text1 {
