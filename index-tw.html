@@ -386,7 +386,7 @@ body {
   left: 50%;
   transform: translateX(-50%);
 
-  width: 12%;
+  width: 11.5%;
 
   z-index: 3;
 }
@@ -415,15 +415,22 @@ body {
   justify-content: center;
 
   color: #eaf6ff;
-  font-size: 14px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-shadow:
+
+    0 0 6px rgba(180,220,255,0.8),
+    0 0 12px rgba(180,220,255,0.6);
+    
   text-align: center;
 
   opacity: 0;
-}
-
-  .crystal-text {
   animation: crystalTextCycle 9s infinite;
 }
+  
+    .crystal-text span {
+  position: absolute;
+  opacity: 0;
 
 @keyframes crystalTextCycle {
 
@@ -446,7 +453,33 @@ body {
     opacity: 0;
   }
 }
+      
+.t1 {
+  animation: text1 9s infinite;
+}
 
+.t2 {
+  animation: text2 9s infinite;
+}
+
+.t3 {
+  animation: text3 9s infinite;
+}
+
+  @keyframes text1 {
+  0%,20% { opacity: 1; }
+  25%,100% { opacity: 0; }
+}
+
+@keyframes text2 {
+  33%,53% { opacity: 1; }
+  0%,100% { opacity: 0; }
+}
+
+@keyframes text3 {
+  66%,86% { opacity: 1; }
+  0%,100% { opacity: 0; }
+}
   
   .book::after,
 .photo::after {
@@ -618,7 +651,12 @@ body {
   <div class="glow"></div>
   <div class="crystal">
   <img src="index-crystal.png" class="crystal-img">
-  <div class="crystal-text"></div>
+
+  <div class="crystal-text">
+    <span class="t1">牌意一覽</span>
+    <span class="t2">製作小組</span>
+    <span class="t3">開始占卜</span>
+  </div>
 </div>
   <div class="fog-veil"></div>
   <div class="fog"></div>
