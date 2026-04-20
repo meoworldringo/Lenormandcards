@@ -258,9 +258,14 @@ body {
   /* ❌ 不要再写 position: relative */
 
   background:
-    radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), transparent 40%),
-    radial-gradient(circle at 70% 70%, rgba(180,220,255,0.4), transparent 70%),
-    rgba(200,230,255,0.25);
+  /* ⭐ 中心遮挡（关键！） */
+  radial-gradient(circle at 50% 50%, rgba(200,230,255,0.55), rgba(200,230,255,0.25) 40%, transparent 65%),
+
+  /* ⭐ 高光 */
+  radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), transparent 35%),
+
+  /* ⭐ 边缘冷光 */
+  radial-gradient(circle at 70% 70%, rgba(180,220,255,0.4), transparent 70%);
 
   box-shadow:
     0 0 30px rgba(180,220,255,0.4),
