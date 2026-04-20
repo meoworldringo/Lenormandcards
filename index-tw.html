@@ -382,11 +382,11 @@ body {
   .crystal {
   position: absolute;
 
-  top: 4.5%;      /* ⭐ 之后微调 */
+  top: 0.5%;      /* ⭐ 之后微调 */
   left: 50%;
   transform: translateX(-50%);
 
-  width: 10.5%;   /* ⭐ 之后微调 */
+  width: 8.2%;   /* ⭐ 之后微调 */
   aspect-ratio: 1 / 1;
 
   border-radius: 50%;
@@ -395,17 +395,17 @@ body {
 
   /* ⭐ 球体本体 */
   background:
-    radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), transparent 35%),
-    radial-gradient(circle at 70% 70%, rgba(180,220,255,0.35), transparent 70%),
-    rgba(200,230,255,0.12);
-
+  radial-gradient(circle at 30% 30%, rgba(255,255,255,1), transparent 35%),
+  radial-gradient(circle at 70% 70%, rgba(180,220,255,0.55), transparent 70%),
+  rgba(200,230,255,0.45);  /* ⭐ 从 0.25 → 提高到 0.45 */
+    
   /* ⭐ 外光 + 内光 */
   box-shadow:
     0 0 40px rgba(180,220,255,0.5),
     inset 0 0 25px rgba(255,255,255,0.4);
 
   /* ⭐ 关键：盖掉下面旧球 */
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(6px);
 
   animation: crystalFloat 6s ease-in-out infinite,
              crystalGlow 5s ease-in-out infinite;
