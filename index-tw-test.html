@@ -6,6 +6,10 @@
 
 <style>
 
+:root {
+  --start-delay: 4s; /* ⭐ 全部动画统一起跑时间 */
+}
+
 html, body {
   margin: 0;
   height: 100%;
@@ -21,7 +25,47 @@ body {
   background-position: center;
 }
 
-/* 🖼 主容器 */
+/* 🌑 开场黑幕 */
+.intro {
+  position: fixed;
+  inset: 0;
+  background: black;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: introFadeOut 2s ease forwards;
+  animation-delay: 4s;
+}
+
+.intro-text {
+  color: #e8e0d0;
+  text-align: center;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+
+.line {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: textFlow 2s ease forwards;
+}
+
+.line:nth-child(1) { animation-delay: 1s; }
+.line:nth-child(2) { animation-delay: 2s; }
+
+@keyframes textFlow {
+  0% { opacity: 0; transform: translateY(20px) blur(6px);}
+  30% { opacity: 1; transform: translateY(0) blur(0);}
+  70% { opacity: 1;}
+  100% { opacity: 0; transform: translateY(-10px) blur(4px);}
+}
+
+@keyframes introFadeOut {
+  to { opacity: 0; visibility: hidden; }
+}
+
+/* 🖼 主场景 */
 .wrapper {
   position: relative;
   width: 100%;
@@ -29,10 +73,11 @@ body {
 
   opacity: 0;
   filter: brightness(0.6) blur(6px);
-  animation: sceneReveal 1.8s ease forwards;
+
+  animation: sceneReveal 2s ease forwards;
+  animation-delay: 2s;
 }
 
-/* 🌅 開場 */
 @keyframes sceneReveal {
   to {
     opacity: 1;
@@ -47,14 +92,14 @@ body {
   filter: brightness(0.5) contrast(1.2);
 }
 
-/* ✨ 光 */
+/* ✨ 中央光 */
 .glow {
   position: absolute;
   inset: 0;
   background: radial-gradient(circle at center, rgba(255,220,140,0.08), transparent 70%);
 }
 
-/* 📖 書 */
+/* 📖 书 */
 .book {
   position: absolute;
   bottom: 9.7%;
@@ -66,6 +111,7 @@ body {
 .book-img {
   width: 100%;
   animation: bookCycle 12s infinite;
+  animation-delay: var(--start-delay);
 }
 
 /* 🃏 牌 */
@@ -75,12 +121,13 @@ body {
   left: 50.5%;
   transform: translate(-50%, -50%) translateX(2px);
   width: 30.5%;
-  aspect-ratio: 5 / 2;
+  aspect-ratio: 5/2;
 }
 
 .cards {
   width: 100%;
   animation: cardCycle 12s infinite;
+  animation-delay: var(--start-delay);
 }
 
 /* 🖼 相片 */
@@ -95,6 +142,7 @@ body {
 .photo-img {
   width: 100%;
   animation: photoCycle 12s infinite;
+  animation-delay: var(--start-delay);
 }
 
 /* 🔮 水晶球 */
@@ -118,7 +166,7 @@ body {
     inset 0 0 30px rgba(255,255,255,0.6);
 }
 
-/* ✨ 文字 */
+/* ✨ 水晶球文字 */
 .crystal-text {
   position: absolute;
   inset: 0;
@@ -133,12 +181,12 @@ body {
   opacity: 0;
 }
 
-.t1 { animation: t1show 12s infinite; }
-.t2 { animation: t2show 12s infinite; }
-.t3 { animation: t3show 12s infinite; }
+/* ⭐ 同步文字 */
+.t1 { animation: t1show 12s infinite; animation-delay: var(--start-delay);}
+.t2 { animation: t2show 12s infinite; animation-delay: var(--start-delay);}
+.t3 { animation: t3show 12s infinite; animation-delay: var(--start-delay);}
 
-/* ✨ 發光節奏（完全同步） */
-
+/* ⭐ 发光节奏（完全同步） */
 @keyframes bookCycle {
   0%,20% { filter: drop-shadow(0 0 30px rgba(180,220,255,1)); }
   25%,100% { filter: drop-shadow(0 0 6px rgba(180,220,255,0.2)); }
@@ -156,8 +204,7 @@ body {
   90%,100% { filter: drop-shadow(0 0 6px rgba(180,220,255,0.2)); }
 }
 
-/* ✨ 文字同步 */
-
+/* ⭐ 文字同步 */
 @keyframes t1show {
   0%,20% { opacity: 1; }
   25%,100% { opacity: 0; }
@@ -179,6 +226,13 @@ body {
 </head>
 
 <body>
+
+<div class="intro">
+  <div class="intro-text">
+    <p class="line">與AI共同編織的雷諾曼世界，</p>
+    <p class="line">歡迎來到——秘密集市！</p>
+  </div>
+</div>
 
 <div class="wrapper">
 
