@@ -450,18 +450,20 @@ body {
   font-size: 13px;
   letter-spacing: 1px;
 
-  /* ⭐ 本体要深一点 */
-  color: rgba(20, 30, 40, 0.9);
+  /* ⭐ 关键：用“冷白偏蓝”，不是纯白 */
+  color: rgba(210, 230, 255, 0.95);
 
-  /* ⭐ 发光层（重点） */
+  /* ⭐ 核心：内暗 + 外光（重点！！） */
   text-shadow:
-    0 0 4px rgba(255,255,255,1),
-    0 0 10px rgba(180,220,255,0.9),
-    0 0 20px rgba(180,220,255,0.7),
-    0 0 40px rgba(180,220,255,0.5);
+    0 0 2px rgba(0,0,0,0.6),          /* ⭐ 这行是救命的（对比） */
+    0 0 8px rgba(180,220,255,0.9),
+    0 0 18px rgba(150,200,255,0.8),
+    0 0 36px rgba(120,180,255,0.6);
+
+  /* ⭐ 微雾，让它不像UI字体 */
+  filter: blur(0.3px);
 
   animation: crystalTextFloat 6s ease-in-out infinite;
-  filter: blur(0.3px);
 }
 
   @keyframes crystalTextFloat {
