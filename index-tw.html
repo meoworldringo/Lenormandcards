@@ -411,22 +411,7 @@ body {
   animation: crystalFloat 6s ease-in-out infinite,
              crystalGlow 5s ease-in-out infinite;
 }
-  
-
-  @keyframes crystalFloat {
-  0%,100% { transform: translateX(-50%) translateY(0); }
-  50%     { transform: translateX(-50%) translateY(-6px); }
-}
-
-@keyframes crystalGlow {
-  0%,100% {
-    box-shadow:
-      0 0 30px rgba(180,220,255,0.4),
-      inset 0 0 20px rgba(255,255,255,0.3);
-  }
-  50% {
-    box-shadow:
-      0 0 70px rgba(180,220,255,0.8),
+  u
       inset 0 0 40px rgba(255,255,255,0.5);
   }
 }
@@ -442,32 +427,37 @@ body {
   font-size: 13px;
   letter-spacing: 1px;
 
-  /* ⭐ 金色渐层 */
-  background: linear-gradient(
-    120deg,
-    #fff6cc 0%,
-    #ffd96a 30%,
-    #ffec9a 50%,
-    #e6b84f 70%,
-    #b8892c 100%
-  );
+  /* ⭐ 字本体：暖金（不是亮金） */
+  color: #f3e2a3;
 
-  background-size: 200% 200%; /* ⭐ 为动画准备 */
-
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  /* ⭐ 关键：缩小光晕，让字清晰 */
+  /* ⭐ 核心：多层发光（外魔法 + 内锐度） */
   text-shadow:
-    0 0 1px rgba(0,0,0,0.7),   /* 锐化边缘（重点！！！） */
-    0 0 6px rgba(255,220,120,0.6),
-    0 0 12px rgba(120,180,255,0.4);
+    0 0 1px rgba(0,0,0,0.8),      /* ⭐ 锐化边缘 */
+    0 0 4px rgba(255,230,150,0.6),
+    0 0 10px rgba(255,220,140,0.5),
+    0 0 18px rgba(180,220,255,0.4);
 
-  /* ⭐ 不要 blur！真的不要 */
-  
-  animation:
-    crystalTextFloat 6s ease-in-out infinite,
-    goldFlow 6s linear infinite;
+  /* ⭐ 微呼吸（让它不像UI字） */
+  animation: crystalTextBreath 5s ease-in-out infinite,
+             crystalTextFloat 6s ease-in-out infinite;
+}
+
+  @keyframes crystalTextBreath {
+  0%,100% {
+    text-shadow:
+      0 0 1px rgba(0,0,0,0.8),
+      0 0 4px rgba(255,230,150,0.5),
+      0 0 10px rgba(255,220,140,0.4),
+      0 0 18px rgba(180,220,255,0.3);
+  }
+
+  50% {
+    text-shadow:
+      0 0 2px rgba(0,0,0,0.9),
+      0 0 8px rgba(255,240,180,0.9),
+      0 0 16px rgba(255,220,140,0.7),
+      0 0 28px rgba(180,220,255,0.5);
+  }
 }
 
   @keyframes goldFlow {
