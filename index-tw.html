@@ -450,18 +450,27 @@ body {
   font-size: 13px;
   letter-spacing: 1px;
 
-  /* ⭐ 关键：用“冷白偏蓝”，不是纯白 */
-  color: rgba(210, 230, 255, 0.95);
+  /* ⭐ 核心：金色渐层（不是死金） */
+  background: linear-gradient(
+    180deg,
+    #fff6cc 0%,
+    #ffd96a 40%,
+    #e6b84f 70%,
+    #b8892c 100%
+  );
 
-  /* ⭐ 核心：内暗 + 外光（重点！！） */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* ⭐ 外轮廓（关键：让字清楚） */
   text-shadow:
-    0 0 2px rgba(0,0,0,0.6),          /* ⭐ 这行是救命的（对比） */
-    0 0 8px rgba(180,220,255,0.9),
-    0 0 18px rgba(150,200,255,0.8),
-    0 0 36px rgba(120,180,255,0.6);
+    0 0 2px rgba(0,0,0,0.6),          /* 轻微对比边 */
+    0 0 6px rgba(255,230,150,0.6),    /* 金光 */
+    0 0 12px rgba(180,220,255,0.7),   /* 冷光 */
+    0 0 24px rgba(120,180,255,0.5);
 
-  /* ⭐ 微雾，让它不像UI字体 */
-  filter: blur(0.3px);
+  /* ⭐ 微雾（保持魔法感） */
+  filter: blur(0.2px);
 
   animation: crystalTextFloat 6s ease-in-out infinite;
 }
