@@ -35,6 +35,18 @@ body {
   animation-delay: 8.8s; /* ⭐ 原本6.8 → 改成8.8（多停2秒） */
 }
 
+  
+/* ⭐ 全部动画先暂停 */
+.wrapper * {
+  animation-play-state: paused !important;
+}
+
+/* ⭐ 画面出现后才开始 */
+.wrapper.active * {
+  animation-play-state: running !important;
+}
+
+
 @keyframes sceneReveal {
   0% {
     opacity: 0;
@@ -997,6 +1009,13 @@ function goProfile() {
 function openMenu() {
   alert("這裡之後放：一張 / 兩張 / 三張選單");
 }
+
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.querySelector(".wrapper").classList.add("active");
+  }, 2000); // ⭐ 这里控制你要停多久（2000 = 2秒）
+});
+
 </script>
 
 </body>
