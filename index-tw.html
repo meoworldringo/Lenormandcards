@@ -726,24 +726,6 @@ filter: blur(1px);
   <img src="index-tw-full.jpg" class="main-bg">
 
   <div class="glow">
-  <div class="fireflies">
-  <span style="--x:10%; --y:20%; --d:0s;"></span>
-  <span style="--x:80%; --y:30%; --d:2s;"></span>
-  <span style="--x:40%; --y:70%; --d:4s;"></span>
-  <span style="--x:70%; --y:60%; --d:1s;"></span>
-  <span style="--x:20%; --y:80%; --d:3s;"></span>
-</div>
-  </div>
-  <div class="crystal">
-  
-
-  <div class="sparkle" style="--x:0.2; --y:0.3; --d:0s;"></div>
-
-  <div class="sparkle" style="--x:0.7; --y:0.6; --d:1s;"></div>
-
-  <div class="sparkle" style="--x:0.4; --y:0.8; --d:2s;"></div>
-
-  <div class="sparkle" style="--x:0.6; --y:0.2; --d:3s;"></div>
     
   <div class="crystal-text">
     <span class="t1">命運圖譜</span>
@@ -777,6 +759,14 @@ function goProfile() {
 
 function openMenu() {
   alert("這裡之後放：一張 / 兩張 / 三張選單");
+}
+
+    // ✨ 生成萤火虫
+const fireflyContainer = document.querySelector(".fireflies");
+
+for (let i = 0; i < 15; i++) {
+  const f = document.createElement("span");
+  fireflyContainer.appendChild(f);
 }
 </script>
 
