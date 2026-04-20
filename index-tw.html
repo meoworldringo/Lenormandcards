@@ -33,6 +33,8 @@ body {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  width: 100%;
+  filter: brightness(0.85) contrast(1.05);
 }
 
 /* 🌫️ 雾气 */
@@ -84,29 +86,22 @@ body {
   100% { transform: translateX(-100px); }
 }
 
-.fog-veil {
-
+.fog {
   position: absolute;
-
-  inset: -20%;
-
+  inset: 0;
   pointer-events: none;
-
   z-index: 2;
 
-  /* ⭐ 用图片做雾（关键） */
+  background:
+    radial-gradient(circle at 20% 80%, rgba(255,255,255,0.25), transparent 60%),
+    radial-gradient(circle at 80% 20%, rgba(255,255,255,0.18), transparent 60%),
+    radial-gradient(circle at 50% 100%, rgba(255,255,255,0.12), transparent 70%);
 
-  background: url("https://images.unsplash.com/photo-1549887534-1541e9326642?q=80&w=1200&auto=format&fit=crop");
-  background-size: cover;
-  opacity: 0.18;
-  filter: blur(40px);
+  filter: blur(25px);
+
   mix-blend-mode: screen;
 
-  /* ⭐ 真正的流动 */
-
-  animation: fogMoveX 40s linear infinite,
-             fogMoveY 25s ease-in-out infinite;
-
+  animation: fogMove 20s ease-in-out infinite;
 }
 
   /* 🌫️ 柔边（避免光圈） */
