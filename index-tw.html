@@ -543,31 +543,24 @@ body {
 @keyframes textCycle {
   0% {
     opacity: 0;
-    transform: translateY(6px) scale(0.95);
-    filter: blur(4px);
   }
 
-  10% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    filter: blur(0);
+  8% {   /* ⭐ 新增：开场空窗 */
+    opacity: 0;
   }
 
-  20% {
+  18% {
     opacity: 1;
     transform: translateY(0);
     filter: blur(0);
-  }
-
-  25% {
-    opacity: 1;
-    transform: translateY(0);
   }
 
   30% {
+    opacity: 1;
+  }
+
+  40% {
     opacity: 0;
-    transform: translateY(-8px) scale(1.05);
-    filter: blur(3px);
   }
 
   100% {
@@ -576,15 +569,15 @@ body {
 }
       
 .t1 {
-  animation: textCycle 12s infinite 2.5s;
+  animation: textCycle 12s infinite 0s;
 }
 
 .t2 {
-  animation: textCycle 12s infinite 6.5s;
+  animation: textCycle 12s infinite 4.2s;
 }
 
 .t3 {
-  animation: textCycle 12s infinite 10.5s;
+  animation: textCycle 12s infinite 8.4s;
 }
 
  @keyframes text1 {
