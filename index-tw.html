@@ -208,22 +208,28 @@ body {
 
 /* 🃏 中央牌 */
 .card {
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 20%;
-  height: 25%;
+  position: absolute;
 
-  overflow: visible;   /* ⭐ 加这个 */
-  background: none;    /* ⭐ 加这个 */
+  /* ⭐ 核心：用视觉对齐 */
+  top: 52%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  /* ⭐ 用宽度控制比例 */
+  width: 38%;   /* ← 这里之后可以微调 */
+
+  aspect-ratio: 5 / 2;  /* 你的牌大概是横长 */
+
+  pointer-events: auto;
 }
 
- .cards {
+.cards {
   width: 100%;
   height: 100%;
   object-fit: contain;
 
-  display: block;   /* ⭐ 加这个（关键） */
+  display: block;
 
   animation: glowPulse 2s ease-in-out infinite;
 }
