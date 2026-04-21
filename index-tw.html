@@ -379,7 +379,7 @@ body {
   }
 }
 
-  /* 📱 直屏（手机 / 平板竖） */
+  /* 📱 直屏（平板竖） */
 @media (orientation: portrait) {
 
   /* 📖 书 */
@@ -420,6 +420,75 @@ body {
     transform: translateX(-50%);
   }
 
+
+}
+ /* 📱 直屏（手机） */
+  @media (max-width: 600px) {
+
+  /* ⭐ 整体允许滚动（重要） */
+  html, body {
+    overflow: auto;
+  }
+
+  /* 🔮 水晶球 */
+  .crystal {
+    top: 8%;
+    width: 18%;
+  }
+
+  /* 🃏 牌（主视觉） */
+  .card {
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+  }
+
+  /* 📖 书（左下） */
+  .book {
+    bottom: 18%;
+    left: 6%;
+    width: 42%;
+  }
+
+  /* 🖼 相片（右下） */
+  .photo {
+    bottom: 18%;
+    right: 6%;
+    width: 32%;
+  }
+
+  /* 📜 popup内容（关键！！） */
+  .popup-box {
+    width: 92%;
+    padding: 20px;
+  }
+
+  .popup-content-inner {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .popup-icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  .popup-text {
+    font-size: 14px;
+  }
+
+  .popup-buttons {
+    gap: 20px;
+    margin-top: 10px;
+  }
+
+  /* 🔘 按钮 */
+  .btn {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
 
 }
 
