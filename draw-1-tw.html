@@ -763,6 +763,28 @@ document.getElementById("meaning").innerHTML = meanings[currentCard];
   window.location.href = "https://meoworldringo.github.io/Lenormandcards/index-tw.html";
 };
 
+  window.addEventListener("pageshow", function (event) {
+
+  const intro = document.querySelector(".intro");   // ⭐ 开场动画
+  const wrapper = document.querySelector(".wrapper"); // ⭐ 主内容
+
+  const played = sessionStorage.getItem("introPlayed");
+
+  if (event.persisted || played) {
+
+    // ✅ 隐藏动画
+    if (intro) intro.style.display = "none";
+
+    // ✅ 直接显示主内容
+    if (wrapper) {
+      wrapper.style.opacity = "1";
+      wrapper.style.pointerEvents = "auto";
+    }
+
+  }
+
+});
+
  
   
 </script>
