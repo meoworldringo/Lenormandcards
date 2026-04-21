@@ -384,6 +384,14 @@ body::before {
 <a href="#" class="back-btn" onclick="goBack()">← バザールへ戻る</a>
   
 <script>
+function goBack() {
+  if (history.length > 1) {
+    history.back();
+  } else {
+    window.location.href = "https://meoworldringo.github.io/Lenormandcards/index-jp.html";
+  }
+}
+  
 const fireflyContainer = document.querySelector(".fireflies");
 
 for (let i = 0; i < 15; i++) {
