@@ -390,6 +390,14 @@ body::before {
 <a href="https://meoworldringo.github.io/Lenormandcards/index-en.html" class="back-btn">← Back to Bazaar</a>
   
 <script>
+
+function goBack() {
+  if (history.length > 1) {
+    history.back();
+  } else {
+    window.location.href = "https://meoworldringo.github.io/Lenormandcards/index-en.html";
+  }
+}
 const fireflyContainer = document.querySelector(".fireflies");
 
 for (let i = 0; i < 15; i++) {
