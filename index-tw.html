@@ -97,6 +97,7 @@ body {
   width: 100%;
   filter: brightness(0.5) contrast(1.2);
   z-index: 0;
+  pointer-events: none;   /* ⭐⭐⭐ 关键修复 */
 }
 
 /* ✨ 中央微光（聚焦） */
@@ -1007,12 +1008,23 @@ let targetUrl = "";
 
 function openPopup(icon, text, url) {
 
-  selectedDraw = "";   // ⭐⭐⭐ 加这一行（关键）
-
+  selectedDraw = "";
   targetUrl = url;
 
-  document.querySelector(".popup-icon").src = icon;
-  document.querySelector(".popup-text").innerHTML = text;
+  const box = document.getElementById("popupBox");
+
+  box.innerHTML = `
+    <div class="popup-content-inner">
+      <img src="${icon}" class="popup-icon">
+      <div class="popup-text">${text}</div>
+    </div>
+
+    <div class="popup-buttons">
+      <button class="btn btn-cancel" onclick="closePopup()">取消</button>
+      <button id="confirmBtn" class="btn btn-confirm" onclick="confirmPopup()">確認</button>
+    </div>
+  `;
+
   document.getElementById("popup").classList.remove("hidden");
 }
 
