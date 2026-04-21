@@ -1086,6 +1086,12 @@ window.addEventListener("focus", function () {
   setTimeout(() => {
   document.querySelector(".wrapper").classList.add("active");
 }, 6800);  // 跟你的 6.8s 对齐
+
+  
+document.addEventListener("click", function(e) {
+  alert("target: " + e.target.className + "\n\nclosest card: " + (e.target.closest('.card') ? "有找到" : "没找到"));
+});
+
   
 </script>
 
