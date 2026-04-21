@@ -530,6 +530,29 @@ renderPage();
   window.addEventListener("resize", renderPage);
   
 </script>
+<script>
+window.addEventListener("load", () => {
 
+  const intro = document.querySelector(".intro");
+  const wrapper = document.querySelector(".wrapper");
+
+  const played = sessionStorage.getItem("introPlayed");
+
+  if (played) {
+    // ⭐ 已经播过 → 直接跳过动画
+    if (intro) intro.style.display = "none";
+
+    if (wrapper) {
+      wrapper.style.opacity = "1";
+      wrapper.style.filter = "none";
+    }
+
+  } else {
+    // ⭐ 第一次 → 记录
+    sessionStorage.setItem("introPlayed", "true");
+  }
+
+});
+</script>
 </body>
 </html>
