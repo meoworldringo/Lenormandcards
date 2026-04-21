@@ -637,38 +637,67 @@ filter: blur(1px);
 }
 
   /* 🌿 基础按钮 */
+/* 🌿 基础按钮（羊皮质感） */
 .btn {
   position: relative;
   padding: 8px 18px;
   font-size: 14px;
 
   border: none;
-  border-radius: 20px;
+  border-radius: 999px;
 
   cursor: pointer;
 
-  color: #3a2a18;
+  color: #4a2f10;
+
+  /* ⭐ 更像羊皮纸的渐层 */
+  background:
+    linear-gradient(to bottom, #f7e7c6, #e2c18c);
+
+  /* ⭐ 立体 + 微旧 */
+  box-shadow:
+    0 2px 6px rgba(0,0,0,0.35),
+    inset 0 1px 0 rgba(255,255,255,0.6),
+    inset 0 -1px 2px rgba(120,80,30,0.2);
+
+  transition: all 0.25s ease;
+}
+
+/* ✨ hover（轻微浮起 + 魔法光） */
+.btn:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 6px 14px rgba(0,0,0,0.4),
+    0 0 14px rgba(255,220,140,0.5),
+    inset 0 1px 0 rgba(255,255,255,0.7);
+}
+
+  .btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
 
   background: linear-gradient(
     to bottom,
-    #f6e7c8,
-    #e8d2a8
+    rgba(255,255,255,0.4),
+    transparent 40%
   );
 
-  box-shadow:
-    0 2px 4px rgba(0,0,0,0.25),
-    inset 0 1px 0 rgba(255,255,255,0.6);
-
-  transition: all 0.2s ease;
+  opacity: 0.6;
+  pointer-events: none;
 }
 
-/* ✨ hover（微亮） */
-.btn:hover {
-  transform: translateY(-1px);
+  .btn-cancel {
+  background:
+    linear-gradient(to bottom, #d8d8d8, #a8a8a8);
+
+  color: #333;
 
   box-shadow:
-    0 4px 10px rgba(0,0,0,0.3),
-    0 0 12px rgba(255,220,140,0.4);
+    0 2px 4px rgba(0,0,0,0.3),
+    inset 0 1px 0 rgba(255,255,255,0.5);
 }
 
 /* ✨ 按下 */
@@ -676,39 +705,44 @@ filter: blur(1px);
   transform: translateY(1px);
 
   box-shadow:
-    inset 0 2px 4px rgba(0,0,0,0.3);
+    inset 0 2px 6px rgba(0,0,0,0.4);
 }
-
-/* ❌ 取消按钮（偏冷一点） */
-.btn-cancel {
-  background: linear-gradient(
-    to bottom,
-    #e0e0e0,
-    #bfbfbf
-  );
-
-  color: #333;
-}
-
-/* ✅ 确认按钮（偏暖发光） */
+  
 .btn-confirm {
-  background: linear-gradient(
-    to bottom,
-    #f8e6b0,
-    #e0b96d
-  );
+  background:
+    linear-gradient(to bottom, #f8e6b0, #d8a95e);
 
   color: #4a2f10;
 
   box-shadow:
-    0 2px 6px rgba(0,0,0,0.3),
-    0 0 10px rgba(255,200,120,0.5);
+    0 2px 6px rgba(0,0,0,0.4),
+    0 0 12px rgba(255,200,120,0.6),
+    inset 0 1px 0 rgba(255,255,255,0.6);
+
+  animation: buttonGlow 2.5s ease-in-out infinite;
+}
+  
+/* ✨ 呼吸发光（魔法核心） */
+@keyframes buttonGlow {
+  0%,100% {
+    box-shadow:
+      0 2px 6px rgba(0,0,0,0.4),
+      0 0 10px rgba(255,200,120,0.5);
+  }
+  50% {
+    box-shadow:
+      0 2px 8px rgba(0,0,0,0.5),
+      0 0 20px rgba(255,220,140,0.9);
+  }
 }
 
   .btn-confirm:hover {
+  transform: translateY(-2px);
+
   box-shadow:
-    0 4px 12px rgba(0,0,0,0.4),
-    0 0 20px rgba(255,220,120,0.7);
+    0 6px 14px rgba(0,0,0,0.4),
+    0 0 24px rgba(255,220,140,0.9),
+    inset 0 1px 0 rgba(255,255,255,0.7);
 }
 
   
