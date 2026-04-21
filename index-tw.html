@@ -165,7 +165,6 @@ body {
 
   pointer-events: auto;
   cursor: pointer;
-  border: 3px solid red !important;
 }
 
 .cards {
@@ -1088,43 +1087,7 @@ window.addEventListener("focus", function () {
   document.querySelector(".wrapper").classList.add("active");
 }, 6800);  // 跟你的 6.8s 对齐
 
-  
-document.addEventListener("click", function(e) {
-  alert("target: " + e.target.className + "\n\nclosest card: " + (e.target.closest('.card') ? "有找到" : "没找到"));
-});
 
-  function repositionCard() {
-  const bg = document.querySelector(".main-bg");
-  const card = document.querySelector(".card");
-  const wrapper = document.querySelector(".wrapper");
-
-  const wrapperW = wrapper.offsetWidth;
-  const wrapperH = wrapper.offsetHeight;
-  const imgNaturalW = bg.naturalWidth;
-  const imgNaturalH = bg.naturalHeight;
-
-  // 算出 contain 模式下图片实际渲染的尺寸
-  const scale = Math.min(wrapperW / imgNaturalW, wrapperH / imgNaturalH);
-  const renderedW = imgNaturalW * scale;
-  const renderedH = imgNaturalH * scale;
-
-  // 图片在 wrapper 里居中，算出左上角偏移
-  const offsetX = (wrapperW - renderedW) / 2;
-  const offsetY = (wrapperH - renderedH) / 2;
-
-  // card 在图片里的百分比位置（跟你原来 CSS 的 49.5% / 50.5% 对应）
-  const cardCenterX = offsetX + renderedW * 0.505;
-  const cardCenterY = offsetY + renderedH * 0.495;
-
-  card.style.left = cardCenterX + "px";
-  card.style.top = cardCenterY + "px";
-  card.style.width = renderedW * 0.305 + "px"; // 横屏时 30.5%
-}
-
-// 图片加载完后执行，窗口大小变化也重算
-document.querySelector(".main-bg").addEventListener("load", repositionCard);
-window.addEventListener("resize", repositionCard);
-repositionCard();
   
 </script>
 
