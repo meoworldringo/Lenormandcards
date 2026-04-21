@@ -105,8 +105,9 @@ body {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  z-index: 1;
   background: radial-gradient(circle at center, rgba(255,220,140,0.08), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* 🧿 点击区域 */
@@ -166,7 +167,7 @@ body {
   width: 30.5%;
 
   pointer-events: auto;
-  z-index: 20;
+  z-index: 9999;
 }
 
 .cards {
