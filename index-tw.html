@@ -820,7 +820,7 @@ filter: blur(1px);
   <div class="hotspot book" onclick="goMeaning()">
   <img src="index-book-tw.png" class="book-img">
 </div>
-  <div class="hotspot photo" onclick="goProfile()">
+ <div class="hotspot photo" onclick="goPhoto()">
   <img src="index-photo.png" class="photo-img">
 </div>
   <div class="hotspot card">
@@ -834,10 +834,30 @@ filter: blur(1px);
 <!-- ⭐ script 放在最下面 -->
 <script>
 function goMeaning() {
-  openPopup();
+  openPopup(
+    "index-crystal-book.png",
+    "觀看牌意一覽……",
+    "https://meoworldringo.github.io/Lenormandcards/card-meaning-tw.html"
+  );
 }
 
-function openPopup() {
+  function goPhoto() {
+  openPopup(
+    "index-photo.png",
+    "觀看創作者簡介……",
+    "https://meoworldringo.github.io/Lenormandcards/profile-tw.html"
+  );
+}
+
+let targetUrl = "";
+
+function openPopup(icon, text, url) {
+
+  targetUrl = url;
+
+  document.querySelector(".popup-icon").src = icon;
+  document.querySelector(".popup-text").innerHTML = text;
+
   document.getElementById("popup").classList.remove("hidden");
 }
 
@@ -845,8 +865,18 @@ function closePopup() {
   document.getElementById("popup").classList.add("hidden");
 }
 
-  function goProfile() {
+  function confirmPopup() {
+
   const btn = document.getElementById("confirmBtn");
+
+  btn.classList.remove("confirm-active");
+  void btn.offsetWidth;
+  btn.classList.add("confirm-active");
+
+  setTimeout(() => {
+    window.location.href = targetUrl;
+  }, 1000);
+}
 
   // ⭐ 先清掉（关键！）
   btn.classList.remove("confirm-active");
@@ -912,7 +942,7 @@ window.addEventListener("focus", function () {
 </div>
    <div class="popup-buttons">
   <button class="btn btn-cancel" onclick="closePopup()">取消</button>
-  <button id="confirmBtn" class="btn btn-confirm" onclick="goProfile()">
+ <button id="confirmBtn" class="btn btn-confirm" onclick="confirmPopup()">
   確認
 </button>
 </div>
