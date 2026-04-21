@@ -163,9 +163,7 @@ body {
   pointer-events: auto;
   z-index: 9999;
 
-  background-color: rgba(255, 0, 0, 0.5) !important; /* 加这一行 */
-  outline: 2px solid yellow !important;               /* 加这一行 */
-  pointer-events: auto !important;
+  pointer-events: auto;
 }
 
 .cards {
@@ -177,7 +175,7 @@ body {
   pointer-events: none;
   
   animation: cardGlow 12s infinite;
-  pointer-events: auto;  /* ⭐ 改这里 */
+  pointer-events: none;  /* ⭐ 改这里 */
 }
 
 @keyframes cardGlow {
@@ -911,9 +909,9 @@ body {
  <div class="hotspot photo" onclick="goPhoto()">
   <img src="index-photo.png" class="photo-img">
 </div>
-  <div class="hotspot card">
-    <img src="index-card.png" class="cards" onclick="openDrawMenu()">
-  </div>
+  <div class="hotspot card" onclick="openDrawMenu()" style="cursor: pointer;">
+  <img src="index-card.png" class="cards">
+</div>
 </div>
 
 
