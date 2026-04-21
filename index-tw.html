@@ -168,7 +168,6 @@ body {
 
   pointer-events: auto;
   z-index: 9999;
-  outline: 2px solid red;
 }
 
 .cards {
@@ -1090,6 +1089,10 @@ window.addEventListener("focus", function () {
   document.querySelector(".wrapper").classList.add("active");
 }, 6800);  // 跟你的 6.8s 对齐
 
+document.addEventListener("click", function(e) {
+  alert("你点到的是 👉 " + e.target.className);
+});
+  
 </script>
 
   <div id="popup" class="popup hidden">
