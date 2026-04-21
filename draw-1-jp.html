@@ -724,50 +724,46 @@ for (let i = 0; i < 15; i++) {
 // 🎴 再抽一次按鈕
 document.getElementById("drawBtn").addEventListener("click", function() {
 
-  var newCard = cards[Math.floor(Math.random() * cards.length)];
-  card = newCard;
-
+  card = cards[Math.floor(Math.random() * cards.length)];
   showingMeaning = true;
 
-  // 翻回背面
   const cardEl = document.getElementById("card-container");
 
-// ❗先关掉动画
-cardEl.style.transition = "none";
-cardEl.style.transform = "rotateY(0deg)";
+  // 翻回背面（无动画）
+  cardEl.style.transition = "none";
+  cardEl.style.transform = "rotateY(0deg)";
 
-  setTimeout(function() {
+  setTimeout(() => {
 
-    setTimeout(function() {
+    // ⭐ 正确换内容（重点！！！）
+    document.getElementById("front-img").src = card;
+    document.getElementById("title").innerText = titles[card];
+    document.getElementById("meaning").innerHTML = meanings[card];
 
-  // ❗恢复动画
-  cardEl.style.transition = "transform 1s ease";
-
-  // 换内容
-document.getElementById("front-img").src = card;
-document.getElementById("title").innerText = titles[card];
-document.getElementById("meaning").innerHTML = meanings[card];
-
-  // 再翻开
-  cardEl.style.transform = "rotateY(180deg)";
-
-}, 50);   
-
-// 换内容
-    document.getElementById("front-img").src = currentCard;
-document.getElementById("title").innerText = titles[currentCard];
-document.getElementById("meaning").innerHTML = meanings[currentCard];
+    // 恢复动画
+    cardEl.style.transition = "transform 1s ease";
 
     // 再翻开
-    document.getElementById("card-container").style.transform = "rotateY(180deg)";
+    setTimeout(() => {
+      cardEl.style.transform = "rotateY(180deg)";
+    }, 50);
 
   }, 400);
 
 });
 
+  document.getElementById("backBtn").onclick = () => {
 
-window.addEventListener("load", fitSubtitle);
-window.addEventListener("resize", fitSubtitle);
+  sessionStorage.setItem("introPlayed", "true");
+
+  if (history.length > 1) {
+    history.back();   // ⭐关键
+  } else {
+    window.location.href = "https://meoworldringo.github.io/Lenormandcards/index-tw.html";
+  }
+
+};
+ 
   
 </script>
 
