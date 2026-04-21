@@ -642,28 +642,13 @@ for (let i = 0; i < 15; i++) {
 
   document.getElementById("backBtn").onclick = () => {
 
-  // ⭐ 告诉首页：已经播过了
-  window.addEventListener("pageshow", function (event) {
+  // ⭐ 标记动画已经播过
+  sessionStorage.setItem("introPlayed", "true");
 
-  const intro = document.querySelector(".intro");
-  const wrapper = document.querySelector(".wrapper");
+  // ⭐ 跳回首页（这里改成你的首页文件名）
+  window.location.href = "index.html";
 
-  const played = sessionStorage.getItem("introPlayed");
-
-  if (event.persisted || played) {
-
-    if (intro) intro.style.display = "none";
-
-    if (wrapper) {
-      wrapper.style.opacity = "1";
-      wrapper.style.filter = "none";
-    }
-
-  } else {
-    sessionStorage.setItem("introPlayed", "true");
-  }
-
-});
+};
   
 </script>
 
