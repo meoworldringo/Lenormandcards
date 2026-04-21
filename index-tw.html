@@ -633,6 +633,9 @@ filter: blur(1px);
   /* 🌿 基础按钮 */
 /* 🌿 基础按钮（羊皮质感） */
 .btn {
+  appearance: none;
+  -webkit-appearance: none;
+
   position: relative;
   padding: 8px 18px;
   font-size: 14px;
@@ -644,11 +647,9 @@ filter: blur(1px);
 
   color: #4a2f10;
 
-  /* ⭐ 更像羊皮纸的渐层 */
   background:
     linear-gradient(to bottom, #f7e7c6, #e2c18c);
 
-  /* ⭐ 立体 + 微旧 */
   box-shadow:
     0 2px 6px rgba(0,0,0,0.35),
     inset 0 1px 0 rgba(255,255,255,0.6),
