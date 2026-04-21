@@ -740,6 +740,34 @@ filter: blur(1px);
     inset 0 1px 0 rgba(255,255,255,0.7);
 }
 
+  /* 🧩 icon + 文字排版 */
+.popup-content-inner {
+  display: flex;
+  align-items: center;
+
+  justify-content: flex-start; /* ⭐ 改这里 */
+  padding: 0 20px;             /* ⭐ 加这个 */
+
+  gap: 14px;
+}
+
+/* 📖 icon */
+.popup-icon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+
+  /* ✨ 微微发光 */
+  filter: drop-shadow(0 0 8px rgba(255,220,140,0.6));
+}
+
+/* 📝 文字 */
+.popup-text {
+  font-size: 16px;
+  color: #4a3b2a;
+  line-height: 1.4;
+}
+
   
 </style>
 </head>
@@ -810,10 +838,15 @@ for (let i = 0; i < 15; i++) {
 
   <div id="popupBox" class="popup-box style-glow">
     
-    <div class="popup-content-inner">
-      📖 觀看創作者簡介……
-    </div>
+   <div class="popup-content-inner">
 
+  <img src="index-crystal-book.png" class="popup-icon">
+
+  <div class="popup-text">
+    觀看創作者簡介……
+  </div>
+
+</div>
    <div class="popup-buttons">
   <button class="btn btn-cancel" onclick="closePopup()">取消</button>
   <button class="btn btn-confirm" onclick="goProfile()">確認</button>
