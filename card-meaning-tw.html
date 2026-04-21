@@ -535,20 +535,27 @@ renderPage();
 </script>
 
   <script>
-window.addEventListener("pageshow", function (event) {
+window.addEventListener("load", () => {
 
-  if (event.persisted || performance.navigation.type === 2) {
+  const intro = document.querySelector(".intro");
+  const wrapper = document.querySelector(".wrapper");
 
-    const intro = document.querySelector(".intro");
-    const wrapper = document.querySelector(".wrapper");
+  const played = sessionStorage.getItem("introPlayed");
 
+  if (played) {
+    // ⭐ 已经播过 → 直接跳过动画
     if (intro) intro.style.display = "none";
 
     if (wrapper) {
       wrapper.style.opacity = "1";
       wrapper.style.filter = "none";
     }
+
+  } else {
+    // ⭐ 第一次 → 记录
+    sessionStorage.setItem("introPlayed", "true");
   }
+
 });
 </script>
 
