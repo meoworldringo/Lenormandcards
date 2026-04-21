@@ -34,6 +34,12 @@ body {
 
   animation: sceneReveal 1.8s ease forwards;
   animation-delay: 6.8s;
+
+  pointer-events: none; /* ⭐ 关键：动画期间不能点击 */
+}
+
+.wrapper.active {
+  pointer-events: auto; /* ⭐ 动画结束恢复点击 */
 }
 
 @keyframes sceneReveal {
@@ -163,7 +169,7 @@ body {
   aspect-ratio: 5 / 2;  /* 你的牌大概是横长 */
 
   pointer-events: auto;
-  z-index: 10;  /* ⭐ 加这个 */
+  z-index: 20;  /* ⭐ 加这个 */
 }
 
 .cards {
@@ -1064,6 +1070,10 @@ window.addEventListener("focus", function () {
   }
 
 });
+
+  setTimeout(() => {
+  document.querySelector(".wrapper").classList.add("active");
+}, 6800);  // 跟你的 6.8s 对齐
 
 </script>
 
