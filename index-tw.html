@@ -1087,15 +1087,18 @@ window.addEventListener("focus", function () {
   document.querySelector(".wrapper").classList.add("active");
 }, 6800);  // 跟你的 6.8s 对齐
 
-// 把原来 HTML 里的 onclick="openDrawMenu()" 删掉
-// 在 script 里加这段：
+let isTouch = false;
 
-document.querySelector(".card").addEventListener("touchstart", function(e) {
+const card = document.querySelector(".card");
+
+card.addEventListener("touchstart", function(e) {
+  isTouch = true;
   e.stopPropagation();
   openDrawMenu();
 }, { passive: true });
 
-document.querySelector(".card").addEventListener("click", function(e) {
+card.addEventListener("click", function(e) {
+  if (isTouch) return;   // ⭐ 防重复触发
   e.stopPropagation();
   openDrawMenu();
 });
