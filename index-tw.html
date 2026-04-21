@@ -873,6 +873,28 @@ for (let i = 0; i < 15; i++) {
   const f = document.createElement("span");
   fireflyContainer.appendChild(f);
 }
+
+window.addEventListener("pageshow", function () {
+
+  const popup = document.getElementById("popup");
+
+  if (popup) {
+    popup.classList.add("hidden");
+  }
+
+});
+
+// ⭐ 关键补刀（防有些浏览器不触发 pageshow）
+window.addEventListener("focus", function () {
+
+  const popup = document.getElementById("popup");
+
+  if (popup) {
+    popup.classList.add("hidden");
+  }
+
+});
+
 </script>
 
   <div id="popup" class="popup hidden">
