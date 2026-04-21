@@ -646,10 +646,16 @@ for (let i = 0; i < 15; i++) {
 
   document.getElementById("backBtn").onclick = () => {
 
-  // ⭐ 告诉首页：已经播过了
+  // ⭐ 标记动画已经播过
   sessionStorage.setItem("introPlayed", "true");
 
-  window.location.href = "https://meoworldringo.github.io/Lenormandcards/index-jp.html";
+  // ⭐ 返回逻辑
+  if (history.length > 1) {
+    history.back();
+  } else {
+    window.location.href = "https://meoworldringo.github.io/Lenormandcards/index-jp.html";
+  }
+
 };
   
 </script>
