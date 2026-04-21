@@ -750,6 +750,21 @@ document.getElementById("meaning").innerHTML = meanings[currentCard];
 window.addEventListener("load", fitSubtitle);
 window.addEventListener("resize", fitSubtitle);
   
+
+  document.getElementById("backBtn").onclick = () => {
+
+  // ⭐ 标记动画已经播过
+  sessionStorage.setItem("introPlayed", "true");
+
+  // ⭐ 返回逻辑
+  if (history.length > 1) {
+    history.back();
+  } else {
+    window.location.href = "https://meoworldringo.github.io/Lenormandcards/index-tw.html";
+  }
+
+};
+  
 </script>
 
 </body>
