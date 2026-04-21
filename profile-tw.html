@@ -643,10 +643,27 @@ for (let i = 0; i < 15; i++) {
   document.getElementById("backBtn").onclick = () => {
 
   // ⭐ 告诉首页：已经播过了
-  sessionStorage.setItem("introPlayed", "true");
+  window.addEventListener("pageshow", function (event) {
 
-  window.location.href = "https://meoworldringo.github.io/Lenormandcards/index-tw.html";
-};
+  const intro = document.querySelector(".intro");
+  const wrapper = document.querySelector(".wrapper");
+
+  const played = sessionStorage.getItem("introPlayed");
+
+  if (event.persisted || played) {
+
+    if (intro) intro.style.display = "none";
+
+    if (wrapper) {
+      wrapper.style.opacity = "1";
+      wrapper.style.filter = "none";
+    }
+
+  } else {
+    sessionStorage.setItem("introPlayed", "true");
+  }
+
+});
   
 </script>
 
