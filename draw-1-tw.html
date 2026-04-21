@@ -354,6 +354,12 @@ img {
  #drawBtn, #backBtn {
   animation: btnGlow 3s ease-in-out infinite;
 }
+
+   /* ⭐ 两个按钮之间的距离（桌面用） */
+button + button {
+  margin-left: 30px;
+}
+
   
 
 /* 🌿 平板（仅纵向）→ 改结构：图片上 / 文字下 */
@@ -446,6 +452,16 @@ img {
   white-space: nowrap;
 }
   }
+
+  /* 📱 手机改上下排 */
+@media (max-width: 768px) {
+
+  button + button {
+    margin-left: 0;
+    margin-top: 12px;
+  }
+
+}
 
 
 
@@ -738,10 +754,6 @@ document.getElementById("meaning").innerHTML = meanings[currentCard];
 });
 
 
-window.addEventListener("load", fitSubtitle);
-window.addEventListener("resize", fitSubtitle);
-  
-
   document.getElementById("backBtn").onclick = () => {
 
   // ⭐ 标记动画已经播过
@@ -751,20 +763,7 @@ window.addEventListener("resize", fitSubtitle);
   window.location.href = "https://meoworldringo.github.io/Lenormandcards/index-tw.html";
 };
 
-  /* ⭐ 两个按钮之间的距离（桌面用） */
-button + button {
-  margin-left: 30px;
-}
-
-/* 📱 手机改上下排 */
-@media (max-width: 768px) {
-
-  button + button {
-    margin-left: 0;
-    margin-top: 12px;
-  }
-
-}
+ 
   
 </script>
 
