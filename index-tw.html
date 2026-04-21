@@ -162,7 +162,6 @@ body {
 
   pointer-events: auto;
   z-index: 9999;
-  position: fixed;   /* ⭐ 关键 */
 }
 
 .cards {
@@ -907,10 +906,11 @@ body {
  <div class="hotspot photo" onclick="goPhoto()">
   <img src="index-photo.png" class="photo-img">
 </div>
+  <div class="hotspot card" onclick="openDrawMenu()">
+    <img src="index-card.png" class="cards">
+  </div>
 </div>
-<div class="hotspot card" onclick="openDrawMenu()">
-  <img src="index-card.png" class="cards">
-</div>
+
 
 <!-- ✨ 萤火虫容器 -->
 <div class="fireflies"></div>
