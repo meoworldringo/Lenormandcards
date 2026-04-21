@@ -34,12 +34,6 @@ body {
 
   animation: sceneReveal 1.8s ease forwards;
   animation-delay: 6.8s;
-
-  pointer-events: none; /* ⭐ 关键：动画期间不能点击 */
-}
-
-.wrapper.active {
-  pointer-events: auto; /* ⭐ 动画结束恢复点击 */
 }
 
 @keyframes sceneReveal {
