@@ -529,6 +529,25 @@ function prevPage() {
 renderPage();
 
   window.addEventListener("resize", renderPage);
+
+  <script>
+window.addEventListener("pageshow", function (event) {
+
+  // ⭐ 如果是从上一页返回（缓存恢复）
+  if (event.persisted || performance.navigation.type === 2) {
+
+    // 👉 直接跳过动画
+    const intro = document.querySelector(".intro");
+    const wrapper = document.querySelector(".wrapper");
+
+    if (intro) intro.style.display = "none";
+    if (wrapper) {
+      wrapper.style.opacity = "1";
+      wrapper.style.filter = "none";
+    }
+  }
+});
+</script>
   
 </script>
 
