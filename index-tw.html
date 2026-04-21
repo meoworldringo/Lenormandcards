@@ -124,6 +124,7 @@ body {
     translateX(-2px);
 
   pointer-events: auto;
+  z-index: 10;  /* ⭐ 加这个 */
 }
 
 .book-img {
@@ -162,6 +163,7 @@ body {
   aspect-ratio: 5 / 2;  /* 你的牌大概是横长 */
 
   pointer-events: auto;
+  z-index: 10;  /* ⭐ 加这个 */
 }
 
 .cards {
@@ -202,6 +204,7 @@ body {
  transform: rotate(1.7deg);  /* ⭐ 这里 */
 
   pointer-events: auto;
+  z-index: 10;  /* ⭐ 加这个 */
 }
 
 .photo-img {
@@ -904,7 +907,7 @@ body {
   <img src="index-card.png" class="cards">
 </div>
 </div>
-</div>
+
 <!-- ✨ 萤火虫容器 -->
 <div class="fireflies"></div>
 <div class="hint">✨ 輕觸物件開始探索</div>
@@ -1000,6 +1003,8 @@ function goMeaning() {
 let targetUrl = "";
 
 function openPopup(icon, text, url) {
+
+  selectedDraw = "";   // ⭐⭐⭐ 加这一行（关键）
 
   targetUrl = url;
 
