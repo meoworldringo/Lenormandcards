@@ -766,6 +766,33 @@ filter: blur(1px);
   line-height: 1.4;
 }
 
+  /* ✨ 点击时的爆发光 */
+@keyframes confirmFlash {
+  0% {
+    transform: scale(1);
+    box-shadow:
+      0 0 10px rgba(255,200,120,0.5);
+  }
+
+  40% {
+    transform: scale(1.1);
+    box-shadow:
+      0 0 30px rgba(255,220,140,1),
+      0 0 60px rgba(255,200,120,0.8);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow:
+      0 0 20px rgba(255,220,140,0.9);
+  }
+}
+
+/* ⭐ 触发用 class */
+.confirm-active {
+  animation: confirmFlash 1s ease forwards;
+}
+
   
 </style>
 </head>
@@ -814,9 +841,16 @@ function closePopup() {
   document.getElementById("popup").classList.add("hidden");
 }
 
+  function goProfile() {
+  const btn = document.getElementById("confirmBtn");
 
-function goProfile() {
-  window.location.href = "https://meoworldringo.github.io/Lenormandcards/card-meaning-tw.html";
+  // ⭐ 加动画 class
+  btn.classList.add("confirm-active");
+
+  // ⭐ 1秒后跳转
+  setTimeout(() => {
+    window.location.href = "https://meoworldringo.github.io/Lenormandcards/card-meaning-tw.html";
+  }, 1000);
 }
 
 function openMenu() {
@@ -847,7 +881,9 @@ for (let i = 0; i < 15; i++) {
 </div>
    <div class="popup-buttons">
   <button class="btn btn-cancel" onclick="closePopup()">取消</button>
-  <button class="btn btn-confirm" onclick="goProfile()">確認</button>
+  <button id="confirmBtn" class="btn btn-confirm" onclick="goProfile()">
+  確認
+</button>
 </div>
 
   </div>
