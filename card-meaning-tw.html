@@ -559,5 +559,21 @@ window.addEventListener("load", () => {
 });
 </script>
 
+  <script>
+window.addEventListener("pageshow", function (event) {
+
+  // ⭐ 只有「返回」才处理
+  if (event.persisted) {
+
+    const popup = document.getElementById("popup");
+    if (popup) {
+      popup.classList.add("hidden");
+    }
+
+  }
+
+});
+</script>
+
 </body>
 </html>
