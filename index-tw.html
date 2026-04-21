@@ -878,19 +878,6 @@ function closePopup() {
   }, 1000);
 }
 
-  // ⭐ 先清掉（关键！）
-  btn.classList.remove("confirm-active");
-
-  // ⭐ 强制重绘（让浏览器“忘记刚刚动画”）
-  void btn.offsetWidth;
-
-  // ⭐ 再加回去
-  btn.classList.add("confirm-active");
-
-  setTimeout(() => {
-    window.location.href = "https://meoworldringo.github.io/Lenormandcards/card-meaning-tw.html";
-  }, 1000);
-}
   
 function openMenu() {
   alert("這裡之後放：一張 / 兩張 / 三張選單");
