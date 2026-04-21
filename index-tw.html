@@ -756,7 +756,7 @@ body {
   width: 13px;
   height: 13px;
   background: radial-gradient(circle, rgba(255,220,120,0.9) 0%, rgba(255,220,120,0) 80%);
-filter: blur(1px);
+  filter: blur(1px);
   border-radius: 50%;
   animation: float 12s linear infinite;
   opacity: 0;
@@ -900,8 +900,9 @@ filter: blur(1px);
  <div class="hotspot photo" onclick="goPhoto()">
   <img src="index-photo.png" class="photo-img">
 </div>
-  <div class="hotspot card">
+  <div class="hotspot card" onclick="openDrawMenu()">
   <img src="index-card.png" class="cards">
+</div>
 </div>
 </div>
 <!-- ✨ 萤火虫容器 -->
@@ -1006,9 +1007,7 @@ function openPopup(icon, text, url) {
   document.querySelector(".popup-text").innerHTML = text;
   document.getElementById("popup").classList.remove("hidden");
 }
-  document.querySelector(".card").onclick = () => {
-  openDrawMenu();
-};
+
 
 function closePopup() {
   document.getElementById("popup").classList.add("hidden");
