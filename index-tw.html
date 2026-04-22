@@ -306,6 +306,16 @@ body {
   object-fit: cover;
 }
 
+  @keyframes rotateFront {
+  from { transform: rotate(0deg) rotateX(12deg); }
+  to   { transform: rotate(360deg) rotateX(12deg); }
+}
+
+@keyframes rotateBack {
+  from { transform: rotate(0deg) rotateX(12deg); }
+  to   { transform: rotate(360deg) rotateX(12deg); }
+}
+
 .galaxy-rotator {
   position: absolute;
   inset: 0;
@@ -316,11 +326,11 @@ body {
 
 /* ⭐ 真正旋转在这里 */
 .galaxy-rotator.front {
-  animation: rotateFront 30s linear infinite;
+  animation: rotateFront 50s linear infinite;
 }
 
 .galaxy-rotator.back {
-  animation: rotateBack 80s linear infinite reverse;
+  animation: rotateBack 100s linear infinite reverse;
   opacity: 0.5;
 }
 
