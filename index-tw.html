@@ -270,7 +270,7 @@ body {
 
   /* ⭐ 球体本体（更通透） */
   background:
-    radial-gradient(circle at 30% 30%, rgba(255,255,255,1), transparent 35%),
+    radial-gradient(circle at 30% 30%, rgba(255,255,255,0.5), transparent 35%)
     radial-gradient(circle at 70% 70%, rgba(180,220,255,0.55), transparent 70%),
     rgba(200,230,255,0.45);
 
@@ -306,8 +306,8 @@ body {
   top: 50%;
   left: 50%;
 
-  width: 200%;
-  height: 200%;
+  width: 180%;
+  height: 180%;
 
   transform: translate(-50%, -50%);
   object-fit: cover;
@@ -321,6 +321,7 @@ body {
     contrast(1.1);
 
   animation: driftBack 80s linear infinite;
+    opacity: 0.6; /* ⭐ 拉远 */
 }
 
   @keyframes driftBack {
@@ -335,9 +336,8 @@ body {
     contrast(1.3)
     saturate(1.2);
 
-  mix-blend-mode: screen; /* ⭐ 发光叠加 */
-
   animation: driftFront 40s linear infinite;
+    opacity: 0.9; /* ⭐ 靠近 */
 }
 
   @keyframes driftFront {
