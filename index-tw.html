@@ -723,23 +723,27 @@ isolation: isolate;   /* ⭐ 防止外面影响里面 */
 
 .crystal-fireflies span {
   position: absolute;
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
 
+  /* ⭐ 核心颜色：冷白 + 冰蓝 */
   background: radial-gradient(circle,
-  rgba(120,200,255,0.9) 0%,
-  rgba(120,200,255,0) 80%
-);
+    rgba(255,255,255,0.95) 0%,
+    rgba(180,220,255,0.6) 40%,
+    rgba(180,220,255,0) 80%
+  );
 
-box-shadow:
-  0 0 6px rgba(255,255,255,0.8),
-  0 0 12px rgba(255,255,255,0.4);
-  
   opacity: 0;
 
-  filter: blur(1px);
-  animation: crystalSparkle 12s linear infinite;
+  /* ⭐ 很关键：柔化边缘（防脏圈） */
+  filter: blur(0.8px);
+
+  box-shadow:
+    0 0 6px rgba(180,220,255,0.8),
+    0 0 12px rgba(180,220,255,0.4);
+
+  animation: crystalSparkle 10s linear infinite;
 }
 
 @keyframes crystalSparkle {
