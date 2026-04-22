@@ -114,7 +114,7 @@ body {
 .book {
   position: absolute;
 
-  bottom: 13.5%;
+  bottom: 13%;
   left: 22%;
 
   width: 20%;
@@ -288,32 +288,37 @@ body {
              crystalPulse 4s ease-in-out infinite;
 }
 
-  .galaxy {
+.galaxy {
   position: absolute;
-
   top: 50%;
   left: 50%;
 
-  width: 160%;
-  height: 160%;
+  width: 200%;   /* ⭐ 放大一点，才有移动空间 */
+  height: 200%;
 
   transform: translate(-50%, -50%);
 
   object-fit: cover;
 
-  filter: none;
+  filter:
+    brightness(1.1)
+    contrast(1.2)
+    saturate(1.2);
 
-  opacity: 0.9;
+  opacity: 0.95;
 
-  animation: galaxyRotate 80s linear infinite;
+  animation: galaxyDrift 30s linear infinite;
 }
 
-  @keyframes galaxyRotate {
-  from {
-    transform: translate(-50%, -50%) rotate(0deg);
+@keyframes galaxyDrift {
+  0% {
+    transform: translate(-45%, -50%) rotate(-2deg);
   }
-  to {
-    transform: translate(-50%, -50%) rotate(360deg);
+  50% {
+    transform: translate(-55%, -50%) rotate(2deg);
+  }
+  100% {
+    transform: translate(-45%, -50%) rotate(-2deg);
   }
 }
   
@@ -731,7 +736,7 @@ body {
 
   /* 📖 书（左下） */
   .book {
-    bottom: 28.8%;
+    bottom: 29.2%;
     left: 3%;
     width: 33%;
   }
