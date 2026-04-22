@@ -253,7 +253,8 @@ body {
 
 .crystal {
   position: absolute;
-  overflow: hidden; /* ⭐⭐⭐ 加这一行 */
+  overflow: hidden;
+isolation: isolate;   /* ⭐ 防止外面影响里面 */
   perspective: 800px; /* ⭐ 关键！没有就不像3D */
 
   top: 1.5%;
@@ -290,7 +291,7 @@ body {
              crystalPulse 4s ease-in-out infinite;
 }
 
-  .crystal::after {
+ .crystal::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -298,11 +299,10 @@ body {
   pointer-events: none;
 
   background:
-    radial-gradient(circle at 35% 35%, rgba(255,255,255,0.25), transparent 40%),
-    radial-gradient(circle at 65% 65%, rgba(120,180,255,0.15), transparent 60%);
+    radial-gradient(circle at 35% 35%, rgba(255,255,255,0.35), transparent 40%),
+    radial-gradient(circle at 65% 65%, rgba(120,180,255,0.2), transparent 60%);
 
-  mix-blend-mode: screen;
-    z-index: 2;
+  z-index: 3;   /* ⭐ 压在银河上 */
 }
 
   .crystal::before {
@@ -321,7 +321,6 @@ body {
   width: 180%;
   height: 180%;
   object-fit: cover;
-  opacity: 0.75;   
 }
 
   @keyframes rotateFront {
@@ -341,19 +340,20 @@ body {
   align-items: center;
   justify-content: center;
 
-  mix-blend-mode: screen;
   z-index: 1;
 }
 
 /* ⭐ 真正旋转在这里 */
 .galaxy-rotator.front {
   animation: rotateFront 50s linear infinite;
+  opacity: 0.9;
 }
 
 .galaxy-rotator.back {
   animation: rotateBack 100s linear infinite reverse;
-  opacity: 0.35;
-  filter: blur(2px) brightness(0.8);
+
+  opacity: 0.25;            /* ⭐ 只留一点点 */
+  filter: blur(3px);        /* ⭐ 变“深层” */
 }
 
 @keyframes rotateFront {
