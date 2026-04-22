@@ -811,6 +811,7 @@ isolation: isolate;   /* ⭐ 防止外面影响里面 */
 
   .popup-box {
   position: relative;
+  overflow: visible;   /* ⭐⭐ 加这个 */
 }
 
 .popup-close {
@@ -824,7 +825,7 @@ isolation: isolate;   /* ⭐ 防止外面影响里面 */
   cursor: pointer;
 
   color: #3a2a18;   /* ⭐ 加深一点 */
-  z-index: 10;      /* ⭐ 关键！防被盖 */
+  z-index: 99999;   /* ⭐ 拉到最上层 */
 
   opacity: 0.85;
 }
