@@ -815,16 +815,24 @@ isolation: isolate;   /* ⭐ 防止外面影响里面 */
 
 .popup-close {
   position: absolute;
-  top: 10px;
-  right: 14px;
+  top: 2px;      /* ⭐ 改小 */
+  right: 6px;    /* ⭐ 改小 */
 
-  font-size: 20px;
+  font-size: 22px;
+  font-weight: bold;
+
   cursor: pointer;
 
-  color: #6b4b2a;
+  color: #3a2a18;   /* ⭐ 加深一点 */
+  z-index: 10;      /* ⭐ 关键！防被盖 */
 
-  opacity: 0.7;
-  transition: 0.2s;
+  opacity: 0.85;
+}
+
+  .popup-close::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
 }
 
 .popup-close:hover {
