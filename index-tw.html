@@ -712,6 +712,48 @@ isolation: isolate;   /* ⭐ 防止外面影响里面 */
 .confirm-active {
   animation: confirmFlash 1s ease forwards;
 }
+
+  .crystal-fireflies {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.crystal-fireflies span {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+
+  background: radial-gradient(circle, #fff, rgba(255,255,255,0));
+
+  opacity: 0;
+
+  box-shadow:
+    0 0 6px rgba(255,255,255,0.9),
+    0 0 12px rgba(180,220,255,0.8);
+
+  animation: crystalSparkle 4s linear infinite;
+}
+
+@keyframes crystalSparkle {
+  0% {
+    transform: translateY(10px) scale(1);
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-20px) scale(0.3);
+    opacity: 0;
+  }
+}
   
 
   /* 📱 直屏（平板竖） */
@@ -986,6 +1028,8 @@ isolation: isolate;   /* ⭐ 防止外面影响里面 */
     
 <div class="crystal">
 
+  <div class="crystal-fireflies"></div>
+
   <div class="galaxy-rotator back">
     <img src="galaxy-v3.jpg" class="galaxy">
   </div>
@@ -1194,6 +1238,19 @@ card.addEventListener("click", function(e) {
   e.stopPropagation();
   openDrawMenu();
 });
+
+  const crystalBox = document.querySelector(".crystal-fireflies");
+
+for (let i = 0; i < 12; i++) {
+  const s = document.createElement("span");
+
+  s.style.left = Math.random() * 100 + "%";
+  s.style.top = Math.random() * 100 + "%";
+
+  s.style.animationDelay = Math.random() * 4 + "s";
+
+  crystalBox.appendChild(s);
+}
   
 </script>
 
