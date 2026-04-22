@@ -724,24 +724,25 @@ isolation: isolate;   /* ⭐ 防止外面影响里面 */
 
 .crystal-fireflies span {
   position: absolute;
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
 
-  background: radial-gradient(circle, #fff, rgba(255,255,255,0));
+  background: radial-gradient(circle, rgba(255,220,120,0.9) 0%, rgba(255,220,120,0) 80%);
 
   opacity: 0;
 
   box-shadow:
-    0 0 6px rgba(255,255,255,0.9),
-    0 0 12px rgba(180,220,255,0.8);
+  0 0 6px rgba(255,220,120,0.9),
+  0 0 12px rgba(255,220,120,0.8),
+  0 0 20px rgba(255,180,80,0.6);
 
-  animation: crystalSparkle 4s linear infinite;
+  animation: crystalSparkle 8s linear infinite;
 }
 
 @keyframes crystalSparkle {
   0% {
-    transform: translateY(10px) scale(1);
+    transform: translate(0px, 10px) scale(1);
     opacity: 0;
   }
 
@@ -750,7 +751,11 @@ isolation: isolate;   /* ⭐ 防止外面影响里面 */
   }
 
   100% {
-    transform: translateY(-20px) scale(0.3);
+    transform: translate(
+      calc(10px - 20px * var(--x)),
+      -25px
+    ) scale(0.3);
+
     opacity: 0;
   }
 }
@@ -1249,8 +1254,12 @@ for (let i = 0; i < 12; i++) {
 
   s.style.animationDelay = Math.random() * 4 + "s";
 
+  // ⭐ 就加在这里
+  s.style.setProperty('--x', Math.random());
+
   crystalBox.appendChild(s);
 }
+  
   
 </script>
 
