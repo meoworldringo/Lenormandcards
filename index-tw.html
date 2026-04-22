@@ -1,4 +1,5 @@
 
+c哥，我问一个问题，如果点击cards那边的一张牌 两张牌 三张牌的羊皮纸pop的右上角，加一个代表取消的小x，会很复杂吗
 
 <!DOCTYPE html>
 <html lang="zh-Hant">
@@ -116,7 +117,7 @@ body {
 .book {
   position: absolute;
 
-  bottom: 13.5%;
+  bottom: 13%;
   left: 22%;
 
   width: 20%;
@@ -808,38 +809,6 @@ isolation: isolate;   /* ⭐ 防止外面影响里面 */
     opacity: 0;
   }
 }
-
-  .popup-box {
-  position: relative;
-  overflow: visible;   /* ⭐⭐ 加这个 */
-}
-
-.popup-close {
-  position: absolute;
-  top: 2px;      /* ⭐ 改小 */
-  right: 6px;    /* ⭐ 改小 */
-
-  font-size: 22px;
-  font-weight: bold;
-
-  cursor: pointer;
-
-  color: #3a2a18;   /* ⭐ 加深一点 */
-  z-index: 99999;   /* ⭐ 拉到最上层 */
-
-  opacity: 0.85;
-}
-
-  .popup-close::before {
-  content: "";
-  position: absolute;
-  inset: -6px;
-}
-
-.popup-close:hover {
-  opacity: 1;
-  transform: scale(1.2);
-}
   
 
   /* 📱 直屏（平板竖） */
@@ -882,7 +851,6 @@ isolation: isolate;   /* ⭐ 防止外面影响里面 */
 
     transform: translateX(-50%);
   }
-
 
 }
  /* 📱 直屏（手机） */
@@ -1092,8 +1060,6 @@ isolation: isolate;   /* ⭐ 防止外面影响里面 */
   }
 }
 
-
-
   
 </style>
 </head>
@@ -1137,7 +1103,6 @@ isolation: isolate;   /* ⭐ 防止外面影响里面 */
 </div>
 </div>
 
-
 <!-- ✨ 萤火虫容器 -->
 <div class="fireflies"></div>
 <div class="hint">✨ 輕觸物件開始探索</div>
@@ -1166,9 +1131,6 @@ function goMeaning() {
   const box = document.getElementById("popupBox");
 
   box.innerHTML = `
-    
-    <div class="popup-close" onclick="closePopup()">✕</div>
-
     <div class="popup-content-inner">
       <img src="back.jpg" class="popup-icon">
       <div class="popup-text">
@@ -1231,7 +1193,6 @@ function goMeaning() {
   }, 1000);
 }
 
-
 let targetUrl = "";
 
 function openPopup(icon, text, url) {
@@ -1255,7 +1216,6 @@ function openPopup(icon, text, url) {
 
   document.getElementById("popup").classList.remove("hidden");
 }
-
 
 function closePopup() {
   document.getElementById("popup").classList.add("hidden");
@@ -1364,7 +1324,6 @@ s.style.top  = 50 + (Math.random() - 0.5) * 10 + "%";
   <div id="popup" class="popup hidden">
 
   <div id="popupBox" class="popup-box style-glow">
-    <div class="popup-close" onclick="closePopup()">✕</div>  <!-- ⭐ 加这里 -->
     
    <div class="popup-content-inner">
 
