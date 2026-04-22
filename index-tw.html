@@ -282,11 +282,26 @@ body {
     inset 0 0 30px rgba(255,255,255,0.6),
     inset 0 0 60px rgba(180,220,255,0.4);
 
-  backdrop-filter: none;
+  backdrop-filter: blur(3px) brightness(1.1);
+-webkit-backdrop-filter: blur(3px) brightness(1.1);
 
   /* ⭐ 动画（浮 + 呼吸） */
   animation: crystalFloat 6s ease-in-out infinite,
              crystalPulse 4s ease-in-out infinite;
+}
+
+  .crystal::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+
+  background:
+    radial-gradient(circle at 35% 35%, rgba(255,255,255,0.25), transparent 40%),
+    radial-gradient(circle at 65% 65%, rgba(120,180,255,0.15), transparent 60%);
+
+  mix-blend-mode: screen;
 }
 
   .crystal::before {
