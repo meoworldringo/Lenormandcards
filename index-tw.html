@@ -729,7 +729,6 @@ isolation: isolate;   /* ⭐ 防止外面影响里面 */
   height: 2.8px;
   border-radius: 50%;
   opacity: 0;
-  filter: blur(0.2px);
   animation: crystalBreath 10s ease-in-out infinite;
 }
 
@@ -1279,7 +1278,7 @@ card.addEventListener("click", function(e) {
 
   const crystalBox = document.querySelector(".crystal-fireflies");
 
-for (let i = 0; i < 75; i++) {
+for (let i = 0; i < 45; i++) {
   const s = document.createElement("span");
   
   // ⭐ 随机蓝 / 紫（蓝多一点比较自然）
