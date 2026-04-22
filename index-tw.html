@@ -762,6 +762,20 @@ isolation: isolate;   /* ⭐ 防止外面影响里面 */
     0 0 18px rgba(140,90,255,0.6);
 }
 
+  /* 💜 金星 */
+
+  .firefly-gold {
+  background: radial-gradient(circle,
+    rgba(255,255,255,1) 0%,
+    rgba(255,220,120,0.9) 30%,
+    rgba(255,180,60,0.5) 55%,
+    rgba(255,180,60,0) 75%
+  );
+
+  box-shadow:
+    0 0 8px rgba(255,200,120,0.7);
+}
+
 @keyframes crystalBreath {
   0% {
     transform: translate(0px, 0px) scale(0.8);
@@ -1282,10 +1296,14 @@ for (let i = 0; i < 45; i++) {
   const s = document.createElement("span");
   
   // ⭐ 随机蓝 / 紫（蓝多一点比较自然）
-if (Math.random() < 0.55) {
-  s.classList.add("firefly-blue");
+const r = Math.random();
+
+if (r < 0.45) {
+  s.classList.add("firefly-blue");      // 45%
+} else if (r < 0.9) {
+  s.classList.add("firefly-purple");    // 45%
 } else {
-  s.classList.add("firefly-purple");
+  s.classList.add("firefly-gold");      // 10%
 }
   
 s.style.left = 50 + (Math.random() - 0.5) * 10 + "%";
