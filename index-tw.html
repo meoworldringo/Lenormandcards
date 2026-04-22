@@ -320,14 +320,14 @@ body {
     brightness(0.9)
     contrast(1.1);
 
-  animation: driftBack 80s linear infinite;
+  animation: driftBack 50s linear infinite;
     opacity: 0.6; /* ⭐ 拉远 */
 }
 
-  @keyframes driftBack {
-  0%   { transform: translate(-48%, -50%); }
-  50%  { transform: translate(-52%, -50%); }
-  100% { transform: translate(-48%, -50%); }
+@keyframes driftBack {
+  0%   { transform: translate(-42%, -50%); }
+  50%  { transform: translate(-58%, -50%); }
+  100% { transform: translate(-42%, -50%); }
 }
 
   .galaxy.front {
@@ -336,14 +336,14 @@ body {
     contrast(1.3)
     saturate(1.2);
 
-  animation: driftFront 40s linear infinite;
+  animation: driftFront 20s linear infinite;
     opacity: 0.9; /* ⭐ 靠近 */
 }
 
-  @keyframes driftFront {
-  0%   { transform: translate(-45%, -50%); }
-  50%  { transform: translate(-55%, -50%); }
-  100% { transform: translate(-45%, -50%); }
+@keyframes driftFront {
+  0%   { transform: translate(-38%, -50%); }
+  50%  { transform: translate(-62%, -50%); }
+  100% { transform: translate(-38%, -50%); }
 }
   
 @keyframes crystalFloat {
