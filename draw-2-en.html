@@ -94,76 +94,97 @@ body {
 
   <div class="card-area">
 
-  <!-- 🃏 第一张 -->
-<div class="card-block">
+    <!-- 🃏 第一张 -->
+    <div class="card-block">
 
-  <div class="card-container">
-    <div class="card-container-inner">
+      <div class="card-container">
+        <div class="card-container-inner">
 
-      <div class="back">
-        <img src="back.jpg">
+          <div class="back">
+            <img src="back.jpg">
+          </div>
+
+          <div class="front">
+            <img class="front-img">
+          </div>
+
+        </div>
       </div>
 
-      <div class="front">
-        <img class="front-img">
-      </div>
-
-    </div>
-  </div>
-
-  <div class="text">
-    <h2 class="title"></h2>
-    <p class="meaning"></p>
-  </div>
-
-</div>
-
-<!-- 🃏 第二张 -->
-<div class="card-block">
-
-  <div class="card-container">
-    <div class="card-container-inner">
-
-      <div class="back">
-        <img src="back.jpg">
-      </div>
-
-      <div class="front">
-        <img class="front-img">
+      <div class="text">
+        <h2 class="title"></h2>
+        <p class="meaning"></p>
       </div>
 
     </div>
+
+    <!-- 🃏 第二张 -->
+    <div class="card-block">
+
+      <div class="card-container">
+        <div class="card-container-inner">
+
+          <div class="back">
+            <img src="back.jpg">
+          </div>
+
+          <div class="front">
+            <img class="front-img">
+          </div>
+
+        </div>
+      </div>
+
+      <div class="text">
+        <h2 class="title"></h2>
+        <p class="meaning"></p>
+      </div>
+
+    </div>
+
+  </div> <!-- ⭐⭐ card-area 正确结束（你之前少这个） -->
+
+
+  <!-- ⭐⭐⭐ 按钮（已经放对位置） -->
+  <div style="margin-top:40px; margin-bottom:40px; text-align:center;">
+
+    <button id="drawBtn" style="
+      padding:12px 26px;
+      font-size:15px;
+      letter-spacing:2px;
+      color:#f5e9cc;
+      background: transparent;
+      border:1px solid rgba(255,230,150,0.4);
+      border-radius:999px;
+      text-shadow: 0 0 6px rgba(255,220,120,0.2);
+      cursor:pointer;
+    ">
+      Draw Again
+    </button>
+
+    <button id="backBtn" style="
+      padding:12px 26px;
+      font-size:15px;
+      letter-spacing:2px;
+      color:#f5e9cc;
+      background: transparent;
+      border:1px solid rgba(255,230,150,0.4);
+      border-radius:999px;
+      text-shadow: 0 0 6px rgba(255,220,120,0.2);
+      cursor:pointer;
+    ">
+      Back to Bazaar
+    </button>
+
   </div>
 
-  <div class="text">
-    <h2 class="title"></h2>
-    <p class="meaning"></p>
-  </div>
-  
-<div style="margin-top:40px; margin-bottom:40px; text-align:center;">
-
-<button id="drawBtn" style="
-  padding:12px 26px;
-  font-size:15px;
-  letter-spacing:2px;
-
-  color:#f5e9cc;
-
-  background: transparent;
-  border:1px solid rgba(255,230,150,0.4);
-  border-radius:999px;
-
-  text-shadow: 0 0 6px rgba(255,220,120,0.2);
-
-  cursor:pointer;
-">
-Draw Again
-</button>
-</div>
-</div>   <!-- ⭐这是 main 的结束 -->
-
+</div> <!-- ⭐ main 正确结束 -->
 
 <style>
+
+  button + button {
+  margin-left: 50px;
+}
 
   /* ✨✨✨ 萤火虫 ✨✨✨ */
 
