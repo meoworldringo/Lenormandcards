@@ -1261,9 +1261,9 @@ card.addEventListener("click", function(e) {
 
 for (let i = 0; i < 12; i++) {
   const s = document.createElement("span");
-
-  s.style.left = Math.random() * 100 + "%";
-  s.style.top = Math.random() * 100 + "%";
+  
+s.style.left = 50 + (Math.random() - 0.5) * 10 + "%";
+s.style.top  = 50 + (Math.random() - 0.5) * 10 + "%";
 
   s.style.animationDelay = Math.random() * 4 + "s";
 
