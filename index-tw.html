@@ -253,6 +253,7 @@ body {
 
 .crystal {
   position: absolute;
+  overflow: hidden; /* ⭐⭐⭐ 加这一行 */
 
   top: 1.5%;
   left: 50%;
@@ -280,11 +281,40 @@ body {
     inset 0 0 30px rgba(255,255,255,0.6),
     inset 0 0 60px rgba(180,220,255,0.4);
 
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(1px);
 
   /* ⭐ 动画（浮 + 呼吸） */
   animation: crystalFloat 6s ease-in-out infinite,
              crystalPulse 4s ease-in-out infinite;
+}
+
+  .galaxy {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 160%;
+  height: 160%;
+
+  transform: translate(-50%, -50%);
+
+  object-fit: cover;
+
+  filter: blur(1.5px);
+
+  opacity: 0.9;
+
+  animation: galaxyRotate 80s linear infinite;
+}
+
+  @keyframes galaxyRotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }
   
 @keyframes crystalFloat {
@@ -903,7 +933,9 @@ body {
 
   <div class="glow"></div>
     
-  <div class="crystal"></div>
+  <div class="crystal">
+  <img src="galaxy.png" class="galaxy">
+</div>
 
   <div class="hotspot book" onclick="goMeaning()">
   <img src="index-book-tw.png" class="book-img">
