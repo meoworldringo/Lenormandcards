@@ -289,38 +289,62 @@ body {
              crystalPulse 4s ease-in-out infinite;
 }
 
+  .crystal::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4), transparent 40%),
+    radial-gradient(circle at 70% 70%, rgba(0,0,0,0.2), transparent 70%);
+}
+
 .galaxy {
   position: absolute;
   top: 50%;
   left: 50%;
 
-  width: 140%;
-  height: 140%;
+  width: 200%;
+  height: 200%;
 
   transform: translate(-50%, -50%);
-
   object-fit: cover;
 
+  opacity: 0.9;
+}
+
+  .galaxy.back {
   filter:
-    brightness(1.1)
-    contrast(1.2)
+    brightness(0.9)
+    contrast(1.1);
+
+  animation: driftBack 80s linear infinite;
+}
+
+  @keyframes driftBack {
+  0%   { transform: translate(-48%, -50%); }
+  50%  { transform: translate(-52%, -50%); }
+  100% { transform: translate(-48%, -50%); }
+}
+
+  .galaxy.front {
+  filter:
+    brightness(1.2)
+    contrast(1.3)
     saturate(1.2);
 
-  opacity: 0.95;
+  mix-blend-mode: screen; /* ⭐ 发光叠加 */
 
-  animation: galaxySpinY 20s linear infinite;
-  backface-visibility: hidden;
+  animation: driftFront 40s linear infinite;
 }
 
-  @keyframes galaxySpinY {
-  from {
-    transform: translate(-50%, -50%) rotateY(0deg);
-  }
-  to {
-    transform: translate(-50%, -50%) rotateY(180deg);
-  }
+  @keyframes driftFront {
+  0%   { transform: translate(-45%, -50%); }
+  50%  { transform: translate(-55%, -50%); }
+  100% { transform: translate(-45%, -50%); }
 }
-
   
 @keyframes crystalFloat {
   0%,100% { transform: translateX(-50%) translateY(0); }
@@ -939,7 +963,8 @@ body {
   <div class="glow"></div>
     
   <div class="crystal">
-  <img src="galaxy.png" class="galaxy">
+  <img src="galaxy.png" class="galaxy back">
+  <img src="galaxy.png" class="galaxy front">
 </div>
 
   <div class="hotspot book" onclick="goMeaning()">
