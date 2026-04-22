@@ -345,8 +345,20 @@ isolation: isolate;   /* ⭐ 防止外面影响里面 */
 
 /* ⭐ 真正旋转在这里 */
 .galaxy-rotator.front {
-  animation: rotateFront 50s linear infinite;
+    animation: 
+    rotateFront 50s linear infinite,
+    galaxyBreath 12s ease-in-out infinite;
   opacity: 0.9;
+}
+
+  @keyframes galaxyBreath {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+  }
+
+  50% {
+    transform: scale(1.08) rotate(180deg);
+  }
 }
 
 .galaxy-rotator.back {
