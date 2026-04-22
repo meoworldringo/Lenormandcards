@@ -302,6 +302,7 @@ body {
     radial-gradient(circle at 65% 65%, rgba(120,180,255,0.15), transparent 60%);
 
   mix-blend-mode: screen;
+    z-index: 2;
 }
 
   .crystal::before {
@@ -310,7 +311,7 @@ body {
   inset: 0;
   border-radius: 50%;
   pointer-events: none;
-
+ z-index: 2;
   background:
     radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4), transparent 40%),
     radial-gradient(circle at 70% 70%, rgba(0,0,0,0.2), transparent 70%);
@@ -320,6 +321,7 @@ body {
   width: 180%;
   height: 180%;
   object-fit: cover;
+  opacity: 0.75;   
 }
 
   @keyframes rotateFront {
@@ -338,6 +340,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  mix-blend-mode: screen;
+  z-index: 1;
 }
 
 /* ⭐ 真正旋转在这里 */
