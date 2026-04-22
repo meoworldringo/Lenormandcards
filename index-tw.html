@@ -269,6 +269,7 @@ body {
   pointer-events: none;
 
   /* ⭐ 球体本体（更通透） */
+  background:
   radial-gradient(circle at 30% 30%, rgba(255,255,255,0.5), transparent 35%),
   radial-gradient(circle at 70% 70%, rgba(180,220,255,0.55), transparent 70%),
   rgba(200,230,255,0.45);
@@ -331,7 +332,8 @@ body {
 
 .galaxy-rotator.back {
   animation: rotateBack 100s linear infinite reverse;
-  opacity: 0.5;
+  opacity: 0.35;
+  filter: blur(2px) brightness(0.8);
 }
 
 @keyframes rotateFront {
