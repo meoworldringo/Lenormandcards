@@ -808,6 +808,29 @@ isolation: isolate;   /* ⭐ 防止外面影响里面 */
     opacity: 0;
   }
 }
+
+  .popup-box {
+  position: relative;
+}
+
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+
+  font-size: 20px;
+  cursor: pointer;
+
+  color: #6b4b2a;
+
+  opacity: 0.7;
+  transition: 0.2s;
+}
+
+.popup-close:hover {
+  opacity: 1;
+  transform: scale(1.2);
+}
   
 
   /* 📱 直屏（平板竖） */
@@ -1134,6 +1157,9 @@ function goMeaning() {
   const box = document.getElementById("popupBox");
 
   box.innerHTML = `
+    
+    <div class="popup-close" onclick="closePopup()">✕</div>
+
     <div class="popup-content-inner">
       <img src="back.jpg" class="popup-icon">
       <div class="popup-text">
