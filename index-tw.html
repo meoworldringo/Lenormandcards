@@ -254,6 +254,7 @@ body {
 .crystal {
   position: absolute;
   overflow: hidden; /* ⭐⭐⭐ 加这一行 */
+  perspective: 800px; /* ⭐ 关键！没有就不像3D */
 
   top: 1.5%;
   left: 50%;
@@ -293,8 +294,8 @@ body {
   top: 50%;
   left: 50%;
 
-  width: 200%;   /* ⭐ 放大一点，才有移动空间 */
-  height: 200%;
+  width: 140%;
+  height: 140%;
 
   transform: translate(-50%, -50%);
 
@@ -307,20 +308,19 @@ body {
 
   opacity: 0.95;
 
-  animation: galaxyDrift 30s linear infinite;
+  animation: galaxySpinY 20s linear infinite;
+  backface-visibility: hidden;
 }
 
-@keyframes galaxyDrift {
-  0% {
-    transform: translate(-45%, -50%) rotate(-2deg);
+  @keyframes galaxySpinY {
+  from {
+    transform: translate(-50%, -50%) rotateY(0deg);
   }
-  50% {
-    transform: translate(-55%, -50%) rotate(2deg);
-  }
-  100% {
-    transform: translate(-45%, -50%) rotate(-2deg);
+  to {
+    transform: translate(-50%, -50%) rotateY(180deg);
   }
 }
+
   
 @keyframes crystalFloat {
   0%,100% { transform: translateX(-50%) translateY(0); }
