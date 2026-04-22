@@ -827,36 +827,31 @@ for (let i = 0; i < 15; i++) {
 // 🎴 再抽一次按鈕
 document.getElementById("drawBtn").addEventListener("click", function() {
 
-  var blocks = document.querySelectorAll(".card-block");
+  const blocks = document.querySelectorAll(".card-block");
 
-  // ⭐ 先洗牌（避免重复）
+  // ⭐ 洗牌（不重复）
   let shuffled = [...cards].sort(() => Math.random() - 0.5);
 
+  // ⭐ 先全部翻回背面
   blocks.forEach(function(block) {
-    const container = block.querySelector(".card-container");
-    container.classList.remove("flipped");
+    block.querySelector(".card-container").classList.remove("flipped");
   });
 
+  // ⭐ 等翻回去后再发牌
   setTimeout(function() {
 
     blocks.forEach(function(block, index) {
-   setTimeout(function() {
 
-    block.querySelector(".card-container").classList.add("flipped");
-
-  }, index * 400);
-      const container = block.querySelector(".card-container");
-
-      let card = shuffled[index]; // ⭐ 不重复
+      let card = shuffled[index];
 
       block.querySelector(".front-img").src = card;
       block.querySelector(".title").innerText = titles[card];
       block.querySelector(".meaning").innerHTML = meanings[card];
 
-      // ⭐ 强制顺序（不会乱）
+      // ⭐ 依序翻开（重点：只翻一次）
       setTimeout(function() {
-        container.classList.add("flipped");
-      }, index * 700); // 稍微慢一点更稳
+        block.querySelector(".card-container").classList.add("flipped");
+      }, index * 500);
 
     });
 
@@ -897,6 +892,20 @@ document.querySelectorAll(".card-block").forEach(function(block) {
   });
 
 });
+
+  
+document.getElementById("backBtn").onclick = () => {
+
+  sessionStorage.setItem("introPlayed", "true");
+
+  if (history.length > 1) {
+    history.back();
+  } else {
+    window.location.href = "https://meoworldringo.github.io/Lenormandcards/index-tw.html";
+  }
+
+};
+
   
 </script>
 
