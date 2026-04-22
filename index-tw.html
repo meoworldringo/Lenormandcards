@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
@@ -721,32 +722,45 @@ isolation: isolate;   /* ⭐ 防止外面影响里面 */
   z-index: 2;
 }
 
+/* ⭐ 基础（不要颜色） */
 .crystal-fireflies span {
   position: absolute;
   width: 2.8px;
   height: 2.8px;
   border-radius: 50%;
+  opacity: 0;
+  filter: blur(0.2px);
+  animation: crystalBreath 12s ease-in-out infinite;
+}
 
-  /* ⭐ 核心：白 → 深蓝 → 透明 */
+/* 🔵 蓝星 */
+.firefly-blue {
   background: radial-gradient(circle,
     rgba(255,255,255,1) 0%,
     rgba(120,180,255,0.9) 25%,
     rgba(80,140,255,0.6) 45%,
-    rgba(80,140,255,0) 75%
+    rgba(80,140,255,0) 65%
   );
 
-  opacity: 0;
-
-  /* ⭐ blur 降一点（不然会糊） */
-  filter: blur(0.2px);
-
-  /* ⭐ 光更集中、更锐 */
   box-shadow:
     0 0 4px rgba(120,180,255,1),
     0 0 10px rgba(80,140,255,0.9),
     0 0 18px rgba(80,140,255,0.6);
+}
 
-  animation: crystalBreath 12s ease-in-out infinite;
+/* 💜 紫星 */
+.firefly-purple {
+  background: radial-gradient(circle,
+    rgba(255,255,255,1) 0%,
+    rgba(200,160,255,0.9) 25%,
+    rgba(140,90,255,0.6) 45%,
+    rgba(140,90,255,0) 65%
+  );
+
+  box-shadow:
+    0 0 4px rgba(200,160,255,1),
+    0 0 10px rgba(140,90,255,0.9),
+    0 0 18px rgba(140,90,255,0.6);
 }
 
 @keyframes crystalBreath {
@@ -1267,6 +1281,13 @@ card.addEventListener("click", function(e) {
 
 for (let i = 0; i < 60; i++) {
   const s = document.createElement("span");
+  
+  // ⭐ 随机蓝 / 紫（蓝多一点比较自然）
+if (Math.random() < 0.75) {
+  s.classList.add("firefly-blue");
+} else {
+  s.classList.add("firefly-purple");
+}
   
 s.style.left = 50 + (Math.random() - 0.5) * 10 + "%";
 s.style.top  = 50 + (Math.random() - 0.5) * 10 + "%";
