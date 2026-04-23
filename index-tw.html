@@ -137,7 +137,6 @@ body {
   display: block;
 
   animation: bookGlow 12s infinite;
-  filter: brightness(0.98) contrast(1.05);
 }
 
 @keyframes bookGlow {
@@ -815,75 +814,6 @@ isolation: isolate;   /* ⭐ 防止外面影响里面 */
   }
 }
 
-.page-flip {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-
-  /* ⭐ 用渐变做“页” */
-  background: radial-gradient(
-    ellipse at bottom right,
-    rgba(255,255,255,0.35),
-    rgba(255,255,255,0.15) 30%,
-    transparent 60%
-  );
-
-  transform-origin: bottom right;
-
-  opacity: 0;
-
-  animation: pageCurl 8s ease-in-out infinite;
-}
-
-@keyframes pageCurl {
-  0%, 85% {
-    opacity: 0;
-    transform: rotate(0deg) scale(1);
-  }
-
-  88% {
-    opacity: 1;
-    transform: rotate(-6deg) scale(1.02);
-  }
-
-  92% {
-    opacity: 0.9;
-    transform: rotate(-12deg) scale(1.04);
-  }
-
-  96% {
-    opacity: 0.6;
-    transform: rotate(-4deg) scale(1.01);
-  }
-
-  100% {
-    opacity: 0;
-    transform: rotate(0deg) scale(1);
-  }
-}
-
-/* ✨ 翻页动画 */
-@keyframes pageFlip {
-  0%, 80% {
-    opacity: 0;
-    transform: translateX(-40%) skewX(-10deg);
-  }
-
-  85% {
-    opacity: 1;
-    transform: translateX(0%) skewX(-5deg);
-  }
-
-  92% {
-    opacity: 0.8;
-    transform: translateX(40%) skewX(5deg);
-  }
-
-  100% {
-    opacity: 0;
-    transform: translateX(60%) skewX(10deg);
-  }
-}
   
 
   /* 📱 直屏（平板竖） */
@@ -1167,9 +1097,8 @@ isolation: isolate;   /* ⭐ 防止外面影响里面 */
 
 </div>
 
-<div class="hotspot book" onclick="goMeaning()">
+  <div class="hotspot book" onclick="goMeaning()">
   <img src="index-book-tw.jpg" class="book-img">
-  <div class="page-flip"></div>  <!-- ⭐ 新增 -->
 </div>
  <div class="hotspot photo" onclick="goPhoto()">
   <img src="index-photo.png" class="photo-img">
