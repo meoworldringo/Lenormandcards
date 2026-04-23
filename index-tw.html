@@ -220,6 +220,8 @@ body {
 
   /* ⭐ 边缘发光（跟牌一样逻辑） */
   animation: photoGlow 12s infinite;
+  transition: opacity 0.3s ease;
+
 }
 
 @keyframes photoGlow {
@@ -1326,13 +1328,20 @@ s.style.top  = 50 + (Math.random() - 0.5) * 10 + "%";
   "index-photo-v4.png"
 ];
 
-let photoIndex = 0;
 
+let photoIndex = 0;
 const photoEl = document.querySelector(".photo-img");
 
 setInterval(() => {
-  photoIndex = (photoIndex + 1) % photoImgs.length;
-  photoEl.src = photoImgs[photoIndex];
+
+  photoEl.style.opacity = 0;
+
+  setTimeout(() => {
+    photoIndex = (photoIndex + 1) % photoImgs.length;
+    photoEl.src = photoImgs[photoIndex];
+    photoEl.style.opacity = 1;
+  }, 400);
+
 }, 5000);
   
 </script>
