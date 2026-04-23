@@ -342,7 +342,7 @@ img {
 }
 
 .text {
-  width: 300px;
+  width: 280px;
   margin-top: 20px;
   text-align: center;
   color: #f5e6c8;
@@ -362,7 +362,7 @@ img {
 }
 
 .meaning {
-  font-size: 17.5px;
+  font-size: 17px;
   line-height: 1.6;
   color: #f5e9cc;
   letter-spacing: 0.5px;
@@ -570,34 +570,7 @@ img {
 }
   }
 
-  /* ⭐⭐ 平板横屏 → 按钮锁右下（覆盖所有布局） */
-@media (min-width: 768px) and (max-width: 1200px) and (orientation: landscape) {
-
-  #drawBtn {
-
-    margin: 0 !important;
-    transform: none !important;
-  }
-
-/* ⭐⭐ 平板横屏优化：拉开两张牌 + 控制文字宽度 */
-
-  /* 👉 两张牌距离拉开 */
-  .card-area {
-    gap: 45px !important;   /* 原本 40 → 拉开 */
-  }
-
-  /* 👉 每张卡的说明区域变窄一点 */
-  .text {
-    width: 360px;          /* 原本 300 → 收一点 */
-  }
-
-  /* 👉 文字更好读（可选但推荐） */
-  .meaning {
-    line-height: 1.7;
-    font-size: 17px;
-  }
-
-}
+ 
 
 </style>
 
