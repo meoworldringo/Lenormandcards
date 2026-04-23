@@ -813,6 +813,49 @@ isolation: isolate;   /* ⭐ 防止外面影响里面 */
     opacity: 0;
   }
 }
+
+  .page-flip {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  /* ⭐ 模拟翻页的光影 */
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255,255,255,0.25) 45%,
+    rgba(255,255,255,0.15) 50%,
+    transparent 70%
+  );
+
+  opacity: 0;
+
+  animation: pageFlip 6s ease-in-out infinite;
+}
+
+/* ✨ 翻页动画 */
+@keyframes pageFlip {
+  0%, 80% {
+    opacity: 0;
+    transform: translateX(-40%) skewX(-10deg);
+  }
+
+  85% {
+    opacity: 1;
+    transform: translateX(0%) skewX(-5deg);
+  }
+
+  92% {
+    opacity: 0.8;
+    transform: translateX(40%) skewX(5deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(60%) skewX(10deg);
+  }
+}
   
 
   /* 📱 直屏（平板竖） */
@@ -1096,8 +1139,9 @@ isolation: isolate;   /* ⭐ 防止外面影响里面 */
 
 </div>
 
-  <div class="hotspot book" onclick="goMeaning()">
+<div class="hotspot book" onclick="goMeaning()">
   <img src="index-book-tw.jpg" class="book-img">
+  <div class="page-flip"></div>  <!-- ⭐ 新增 -->
 </div>
  <div class="hotspot photo" onclick="goPhoto()">
   <img src="index-photo.png" class="photo-img">
