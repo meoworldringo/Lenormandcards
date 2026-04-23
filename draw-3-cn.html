@@ -332,8 +332,8 @@ img {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 60px;
-  margin-top: 10px;
+  gap: 40px;          /* ⭐ 从40改小 */
+  flex-wrap: nowrap;  /* ⭐ 明确写出来 */
 }
 
 .card-block {
@@ -343,7 +343,7 @@ img {
 }
 
 .text {
-  width: 280px;
+  width: 360px;
   margin-top: 20px;
   text-align: center;
   color: #f5e6c8;
@@ -363,7 +363,7 @@ img {
 }
 
 .meaning {
-  font-size: 16.5px;
+  font-size: 17px;
   line-height: 1.6;
   color: #f5e9cc;
   letter-spacing: 0.5px;
