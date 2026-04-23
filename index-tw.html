@@ -137,6 +137,7 @@ body {
   display: block;
 
   animation: bookGlow 12s infinite;
+  filter: brightness(0.98) contrast(1.05);
 }
 
 @keyframes bookGlow {
@@ -814,24 +815,51 @@ isolation: isolate;   /* ⭐ 防止外面影响里面 */
   }
 }
 
-  .page-flip {
+.page-flip {
   position: absolute;
   inset: 0;
-
   pointer-events: none;
 
-  /* ⭐ 模拟翻页的光影 */
-  background: linear-gradient(
-    120deg,
-    transparent 30%,
-    rgba(255,255,255,0.25) 45%,
-    rgba(255,255,255,0.15) 50%,
-    transparent 70%
+  /* ⭐ 用渐变做“页” */
+  background: radial-gradient(
+    ellipse at bottom right,
+    rgba(255,255,255,0.35),
+    rgba(255,255,255,0.15) 30%,
+    transparent 60%
   );
+
+  transform-origin: bottom right;
 
   opacity: 0;
 
-  animation: pageFlip 6s ease-in-out infinite;
+  animation: pageCurl 8s ease-in-out infinite;
+}
+
+@keyframes pageCurl {
+  0%, 85% {
+    opacity: 0;
+    transform: rotate(0deg) scale(1);
+  }
+
+  88% {
+    opacity: 1;
+    transform: rotate(-6deg) scale(1.02);
+  }
+
+  92% {
+    opacity: 0.9;
+    transform: rotate(-12deg) scale(1.04);
+  }
+
+  96% {
+    opacity: 0.6;
+    transform: rotate(-4deg) scale(1.01);
+  }
+
+  100% {
+    opacity: 0;
+    transform: rotate(0deg) scale(1);
+  }
 }
 
 /* ✨ 翻页动画 */
