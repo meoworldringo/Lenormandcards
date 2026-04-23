@@ -137,6 +137,7 @@ body {
   display: block;
 
   animation: bookGlow 12s infinite;
+  transition: opacity 0.2s ease;
 }
 
 @keyframes bookGlow {
@@ -1352,6 +1353,29 @@ setInterval(() => {
   }, 350);
 
 }, 5000);
+
+  const bookImgs = [
+  "index-book-tw.jpg",
+  "index-book-tw-v2.jpg",
+  "index-book-tw-v3.jpg",
+  "index-book-tw-v4.jpg",
+  "index-book-tw-v5.jpg"
+];
+
+  let bookIndex = 0;
+const bookEl = document.querySelector(".book-img");
+
+  setInterval(() => {
+
+  bookEl.style.opacity = 0.6;
+
+  setTimeout(() => {
+    bookIndex = (bookIndex + 1) % bookImgs.length;
+    bookEl.src = bookImgs[bookIndex];
+    bookEl.style.opacity = 1;
+  }, 120);
+
+}, 6000);
   
 </script>
 
