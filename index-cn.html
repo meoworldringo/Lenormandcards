@@ -1,0 +1,1406 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>秘密集市雷诺曼</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* 🌌 背景氛围 */
+body {
+  background:
+    radial-gradient(circle at center, rgba(0,0,0,0.6), rgba(0,0,0,0.9)),
+    url("forest.jpg");
+
+  background-size: cover;
+  background-position: center;
+}
+
+/* 🖼 主容器 */
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  opacity: 0;
+  filter: brightness(0.8) blur(6px);
+
+  animation: sceneReveal 1.8s ease forwards;
+  animation-delay: 6.8s;
+}
+
+@keyframes sceneReveal {
+  0% {
+    opacity: 0;
+    filter: brightness(0.45) blur(10px);
+  }
+
+  15% {
+    opacity: 0.15;
+    filter: brightness(0.55) blur(8px);
+  }
+
+  30% {
+    opacity: 0.35;
+    filter: brightness(0.65) blur(6px);
+  }
+
+  45% {
+    opacity: 0.55;
+    filter: brightness(0.75) blur(4px);
+  }
+
+  60% {
+    opacity: 0.7;
+    filter: brightness(0.82) blur(3px);
+  }
+
+  75% {
+    opacity: 0.85;
+    filter: brightness(0.9) blur(2px);
+  }
+
+  90% {
+    opacity: 0.95;
+    filter: brightness(0.96) blur(1px);
+  }
+
+  100% {
+    opacity: 1;
+    filter: brightness(1) blur(0);
+  }
+}
+
+@keyframes sceneFadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.main-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;   /* ⭐ 改这个 */
+  width: 100%;
+  filter: brightness(0.7) contrast(1.2);
+  z-index: 0;
+  pointer-events: none;   /* ⭐⭐⭐ 关键修复 */
+}
+
+/* ✨ 中央微光（聚焦） */
+.glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at center, rgba(255,220,140,0.08), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 🧿 点击区域 */
+.hotspot {
+  position: absolute;
+  z-index: 3;
+}
+
+/* 📖 书 */
+.book {
+  position: absolute;
+
+  bottom: 13%;
+  left: 22%;
+
+  width: 20%;
+
+  transform:
+
+    rotate(-2.2deg)
+    translateY(2px)
+    translateX(-2px);
+
+  pointer-events: auto;
+  z-index: 10;  /* ⭐ 加这个 */
+}
+
+.book-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+
+  animation: bookGlow 12s infinite;
+  transition: opacity 0.2s ease;
+}
+
+@keyframes bookGlow {
+  0%,25% {
+    filter:
+      drop-shadow(0 0 12px rgba(180,220,255,0.8))
+      drop-shadow(0 0 30px rgba(180,220,255,1));
+  }
+  30%,100% {
+    filter: drop-shadow(0 0 6px rgba(180,220,255,0.2));
+  }
+}
+  
+/* 🃏 中央牌 */
+.card {
+  position: absolute;
+
+  top: 47%;
+  left: 50%;
+
+  transform: translate(-50%, -50%) translateX(2px);
+
+  width: 22%;
+
+  pointer-events: auto;
+  z-index: 9999;
+
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.cards {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+
+  pointer-events: none;
+  
+  animation: cardGlow 12s infinite;
+  pointer-events: none;  /* ⭐ 改这里 */
+}
+
+@keyframes cardGlow {
+  0%,65% {
+    filter: drop-shadow(0 0 6px rgba(180,220,255,0.2));
+  }
+
+  70%,95% {
+    filter:
+      drop-shadow(0 0 12px rgba(180,220,255,0.8))
+      drop-shadow(0 0 30px rgba(180,220,255,1));
+  }
+
+  100% {
+    filter: drop-shadow(0 0 6px rgba(180,220,255,0.2));
+  }
+}
+  
+  
+  /* 🖼 相片 */
+
+  .photo {
+  position: absolute;
+
+  bottom: 3.5%;
+  right: 23%;
+
+  width: 18%;
+ transform: rotate(1.7deg);  /* ⭐ 这里 */
+
+  pointer-events: auto;
+  z-index: 10;  /* ⭐ 加这个 */
+}
+
+.photo-img {
+  width: 100%;
+  height: 90%;
+  object-fit: contain;
+  display: block;
+
+  /* ⭐ 边缘发光（跟牌一样逻辑） */
+  animation: photoGlow 12s infinite;
+  transition: 
+
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    filter 0.25s ease;
+
+}
+
+@keyframes photoGlow {
+  0%,30% {
+    filter: drop-shadow(0 0 6px rgba(180,220,255,0.2));
+  }
+
+  35%,60% {
+    filter:
+      drop-shadow(0 0 12px rgba(180,220,255,0.8))
+      drop-shadow(0 0 30px rgba(180,220,255,1));
+  }
+
+  65%,100% {
+    filter: drop-shadow(0 0 6px rgba(180,220,255,0.2));
+  }
+}
+@keyframes glowPulse {
+  0%,100% {
+    filter:
+      drop-shadow(0 0 6px rgba(180,220,255,0.6))
+      drop-shadow(0 0 12px rgba(180,220,255,0.4))
+      drop-shadow(0 0 24px rgba(180,220,255,0.3));
+  }
+  50% {
+    filter:
+      drop-shadow(0 0 14px rgba(180,220,255,1))
+      drop-shadow(0 0 28px rgba(180,220,255,0.8))
+      drop-shadow(0 0 56px rgba(180,220,255,0.6));
+  }
+}
+
+.crystal {
+  position: absolute;
+  overflow: hidden;
+isolation: isolate;   /* ⭐ 防止外面影响里面 */
+  perspective: 800px; /* ⭐ 关键！没有就不像3D */
+
+  top: 1.5%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 7%;
+  aspect-ratio: 1 / 1;
+
+  border-radius: 50%;
+  z-index: 3;
+
+  pointer-events: none;
+
+  /* ⭐ 球体本体（更通透） */
+  background:
+  radial-gradient(circle at 30% 30%, rgba(255,255,255,0.5), transparent 35%),
+  radial-gradient(circle at 70% 70%, rgba(180,220,255,0.55), transparent 70%),
+
+  /* ⭐ 核心：外光 + 内光（恢复灵魂） */
+  box-shadow:
+  0 0 40px rgba(180,220,255,0.5),
+  0 0 80px rgba(180,220,255,0.4),
+  inset 0 0 15px rgba(255,255,255,0.35),
+  inset 0 0 30px rgba(180,220,255,0.2);
+
+  /* ⭐ 动画（浮 + 呼吸） */
+  animation: crystalFloat 6s ease-in-out infinite,
+             crystalPulse 4s ease-in-out infinite;
+}
+
+.crystal::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+
+  background:
+
+    radial-gradient(circle at 35% 35%, rgba(255,255,255,0.08), transparent 35%),
+    radial-gradient(circle at 65% 65%, rgba(120,180,255,0.05), transparent 60%);
+
+  z-index: 3;
+}
+
+  .crystal::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+ z-index: 2;
+  display: none;
+}
+
+.galaxy {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.25) brightness(1.1);
+  
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+  @keyframes rotateFront {
+  from { transform: rotate(0deg) rotateX(12deg); }
+  to   { transform: rotate(360deg) rotateX(12deg); }
+}
+
+@keyframes rotateBack {
+  from { transform: rotate(0deg) rotateX(12deg); }
+  to   { transform: rotate(360deg) rotateX(12deg); }
+}
+
+.galaxy-rotator {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 1;
+}
+
+/* ⭐ 真正旋转在这里 */
+.galaxy-rotator.front {
+    animation: rotateBack 50s linear infinite reverse;
+  opacity: 0.9;
+}
+
+.galaxy-rotator.back {
+  display: none;
+  animation: rotateBack 100s linear infinite reverse;
+
+  opacity: 0.1;            /* ⭐ 只留一点点 */
+}
+
+@keyframes rotateFront {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes rotateBack {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes rotateGalaxy {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+  
+@keyframes crystalFloat {
+  0%,100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-6px); }
+}
+
+@keyframes crystalPulse {
+  0%,100% {
+    box-shadow:
+      0 0 30px rgba(180,220,255,0.4),
+      0 0 60px rgba(180,220,255,0.3),
+      0 0 90px rgba(120,180,255,0.2),
+      inset 0 0 20px rgba(255,255,255,0.5);
+  }
+
+  50% {
+    box-shadow:
+      0 0 50px rgba(180,220,255,0.8),
+      0 0 100px rgba(180,220,255,0.7),
+      0 0 160px rgba(120,180,255,0.6),
+      inset 0 0 40px rgba(255,255,255,0.8);
+  }
+}
+  
+  
+  @keyframes glowCycle {
+  0%   { filter: drop-shadow(0 0 30px rgba(180,220,255,1)); }
+  25%  { filter: drop-shadow(0 0 30px rgba(180,220,255,1)); }
+
+  33%  { filter: drop-shadow(0 0 6px rgba(180,220,255,0.2)); }
+  100% { filter: drop-shadow(0 0 6px rgba(180,220,255,0.2)); }
+}
+  
+
+/* 📱 点击反馈 */
+.hotspot:active {
+  transform: scale(0.95);
+}
+
+/* 📝 一次性提示 */
+.hint {
+  position: fixed;
+  bottom: 10%;
+  width: 100%;
+  text-align: center;
+  color: #f5e6c8;
+  font-size: 14px;
+  opacity: 0.8;
+  animation: fadeOut 3s forwards;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 0.8; }
+  70% { opacity: 0.8; }
+  100% { opacity: 0; }
+}
+
+  .sparkle {
+  position: absolute;
+
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+
+  background: radial-gradient(circle, #fff, rgba(255,255,255,0));
+
+  /* ⭐ 在球内随机位置 */
+  left: calc(20% + 60% * var(--x));
+  top: calc(20% + 60% * var(--y));
+
+  opacity: 0;
+
+  /* ⭐ 发光 */
+  box-shadow:
+    0 0 6px rgba(255,255,255,0.9),
+    0 0 12px rgba(180,220,255,0.8),
+    0 0 20px rgba(120,180,255,0.6);
+
+  animation: sparkleFloat 4s linear infinite;
+  animation-delay: var(--d);
+}
+
+  @keyframes sparkleFloat {
+  0% {
+    transform: translateY(20px) scale(1);
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(
+      calc(50px - 100% * var(--x)),
+      calc(50px - 100% * var(--y))
+    ) scale(0.2);
+
+    opacity: 0;
+  }
+}
+
+    /* 🌑 背景遮罩 */
+.popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.hidden {
+  display: none;
+}
+
+/* 📦 popup主体 */
+.popup-box {
+  width: 90%;
+  max-width: 700px; /* ⭐ 改大 */
+  aspect-ratio: 3 / 2; /* ⭐ 控制横长比例 */
+  padding: 30px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ✨ 内容 */
+.popup-content-inner {
+  margin-bottom: 15px;
+  color: #4a3b2a;
+}
+
+/* ===================== */
+/* 🎯 C 羊皮纸 + CSS发光 */
+/* ===================== */
+.style-glow {
+  background: url("parchment-popup.png") center/100% 100% no-repeat;
+}
+
+.style-glow::before {
+  display: none; /* ⭐ 先关掉这层错误光 */
+  content: "";
+  position: absolute;
+  inset: -10px;
+  z-index: -1;
+
+  background: radial-gradient(
+    rgba(255, 210, 120, 0.6),
+    rgba(255, 180, 80, 0.4),
+    transparent 70%
+  );
+
+  filter: blur(20px);
+}
+
+.style-glow {
+  background: url("parchment-popup.png") center/100% 100% no-repeat;
+
+  filter:
+    drop-shadow(0 0 20px rgba(255,200,120,0.6))
+    drop-shadow(0 0 40px rgba(255,180,80,0.4));
+}
+
+  .popup-content-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.popup-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 45px;
+}
+
+  /* 🌿 基础按钮 */
+/* 🌿 基础按钮（羊皮质感） */
+.btn {
+  appearance: none;
+  -webkit-appearance: none;
+
+  position: relative;
+  padding: 8px 18px;
+  font-size: 14px;
+
+  border: none;
+  border-radius: 999px;
+
+  cursor: pointer;
+
+  color: #4a2f10;
+
+  background:
+    linear-gradient(to bottom, #f7e7c6, #e2c18c);
+
+  box-shadow:
+    0 2px 6px rgba(0,0,0,0.35),
+    inset 0 1px 0 rgba(255,255,255,0.6),
+    inset 0 -1px 2px rgba(120,80,30,0.2);
+
+  transition: all 0.25s ease;
+}
+
+/* ✨ hover（轻微浮起 + 魔法光） */
+.btn:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 6px 14px rgba(0,0,0,0.4),
+    0 0 14px rgba(255,220,140,0.5),
+    inset 0 1px 0 rgba(255,255,255,0.7);
+}
+
+  .btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.4),
+    transparent 40%
+  );
+
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+  .btn-cancel {
+  background:
+    linear-gradient(to bottom, #d8d8d8, #a8a8a8);
+
+  color: #333;
+
+  box-shadow:
+    0 2px 4px rgba(0,0,0,0.3),
+    inset 0 1px 0 rgba(255,255,255,0.5);
+}
+
+/* ✨ 按下 */
+.btn:active {
+  transform: translateY(1px);
+
+  box-shadow:
+    inset 0 2px 6px rgba(0,0,0,0.4);
+}
+  
+.btn-confirm {
+  background:
+    linear-gradient(to bottom, #f8e6b0, #d8a95e);
+
+  color: #4a2f10;
+
+  box-shadow:
+    0 2px 6px rgba(0,0,0,0.4),
+    0 0 12px rgba(255,200,120,0.6),
+    inset 0 1px 0 rgba(255,255,255,0.6);
+
+  animation: buttonGlow 2.5s ease-in-out infinite;
+}
+  
+/* ✨ 呼吸发光（魔法核心） */
+@keyframes buttonGlow {
+  0%,100% {
+    box-shadow:
+      0 2px 6px rgba(0,0,0,0.4),
+      0 0 10px rgba(255,200,120,0.5);
+  }
+  50% {
+    box-shadow:
+      0 2px 8px rgba(0,0,0,0.5),
+      0 0 20px rgba(255,220,140,0.9);
+  }
+}
+
+  .btn-confirm:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 6px 14px rgba(0,0,0,0.4),
+    0 0 24px rgba(255,220,140,0.9),
+    inset 0 1px 0 rgba(255,255,255,0.7);
+}
+
+  /* 🧩 icon + 文字排版 */
+.popup-content-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+/* 📖 icon */
+.popup-icon {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+ transform: rotate(-10deg);
+
+  /* ✨ 微微发光 */
+  filter: drop-shadow(0 0 8px rgba(255,220,140,0.6));
+}
+
+/* 📝 文字 */
+.popup-text {
+  font-size: 16px;
+  color: #4a3b2a;
+  line-height: 1.4;
+}
+
+  /* ✨ 点击时的爆发光 */
+@keyframes confirmFlash {
+  0% {
+    transform: scale(1);
+    box-shadow:
+      0 0 10px rgba(255,220,140,0.4);
+  }
+
+  40% {
+    transform: scale(1.1);
+
+    /* ⭐ 核心白光 + 外层金光 */
+    box-shadow:
+      0 0 10px rgba(255,255,255,0.9),
+      0 0 25px rgba(255,220,140,0.9),
+      0 0 50px rgba(255,180,80,0.7);
+  }
+
+  100% {
+    transform: scale(1);
+
+    box-shadow:
+      0 0 15px rgba(255,220,140,0.6);
+  }
+}
+
+/* ⭐ 触发用 class */
+.confirm-active {
+  animation: confirmFlash 1s ease forwards;
+}
+
+  .crystal-fireflies {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ⭐ 基础（不要颜色） */
+.crystal-fireflies span {
+  position: absolute;
+  width: 2.8px;
+  height: 2.8px;
+  border-radius: 50%;
+  opacity: 0;
+  animation: crystalBreath 10s ease-in-out infinite;
+}
+
+/* 🔵 蓝星 */
+.firefly-blue {
+  background: radial-gradient(circle,
+    rgba(255,255,255,1) 0%,
+    rgba(120,180,255,0.9) 25%,
+    rgba(80,140,255,0.6) 45%,
+    rgba(80,140,255,0) 65%
+  );
+
+  box-shadow:
+    0 0 4px rgba(120,180,255,1),
+    0 0 10px rgba(80,140,255,0.9),
+    0 0 18px rgba(80,140,255,0.6);
+}
+
+/* 💜 紫星 */
+.firefly-purple {
+  background: radial-gradient(circle,
+    rgba(255,255,255,1) 0%,
+    rgba(200,160,255,0.9) 25%,
+    rgba(140,90,255,0.6) 45%,
+    rgba(140,90,255,0) 65%
+  );
+
+  box-shadow:
+    0 0 4px rgba(200,160,255,1),
+    0 0 10px rgba(140,90,255,0.9),
+    0 0 18px rgba(140,90,255,0.6);
+}
+
+  /* 💜 金星 */
+
+.firefly-gold {
+  width: 3.8px;
+  height: 3.8px;
+
+  background: radial-gradient(circle,
+    rgba(255,255,255,1) 0%,
+    rgba(255,220,120,0.9) 30%,
+    rgba(255,180,60,0.5) 55%,
+    rgba(255,180,60,0) 75%
+  );
+
+  box-shadow:
+    0 0 8px rgba(255,200,120,0.7);
+}
+
+@keyframes crystalBreath {
+  0% {
+    transform: translate(0px, 0px) scale(0.8);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  50% {
+    transform: translate(
+      calc(60px * var(--x)),
+      calc(60px * var(--y))
+    ) scale(1.2);
+  }
+
+  75% {
+    transform: translate(
+      calc(30px * var(--x)),
+      calc(30px * var(--y))
+    ) scale(1);
+  }
+
+  100% {
+    transform: translate(0px, 0px) scale(0.6);
+    opacity: 0;
+  }
+}
+
+  
+
+  /* 📱 直屏（平板竖） */
+@media (orientation: portrait) {
+
+  /* 📖 书 */
+  .book {
+    bottom: 21.5%;
+    left: 3%;
+    width: 35%;
+
+    transform:
+
+    rotate(-2.2deg)
+    translateY(3px)
+    translateX(-1px);
+
+  }
+
+  /* 🖼 相片 */
+  .photo {
+    bottom: 13%;
+    right: 6%;
+    width: 30%;
+    transform: rotate(1.7deg);
+  }
+
+  /* 🃏 牌（主视觉要放大） */
+  .card {
+    top: 47.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 41%;
+  }
+
+  .crystal {
+    top: 13%;        /* ⭐ 往下一点，避免贴顶 */
+    left: 50%;
+    width: 11%;       /* ⭐ 平板要放大，不然太小 */
+
+    transform: translateX(-50%);
+  }
+
+}
+ /* 📱 直屏（手机） */
+  @media (max-width: 600px) {
+
+  /* ⭐ 整体允许滚动（重要） */
+  html, body {
+    overflow: auto;
+  }
+
+  /* 🔮 水晶球 */
+  .crystal {
+    top: 24.5%;
+    width: 12.5%;
+    left: 50%;
+  }
+
+  /* 🃏 牌（主视觉） */
+  .card {
+    top: 48.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 39%;
+  }
+
+  /* 📖 书（左下） */
+  .book {
+    bottom: 30.3%;
+    left: 3%;
+    width: 33%;
+  }
+
+  /* 🖼 相片（右下） */
+  .photo {
+    bottom: 23.5%;
+    right: 6%;
+    width: 32%;
+  }
+
+  /* 📜 popup内容（关键！！） */
+  .popup-box {
+  width: 90%;
+  max-width: 700px;
+  padding: 30px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+  .popup-content-inner {
+    gap: 10px;
+    text-align: center;
+    margin-top: -15px;  /* ⭐ 往上移动整组 */
+  }
+
+  .popup-icon {
+    width: 55px;
+    height: 50px;
+  }
+
+  .popup-text {
+    font-size: 11px;
+  }
+
+  .popup-buttons {
+    gap: 40px;
+    margin-top: -8px;
+  }
+
+  /* 🔘 按钮 */
+  .btn {
+    padding: 5px 9px;
+    font-size: 9px;
+  }
+
+}
+
+    /* ✨✨✨ 萤火虫 ✨✨✨ */
+
+.fireflies {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.fireflies span {
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  background: radial-gradient(circle, rgba(255,220,120,0.9) 0%, rgba(255,220,120,0) 80%);
+  filter: blur(1px);
+  border-radius: 50%;
+  animation: float 12s linear infinite;
+  opacity: 0;
+}
+
+/* 随机位置 + 时间差（关键） */
+.fireflies span:nth-child(1) { left:10%; top:80%; animation-delay: 0s; }
+.fireflies span:nth-child(2) { left:30%; top:60%; animation-delay: 2s; }
+.fireflies span:nth-child(3) { left:50%; top:90%; animation-delay: 4s; }
+.fireflies span:nth-child(4) { left:70%; top:70%; animation-delay: 1s; }
+.fireflies span:nth-child(5) { left:85%; top:85%; animation-delay: 3s; }
+.fireflies span:nth-child(6) { left:20%; top:40%; animation-delay: 5s; }
+.fireflies span:nth-child(7) { left:60%; top:30%; animation-delay: 6s; }
+.fireflies span:nth-child(8) { left:80%; top:50%; animation-delay: 7s; }
+.fireflies span:nth-child(9)  { left:15%; top:75%; animation-delay: 2.5s; }
+.fireflies span:nth-child(10) { left:40%; top:85%; animation-delay: 1.5s; }
+.fireflies span:nth-child(11) { left:75%; top:20%; animation-delay: 3.5s; }
+.fireflies span:nth-child(12) { left:55%; top:65%; animation-delay: 4.5s; }
+.fireflies span:nth-child(13) { left:6%;  top:55%; animation-delay: 1.2s; }
+.fireflies span:nth-child(14) { left:10%; top:35%; animation-delay: 2.8s; }
+.fireflies span:nth-child(15) { left:18%; top:20%; animation-delay: 4.2s; }
+
+@keyframes float {
+  0% {
+    transform: translateY(20px) scale(0.6);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateY(-40px) translateX(20px) scale(1);
+  }
+
+  100% {
+    transform: translateY(-80px) translateX(-30px) scale(0.3);
+    opacity: 0;
+  }
+}
+  
+  /* 🌑 黑幕 */
+.intro {
+  position: fixed;
+  inset: 0;
+  background: black;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  animation: introFadeOut 2s ease forwards;
+  animation-delay: 6.5s; /* ⭐ 总时长控制 */
+  pointer-events: none; /* ⭐⭐⭐ 真正关键 */
+}
+
+/* ✨ 文字容器 */
+.intro-text {
+  text-align: center;
+  color: #e8e0d0;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+
+/* 🌊 水波浮现效果 */
+.line {
+  opacity: 0;
+  transform: translateY(20px);
+
+  animation: textFlow 3s ease forwards;
+  animation-delay: 2s;  /* ⭐ 这里控制“黑幕多久后才出字” */
+}
+
+.line.delay {
+  animation-delay: 3s;
+}
+
+  @keyframes textFlow {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) blur(6px);
+  }
+  25% {
+    opacity: 1;
+    transform: translateY(0) blur(0);
+  }
+  65% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10px) blur(4px);
+  }
+}
+
+/* ✨ 文字浮现 */
+@keyframes textAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) blur(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) blur(0);
+  }
+}
+
+/* 🌑 整体淡出 */
+@keyframes introFadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+  
+</style>
+</head>
+
+<body>
+<div class="intro">
+  <div class="intro-text">
+    <p class="line">与AI共同编织的雷诺曼世界，</p>
+    <p class="line delay">欢迎来到——秘密集市!</p>
+  </div>
+</div>
+
+<!-- 🌿 画面 -->
+<div class="wrapper">
+  <img src="index-tw-full.jpg" class="main-bg">
+
+  <div class="glow"></div>
+    
+<div class="crystal">
+
+  <div class="crystal-fireflies"></div>
+
+  <div class="galaxy-rotator back">
+    <img src="galaxy-v3.jpg" class="galaxy">
+  </div>
+
+  <div class="galaxy-rotator front">
+    <img src="galaxy-v3.jpg" class="galaxy">
+  </div>
+
+</div>
+
+  <div class="hotspot book" onclick="goMeaning()">
+  <img src="index-book-en.jpg" class="book-img">
+</div>
+ <div class="hotspot photo" onclick="goPhoto()">
+  <img src="index-photo.png" class="photo-img">
+</div>
+  <div class="hotspot card" style="cursor: pointer;">
+  <img src="index-card.png" class="cards">
+</div>
+</div>
+
+<!-- ✨ 萤火虫容器 -->
+<div class="fireflies"></div>
+<div class="hint">✨ 轻触物件开始探索</div>
+<!-- ⭐ script 放在最下面 -->
+<script>
+let selectedDraw = "";
+  
+function goMeaning() {
+  openPopup(
+    "index-crystal-book.png",
+    "观看牌意一览……",
+    "https://meoworldringo.github.io/Lenormandcards/card-meaning-cn.html"
+  );
+}
+
+  function goPhoto() {
+  openPopup(
+    "index-photo.png",
+    "观看创作者简介……",
+    "https://meoworldringo.github.io/Lenormandcards/profile-cn.html"
+  );
+}
+
+  function openDrawMenu() {
+
+  const box = document.getElementById("popupBox");
+
+  box.innerHTML = `
+    <div class="popup-content-inner">
+      <img src="back.jpg" class="popup-icon">
+      <div class="popup-text">
+        开启雷诺曼占卜……
+      </div>
+    </div>
+
+    <div class="popup-buttons">
+      <button class="btn" onclick="selectDraw(1)">一张牌</button>
+      <button class="btn" onclick="selectDraw(2)">两张牌</button>
+      <button class="btn" onclick="selectDraw(3)">三张牌</button>
+    </div>
+  `;
+
+  document.getElementById("popup").classList.remove("hidden");
+}
+
+  function selectDraw(num) {
+
+  selectedDraw = Number(num);
+
+  const box = document.getElementById("popupBox");
+
+  box.innerHTML = `
+    <div class="popup-content-inner">
+      <img src="back.jpg" class="popup-icon">
+      <div class="popup-text">
+        冥想你的问题……<br>准备好了吗？
+      </div>
+    </div>
+
+    <div class="popup-buttons">
+      <button class="btn btn-cancel" onclick="closePopup()">取消</button>
+      <button class="btn btn-confirm" onclick="confirmDraw()">确认</button>
+    </div>
+  `;
+}
+
+  function confirmDraw() {
+
+  const btn = document.querySelector(".btn-confirm");
+
+  btn.classList.add("confirm-active");
+
+  setTimeout(() => {
+
+    if (selectedDraw === 1) {
+      window.location.href = "https://meoworldringo.github.io/Lenormandcards/draw-1-cn.html";
+    }
+
+    if (selectedDraw === 2) {
+      window.location.href = "https://meoworldringo.github.io/Lenormandcards/draw-2-cn.html";
+    }
+
+  if (selectedDraw === 3) {
+  window.location.href = "https://meoworldringo.github.io/Lenormandcards/draw-3-cn.html";
+}
+
+  }, 1000);
+}
+
+let targetUrl = "";
+
+function openPopup(icon, text, url) {
+
+  selectedDraw = "";
+  targetUrl = url;
+
+  const box = document.getElementById("popupBox");
+
+  box.innerHTML = `
+    <div class="popup-content-inner">
+      <img src="${icon}" class="popup-icon">
+      <div class="popup-text">${text}</div>
+    </div>
+
+    <div class="popup-buttons">
+      <button class="btn btn-cancel" onclick="closePopup()">取消</button>
+      <button id="confirmBtn" class="btn btn-confirm" onclick="confirmPopup()">确认</button>
+    </div>
+  `;
+
+  document.getElementById("popup").classList.remove("hidden");
+}
+
+function closePopup() {
+  document.getElementById("popup").classList.add("hidden");
+}
+
+  function confirmPopup() {
+
+  const btn = document.getElementById("confirmBtn");
+
+  btn.classList.remove("confirm-active");
+  void btn.offsetWidth;
+  btn.classList.add("confirm-active");
+
+  setTimeout(() => {
+    window.location.href = targetUrl;
+  }, 1000);
+}
+
+  
+function openMenu() {
+  alert("這裡之後放：一張 / 兩張 / 三張選單");
+}
+
+    // ✨ 生成萤火虫
+const fireflyContainer = document.querySelector(".fireflies");
+
+for (let i = 0; i < 15; i++) {
+  const f = document.createElement("span");
+  fireflyContainer.appendChild(f);
+}
+
+window.addEventListener("pageshow", function () {
+
+  const popup = document.getElementById("popup");
+
+  if (popup) {
+    popup.classList.add("hidden");
+  }
+
+});
+
+// ⭐ 关键补刀（防有些浏览器不触发 pageshow）
+window.addEventListener("focus", function () {
+
+  const popup = document.getElementById("popup");
+
+  if (popup) {
+    popup.classList.add("hidden");
+  }
+
+});
+
+  setTimeout(() => {
+  document.querySelector(".wrapper").classList.add("active");
+}, 6800);  // 跟你的 6.8s 对齐
+
+let isTouch = false;
+
+const card = document.querySelector(".card");
+
+card.addEventListener("touchstart", function(e) {
+  isTouch = true;
+  e.stopPropagation();
+  openDrawMenu();
+}, { passive: true });
+
+card.addEventListener("click", function(e) {
+  if (isTouch) return;   // ⭐ 防重复触发
+  e.stopPropagation();
+  openDrawMenu();
+});
+
+  const crystalBox = document.querySelector(".crystal-fireflies");
+
+for (let i = 0; i < 45; i++) {
+  const s = document.createElement("span");
+  
+  // ⭐ 随机蓝 / 紫（蓝多一点比较自然）
+const r = Math.random();
+
+if (r < 0.45) {
+  s.classList.add("firefly-blue");      // 45%
+} else if (r < 0.9) {
+  s.classList.add("firefly-purple");    // 45%
+} else {
+  s.classList.add("firefly-gold");      // 10%
+}
+  
+s.style.left = 50 + (Math.random() - 0.5) * 10 + "%";
+s.style.top  = 50 + (Math.random() - 0.5) * 10 + "%";
+
+  s.style.animationDelay = Math.random() * 4 + "s";
+
+  // ⭐ 就加在这里
+  s.style.setProperty('--x', (Math.random() - 0.5) * 2);
+  s.style.setProperty('--y', (Math.random() - 0.5) * 2);
+  s.style.animationDuration = (10 + Math.random() * 6) + "s";
+  s.style.animationDelay = (Math.random() * 6) + "s";
+
+  crystalBox.appendChild(s);
+}
+
+  const photoImgs = [
+  "index-photo.png",
+  "index-photo-v2.png",
+  "index-photo-v3.png",
+  "index-photo-v4.png"
+];
+
+let photoIndex = 0;
+const photoEl = document.querySelector(".photo-img");
+
+setInterval(() => {
+
+  photoEl.style.transform = "scale(0.92)";
+  photoEl.style.opacity = 0.3;
+  photoEl.style.filter = "blur(2px)";
+
+  setTimeout(() => {
+    photoIndex = (photoIndex + 1) % photoImgs.length;
+    photoEl.src = photoImgs[photoIndex];
+
+    photoEl.style.transform = "scale(1)";
+    photoEl.style.opacity = 1;
+    photoEl.style.filter = "blur(1px)";
+  }, 350);
+
+}, 5000);
+
+  const bookImgs = [
+  "index-book-cn.jpg",
+  "index-book-cn-v2.jpg",
+  "index-book-cn-v3.jpg",
+  "index-book-cn-v4.jpg",
+  "index-book-cn-v5.jpg"
+];
+
+  let bookIndex = 0;
+const bookEl = document.querySelector(".book-img");
+
+  setInterval(() => {
+
+  bookEl.style.opacity = 0.6;
+
+  setTimeout(() => {
+    bookIndex = (bookIndex + 1) % bookImgs.length;
+    bookEl.src = bookImgs[bookIndex];
+    bookEl.style.opacity = 1;
+  }, 120);
+
+}, 6000);
+  
+</script>
+
+  <div id="popup" class="popup hidden">
+
+  <div id="popupBox" class="popup-box style-glow">
+    
+   <div class="popup-content-inner">
+
+  <img src="index-crystal-book.png" class="popup-icon">
+
+  <div class="popup-text">
+    观看牌意一览……
+  </div>
+
+</div>
+   <div class="popup-buttons">
+  <button class="btn btn-cancel" onclick="closePopup()">取消</button>
+ <button id="confirmBtn" class="btn btn-confirm" onclick="confirmPopup()">
+  确认
+</button>
+</div>
+
+  </div>
+
+</div>
+</body>
+</html>
